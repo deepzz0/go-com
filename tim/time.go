@@ -7,11 +7,11 @@ import (
 )
 
 const (
-	Layout_year    = "2006"
-	Layout_month   = "2006-01"
-	Layout_day     = "2006-01-02"
-	Layout_second  = "2006-01-02 15:04:05"
-	layout_default = "2006-01-02 15:04:05.999999999Z07:00"
+	Layout_y          = "2006"
+	Layout_y_m        = "2006-01"
+	Layout_y_m_d      = "2006-01-02"
+	Layout_y_m_d_time = "2006-01-02 15:04:05"
+	layout_default    = "2006-01-02 15:04:05.999999999Z07:00"
 )
 
 // Unix returns the local Time corresponding to the given Unix time, sec seconds and nsec nanoseconds since January 1, 1970 UTC.

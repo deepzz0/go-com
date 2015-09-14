@@ -29,7 +29,6 @@ func TestFile(t *testing.T) {
 	} else {
 		t.Log(HumaneFileSize(uint64(size)))
 	}
-
 }
 
 func TestWriteFile(t *testing.T) {

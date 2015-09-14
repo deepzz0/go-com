@@ -1,7 +1,7 @@
 package arc
 
 import (
-	"archive/tar"
+	// "archive/tar"
 	"archive/zip"
 	"errors"
 	"os"
@@ -26,26 +26,8 @@ func GzipFileList(file string) ([]string, error) {
 }
 
 func TarFileList(file string) ([]string, error) {
-	f, err := os.Open(file)
-	if err != nil {
-		return nil, err
-	}
-	defer f.Close()
-	fi, err := f.Stat()
-	if err != nil {
-		return nil, err
-	}
-	r := tar.NewReader(f)
-	files := make([]string, 0, len(f))
-	for {
-		h, err := r.Next()
-		if err != nil {
-			break
-		}
-		files = append(files, h.Name)
-	}
 
-	return files, nil
+	return nil, nil
 }
 
 func ZipFileList(file string) ([]string, error) {
