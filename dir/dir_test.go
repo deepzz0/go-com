@@ -1,6 +1,8 @@
 package dir
 
 import (
+	// "fmt"
+	// "strings"
 	"testing"
 )
 
@@ -12,7 +14,7 @@ func TestDir(t *testing.T) {
 }
 
 var f = func(filepath string) bool {
-	// if str := fmt.Sprintf("test/srcdir/%s", filepath); IsDir(str) {
+	// if str := fmt.Sprintf("test/srcdir/%s", filepath); strings.Contains(str, ".go") {
 	// 	return true
 	// }
 

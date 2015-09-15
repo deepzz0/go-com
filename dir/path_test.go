@@ -7,7 +7,7 @@ import (
 func TestPath(t *testing.T) {
 	gopath := GetGOPATHs()
 	t.Log(gopath)
-	if appPath, err := GetSrcPath("github.com/smallchen0/go-com/dir"); err != nil {
+	if appPath, err := GetSrcPath("github.com/smallchen0/com/dir"); err != nil {
 		t.Errorf("GetSrcPath:%v", err)
 	} else {
 		t.Log(appPath)

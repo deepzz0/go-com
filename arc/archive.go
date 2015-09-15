@@ -269,7 +269,7 @@ func writeFile2Zip(zipper *zip.Writer, filename string) error {
 	defer file.Close()
 	info, err := file.Stat()
 	if err != nil {
-		return nil
+		return err
 	}
 	header, err := zip.FileInfoHeader(info)
 	if err != nil {
@@ -278,7 +278,7 @@ func writeFile2Zip(zipper *zip.Writer, filename string) error {
 	header.Name = sanitizedName(filename, "")
 	writer, err := zipper.CreateHeader(header)
 	if err != nil {
-		return nil
+		return err
 	}
 	_, err = io.Copy(writer, file)
 	return err
