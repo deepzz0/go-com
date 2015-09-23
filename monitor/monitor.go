@@ -1,7 +1,7 @@
 package monitor
 
 import (
-	"code.ccplaying.com/foundation/log"
+	"github.com/smalltree0/com/log"
 	"os"
 	"os/signal"
 	"sort"

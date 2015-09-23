@@ -16,7 +16,7 @@ func execCmd(dir string, cmdName string, args ...string) ([]byte, []byte, error)
 	return stdout.Bytes(), stderr.Bytes(), err
 }
 
-func ExecCmdPre(cmdName string, args ...string) ([]byte, []byte, error) {
+func ExecCmd(cmdName string, args ...string) ([]byte, []byte, error) {
 	return execCmd("", cmdName, args...)
 }
 
