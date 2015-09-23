@@ -1,7 +1,7 @@
 package mongo
 
 import (
-	"code.ccplaying.com/foundation/log"
+	"github.com/smalltree0/com/log"
 	"gopkg.in/mgo.v2"
 	"gopkg.in/mgo.v2/bson"
 	"sync"
