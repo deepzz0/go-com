@@ -285,6 +285,9 @@ func writeFile2Zip(zipper *zip.Writer, filename string) error {
 }
 
 func CreateTar(filename string, files []string) error {
+	if !strings.Contains(filename, ".tar") {
+		filename = filename + ".tar"
+	}
 	file, err := os.Create(filename)
 	if err != nil {
 		return err
