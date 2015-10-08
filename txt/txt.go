@@ -3,16 +3,30 @@ package txt
 import (
 	"fmt"
 	"os"
+	"strconv"
 	"strings"
 )
 
-func GetValueString(key string) string {
-	return ConfigData[key]
+type config struct {
+	ConfigData map[string]string
+}
+
+func NewConfig(filename string) *config {
+	c := &config{parseConf(filename)}
+	return c
+}
+
+func ParseConf(filename string) map[string]string {
+	return parseConf(filename)
+}
+
+func (c *config) GetValueString(key string) string {
+	return c.ConfigData[key]
 }
 
 //Bit sizes 0, 8, 16, 32, and 64 correspond to int, int8, int16, int32, and int64
-func GetValueInt64(key string) (int64, error) {
-	data := ConfigData[key]
+func (c *config) GetValueInt64(key string) (int64, error) {
+	data := c.ConfigData[key]
 	toint64, err := strconv.ParseInt(data, 10, 64)
 	if err != nil {
 		return -1, err
@@ -20,8 +34,8 @@ func GetValueInt64(key string) (int64, error) {
 	return toint64, nil
 }
 
-func GetValueInt(key string) (int, error) {
-	data := ConfigData[key]
+func (c *config) GetValueInt(key string) (int, error) {
+	data := c.ConfigData[key]
 	toint, err := strconv.ParseInt(data, 10, 0)
 	if err != nil {
 		return -1, err
@@ -29,8 +43,8 @@ func GetValueInt(key string) (int, error) {
 	return int(toint), nil
 }
 
-func GetValueBool(key string) (bool, error) {
-	data := ConfigData[key]
+func (c *config) GetValueBool(key string) (bool, error) {
+	data := c.ConfigData[key]
 	tobool, err := strconv.ParseBool(data)
 	if err != nil {
 		return false, err
@@ -38,8 +52,8 @@ func GetValueBool(key string) (bool, error) {
 	return tobool, nil
 }
 
-func GetValueFloat32(key string) (float32, error) {
-	data := ConfigData[key]
+func (c *config) GetValueFloat32(key string) (float32, error) {
+	data := c.ConfigData[key]
 	tofloat64, err := strconv.ParseFloat(data, 32)
 	if err != nil {
 		return -1.1, err
@@ -47,8 +61,8 @@ func GetValueFloat32(key string) (float32, error) {
 	return float32(tofloat64), nil
 }
 
-func GetValueFloat64(key string) (float64, error) {
-	data := ConfigData[key]
+func (c *config) GetValueFloat64(key string) (float64, error) {
+	data := c.ConfigData[key]
 	tofloat64, err := strconv.ParseFloat(data, 64)
 	if err != nil {
 		return -1.1, err
@@ -56,7 +70,7 @@ func GetValueFloat64(key string) (float64, error) {
 	return tofloat64, nil
 }
 
-func ParseConf(filename string) map[string]string {
+func parseConf(filename string) map[string]string {
 	file, err := os.Open(filename)
 	if err != nil {
 		panic(err)
