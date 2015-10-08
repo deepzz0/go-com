@@ -6,6 +6,56 @@ import (
 	"strings"
 )
 
+func GetValueString(key string) string {
+	return ConfigData[key]
+}
+
+//Bit sizes 0, 8, 16, 32, and 64 correspond to int, int8, int16, int32, and int64
+func GetValueInt64(key string) (int64, error) {
+	data := ConfigData[key]
+	toint64, err := strconv.ParseInt(data, 10, 64)
+	if err != nil {
+		return -1, err
+	}
+	return toint64, nil
+}
+
+func GetValueInt(key string) (int, error) {
+	data := ConfigData[key]
+	toint, err := strconv.ParseInt(data, 10, 0)
+	if err != nil {
+		return -1, err
+	}
+	return int(toint), nil
+}
+
+func GetValueBool(key string) (bool, error) {
+	data := ConfigData[key]
+	tobool, err := strconv.ParseBool(data)
+	if err != nil {
+		return false, err
+	}
+	return tobool, nil
+}
+
+func GetValueFloat32(key string) (float32, error) {
+	data := ConfigData[key]
+	tofloat64, err := strconv.ParseFloat(data, 32)
+	if err != nil {
+		return -1.1, err
+	}
+	return float32(tofloat64), nil
+}
+
+func GetValueFloat64(key string) (float64, error) {
+	data := ConfigData[key]
+	tofloat64, err := strconv.ParseFloat(data, 64)
+	if err != nil {
+		return -1.1, err
+	}
+	return tofloat64, nil
+}
+
 func ParseConf(filename string) map[string]string {
 	file, err := os.Open(filename)
 	if err != nil {
