@@ -6,7 +6,6 @@ import (
 	"io"
 	"os"
 	"runtime"
-	"strconv"
 	"strings"
 	"sync"
 	"time"
@@ -19,6 +18,46 @@ const (
 	Lfatal
 )
 
+var levels = []string{
+	"DEBUG",
+	"INFO",
+	"ERROR",
+	"FATAL",
+}
+
+var SID = 0
+
+func SetSID(sid int) {
+	SID = sid
+}
+
+type Logger struct {
+	mu         sync.Mutex
+	Level      int
+	out        io.Writer
+	buf        bytes.Buffer
+	enableMail bool
+}
+
+func New(out io.Writer) *Logger {
+	return &Logger{out: out}
+}
+
+var Std = New(os.Stdout)
+
+func splitOf(file string) (module string, shortfile string) {
+	module = "_unknown_"
+	pos := strings.LastIndex(file, "/")
+	shortfile = file[pos+1:]
+	if pos != -1 {
+		pos1 := strings.LastIndex(file[:pos], "/src/")
+		if pos1 != -1 {
+			module = file[pos1+5 : pos]
+		}
+	}
+	return
+}
+
 const (
 	Gray = uint8(iota + 90)
 	Red
@@ -29,23 +68,6 @@ const (
 	//NRed      = uint8(31) // Normal
 	EndColor = "\033[0m"
 )
-
-var levels = []string{
-	"DEBUG",
-	"INFO",
-	"ERROR",
-	"FATAL",
-}
-
-type Logger struct {
-	mu         sync.Mutex
-	Level      int
-	statsFile  *os.File
-	out        io.Writer
-	buf        bytes.Buffer
-	stats      map[int]map[string]int
-	isNewStats bool
-}
 
 // getColorLevel returns colored level string by given level.
 func getColorLevel(level string) string {
@@ -64,27 +86,6 @@ func getColorLevel(level string) string {
 	}
 }
 
-func New(out io.Writer, statsFile *os.File) *Logger {
-	var l = Logger{out: out, statsFile: statsFile}
-	l.stats = make(map[int]map[string]int)
-	return &l
-}
-
-var Std = New(os.Stdout, nil)
-
-func splitOf(file string) (module string, shortfile string) {
-	module = "_unknown_"
-	pos := strings.LastIndex(file, "/")
-	shortfile = file[pos+1:]
-	if pos != -1 {
-		pos1 := strings.LastIndex(file[:pos], "/src/")
-		if pos1 != -1 {
-			module = file[pos1+5 : pos]
-		}
-	}
-	return
-}
-
 func (l *Logger) Output(lvl int, calldepth int, content string) error {
 	if lvl < l.Level {
 		return nil
@@ -100,6 +101,7 @@ func (l *Logger) Output(lvl int, calldepth int, content string) error {
 	}
 
 	module, shortfile := splitOf(file)
+	// log format: date, time(hour:minute:second:microsecond), level, module, shortfile:line, <content>
 	year, month, day := now.Date()
 	dt := fmt.Sprintf("%04d/%02d/%02d", year, month, day)
 	hour, min, sec := now.Clock()
@@ -121,50 +123,16 @@ func (l *Logger) Output(lvl int, calldepth int, content string) error {
 		return err
 	}
 
-	if lvl >= Lerror && l.statsFile != nil {
-		l.isNewStats = true
-		key := fmt.Sprintf("%s:%s:%d", module, shortfile, line)
-		_, found := l.stats[lvl]
-		if !found {
-			l.stats[lvl] = make(map[string]int)
-			l.stats[lvl][key] = 1
-		} else {
-			_, found := l.stats[lvl][key]
-			if !found {
-				l.stats[lvl][key] = 1
-			} else {
-				l.stats[lvl][key]++
-			}
-		}
-
-		l.buf.Reset()
-		for lvl, _ := range l.stats {
-			l.buf.WriteString(fmt.Sprintf("#%s\n", levels[lvl]))
-			for k, v := range l.stats[lvl] {
-				var sbuf bytes.Buffer
-				sbuf.WriteString(k)
-				nspace := 64 - sbuf.Len()
-				for i := 0; i < nspace; i++ {
-					sbuf.WriteByte(' ')
-				}
-
-				sbuf.WriteString(strconv.Itoa(v))
-				sbuf.WriteByte('\n')
-				l.buf.Write(sbuf.Bytes())
-			}
-
-			l.buf.WriteByte('\n')
-			l.buf.WriteByte('\n')
-		}
-
-		l.statsFile.Seek(0, os.SEEK_SET)
-		_, err := l.statsFile.Write(l.buf.Bytes())
-		if err != nil {
-			return err
-		}
-	}
-
 	return nil
+}
+
+func smartFormat(v ...interface{}) string {
+	format := ""
+	for i := 0; i < len(v); i++ {
+		format += " %v"
+	}
+	format += "\n"
+	return format
 }
 
 // print
@@ -173,11 +141,7 @@ func (l *Logger) Printf(format string, v ...interface{}) {
 }
 
 func (l *Logger) Print(v ...interface{}) {
-	l.Output(Linfo, 2, fmt.Sprint(v...))
-}
-
-func (l *Logger) Println(v ...interface{}) {
-	l.Output(Linfo, 2, fmt.Sprintln(v...))
+	l.Output(Linfo, 2, fmt.Sprintf(smartFormat(v...), v...))
 }
 
 // debug
@@ -192,7 +156,7 @@ func (l *Logger) Debug(v ...interface{}) {
 	if Ldebug < l.Level {
 		return
 	}
-	l.Output(Ldebug, 2, fmt.Sprintln(v...))
+	l.Output(Ldebug, 2, fmt.Sprintf(smartFormat(v...), v...))
 }
 
 // info
@@ -207,7 +171,7 @@ func (l *Logger) Info(v ...interface{}) {
 	if Linfo < l.Level {
 		return
 	}
-	l.Output(Linfo, 2, fmt.Sprintln(v...))
+	l.Output(Linfo, 2, fmt.Sprintf(smartFormat(v...), v...))
 }
 
 // error
@@ -216,7 +180,7 @@ func (l *Logger) Errorf(format string, v ...interface{}) {
 }
 
 func (l *Logger) Error(v ...interface{}) {
-	l.Output(Lerror, 2, fmt.Sprintln(v...))
+	l.Output(Lerror, 2, fmt.Sprintf(smartFormat(v...), v...))
 }
 
 // fatal
@@ -226,7 +190,7 @@ func (l *Logger) Fatalf(format string, v ...interface{}) {
 }
 
 func (l *Logger) Fatal(v ...interface{}) {
-	l.Output(Lfatal, 2, fmt.Sprintln(v...))
+	l.Output(Lfatal, 2, fmt.Sprintf(smartFormat(v...), v...))
 	os.Exit(1)
 }
 
@@ -237,33 +201,15 @@ func (l *Logger) Breakpoint() {
 	l.Output(Ldebug, 3, fmt.Sprintln("breakpoint"))
 }
 
-// stats
-func (l *Logger) Stats() (stats map[int]map[string]int) {
-	l.mu.Lock()
-	v := make(map[int]map[string]int)
-	for lvl, logs := range l.stats {
-		if v[lvl] == nil {
-			v[lvl] = make(map[string]int)
-		}
-
-		for k, count := range logs {
-			v[lvl][k] = count
-		}
-	}
-	l.mu.Unlock()
-	l.isNewStats = false
-	return v
-}
-
-func (l *Logger) IsNewStats() bool {
-	return l.isNewStats
-}
-
 // set output
 func (l *Logger) SetLevel(lvl int) {
 	l.mu.Lock()
 	defer l.mu.Unlock()
 	l.Level = lvl
+}
+
+func (l *Logger) SetEnableMail(v bool) {
+	l.enableMail = v
 }
 
 // standard wrapper
@@ -272,11 +218,7 @@ func Printf(format string, v ...interface{}) {
 }
 
 func Print(v ...interface{}) {
-	Std.Output(Linfo, 2, fmt.Sprint(v...))
-}
-
-func Println(v ...interface{}) {
-	Std.Output(Linfo, 2, fmt.Sprintln(v...))
+	Std.Output(Linfo, 2, fmt.Sprintf(smartFormat(v...), v...))
 }
 
 func Debugf(format string, v ...interface{}) {
@@ -284,7 +226,7 @@ func Debugf(format string, v ...interface{}) {
 }
 
 func Debug(v ...interface{}) {
-	Std.Output(Ldebug, 2, fmt.Sprint(v...))
+	Std.Output(Ldebug, 2, fmt.Sprintf(smartFormat(v...), v...))
 }
 
 func Infof(format string, v ...interface{}) {
@@ -292,15 +234,26 @@ func Infof(format string, v ...interface{}) {
 }
 
 func Info(v ...interface{}) {
-	Std.Output(Linfo, 2, fmt.Sprint(v...))
+	Std.Output(Linfo, 2, fmt.Sprintf(smartFormat(v...), v...))
 }
 
 func Errorf(format string, v ...interface{}) {
-	Std.Output(Lerror, 2, fmt.Sprintf(format, v...))
+	body := fmt.Sprintf(format, v...)
+	Std.Output(Lerror, 2, body)
+	if Std.enableMail {
+		// subject := fmt.Sprintf("server [%d] error", SID)
+		// go sendMail(subject, body+"\n\n"+CallerStack())
+	}
 }
 
 func Error(v ...interface{}) {
-	Std.Output(Lerror, 2, fmt.Sprint(v...))
+	body := fmt.Sprintf(smartFormat(v...), v...)
+	Std.Output(Lerror, 2, body+"\n"+CallerStack())
+	// Std.Output(Lerror, 2, body)
+	if Std.enableMail {
+		// subject := fmt.Sprintf("server [%d] error", SID)
+		// go sendMail(subject, body+"\n\n"+CallerStack())
+	}
 }
 
 func Stack(v ...interface{}) {
@@ -309,11 +262,13 @@ func Stack(v ...interface{}) {
 
 func Fatalf(format string, v ...interface{}) {
 	Std.Output(Lfatal, 2, fmt.Sprintf(format, v...))
+	Std.Output(Lfatal, 2, CallerStack())
 	os.Exit(1)
 }
 
 func Fatal(v ...interface{}) {
-	Std.Output(Lfatal, 2, fmt.Sprint(v...))
+	Std.Output(Lfatal, 2, fmt.Sprintf(smartFormat(v...), v...))
+	Std.Output(Lfatal, 2, CallerStack())
 	os.Exit(1)
 }
 
@@ -333,10 +288,8 @@ func SetOutput(w io.Writer) {
 	Std.out = w
 }
 
-func SetStatsFile(file *os.File) {
-	Std.mu.Lock()
-	defer Std.mu.Unlock()
-	Std.statsFile = file
+func SetEnableMail(v bool) {
+	Std.SetEnableMail(v)
 }
 
 func CallerStack() string {

@@ -1,11 +1,12 @@
 package mongo
 
 import (
+	"sync"
+	"time"
+
 	"github.com/smalltree0/com/log"
 	"gopkg.in/mgo.v2"
 	"gopkg.in/mgo.v2/bson"
-	"sync"
-	"time"
 )
 
 var (
@@ -120,4 +121,17 @@ func NextVal(countername string) int32 {
 
 	// round the nextval to 2^31
 	return int32(next.NextVal % 2147483648)
+}
+
+func DeepCopy(val interface{}, newVal interface{}) {
+	data, err := bson.Marshal(val)
+	if err != nil {
+		log.Error("bson.Marshal: ", err)
+		return
+	}
+
+	if err := bson.Unmarshal(data, newVal); err != nil {
+		log.Error("bson.Unmarshal: ", err)
+		return
+	}
 }
