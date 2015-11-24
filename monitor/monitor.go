@@ -30,7 +30,7 @@ func callHooksAndExit() {
 		hook.Exec()
 		log.Printf("%s hook exec!\n", hook.Name)
 	}
-	log.Println("\033[043;1m[SECURE EXIT]\033[0m")
+	log.Debug("\033[043;1m[SECURE EXIT]\033[0m")
 	os.Exit(0)
 }
 
@@ -42,13 +42,13 @@ func schedule() {
 		msg := <-ch
 		switch msg {
 		case syscall.SIGHUP:
-			log.Println("\033[043;1m[SIGHUP]\033[0m")
+			log.Debug("\033[043;1m[SIGHUP]\033[0m")
 
 		case syscall.SIGTERM:
-			log.Println("\033[043;1m[SIGTERM]\033[0m")
+			log.Debug("\033[043;1m[SIGTERM]\033[0m")
 			callHooksAndExit()
 		case syscall.SIGINT:
-			log.Println("\033[043;1m[SIGINT]\033[0m")
+			log.Debug("\033[043;1m[SIGINT]\033[0m")
 			callHooksAndExit()
 		}
 	}

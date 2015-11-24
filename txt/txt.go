@@ -88,6 +88,9 @@ func parseConf(filename string) map[string]string {
 	lines := byteReadLine(bt)
 	result := make(map[string]string, len(lines))
 	for _, line := range lines {
+		if strings.HasPrefix(line, "#") {
+			continue
+		}
 		k, v := parseToMap(line)
 		result[k] = v
 	}
