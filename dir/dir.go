@@ -112,6 +112,43 @@ func GetFileListBySuffix(dirPath, suffix string) ([]string, error) {
 	return files, nil
 }
 
+// GetFileListDeep by deep and filter form dirPath
+// while deep = 0 ,you can get all filenames of dir. deep should >= 0
+func GetFileListDeep(dirPath string, deep int, filter func(fi os.FileInfo) bool) []string {
+	var names []string
+	f, err := os.Open(dirPath)
+	if err != nil {
+		fmt.Printf("<<<<<<<%s", err.Error())
+		return names
+	}
+	fi, err := f.Readdir(0)
+	if err != nil {
+		fmt.Printf(">>>>>>>%s", err.Error())
+		return names
+	}
+	for _, v := range fi {
+		if deep > 0 {
+			if v.IsDir() && 1 < deep {
+				mydeep := deep
+				mydeep--
+				names = append(names, GetFileListDeep(path.Join(dirPath, v.Name()), mydeep, filter)...)
+			} else {
+				if !filter(v) {
+					names = append(names, path.Join(dirPath, v.Name()))
+				}
+			}
+		} else {
+			if v.IsDir() {
+				names = append(names, GetFileListDeep(path.Join(dirPath, v.Name()), 0, filter)...)
+			}
+			if !filter(v) {
+				names = append(names, path.Join(dirPath, v.Name()))
+			}
+		}
+	}
+	return names
+}
+
 // CopyDir copy files recursively from source to target directory.
 //
 // The filter accepts a function that process the path info.
