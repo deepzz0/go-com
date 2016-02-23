@@ -1,7 +1,7 @@
 package monitor
 
 import (
-	"github.com/smalltree0/com/log"
+	"github.com/deepzz0/go-common/log"
 	"os"
 	"os/signal"
 	"sort"

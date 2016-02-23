@@ -4,7 +4,7 @@ import (
 	"sync"
 	"time"
 
-	"github.com/smalltree0/com/log"
+	"github.com/deepzz0/go-common/log"
 	"gopkg.in/mgo.v2"
 	"gopkg.in/mgo.v2/bson"
 )
