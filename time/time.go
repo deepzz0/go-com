@@ -1,4 +1,4 @@
-package tim
+package time
 
 import (
 	"errors"
