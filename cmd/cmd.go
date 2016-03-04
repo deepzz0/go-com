@@ -21,6 +21,6 @@ func ExecCmd(cmdName string, args ...string) ([]byte, []byte, error) {
 }
 
 func ExecCmdDir(dir string, cmdName string, args ...string) (string, string, error) {
-	stdout, stderr, err := execCmd(dir, cmdName, args)
+	stdout, stderr, err := execCmd(dir, cmdName, args...)
 	return string(stdout), string(stderr), err
 }
