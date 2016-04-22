@@ -29,8 +29,8 @@ func GetSeconds(days, hours, minutes, seconds int) int64 {
 	var result int64 = 0
 	result += int64(seconds)
 	result += int64(minutes) * 60
-	result += int64(hours) * 60 * 60
-	result += int64(days) * 24 * 60 * 60
+	result += int64(hours) * int64(time.Hour.Seconds())
+	result += int64(days) * int64(24*time.Hour.Seconds())
 	return result
 }
 
