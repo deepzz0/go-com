@@ -6,6 +6,7 @@ import (
 	"os/signal"
 	"sort"
 	"syscall"
+	"time"
 )
 
 type exitHook struct {
@@ -57,4 +58,8 @@ func HookOnExit(name string, f func(), order ...int) {
 	}
 	registExitHooks = append(registExitHooks, h)
 	sort.Sort(registExitHooks)
+}
+
+func Startup() {
+	go schedule()
 }

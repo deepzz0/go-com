@@ -20,8 +20,8 @@ const (
 
 func init() {
 	log.Debug("mongo Dial 172.17.42.1")
-	// sess, err := mgo.Dial("172.17.42.1")
-	sess, err := mgo.Dial("127.0.0.1")
+	sess, err := mgo.Dial("172.17.42.1")
+	// sess, err := mgo.Dial("127.0.0.1")
 	if err != nil {
 		panic(err)
 	}
