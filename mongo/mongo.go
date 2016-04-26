@@ -1,6 +1,7 @@
 package mongo
 
 import (
+	"os"
 	"sync"
 	"time"
 
@@ -19,9 +20,8 @@ const (
 )
 
 func init() {
-	log.Debug("mongo Dial 172.17.42.1")
-	sess, err := mgo.Dial("172.17.42.1")
-	// sess, err := mgo.Dial("127.0.0.1")
+	log.Debug("mongo Dial " + os.Getenv("MGO"))
+	sess, err := mgo.Dial(os.Getenv("MGO"))
 	if err != nil {
 		panic(err)
 	}
