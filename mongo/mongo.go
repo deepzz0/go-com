@@ -95,17 +95,13 @@ func Remove(db, collection string, selector interface{}) error {
 	return c.Remove(selector)
 }
 
-const (
-	COUNTERS = "COUNTERS"
-)
-
 type Counter struct {
 	Name    string
 	NextVal int64
 }
 
-func NextVal(countername string) int32 {
-	ms, c := Connect(COUNTERS, COUNTERS)
+func NextVal(db, countername string) int32 {
+	ms, c := Connect(db, "COUNTERS")
 	defer ms.Close()
 
 	change := mgo.Change{
