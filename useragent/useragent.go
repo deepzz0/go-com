@@ -5,91 +5,257 @@ import (
 	"net/http"
 	"regexp"
 	"strings"
+
+	"github.com/deepzz0/go-common/log"
 )
 
-const (
-	BingBot      = "Mozilla/5.0 (compatible; bingbot/2.0; +http://www.bing.com/bingbot.htm)"
-	BaiduSpider  = "Mozilla/5.0 (compatible; Baiduspider/2.0; +http://www.baidu.com/search/spider.html)"
-	GoogleBot    = "Mozilla/5.0 (compatible; Googlebot/2.1; +http://www.google.com/bot.html)"
-	YahooChina   = "Mozilla/5.0 (compatible; Yahoo! Slurp China; http://misc.yahoo.com.cn/help.html)"
-	YodaoBot     = "Mozilla/5.0 (compatible; YodaoBot/1.0; http://www.yodao.com/help/webmaster/spider/; )"
-	YoudaoBot    = "Mozilla/5.0 (compatible; YoudaoBot/1.0; http://www.youdao.com/help/webmaster/spider/; )"
-	MSNBot       = "msnbot/2.1"
-	SougouSpider = "sogou spider"
-	SousouSpider = "Sosospider+(+http://help.soso.com/webspider.htm)"
-	YahooSeeker  = "YahooSeeker/1.2 (compatible; Mozilla 4.0; MSIE 5.5; yahooseeker at yahoo-inc dot com ; http://help.yahoo.com/help/us/shop/merchant/)"
-
-	// ////////////////////////////////////////////////////////////
-	ie6  = "Mozilla/4.0 (Windows; MSIE 6.0; Windows NT 5.2)"
-	ie7  = "Mozilla/4.0 (compatible; MSIE 7.0; Windows NT 6.0)"
-	ie8  = "Mozilla/4.0 (compatible; MSIE 8.0; Windows NT 6.0; Trident/4.0)"
-	ie9  = "Mozilla/5.0 (compatible; MSIE 9.0; Windows NT 6.1; Trident/5.0)"
-	ie10 = "Mozilla/5.0 (compatible; WOW64; MSIE 10.0; Windows NT 6.2)"
-	ie11 = "Mozilla/5.0 (Windows NT 6.3; Trident/7.0; rv 11.0) like Gecko"
-
-	ipad   = "Mozilla/5.0 (iPad; CPU OS 8_1_3 like Mac OS X) AppleWebKit/600.1.4 (KHTML, like Gecko) Version/8.0 Mobile/12B466 Safari/600.1.4"
-	iphone = "Mozilla/5.0 (iPhone; CPU iPhone OS 8_0_2 like Mac OS X) AppleWebKit/600.1.4 (KHTML, like Gecko) Version/8.0 Mobile/12A366 Safari/600.1.4"
-	ipod   = "Mozilla/5.0 (iPod; CPU iPhone OS 5_1_1 like Mac OS X) AppleWebKit/534.46 (KHTML, like Gecko) Version/5.1 Mobile/9B206 Safari/7534.48.3"
-
-	wphone7   = "Mozilla/4.0 (compatible; MSIE 7.0; Windows Phone OS 7.0; Trident/3.1; IEMobile/7.0; LG; GW910)"
-	wphone7_5 = "Mozilla/5.0 (compatible; MSIE 9.0; Windows Phone OS 7.5; Trident/5.0; IEMobile/9.0; SAMSUNG; SGH-i917)"
-	wphone8   = "Mozilla/5.0 (compatible; MSIE 10.0; Windows Phone 8.0; Trident/6.0; IEMobile/10.0; ARM; Touch; NOKIA; Lumia 920)"
-
-	nexus7      = "Mozilla/5.0 (Linux; Android 4.1.1; Nexus 7 Build/JRO03D) AppleWebKit/535.19 (KHTML, like Gecko) Chrome/18.0.1025.166  Safari/535.19"
-	galaxys3    = "Mozilla/5.0 (Linux; U; Android 4.0.4; en-gb; GT-I9300 Build/IMM76D) AppleWebKit/534.30 (KHTML, like Gecko) Version/4.0 Mobile Safari/534.30"
-	galaxytable = "Mozilla/5.0 (Linux; U; Android 2.2; en-gb; GT-P1000 Build/FROYO) AppleWebKit/533.1 (KHTML, like Gecko) Version/4.0 Mobile Safari/533.1"
-	kitkat      = "Mozilla/5.0 (Linux; Android 4.4.2; Nexus 4 Build/KOT49H) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/34.0.1847.114 Mobile Safari/537.36"
-
-	firefoxAndroid = "Mozilla/5.0 (Linux; Android 4.4.2; Nexus 4 Build/KOT49H) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/34.0.1847.114 Mobile Safari/537.36"
-	firefoxTablet  = "Mozilla/5.0 (Android; Tablet; rv:14.0) Gecko/14.0 Firefox/14.0"
-	firefoxOsX     = "Mozilla/5.0 (Macintosh; Intel Mac OS X 10.8; rv:21.0) Gecko/20100101 Firefox/21.0"
-	firefoxUbuntu  = "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:21.0) Gecko/20130331 Firefox/21.0"
-	firefoxWindows = "Mozilla/5.0 (Windows NT 6.2; WOW64; rv:21.0) Gecko/20100101 Firefox/21.0"
-
-	chromeAndroid = "Mozilla/5.0 (Linux; Android 4.0.4; Galaxy Nexus Build/IMM76B) AppleWebKit/535.19 (KHTML, like Gecko) Chrome/18.0.1025.133 Mobile Safari/535.19"
-	chromeTablet  = "Mozilla/5.0 (Linux; Android 4.1.2; Nexus 7 Build/JZ054K) AppleWebKit/535.19 (KHTML, like Gecko) Chrome/18.0.1025.166 Safari/535.19"
-	chromeMac     = "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_7_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/27.0.1453.93 Safari/537.36"
-	chromeUbuntu  = "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/535.11 (KHTML, like Gecko) Ubuntu/11.10 Chromium/27.0.1453.93 Chrome/27.0.1453.93 Safari/537.36"
-	chromeWindow  = "Mozilla/5.0 (Windows NT 6.2; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/27.0.1453.94 Safari/537.36"
-	chromeIphone  = "Mozilla/5.0 (iPhone; CPU iPhone OS 6_1_4 like Mac OS X) AppleWebKit/536.26 (KHTML, like Gecko) CriOS/27.0.1453.10 Mobile/10B350 Safari/8536.25"
-
-	operaMac = "Opera/9.80 (Macintosh; Intel Mac OS X 10.6.8; U; en) Presto/2.9.168 Version/11.52"
-	operaWin = "Opera/9.80 (Windows NT 6.1; WOW64; U; en) Presto/2.10.229 Version/11.62"
-
-	Blackberry = "Mozilla/5.0 (PlayBook; U; RIM Tablet OS 2.1.0; en-US) AppleWebKit/536.2+ (KHTML, like Gecko) Version/7.2.1.0 Safari/536.2+"
-
-	safariMac    = "Mozilla/5.0 (Macintosh; U; Intel Mac OS X 10_6_6; en-US) AppleWebKit/533.20.25 (KHTML, like Gecko) Version/5.0.4 Safari/533.20.27"
-	safariWin    = "Mozilla/5.0 (Windows; U; Windows NT 6.1; en-US) AppleWebKit/533.20.25 (KHTML, like Gecko) Version/5.0.4 Safari/533.20.27"
-	safariIpad   = "Mozilla/5.0 (iPad; CPU OS 5_0 like Mac OS X) AppleWebKit/534.46 (KHTML, like Gecko) Version/5.1 Mobile/9A334 Safari/7534.48.3"
-	safariIphone = "Mozilla/5.0 (iPhone; CPU iPhone OS 5_0 like Mac OS X) AppleWebKit/534.46 (KHTML, like Gecko) Version/5.1 Mobile/9A334 Safari/7534.48.3"
-)
-const (
-	FLAG             = "flag"             // 瀏覽器標示
-	FLAG_VERSION     = "flag_version"     // 版本
-	OS_PLATFORM      = "os_platform"      // 操作系统平台
-	ENCRYPTION       = "encryption"       // 加密等级  N无   I弱   U强
-	OS               = "operating_system" // 操作系统
-	OS_VERSION       = "os_version"       // 操作系统版本
-	MODEL            = "model"            // 设备型号
-	MODEL_VERSION    = "model_version"    // 设备版本
-	LANGUAGE         = "language"         // 语言
-	PLATFORM         = "platform"         // 平台
-	PLATFORM_DETAIL  = "platform_detail"  // 平台详细
-	BROWSER          = "browser"          // 浏览器
-	BROWSER_ENGINE   = "browser_engine"   // 浏览器引擎
-	MOBILE           = "mobile"           // 移动设备
-	MOBILE_FLAG      = "mobile_flag"      //
-	BASE_BROWSER     = "base_browser"     //
-	BASE_BROWSER_VER = "base_browser_ver" // 版本
-)
-
-type UserAgent map[string]string
-
-func ParseByString(useragent string) UserAgent {
-	agent := make(map[string]string)
-
+type UserAgent struct {
+	Agent_Type             string // brower
+	Agent_Name             string // chrome
+	Agent_Version          string // 50.0.2661.86
+	Agent_Rendering_Engine string // Macintosh
+	OS_Type                string // OS X
+	OS_Name                string // iPhone OS 10_6_6
+	OS_Language            string // en-US
+	OS_Producer            string // 生产者
+	OS_Producer_Url        string // 网址
+	OS_Encryption          string // 加密等级  N无   I弱   U强
+	Device_Type            string // mobile
+	Device_Model           string //
 }
 
-func ParseByRequest(request *http.Request) UserAgent {
+func ParseByString(useragent string) *UserAgent {
+	agent := &UserAgent{}
+	if robot := IsRobot(useragent); robot != "" {
+		agent.Agent_Type = ROBOT
+		agent.Agent_Name = robot
+		return agent
+	}
+	reg, _ := regexp.Compile(`\(.*\)`)
+	index := reg.FindStringIndex(useragent)
+	osInfo := useragent[index[0]:index[1]]
+	slice := strings.Split(osInfo, ";")
+	agent.OS_Type = slice[0][1:len(slice[0])]
+	agent.OS_Encryption = GetOSSecurity(osInfo)
+	regLanguage, _ := regexp.Compile(`en-[\w]+`)
+	agent.OS_Language = regLanguage.FindString(osInfo)
+	switch agent.OS_Type {
+	case "Macintosh":
+		fallthrough
+	case "iPad", "iPhone", "iPod":
+		regVersion, _ := regexp.Compile(`(?:(Mac OS X [\d\_\.]+)|(iPhone OS [\d\_]+))`)
+		agent.OS_Name = strings.Replace(regVersion.FindString(osInfo), "_", ".", -1)
+	case "Android":
+		regVersion, _ := regexp.Compile(`rv:[\d\.]+`)
+		agent.OS_Name = regVersion.FindString(osInfo)
+	case "Linux":
+		regVersion, _ := regexp.Compile(`Android [\d\.]+`)
+		agent.OS_Name = regVersion.FindString(osInfo)
+	case "X11":
+		regVersion, _ := regexp.Compile(`Linux x[\d]+_[\d]+`)
+		agent.OS_Name = regVersion.FindString(osInfo)
+	case "Windows":
+		fallthrough
+	case "compatible":
+		regVersion, _ := regexp.Compile(`(?:(Windows NT [\d\.]+)|(Windows Phone( OS)? [\d\.]+))`)
+		agent.OS_Name = regVersion.FindString(osInfo)
+	case "PlayBook":
+		regVersion, _ := regexp.Compile(`RIM Tablet OS [\d\.]+`)
+		agent.OS_Name = regVersion.FindString(osInfo)
+	default:
+		if strings.Contains(agent.OS_Type, "Windows NT") {
+			agent.OS_Name = agent.OS_Type
+		}
+	}
+	if strings.Contains(useragent, "Mobile") {
+		agent.Device_Type = "mobile"
+		if !strings.Contains("iPadiPhoneiPod", agent.OS_Type) {
+			model := strings.TrimSpace(slice[len(slice)-1])
+			agent.Device_Model = model[:strings.Index(model, ")")]
+		}
+	}
+	// ------------------------------------------------------------
+	browserInfo := useragent[index[0]:]
+	var Name, Version string
+	// 是否是web
+	if name, version := IsWebBrowser(browserInfo); name != "" {
+		Name, Version = name, version
+		agent.Agent_Type = WEB_BROWSER
+	}
+	// 是否是
+	if name, version := IsMobileBrowser(browserInfo); name != "" {
+		Name, Version = name, version
+		agent.Agent_Type = MOBILE_BROWSER
+	}
+	// 是否是
+	if name, version := IsTextBrowser(browserInfo); name != "" {
+		Name, Version = name, version
+		agent.Agent_Type = TEXT_BROWSER
+	}
+	//
+	if name, version := IsEmailClient(browserInfo); name != "" {
+		Name, Version = name, version
+		agent.Agent_Type = EMAIL_CLIENT
+	}
+	//
+	if name, version := IsTool(browserInfo); name != "" {
+		Name, Version = name, version
+		agent.Agent_Type = TOOL
+	}
+	//
+	if name, version := IsApp(browserInfo); name != "" {
+		Name, Version = name, version
+		agent.Agent_Type = APP
+	}
+	agent.Agent_Name = Name
+	agent.Agent_Version = Version
+	agent.Agent_Rendering_Engine = GetEngine(agent.Agent_Type, Name)
+	agent.OS_Producer = GetProducer(Name)
+	return agent
+}
+
+func ParseByRequest(request *http.Request) *UserAgent {
 	return ParseByString(request.UserAgent())
+}
+
+func IsWebBrowser(useragent string) (string, string) {
+	for k, v := range Agent_types[WEB_BROWSER] {
+		reg, err := regexp.Compile(k)
+		if err != nil {
+			log.Error(err)
+			return "", ""
+		}
+		if str := reg.FindString(useragent); str == "" {
+			continue
+		} else {
+			return v, TypeToName[v](str)
+		}
+	}
+	return "", ""
+}
+
+func IsMobileBrowser(useragent string) (string, string) {
+	for k, v := range Agent_types[MOBILE_BROWSER] {
+		reg, err := regexp.Compile(k)
+		if err != nil {
+			log.Error(err)
+			return "", ""
+		}
+		if str := reg.FindString(useragent); str == "" {
+			continue
+		} else {
+			return v, TypeToName[v](str)
+		}
+	}
+	return "", ""
+}
+
+func IsTextBrowser(useragent string) (string, string) {
+	for k, v := range Agent_types[TEXT_BROWSER] {
+		reg, err := regexp.Compile(k)
+		if err != nil {
+			log.Error(err)
+			return "", ""
+		}
+		if str := reg.FindString(useragent); str == "" {
+			continue
+		} else {
+			return v, TypeToName[v](str)
+		}
+		return k, v
+	}
+	return "", ""
+}
+
+func IsEmailClient(useragent string) (string, string) {
+	for k, v := range Agent_types[EMAIL_CLIENT] {
+		reg, err := regexp.Compile(k)
+		if err != nil {
+			log.Error(err)
+			return "", ""
+		}
+		if str := reg.FindString(useragent); str == "" {
+			continue
+		} else {
+			return v, TypeToName[v](str)
+		}
+		return k, v
+	}
+	return "", ""
+}
+
+func IsTool(useragent string) (string, string) {
+	for k, v := range Agent_types[TOOL] {
+		reg, err := regexp.Compile(k)
+		if err != nil {
+			log.Error(err)
+			return "", ""
+		}
+		if str := reg.FindString(useragent); str == "" {
+			continue
+		} else {
+			return v, TypeToName[v](str)
+		}
+		return k, v
+	}
+	return "", ""
+}
+
+func IsApp(useragent string) (string, string) {
+	for k, v := range Agent_types[APP] {
+		reg, err := regexp.Compile(k)
+		if err != nil {
+			log.Error(err)
+			return "", ""
+		}
+		if str := reg.FindString(useragent); str == "" {
+			continue
+		} else {
+			return v, TypeToName[v](str)
+		}
+	}
+	return "", ""
+}
+
+func IsRobot(useragent string) string {
+	for k, v := range Agent_types[ROBOT] {
+		reg, err := regexp.Compile(k)
+		if err != nil {
+			log.Error(err)
+			return ""
+		}
+		if str := reg.FindString(useragent); str == "" {
+			continue
+		} else {
+			return v
+		}
+	}
+	return ""
+}
+
+func GetOSSecurity(osinfo string) string {
+	reg, _ := regexp.Compile(`(?:U|I|N)\;`)
+	return reg.FindString(osinfo)
+}
+
+func GetProducer(name string) string {
+	if producer := TypeToProducer[name]; producer == "" {
+		return "UNKNOWN"
+	} else {
+		return producer
+	}
+}
+
+func GetEngine(typ, name string) string {
+	if engine := TypeToRenderingEngine[typ][name]; engine == "" {
+		return "UNKNOWN"
+	} else {
+		return engine
+	}
+}
+
+func checkErr(err error) {
+	if err != nil {
+		panic(err)
+	}
 }
