@@ -65,11 +65,8 @@ func ParseByString(useragent string) *UserAgent {
 	}
 	if strings.Contains(useragent, "Mobile") {
 		agent.Device_Type = "mobile"
-		if !strings.Contains("iPadiPhoneiPod", agent.OS_Type) {
-			model := strings.TrimSpace(slice[len(slice)-1])
-			agent.Device_Model = model[:strings.Index(model, ")")]
-		}
 	}
+	agent.Device_Model = FindDevice(slice)
 	// ------------------------------------------------------------
 	browserInfo := useragent[index[0]:]
 	var Name, Version string
@@ -229,9 +226,25 @@ func IsRobot(useragent string) string {
 	return ""
 }
 
+func FindDevice(slice []string) (model string) {
+	for _, v := range slice {
+		if strings.Contains(v, "Build") {
+			model = strings.TrimSpace(v)
+		}
+		if strings.Contains(model, ")") {
+			model = model[:strings.Index(model, ")")]
+		}
+	}
+	return
+}
+
 func GetOSSecurity(osinfo string) string {
 	reg, _ := regexp.Compile(`(?:U|I|N)\;`)
-	return reg.FindString(osinfo)
+	str := reg.FindString(osinfo)
+	if str != "" {
+		str = str[:len(str)-1]
+	}
+	return str
 }
 
 func GetProducer(name string) string {

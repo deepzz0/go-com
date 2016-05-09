@@ -108,23 +108,23 @@ const (
 var Agent_types = map[string]map[string]string{
 	WEB_BROWSER: map[string]string{ // reg-->name
 		// IE
-		"MSIE [\\d\\.]+":                 "Internet Explorer",
-		"Trident/[\\d\\.]+":              "Internet Explorer",
-		"IE 11\\.":                       "Internet Explorer",
-		"xbox":                           "Xbox",
-		"Edge/[\\d+\\.]+":                "Microsoft Edge",
-		"(?:CriOS|CrMo|Chrome)\\/[\\d]+": "Chrome",
-		"Firefox/[\\d\\.]+":              "Firefox",
-		"Version/[\\d\\.]+":              "Safari",
-		"Opera/[\\d\\.]+":                "Opera",
-		"Version/[\\d]+\\.":              "Opera",
-		"OPR/[\\d]+\\.":                  "Opera",
-		"Camino/[\\d\\.]+":               "Camino",
-		"Camino/2":                       "Camino",
-		"Flock/[\\d\\.]+":                "Flock",
-		"Vivaldi/[\\d\\.]+":              "Vivaldi",
-		"Mozilla":                        "Mozilla",
-		"Moozilla":                       "Moozilla",
+		"MSIE [\\d\\.]+":           "Internet Explorer",
+		"Trident/[\\d\\.]+":        "Internet Explorer",
+		"IE 11\\.":                 "Internet Explorer",
+		"xbox":                     "Xbox",
+		"Edge/[\\d+\\.]+":          "Microsoft Edge",
+		"(?:CrMo|Chrome)\\/[\\d]+": "Chrome",
+		"Firefox/[\\d\\.]+":        "Firefox",
+		"Version/[\\d\\.]+":        "Safari",
+		"Opera/[\\d\\.]+":          "Opera",
+		"Version/[\\d]+\\.":        "Opera",
+		"OPR/[\\d]+\\.":            "Opera",
+		"Camino/[\\d\\.]+":         "Camino",
+		"Camino/2":                 "Camino",
+		"Flock/[\\d\\.]+":          "Flock",
+		"Vivaldi/[\\d\\.]+":        "Vivaldi",
+		"Mozilla":                  "Mozilla",
+		"Moozilla":                 "Moozilla",
 	},
 	MOBILE_BROWSER: map[string]string{
 		"IEMobile/\\w+":            "Mobile",
@@ -132,6 +132,7 @@ var Agent_types = map[string]map[string]string{
 		"IEMobile/[\\d\\.]+":       "Internet Explorer(mobile)",
 		"Edge/[\\d]+":              "Microsoft Edge(Mobile)",
 		"Konqueror/[\\d\\.]+":      "Konqueror(mobile)",
+		"CriOS\\/[\\d]+":           "Chrome(mobile)",
 		"Opera Mini":               "Opera(mini)",
 		"Mobile Safari":            "Opera(mobile)",
 		"Dolfin\\/2":               "Samsung(mobile)",
@@ -240,6 +241,9 @@ var TypeToName = map[string]func(string) string{
 	"Safari(mobile)": func(str string) string {
 		return strings.Replace(str, "/", " ", 1)
 	},
+	"Chrome(mobile)": func(str string) string {
+		return strings.Replace(str, "/", " ", 1)
+	},
 	"Mobile": func(str string) string {
 		return strings.Replace(str, "/", " ", 1)
 	},
@@ -319,6 +323,7 @@ var TypeToRenderingEngine = map[string]map[string]string{
 		"Opera(mini)":               PRESTO,
 		"Opera(mobile)":             BLINK,
 		"Samsung(mobile)":           WEBKIT,
+		"Chrome(mobile)":            WEBKIT,
 		"Konqueror(mobile)":         OTHER_ENGINE,
 		"Mobile":                    WEBKIT,
 	},
@@ -343,6 +348,7 @@ var TypeToProducer = map[string]string{
 	"Microsoft Edge(Mobile)":    MICROSOFT,
 	"Xbox":              MICROSOFT,
 	"Chrome":            GOOGLE,
+	"Chrome(mobile)":    GOOGLE,
 	"Firefox":           MOZ,
 	"Firefox(mobile)":   MOZ,
 	"Safari(mobile)":    APPLE,
