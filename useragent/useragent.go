@@ -40,9 +40,7 @@ func ParseByString(useragent string) *UserAgent {
 	regLanguage, _ := regexp.Compile(`en-[\w]+`)
 	agent.OS_Language = regLanguage.FindString(osInfo)
 	switch agent.OS_Type {
-	case "Macintosh":
-		fallthrough
-	case "iPad", "iPhone", "iPod":
+	case "iPad", "iPhone", "iPod", "Macintosh":
 		regVersion, _ := regexp.Compile(`(?:(Mac OS X [\d\_\.]+)|(iPhone OS [\d\_]+))`)
 		agent.OS_Name = strings.Replace(regVersion.FindString(osInfo), "_", ".", -1)
 	case "Android":
@@ -54,9 +52,7 @@ func ParseByString(useragent string) *UserAgent {
 	case "X11":
 		regVersion, _ := regexp.Compile(`Linux x[\d]+_[\d]+`)
 		agent.OS_Name = regVersion.FindString(osInfo)
-	case "Windows":
-		fallthrough
-	case "compatible":
+	case "compatible", "Windows":
 		regVersion, _ := regexp.Compile(`(?:(Windows NT [\d\.]+)|(Windows Phone( OS)? [\d\.]+))`)
 		agent.OS_Name = regVersion.FindString(osInfo)
 	case "PlayBook":
