@@ -10,15 +10,15 @@ import (
 )
 
 type UserAgent struct {
-	Agent_Type             string // brower
+	Agent_Type             string // brower (mobile)
 	Agent_Name             string // chrome
 	Agent_Version          string // 50.0.2661.86
-	Agent_Rendering_Engine string // Macintosh
+	Agent_Rendering_Engine string // Webkit
+	Agent_Producer         string // 生产者
+	Agent_Producer_Url     string // 网址
 	OS_Type                string // OS X
-	OS_Name                string // iPhone OS 10_6_6
+	OS_Name                string // iPhone OS 10.6.6
 	OS_Language            string // en-US
-	OS_Producer            string // 生产者
-	OS_Producer_Url        string // 网址
 	OS_Encryption          string // 加密等级  N无   I弱   U强
 	Device_Type            string // mobile
 	Device_Model           string //
@@ -110,7 +110,7 @@ func ParseByString(useragent string) *UserAgent {
 	agent.Agent_Name = Name
 	agent.Agent_Version = Version
 	agent.Agent_Rendering_Engine = GetEngine(agent.Agent_Type, Name)
-	agent.OS_Producer = GetProducer(Name)
+	agent.Agent_Producer = GetProducer(Name)
 	return agent
 }
 
