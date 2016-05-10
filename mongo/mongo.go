@@ -54,6 +54,16 @@ func KeyIsExsit(db, collection, key, value string) bool {
 	return false
 }
 
+func IsEmpty(db, collection string) bool {
+	ms, c := Connect(db, collection)
+	defer ms.Close()
+	count, err := c.Count()
+	if err != nil {
+		log.Error(err)
+	}
+	return count == 0
+}
+
 func Insert(db, collection string, docs interface{}) error {
 	ms, c := Connect(db, collection)
 	defer ms.Close()
@@ -78,6 +88,13 @@ func FindAll(db, collection string, selector, result interface{}) error {
 func FindIter(db, collection string, selector interface{}) (*mgo.Iter, *mgo.Session) {
 	ms, c := Connect(db, collection)
 	return c.Find(selector).Iter(), ms
+}
+
+func Count(db, collection string, query interface{}) (int, error) {
+	ms, c := Connect(db, collection)
+	defer ms.Close()
+
+	return c.Find(query).Count()
 }
 
 func Update(db, collection string, selector, update interface{}) error {
