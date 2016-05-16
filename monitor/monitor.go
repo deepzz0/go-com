@@ -31,6 +31,7 @@ func (hooks exitHooks) exec() {
 		log.Printf("safeexit hook (%s) exec cost: %v\n", hook.Name, time.Now().Sub(hbt))
 	}
 	log.Printf("\033[043;1m[SECURE EXIT]\033[0m cost: %v\n", time.Now().Sub(bt))
+	time.Sleep(5 * time.Millisecond) // wait log flush
 	os.Exit(0)
 }
 

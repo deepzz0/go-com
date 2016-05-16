@@ -1,7 +1,6 @@
 package log
 
 import (
-	"bytes"
 	"fmt"
 	"io"
 	"os"
@@ -14,6 +13,7 @@ import (
 const (
 	Ldebug = iota
 	Linfo
+	Lwarn
 	Lerror
 	Lfatal
 )
@@ -21,68 +21,44 @@ const (
 var levels = []string{
 	"DEBUG",
 	"INFO",
+	"WARN",
 	"ERROR",
 	"FATAL",
-}
-
-var SID = 0
-
-func SetSID(sid int) {
-	SID = sid
 }
 
 type Logger struct {
 	mu         sync.Mutex
 	Level      int
 	out        io.Writer
-	buf        bytes.Buffer
+	in         chan string
+	filepath   string
 	enableMail bool
 }
 
 func New(out io.Writer) *Logger {
-	return &Logger{out: out}
+	logger := &Logger{out: out, in: make(chan string, 100)}
+	go logger.timer()
+	return logger
 }
 
-var Std = New(os.Stdout)
+var file *os.File
+var err error
 
-func splitOf(file string) (module string, shortfile string) {
-	module = "_unknown_"
-	pos := strings.LastIndex(file, "/")
-	shortfile = file[pos+1:]
-	if pos != -1 {
-		pos1 := strings.LastIndex(file[:pos], "/src/")
-		if pos1 != -1 {
-			module = file[pos1+5 : pos]
+func (l *Logger) timer() {
+	now := time.Now()
+	for {
+		str := <-l.in
+		if l.filepath != "" {
+			if file == nil || now.Day() != time.Now().Day() {
+				now = time.Now()
+				file, err = os.OpenFile(fmt.Sprintf("%s/%s.log", l.filepath, now.Format("2006-01-02")), os.O_CREATE|os.O_APPEND|os.O_RDWR, os.ModePerm)
+				if err != nil {
+					panic(err)
+				}
+			}
+			file.WriteString(str)
 		}
-	}
-	return
-}
-
-const (
-	Gray = uint8(iota + 90)
-	Red
-	Green
-	Yellow
-	Blue
-	Magenta
-	//NRed      = uint8(31) // Normal
-	EndColor = "\033[0m"
-)
-
-// getColorLevel returns colored level string by given level.
-func getColorLevel(level string) string {
-	level = strings.ToUpper(level)
-	switch level {
-	case "DEBUG":
-		return fmt.Sprintf("\033[%dm%s\033[0m", Green, level)
-	case "INFO":
-		return fmt.Sprintf("\033[%dm%s\033[0m", Blue, level)
-	case "ERROR":
-		return fmt.Sprintf("\033[%dm%s\033[0m", Yellow, level)
-	case "FATAL":
-		return fmt.Sprintf("\033[%dm%s\033[0m", Red, level)
-	default:
-		return level
+		l.out.Write([]byte(str))
 	}
 }
 
@@ -111,28 +87,11 @@ func (l *Logger) Output(lvl int, calldepth int, content string) error {
 
 	l.mu.Lock()
 	defer l.mu.Unlock()
-
-	l.buf.Reset()
-	l.buf.WriteString(s)
 	if s[len(s)-1] != '\n' {
-		l.buf.WriteByte('\n')
+		s += "\n"
 	}
-
-	_, err := l.out.Write(l.buf.Bytes())
-	if err != nil {
-		return err
-	}
-
+	l.in <- s
 	return nil
-}
-
-func smartFormat(v ...interface{}) string {
-	format := ""
-	for i := 0; i < len(v); i++ {
-		format += " %v"
-	}
-	format += "\n"
-	return format
 }
 
 // print
@@ -201,6 +160,10 @@ func (l *Logger) Breakpoint() {
 	l.Output(Ldebug, 3, fmt.Sprintln("breakpoint"))
 }
 
+func (l *Logger) SetFilePath(path string) {
+	l.filepath = path
+}
+
 // set output
 func (l *Logger) SetLevel(lvl int) {
 	l.mu.Lock()
@@ -212,7 +175,10 @@ func (l *Logger) SetEnableMail(v bool) {
 	l.enableMail = v
 }
 
+////////////////////////////////////////////////////////////////////////////////////////////
 // standard wrapper
+var Std = New(os.Stdout)
+
 func Printf(format string, v ...interface{}) {
 	Std.Output(Linfo, 2, fmt.Sprintf(format, v...))
 }
@@ -241,7 +207,6 @@ func Errorf(format string, v ...interface{}) {
 	body := fmt.Sprintf(format, v...)
 	Std.Output(Lerror, 2, body)
 	if Std.enableMail {
-		// subject := fmt.Sprintf("server [%d] error", SID)
 		// go sendMail(subject, body+"\n\n"+CallerStack())
 	}
 }
@@ -249,9 +214,7 @@ func Errorf(format string, v ...interface{}) {
 func Error(v ...interface{}) {
 	body := fmt.Sprintf(smartFormat(v...), v...)
 	Std.Output(Lerror, 2, body+"\n"+CallerStack())
-	// Std.Output(Lerror, 2, body)
 	if Std.enableMail {
-		// subject := fmt.Sprintf("server [%d] error", SID)
 		// go sendMail(subject, body+"\n\n"+CallerStack())
 	}
 }
@@ -282,6 +245,10 @@ func SetLevel(lvl int) {
 	Std.Level = lvl
 }
 
+func SetFilePath(path string) {
+	Std.SetFilePath(path)
+}
+
 func SetOutput(w io.Writer) {
 	Std.mu.Lock()
 	defer Std.mu.Unlock()
@@ -290,6 +257,59 @@ func SetOutput(w io.Writer) {
 
 func SetEnableMail(v bool) {
 	Std.SetEnableMail(v)
+}
+
+///////////////////////////////////////////////////////////////////////////////////////////
+func smartFormat(v ...interface{}) string {
+	format := ""
+	for i := 0; i < len(v); i++ {
+		format += " %v"
+	}
+	format += "\n"
+	return format
+}
+
+func splitOf(file string) (module string, shortfile string) {
+	module = "_unknown_"
+	pos := strings.LastIndex(file, "/")
+	shortfile = file[pos+1:]
+	if pos != -1 {
+		pos1 := strings.LastIndex(file[:pos], "/src/")
+		if pos1 != -1 {
+			module = file[pos1+5 : pos]
+		}
+	}
+	return
+}
+
+const (
+	Gray = uint8(iota + 90)
+	Red
+	Green
+	Yellow
+	Blue
+	Magenta
+	//NRed      = uint8(31) // Normal
+	EndColor = "\033[0m"
+)
+
+// getColorLevel returns colored level string by given level.
+func getColorLevel(level string) string {
+	level = strings.ToUpper(level)
+	switch level {
+	case "DEBUG":
+		return fmt.Sprintf("\033[%dm%s\033[0m", Green, level)
+	case "INFO":
+		return fmt.Sprintf("\033[%dm%s\033[0m", Blue, level)
+	case "WARN":
+		return fmt.Sprintf("\033[%dm%s\033[0m", Magenta, level)
+	case "ERROR":
+		return fmt.Sprintf("\033[%dm%s\033[0m", Yellow, level)
+	case "FATAL":
+		return fmt.Sprintf("\033[%dm%s\033[0m", Red, level)
+	default:
+		return level
+	}
 }
 
 func CallerStack() string {
