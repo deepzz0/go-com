@@ -1,9 +1,9 @@
 # go-com
 ###一些常用到的工具
 
-1. archive：常见的压缩解压所工具，aes、crypto、des、rsa
+1. archive：常见的压缩解压所工具
 2. cmd：命令工具，比较简单的封装
-3. crypto：加密解压工具
+3. crypto：加密解压工具，aes、crypto、des、rsa
 4. dir：与目录处理相关的工具，如列出文件列表，复制文件文件夹，或取文件大小，写入文件等
 5. dockerm：docker管理用具(用到etcd),暂未开源
 6. log：日志相关，打印log
