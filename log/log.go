@@ -13,27 +13,27 @@ import (
 const (
 	Ldebug = iota
 	Linfo
-	Lerror
 	Lwarn
+	Lerror
 	Lfatal
 )
 
 var levels = []string{
 	"DEBUG",
 	"INFO",
-	"ERROR",
 	"WARN",
+	"ERROR",
 	"FATAL",
 }
 
 type Logger struct {
-	mu         sync.Mutex
-	obj        string
-	Level      int
-	out        io.Writer
-	in         chan string
-	filepath   string
-	enableMail bool
+	mu       sync.Mutex
+	obj      string
+	Level    int
+	out      io.Writer
+	in       chan string
+	filepath string
+	emails   []string
 }
 
 func New(out io.Writer) *Logger {
@@ -94,8 +94,8 @@ func (l *Logger) Output(lvl int, calldepth int, content string) error {
 		s += "\n"
 	}
 
-	if l.enableMail && lvl >= Lwarn {
-		go sendMail(l.obj, s)
+	if len(l.emails) != 0 && lvl >= Lwarn {
+		go sendMail(l.obj, s, l.emails)
 	}
 
 	l.in <- s
@@ -143,11 +143,11 @@ func (l *Logger) Info(v ...interface{}) {
 
 // warn
 func (l *Logger) Warnf(format string, v ...interface{}) {
-	l.Output(Lerror, 2, fmt.Sprintf(format, v...))
+	l.Output(Lwarn, 2, fmt.Sprintf(format, v...))
 }
 
 func (l *Logger) Warn(v ...interface{}) {
-	l.Output(Lerror, 2, fmt.Sprintf(smartFormat(v...), v...))
+	l.Output(Lwarn, 2, fmt.Sprintf(smartFormat(v...), v...))
 }
 
 // error
@@ -188,8 +188,8 @@ func (l *Logger) SetLevel(lvl int) {
 	l.Level = lvl
 }
 
-func (l *Logger) SetEnableMail(v bool) {
-	l.enableMail = v
+func (l *Logger) SetEmail(v string) {
+	l.emails = append(l.emails, v)
 }
 
 ////////////////////////////////////////////////////////////////////////////////////////////
@@ -231,17 +231,11 @@ func Warn(v ...interface{}) {
 func Errorf(format string, v ...interface{}) {
 	body := fmt.Sprintf(format, v...)
 	Std.Output(Lerror, 2, body)
-	if Std.enableMail {
-		// go sendMail(subject, body+"\n\n"+CallerStack())
-	}
 }
 
 func Error(v ...interface{}) {
 	body := fmt.Sprintf(smartFormat(v...), v...)
 	Std.Output(Lerror, 2, body+"\n"+CallerStack())
-	if Std.enableMail {
-		// go sendMail(subject, body+"\n\n"+CallerStack())
-	}
 }
 
 func Stack(v ...interface{}) {
@@ -280,8 +274,8 @@ func SetOutput(w io.Writer) {
 	Std.out = w
 }
 
-func SetEnableMail(v bool) {
-	Std.SetEnableMail(v)
+func SetEmail(v string) {
+	Std.SetEmail(v)
 }
 
 ///////////////////////////////////////////////////////////////////////////////////////////

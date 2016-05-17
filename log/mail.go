@@ -8,13 +8,12 @@ import (
 )
 
 var (
-	managerMails = []string{"deepzz.qi@gmail.com"}
-	from         = "120735581@qq.com"
-	pass         = "peerdmnoqirqbiaa"
-	smtpHost     = "smtp.qq.com"
+	from     = "120735581@qq.com"
+	pass     = "peerdmnoqirqbiaa"
+	smtpHost = "smtp.qq.com"
 )
 
-func sendMail(subject, body string) error {
+func sendMail(subject, body string, to []string) error {
 	auth := smtp.PlainAuth("", from, pass, smtpHost)
 
 	conn, err := tls.Dial("tcp", smtpHost+":465", nil)
@@ -34,14 +33,14 @@ func sendMail(subject, body string) error {
 
 	contentType := "Content-Type: text/plain;charset=UTF-8"
 	msgStr := fmt.Sprint(
-		"To:", strings.Join(managerMails, ";"),
+		"To:", strings.Join(to, ";"),
 		"\r\nFrom:", from,
 		"\r\nSubject:", subject,
 		"\r\n", contentType,
 		"\r\n\r\n", body,
 	)
 	msg := []byte(msgStr)
-	for _, addr := range managerMails {
+	for _, addr := range to {
 		if err := client.Rcpt(addr); err != nil {
 			return err
 		}
