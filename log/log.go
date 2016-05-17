@@ -13,21 +13,22 @@ import (
 const (
 	Ldebug = iota
 	Linfo
-	Lwarn
 	Lerror
+	Lwarn
 	Lfatal
 )
 
 var levels = []string{
 	"DEBUG",
 	"INFO",
-	"WARN",
 	"ERROR",
+	"WARN",
 	"FATAL",
 }
 
 type Logger struct {
 	mu         sync.Mutex
+	obj        string
 	Level      int
 	out        io.Writer
 	in         chan string
@@ -36,7 +37,9 @@ type Logger struct {
 }
 
 func New(out io.Writer) *Logger {
-	logger := &Logger{out: out, in: make(chan string, 100)}
+	wd, _ := os.Getwd()
+	tmp := strings.Split(wd, "/")
+	logger := &Logger{obj: tmp[len(tmp)-1], out: out, in: make(chan string, 100)}
 	go logger.timer()
 	return logger
 }
@@ -90,6 +93,11 @@ func (l *Logger) Output(lvl int, calldepth int, content string) error {
 	if s[len(s)-1] != '\n' {
 		s += "\n"
 	}
+
+	if l.enableMail && lvl >= Lwarn {
+		go sendMail(l.obj, s)
+	}
+
 	l.in <- s
 	return nil
 }
@@ -131,6 +139,15 @@ func (l *Logger) Info(v ...interface{}) {
 		return
 	}
 	l.Output(Linfo, 2, fmt.Sprintf(smartFormat(v...), v...))
+}
+
+// warn
+func (l *Logger) Warnf(format string, v ...interface{}) {
+	l.Output(Lerror, 2, fmt.Sprintf(format, v...))
+}
+
+func (l *Logger) Warn(v ...interface{}) {
+	l.Output(Lerror, 2, fmt.Sprintf(smartFormat(v...), v...))
 }
 
 // error
@@ -201,6 +218,14 @@ func Infof(format string, v ...interface{}) {
 
 func Info(v ...interface{}) {
 	Std.Output(Linfo, 2, fmt.Sprintf(smartFormat(v...), v...))
+}
+
+func Warnf(format string, v ...interface{}) {
+	Std.Output(Lwarn, 2, fmt.Sprintf(format, v...))
+}
+
+func Warn(v ...interface{}) {
+	Std.Output(Lwarn, 2, fmt.Sprintf(smartFormat(v...), v...))
 }
 
 func Errorf(format string, v ...interface{}) {

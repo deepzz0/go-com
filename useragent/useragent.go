@@ -33,6 +33,10 @@ func ParseByString(useragent string) *UserAgent {
 	}
 	reg, _ := regexp.Compile(`\(.*\)`)
 	index := reg.FindStringIndex(useragent)
+	if len(index) < 2 {
+		log.Warn(useragent)
+		return agent
+	}
 	osInfo := useragent[index[0]:index[1]]
 	slice := strings.Split(osInfo, ";")
 	agent.OS_Type = slice[0][1:len(slice[0])]
