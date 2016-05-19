@@ -1,0 +1,47 @@
+[
+    {
+        "Producer": "Archos",
+        "Regex": "Archos.*GAMEPAD([2]?)",
+        "Model": "Gamepad $1",
+        "Models": null
+    },
+    {
+        "Producer": "Microsoft",
+        "Regex": "Xbox",
+        "Model": "",
+        "Models": [
+            {
+                "Regex": "Xbox One",
+                "Model": "Xbox One"
+            },
+            {
+                "Regex": "Xbox",
+                "Model": "Xbox 360"
+            }
+        ]
+    },
+    {
+        "Producer": "Nintendo",
+        "Regex": "Nintendo (([3]?DS[i]?)|Wii[U]?)",
+        "Model": "$1",
+        "Models": null
+    },
+    {
+        "Producer": "OUYA",
+        "Regex": "OUYA",
+        "Model": "OUYA",
+        "Models": null
+    },
+    {
+        "Producer": "Sega",
+        "Regex": "Dreamcast",
+        "Model": "Dreamcast",
+        "Models": null
+    },
+    {
+        "Producer": "Sony",
+        "Regex": "PlayStation (3|4|Portable|Vita)",
+        "Model": "PlayStation $1",
+        "Models": null
+    }
+]

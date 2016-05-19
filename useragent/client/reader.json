@@ -1,0 +1,114 @@
+[
+    {
+        "Regex": "Akregator(?:/(\\d+[\\.\\d]+))?",
+        "Name": "Akregator",
+        "Version": "$1",
+        "URL": "http://userbase.kde.org/Akregator",
+        "Type": "Feed Reader"
+    },
+    {
+        "Regex": "Apple-PubSub(?:/(\\d+[\\.\\d]+))?",
+        "Name": "Apple PubSub",
+        "Version": "$1",
+        "URL": "https://developer.apple.com/library/mac/documentation/Darwin/Reference/ManPages/man1/pubsub.1.html",
+        "Type": "Feed Reader"
+    },
+    {
+        "Regex": "FeedDemon(?:/(\\d+[\\.\\d]+))?",
+        "Name": "FeedDemon",
+        "Version": "$1",
+        "URL": "http://www.feeddemon.com/",
+        "Type": "Feed Reader"
+    },
+    {
+        "Regex": "Feeddler(?:RSS|PRO)(?:[/ ](\\d+[\\.\\d]+))?",
+        "Name": "Feeddler RSS Reader",
+        "Version": "$1",
+        "URL": "http://www.chebinliu.com/projects/iphone/feeddler-rss-reader/",
+        "Type": "Feed Reader App"
+    },
+    {
+        "Regex": "JetBrains Omea Reader(?:[/ ](\\d+[\\.\\d]+))?",
+        "Name": "JetBrains Omea Reader",
+        "Version": "$1",
+        "URL": "http://www.jetbrains.com/omea/reader/",
+        "Type": "Feed Reader"
+    },
+    {
+        "Regex": "Liferea(?:[/ ](\\d+[\\.\\d]+))?",
+        "Name": "Liferea",
+        "Version": "$1",
+        "URL": "http://liferea.sf.net/",
+        "Type": "Feed Reader"
+    },
+    {
+        "Regex": "NetNewsWire(?:[/ ](\\d+[\\.\\d]+))?",
+        "Name": "NetNewsWire",
+        "Version": "$1",
+        "URL": "http://netnewswireapp.com/",
+        "Type": "Feed Reader"
+    },
+    {
+        "Regex": "NewsBlur (?:iPhone|iPad) App(?: v(\\d+[\\.\\d]+))?",
+        "Name": "NewsBlur Mobile App",
+        "Version": "$1",
+        "URL": "http://www.newsblur.com",
+        "Type": "Feed Reader App"
+    },
+    {
+        "Regex": "NewsBlur(?:/(\\d+[\\.\\d]+))",
+        "Name": "NewsBlur",
+        "Version": "$1",
+        "URL": "http://www.newsblur.com",
+        "Type": "Feed Reader"
+    },
+    {
+        "Regex": "newsbeuter(?:[/ ](\\d+[\\.\\d]+))?",
+        "Name": "Newsbeuter",
+        "Version": "$1",
+        "URL": "http://www.newsbeuter.org/",
+        "Type": "Feed Reader"
+    },
+    {
+        "Regex": "Pulp(?:[/ ](\\d+[\\.\\d]+))?",
+        "Name": "Pulp",
+        "Version": "$1",
+        "URL": "http://www.acrylicapps.com/pulp/",
+        "Type": "Feed Reader App"
+    },
+    {
+        "Regex": "ReadKit(?:[/ ](\\d+[\\.\\d]+))?",
+        "Name": "ReadKit",
+        "Version": "$1",
+        "URL": "http://readkitapp.com/",
+        "Type": "Feed Reader App"
+    },
+    {
+        "Regex": "Reeder(?:[/ ](\\d+[\\.\\d]+))?",
+        "Name": "Reeder",
+        "Version": "$1",
+        "URL": "http://reederapp.com/",
+        "Type": "Feed Reader App"
+    },
+    {
+        "Regex": "RSSBandit(?:[/ ](\\d+[\\.\\d]+))?",
+        "Name": "RSS Bandit",
+        "Version": "$1",
+        "URL": "http://www.rssbandit.org",
+        "Type": "Feed Reader"
+    },
+    {
+        "Regex": "RSS Junkie(?:[/ ](\\d+[\\.\\d]+))?",
+        "Name": "RSS Junkie",
+        "Version": "$1",
+        "URL": "https://play.google.com/store/apps/details?id=com.bitpowder.rssjunkie",
+        "Type": "Feed Reader App"
+    },
+    {
+        "Regex": "RSSOwl(?:[/ ](\\d+[\\.\\d]+))?",
+        "Name": "RSSOwl",
+        "Version": "$1",
+        "URL": "http://www.rssowl.org/",
+        "Type": "Feed Reader"
+    }
+]

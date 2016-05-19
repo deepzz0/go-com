@@ -1,0 +1,92 @@
+[
+    {
+        "Regex": "Banshee(?:[ /]([\\d\\.]+))?",
+        "Name": "Banshee",
+        "Version": "$1"
+    },
+    {
+        "Regex": "Clementine(?:[ /]([\\d\\.]+))?",
+        "Name": "Clementine",
+        "Version": "$1"
+    },
+    {
+        "Regex": "iTunes(?:/([\\d\\.]+))?",
+        "Name": "iTunes",
+        "Version": "$1"
+    },
+    {
+        "Regex": "FlyCast(?:/([\\d\\.]+))?",
+        "Name": "FlyCast",
+        "Version": "$1"
+    },
+    {
+        "Regex": "MediaMonkey(?:[ /](\\d+[\\.\\d]+))?",
+        "Name": "MediaMonkey",
+        "Version": "$1"
+    },
+    {
+        "Regex": "Miro(?:/(\\d+[\\.\\d]+))?",
+        "Name": "Miro",
+        "Version": "$1"
+    },
+    {
+        "Regex": "NexPlayer(?:/(\\d+[\\.\\d]+))?",
+        "Name": "NexPlayer",
+        "Version": "$1"
+    },
+    {
+        "Regex": "Nightingale(?:/([\\d\\.]+))?",
+        "Name": "Nightingale",
+        "Version": "$1"
+    },
+    {
+        "Regex": "QuickTime(?:(?:(?:.+qtver=)|(?:(?: E-)?[\\./]))([\\d\\.]+))?",
+        "Name": "QuickTime",
+        "Version": "$1"
+    },
+    {
+        "Regex": "Songbird(?:/([\\d\\.]+))?",
+        "Name": "Songbird",
+        "Version": "$1"
+    },
+    {
+        "Regex": "SubStream(?:/([\\d\\.]+))?",
+        "Name": "SubStream",
+        "Version": "$1"
+    },
+    {
+        "Regex": "VLC(?:/([\\d\\.]+))?",
+        "Name": "VLC",
+        "Version": "$1"
+    },
+    {
+        "Regex": "Winamp(?:MPEG)?(?:/(\\d+[\\.\\d]+))?",
+        "Name": "Winamp",
+        "Version": "$1"
+    },
+    {
+        "Regex": "Windows-Media-Player(?:/(\\d+[\\.\\d]+))?",
+        "Name": "Windows Media Player",
+        "Version": "$1"
+    },
+    {
+        "Regex": "XBMC(?:/([\\d\\.]+))?",
+        "Name": "XBMC",
+        "Version": "$1"
+    },
+    {
+        "Regex": "Kodi(?:/([\\d\\.]+))?",
+        "Name": "Kodi",
+        "Version": "$1"
+    },
+    {
+        "Regex": "stagefright(?:/([\\d\\.]+))?",
+        "Name": "Stagefright",
+        "Version": "$1"
+    },
+    {
+        "Regex": "Instacast\\/([\\d\\.]+) CFNetwork\\/([\\d\\.]+)",
+        "Name": "Instacast",
+        "Version": "$1"
+    }
+]

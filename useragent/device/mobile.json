@@ -1,0 +1,4680 @@
+[
+    {
+        "Producer": "'Tunisie Telecom'",
+        "Regex": "StarTrail TT Build",
+        "Model": "StarTrail",
+        "Models": null
+    },
+    {
+        "Producer": "SFR",
+        "Regex": "StarShine|StarTrail|STARADDICT|StarText|StarNaute|StarXtrem|StarTab",
+        "Model": "",
+        "Models": [
+            {
+                "Regex": "StarXtrem Build",
+                "Model": "StarXtrem"
+            },
+            {
+                "Regex": "StarTrail Build",
+                "Model": "StarTrail"
+            },
+            {
+                "Regex": "StarTrail II Build",
+                "Model": "StarTrail 2"
+            },
+            {
+                "Regex": "StarTrail III Build",
+                "Model": "StarTrail 3"
+            },
+            {
+                "Regex": "StarTrail ?4 Build",
+                "Model": "StarTrail 4"
+            },
+            {
+                "Regex": "StarShine Build",
+                "Model": "StarShine"
+            },
+            {
+                "Regex": "StarShine II Build",
+                "Model": "StarShine 2"
+            },
+            {
+                "Regex": "STARADDICT Build",
+                "Model": "Staraddict"
+            },
+            {
+                "Regex": "STARADDICT II Build",
+                "Model": "Staraddict 2"
+            },
+            {
+                "Regex": "STARADDICT II Plus Build",
+                "Model": "Staraddict 2 Plus"
+            },
+            {
+                "Regex": "STARADDICT III Build",
+                "Model": "Staraddict 3"
+            },
+            {
+                "Regex": "StarText Build",
+                "Model": "StarText"
+            },
+            {
+                "Regex": "StarText II Build",
+                "Model": "StarText 2"
+            },
+            {
+                "Regex": "StarNaute Build",
+                "Model": "StarNaute"
+            },
+            {
+                "Regex": "StarNaute II Build",
+                "Model": "StarNaute 2"
+            },
+            {
+                "Regex": "StarTab",
+                "Model": "StarTab"
+            },
+            {
+                "Regex": "((?:StarShine|StarTrail|STARADDICT|StarText|StarNaute|StarXtrem)[^;/]*) Build",
+                "Model": "$1"
+            }
+        ]
+    },
+    {
+        "Producer": "HTC",
+        "Regex": "HTC|Sprint (?:APA|ATP)|ADR(?:910L)[a-z0-9]+|NexusHD2|Amaze[ _]4G Build|(Desire|Sensation|Evo ?3D)[ _]?([^;/]+) Build|(Amaze[ _]4G|One ?[XELSV\\+]+) Build|SPV E6[05]0",
+        "Model": "",
+        "Models": [
+            {
+                "Regex": "ADR6300",
+                "Model": "Droid Incredible"
+            },
+            {
+                "Regex": "ADR6400L",
+                "Model": "ThunderBolt"
+            },
+            {
+                "Regex": "ADR6410LRA",
+                "Model": "Droid Incredible 3"
+            },
+            {
+                "Regex": "SPV E600",
+                "Model": "Excalibur"
+            },
+            {
+                "Regex": "SPV E650",
+                "Model": "Vox"
+            },
+            {
+                "Regex": "NexusHD2 # custom rom for hd2",
+                "Model": "HD2"
+            },
+            {
+                "Regex": "HTC[ _\\-]((?:Flyer|P715a).*) Build",
+                "Model": "$1"
+            },
+            {
+                "Regex": "HTC[ _\\-]One[ _\\-]max Build",
+                "Model": "One max"
+            },
+            {
+                "Regex": "HTC[ _]([^/;]+) [0-9]+(?:\\.[0-9]+)+ Build",
+                "Model": "$1"
+            },
+            {
+                "Regex": "HTC[ _]([^/;]+) Build",
+                "Model": "$1"
+            },
+            {
+                "Regex": "HTC[ _]([a-z0-9]+[ _\\-]?(?:[a-z0-9_+\\-])*)",
+                "Model": "$1"
+            },
+            {
+                "Regex": "USCCHTC(\\d+)",
+                "Model": "$1"
+            },
+            {
+                "Regex": "Sprint (ATP.*) Build",
+                "Model": "$1 (Sprint)"
+            },
+            {
+                "Regex": "Sprint (APA.*) Build",
+                "Model": "$1 (Sprint)"
+            },
+            {
+                "Regex": "HTC(?:[\\-/ ])?([a-z0-9\\-_]+)",
+                "Model": "$1"
+            },
+            {
+                "Regex": "HTC;(?: )?([a-z0-9 ]+)",
+                "Model": "$1"
+            },
+            {
+                "Regex": "(Desire|Sensation|Evo ?3D)[ _]?([^;/]+) Build",
+                "Model": "$1 $2"
+            },
+            {
+                "Regex": "(Amaze[ _]4G|One ?[XELSV\\+]*) Build",
+                "Model": "$1"
+            },
+            {
+                "Regex": "(ADR.+) Build",
+                "Model": "$1"
+            },
+            {
+                "Regex": "(ADR[a-z0-9]+)",
+                "Model": "$1"
+            }
+        ]
+    },
+    {
+        "Producer": "Nokia",
+        "Regex": "Nokia|Lumia|Maemo RX|portalmmm/2\\.0 N7|portalmmm/2\\.0 NK|nok[0-9]+|Symbian.*\\s([a-z0-9]+)$",
+        "Model": "",
+        "Models": [
+            {
+                "Regex": "Nokia(N[0-9]+)",
+                "Model": "$1"
+            },
+            {
+                "Regex": "Nokia-([a-z0-9]+)",
+                "Model": "N$1"
+            },
+            {
+                "Regex": "NOKIA; ([a-z0-9\\- ]+)",
+                "Model": "$1"
+            },
+            {
+                "Regex": "NOKIA[ _]?([a-z0-9\\-]+)",
+                "Model": "$1"
+            },
+            {
+                "Regex": "NOKIA/([a-z0-9 ]+)",
+                "Model": "$1"
+            },
+            {
+                "Regex": "(Lumia [a-z0-9\\-]+ XL)",
+                "Model": "$1"
+            },
+            {
+                "Regex": "(Lumia [a-z0-9\\-]+)",
+                "Model": "$1"
+            },
+            {
+                "Regex": "Maemo RX-51 ([a-z0-9]+)",
+                "Model": "$1"
+            },
+            {
+                "Regex": "Maemo RX-34",
+                "Model": "N800"
+            },
+            {
+                "Regex": "NokiaInternal|Nokia-WAP-Toolkit|Nokia-MIT-Browser|Nokia Mobile|Nokia Browser|Nokia/Series",
+                "Model": ""
+            },
+            {
+                "Regex": "portalmmm/2\\.0 (N7[37]|NK[a-z0-9]+)",
+                "Model": "$1"
+            },
+            {
+                "Regex": "nok([0-9]+)",
+                "Model": "$1"
+            },
+            {
+                "Regex": "Symbian.*\\s([a-z0-9]+)$",
+                "Model": "$1"
+            }
+        ]
+    },
+    {
+        "Producer": "CnM",
+        "Regex": "CnM",
+        "Model": "",
+        "Models": [
+            {
+                "Regex": "CnM[ \\-](?:Touchpad|TP)[ \\-]([0-9\\.]+)",
+                "Model": "Touchpad $1"
+            }
+        ]
+    },
+    {
+        "Producer": "RIM",
+        "Regex": "BB10;|BlackBerry|rim[0-9]+|PlayBook",
+        "Model": "",
+        "Models": [
+            {
+                "Regex": "BB10; ([a-z0-9\\- ]+)\\)",
+                "Model": "BlackBerry $1"
+            },
+            {
+                "Regex": "PlayBook.+RIM Tablet OS",
+                "Model": "BlackBerry Playbook"
+            },
+            {
+                "Regex": "BlackBerry(?: )?([a-z0-9]+)",
+                "Model": "BlackBerry $1"
+            },
+            {
+                "Regex": "rim([0-9]+)",
+                "Model": "BlackBerry $1"
+            },
+            {
+                "Regex": "BlackBerry",
+                "Model": "BlackBerry"
+            }
+        ]
+    },
+    {
+        "Producer": "Palm",
+        "Regex": "(?:Pre|Pixi)/(\\d+)\\.(\\d+)|Palm|Treo|Xiino",
+        "Model": "",
+        "Models": [
+            {
+                "Regex": "((?:Pre|Pixi))/(\\d+\\.\\d+)",
+                "Model": "$1 $2"
+            },
+            {
+                "Regex": "Palm(?:[ \\-])?((?:OS|Source)[a-z0-9]+)",
+                "Model": "$1"
+            },
+            {
+                "Regex": "Treo([a-z0-9]+)",
+                "Model": "Treo $1"
+            },
+            {
+                "Regex": "Tungsten",
+                "Model": "Tungsten"
+            },
+            {
+                "Regex": "Xiino # Browser for Palm OS only",
+                "Model": ""
+            }
+        ]
+    },
+    {
+        "Producer": "HP",
+        "Regex": "TouchPad/\\d+\\.\\d+|hp-tablet|HP ?iPAQ|webOS.*P160U|HP Slate|HP [78]",
+        "Model": "",
+        "Models": [
+            {
+                "Regex": "HP ([78][^/;]*) Build",
+                "Model": "Slate $1"
+            },
+            {
+                "Regex": "HP Slate ?(.+) Build",
+                "Model": "Slate $1"
+            },
+            {
+                "Regex": "HP Slate ?([0-9]+)",
+                "Model": "Slate $1"
+            },
+            {
+                "Regex": "TouchPad/(\\d+\\.\\d+)|hp-tablet",
+                "Model": "TouchPad"
+            },
+            {
+                "Regex": "HP(?: )?iPAQ(?: )?([a-z0-9]+)",
+                "Model": "iPAQ $1"
+            },
+            {
+                "Regex": "webOS.*(P160U)",
+                "Model": "Veer"
+            }
+        ]
+    },
+    {
+        "Producer": "TiPhone",
+        "Regex": "TiPhone ?([a-z0-9]+)",
+        "Model": "$1",
+        "Models": null
+    },
+    {
+        "Producer": "Apple",
+        "Regex": "AppleTV|(?:Apple-)?(?:iPad|iPhone)",
+        "Model": "",
+        "Models": [
+            {
+                "Regex": "(?:Apple-)?iPhone1[C,]1",
+                "Model": "iPhone"
+            },
+            {
+                "Regex": "(?:Apple-)?iPhone1[C,]2",
+                "Model": "iPhone 3G"
+            },
+            {
+                "Regex": "(?:Apple-)?iPhone2[C,]1",
+                "Model": "iPhone 3GS"
+            },
+            {
+                "Regex": "(?:Apple-)?iPhone3[C,][123]",
+                "Model": "iPhone 4"
+            },
+            {
+                "Regex": "(?:Apple-)?iPhone4[C,]1",
+                "Model": "iPhone 4S"
+            },
+            {
+                "Regex": "(?:Apple-)?iPhone5[C,][12]",
+                "Model": "iPhone 5"
+            },
+            {
+                "Regex": "(?:Apple-)?iPhone5[C,][34]",
+                "Model": "iPhone 5C"
+            },
+            {
+                "Regex": "(?:Apple-)?iPhone6[C,][12]",
+                "Model": "iPhone 5S"
+            },
+            {
+                "Regex": "(?:Apple-)?iPhone7[C,]1",
+                "Model": "iPhone 6 Plus"
+            },
+            {
+                "Regex": "(?:Apple-)?iPhone7[C,]2",
+                "Model": "iPhone 6"
+            },
+            {
+                "Regex": "(?:Apple-)?iPad1[C,]1",
+                "Model": "iPad"
+            },
+            {
+                "Regex": "(?:Apple-)?iPad2[C,][1234]",
+                "Model": "iPad 2"
+            },
+            {
+                "Regex": "(?:Apple-)?iPad2[C,][567]",
+                "Model": "iPad Mini"
+            },
+            {
+                "Regex": "(?:Apple-)?iPad3[C,][123]",
+                "Model": "iPad 3"
+            },
+            {
+                "Regex": "(?:Apple-)?iPad3[C,][456]",
+                "Model": "iPad 4"
+            },
+            {
+                "Regex": "(?:Apple-)?iPad4[C,][123]",
+                "Model": "iPad Air"
+            },
+            {
+                "Regex": "(?:Apple-)?iPad4[C,][456]",
+                "Model": "iPad Mini 2"
+            },
+            {
+                "Regex": "(?:Apple-)?iPad4[C,][789]",
+                "Model": "iPad Mini 3"
+            },
+            {
+                "Regex": "(?:Apple-)?iPad5[C,][34]",
+                "Model": "iPad Air 2"
+            },
+            {
+                "Regex": "AppleTV",
+                "Model": "Apple TV"
+            },
+            {
+                "Regex": "(?:Apple-)?iPad",
+                "Model": "iPad"
+            },
+            {
+                "Regex": "(?:Apple-)?iPhone ?(3GS?|4S?|5[CS]?|6(:? Plus)?)?",
+                "Model": "iPhone $1"
+            }
+        ]
+    },
+    {
+        "Producer": "MicroMax",
+        "Regex": "MicroMax[ \\-\\_]?[a-z0-9]+",
+        "Model": "",
+        "Models": [
+            {
+                "Regex": "MicroMax(?:[ \\-\\_])?(P[a-z0-9]+)",
+                "Model": "$1"
+            },
+            {
+                "Regex": "MicroMax(?:[ \\-\\_])?([a-z0-9]+)",
+                "Model": "$1"
+            }
+        ]
+    },
+    {
+        "Producer": "3Q",
+        "Regex": "(AC0731B|AC1024C|AC7803C|BC9710AM|EL72B|LC0720C|LC0723B|LC0725B|LC0804B|LC0808B|LC0809B|LC0810C|LC0816C|LC0901D|LC1016C|MT0724B|MT0729B|MT0729D|MT0811B|OC1020A|RC0709B|RC0710B|RC0718C|RC0719H|RC0721B|RC0722C|RC0726B|RC0734H|RC0743H|RC0817C|RC1018C|RC1019G|RC1025F|RC1301C|RC7802F|RC9711B|RC9712C|RC9716B|RC9717B|RC9724C|RC9726C|RC9727F|RC9730C|RC9731C|TS0807B|TS1013B|VM0711A|VM1017A|RC0813C|QS9719D|QS9718C|QS9715F|QS1023H|QS0815C|QS0730C|QS0728C|QS0717D|QS0716D|QS0715C|MT7801C)",
+        "Model": "$1",
+        "Models": null
+    },
+    {
+        "Producer": "Acer",
+        "Regex": "acer|a(?:101|110|200|210|211|500|501|510|511|700|701) Build|Android.*V3[67]0 Build|Android.*Z1[23456]0 Build|Android.*Z500 Build|A1-830|A1-81[01]|A3-A[12][01]|B1-7[1235][01]|B1-810|B1-A71|E39 Build|S5[12]0 Build",
+        "Model": "",
+        "Models": [
+            {
+                "Regex": "A1-81[01]",
+                "Model": "Iconia A"
+            },
+            {
+                "Regex": "A1-830",
+                "Model": "Iconia A1"
+            },
+            {
+                "Regex": "A3-A[12][01]",
+                "Model": "Iconia A3"
+            },
+            {
+                "Regex": "B1-7[1235][01]|B1-810|B1-A71",
+                "Model": "Iconia B1"
+            },
+            {
+                "Regex": "E39 Build",
+                "Model": "Liquid E700"
+            },
+            {
+                "Regex": "Android.*V360 Build",
+                "Model": "Liquid E1"
+            },
+            {
+                "Regex": "Android.*V370 Build",
+                "Model": "Liquid E2"
+            },
+            {
+                "Regex": "S510 Build",
+                "Model": "Liquid S1"
+            },
+            {
+                "Regex": "S520 Build",
+                "Model": "Liquid S2"
+            },
+            {
+                "Regex": "Android.*Z1([2345])0 Build",
+                "Model": "Liquid Z$1"
+            },
+            {
+                "Regex": "Android.*Z160 Build",
+                "Model": "Liquid Z4"
+            },
+            {
+                "Regex": "Android.*Z500 Build",
+                "Model": "Liquid Z500"
+            },
+            {
+                "Regex": "Acer; ?([^;\\)]+)",
+                "Model": "$1"
+            },
+            {
+                "Regex": "Acer[ _\\-]?([^;\\)]+) Build",
+                "Model": "$1"
+            },
+            {
+                "Regex": "acer[\\-_]([a-z0-9]+)",
+                "Model": "$1"
+            },
+            {
+                "Regex": "a(101|110|200|210|211|500|501|510|511|700|701) Build",
+                "Model": "Iconia Tab A$1"
+            }
+        ]
+    },
+    {
+        "Producer": "Airness",
+        "Regex": "AIRNESS-([\\w0-9]+)",
+        "Model": "$1",
+        "Models": null
+    },
+    {
+        "Producer": "Alcatel",
+        "Regex": "Alcatel|Alc[a-z0-9]+|One ?Touch",
+        "Model": "",
+        "Models": [
+            {
+                "Regex": "(?:Alcatel[ _])?One[ _]?Touch[ _]((?:T[0-9]+|TAB[^/;]+|EVO[78](?:HD)?)) Build",
+                "Model": "One Touch $1"
+            },
+            {
+                "Regex": "(?:Alcatel[ _])?One[ _]?Touch([^/;]*) Build",
+                "Model": "One Touch$1"
+            },
+            {
+                "Regex": "Alcatel UP",
+                "Model": ""
+            },
+            {
+                "Regex": "ALCATEL([^/;]+) Build",
+                "Model": "$1"
+            },
+            {
+                "Regex": "ALCATEL[ \\-]?([^/;\\)]+)",
+                "Model": "$1"
+            },
+            {
+                "Regex": "ALCATEL_([^/;\\)]+)",
+                "Model": "$1"
+            },
+            {
+                "Regex": "Alc([a-z0-9]+)",
+                "Model": "$1"
+            }
+        ]
+    },
+    {
+        "Producer": "Amoi",
+        "Regex": "Amoi|A862W",
+        "Model": "",
+        "Models": [
+            {
+                "Regex": "A862W",
+                "Model": "A862W"
+            },
+            {
+                "Regex": "Amoi[\\- /]([a-z0-9]+)",
+                "Model": "$1"
+            },
+            {
+                "Regex": "Amoisonic-([a-z0-9]+)",
+                "Model": "$1"
+            }
+        ]
+    },
+    {
+        "Producer": "Archos",
+        "Regex": "Archos",
+        "Model": "",
+        "Models": [
+            {
+                "Regex": "Archos ?5 Build",
+                "Model": "5"
+            },
+            {
+                "Regex": "Archos ([^/;]*(?:PAD)[^/;]*) Build",
+                "Model": "$1"
+            },
+            {
+                "Regex": "Archos ((?:[789]|10)[0-9]?[a-z]* ?(?:G9|G10|Helium|Titanium|Cobalt|Platinum|Xenon|Carbon|Neon|XS|IT)[^/;]*) Build",
+                "Model": "$1"
+            },
+            {
+                "Regex": "Archos ([a-z0-9 ]+) Build",
+                "Model": "$1"
+            },
+            {
+                "Regex": "Archos ([a-z0-9]+)",
+                "Model": "$1"
+            }
+        ]
+    },
+    {
+        "Producer": "Axxion",
+        "Regex": "Axxion ATAB-[0-9]+ Build",
+        "Model": "",
+        "Models": [
+            {
+                "Regex": "Axxion ATAB-([0-9]+) Build",
+                "Model": "ATAB-$1"
+            }
+        ]
+    },
+    {
+        "Producer": "MEU",
+        "Regex": "MEU ([a-z0-9]+) Build",
+        "Model": "$1",
+        "Models": null
+    },
+    {
+        "Producer": "Arnova",
+        "Regex": "arnova|ARCHM901|AN7CG2|AN7G2(DTE|I)?|AN7[BCDFH]?G3|A80KSC|AN8G2|AN8[BC]?G3|AN9G2I?|AN9G3|A101[BC]|AN10G2|AN10BG2(DT|I)?|AN10BG3(DT)?|AN10[CD]G3",
+        "Model": "",
+        "Models": [
+            {
+                "Regex": "ARCHM901",
+                "Model": "M901"
+            },
+            {
+                "Regex": "AN7CG2",
+                "Model": "7c G2"
+            },
+            {
+                "Regex": "AN7G2I|AN7G2|AN7G2DTE",
+                "Model": "7 G2"
+            },
+            {
+                "Regex": "AN7G3",
+                "Model": "7 G3"
+            },
+            {
+                "Regex": "AN7BG3",
+                "Model": "7b G3"
+            },
+            {
+                "Regex": "AN7CG3",
+                "Model": "7c G3"
+            },
+            {
+                "Regex": "AN7DG3-CP",
+                "Model": "Childpad"
+            },
+            {
+                "Regex": "AN7DG3",
+                "Model": "7d G3"
+            },
+            {
+                "Regex": "AN7FG3",
+                "Model": "7f G3"
+            },
+            {
+                "Regex": "AN7HG3",
+                "Model": "7h G3"
+            },
+            {
+                "Regex": "A80KSC",
+                "Model": "8"
+            },
+            {
+                "Regex": "AN8G2",
+                "Model": "8 G2"
+            },
+            {
+                "Regex": "AN8G3",
+                "Model": "8 G3"
+            },
+            {
+                "Regex": "AN8BG3",
+                "Model": "8b G3"
+            },
+            {
+                "Regex": "AN8CG3",
+                "Model": "8c G3"
+            },
+            {
+                "Regex": "AN9G2I",
+                "Model": "9i G2"
+            },
+            {
+                "Regex": "AN9G2",
+                "Model": "9 G2"
+            },
+            {
+                "Regex": "AN9G3",
+                "Model": "9 G3"
+            },
+            {
+                "Regex": "A101B2|A101C|AN10G2",
+                "Model": "10 G2"
+            },
+            {
+                "Regex": "A101B",
+                "Model": "10"
+            },
+            {
+                "Regex": "AN10BG2|AN10BG2DT|AN10BG2I",
+                "Model": "10b G2"
+            },
+            {
+                "Regex": "AN10BG3|AN10BG3DT|AN10BG3-LZ",
+                "Model": "10b G3"
+            },
+            {
+                "Regex": "AN10CG3",
+                "Model": "10c G3"
+            },
+            {
+                "Regex": "AN10DG3",
+                "Model": "10d G3"
+            },
+            {
+                "Regex": "ARNOVA 90G3",
+                "Model": "90 G3"
+            },
+            {
+                "Regex": "ARNOVA 90 G4",
+                "Model": "90 G4"
+            },
+            {
+                "Regex": "ARNOVA 97G4",
+                "Model": "97 G4"
+            },
+            {
+                "Regex": "ARNOVA 101 G4",
+                "Model": "101 G4"
+            },
+            {
+                "Regex": "Arnova ([^/;]*) Build",
+                "Model": "$1"
+            }
+        ]
+    },
+    {
+        "Producer": "Garmin-Asus",
+        "Regex": "Garmin-Asus",
+        "Model": "",
+        "Models": [
+            {
+                "Regex": "Garmin-Asus[ \\-_]([^;/]+)Build",
+                "Model": "$1"
+            },
+            {
+                "Regex": "Garmin-Asus[ \\-_]([^;/]+)[\\)/]",
+                "Model": "$1"
+            }
+        ]
+    },
+    {
+        "Producer": "Asus",
+        "Regex": "Asus|Transformer|TF300T|Slider SL101|PadFone|ME302(?:C|KL)|ME301T|ME371MG|ME17(?:1|2V|3X)|K0[01][0-9a-z] Build",
+        "Model": "",
+        "Models": [
+            {
+                "Regex": "ME171 Build",
+                "Model": "Eee Pad MeMO 171"
+            },
+            {
+                "Regex": "ME172V",
+                "Model": "MeMO Pad"
+            },
+            {
+                "Regex": "ME302C Build",
+                "Model": "MeMO Pad FHD 10"
+            },
+            {
+                "Regex": "ME302KL Build",
+                "Model": "MeMO Pad FHD 10 LTE"
+            },
+            {
+                "Regex": "ME301T Build",
+                "Model": "MeMO Pad Smart 10"
+            },
+            {
+                "Regex": "K01[3A] Build",
+                "Model": "MeMO Pad 7"
+            },
+            {
+                "Regex": "K01E Build",
+                "Model": "MeMO Pad 10 ME103K"
+            },
+            {
+                "Regex": "K00U|ME173X Build",
+                "Model": "MeMO Pad HD 7"
+            },
+            {
+                "Regex": "(?:K011|K00L) Build",
+                "Model": "MeMO Pad 8"
+            },
+            {
+                "Regex": "K014 Build",
+                "Model": "MeMO Pad 8.9"
+            },
+            {
+                "Regex": "K00S Build",
+                "Model": "MeMO Pad HD 7 Dual SIM"
+            },
+            {
+                "Regex": "K00F Build",
+                "Model": "MeMO Pad 10"
+            },
+            {
+                "Regex": "K00C Build",
+                "Model": "Transformer Pad TF701T"
+            },
+            {
+                "Regex": "K010 Build",
+                "Model": "Transformer Pad TF103C"
+            },
+            {
+                "Regex": "K018 Build",
+                "Model": "Transformer Pad TF103CG"
+            },
+            {
+                "Regex": "TF300T Build",
+                "Model": "Transformer Pad TF300T"
+            },
+            {
+                "Regex": "Slider SL101",
+                "Model": "Eee Pad Slider SL101"
+            },
+            {
+                "Regex": "ME371MG Build",
+                "Model": "Fonepad"
+            },
+            {
+                "Regex": "K00G Build",
+                "Model": "Fonepad Note 6"
+            },
+            {
+                "Regex": "(?:K012|K00E) Build",
+                "Model": "Fonepad 7"
+            },
+            {
+                "Regex": "K00Z Build",
+                "Model": "Fonepad 7 Dual SIM"
+            },
+            {
+                "Regex": "K016 Build",
+                "Model": "Fonepad 8"
+            },
+            {
+                "Regex": "(?:ASUS_)?T00[IQ]",
+                "Model": "ZenFone 4"
+            },
+            {
+                "Regex": "Asus(?:-|;)?([a-z0-9]+)",
+                "Model": "$1"
+            },
+            {
+                "Regex": "(PadFone(?: [^;/]+)?) Build",
+                "Model": "$1"
+            },
+            {
+                "Regex": "(PadFone(?: [a-z0-9]+)?)",
+                "Model": "$1"
+            },
+            {
+                "Regex": "(?:Asus|Transformer) ((?:Pad |Prime )?TF[0-9a-z]+)",
+                "Model": "Transformer $1"
+            }
+        ]
+    },
+    {
+        "Producer": "Audiovox",
+        "Regex": "Audiovox|CDM|UTS(?:TARCOM)?\\-|audio[a-z0-9\\-]+",
+        "Model": "",
+        "Models": [
+            {
+                "Regex": "Audiovox[_\\-]([a-z0-9\\-]+)",
+                "Model": "$1"
+            },
+            {
+                "Regex": "CDM(?:-)?([a-z0-9]+)",
+                "Model": "CDM-$1"
+            },
+            {
+                "Regex": "UTS(?:TARCOM)?-([a-z0-9\\-]+)",
+                "Model": "CDM-$1"
+            },
+            {
+                "Regex": "audio([a-z0-9\\-]+)",
+                "Model": "CDM-$1"
+            }
+        ]
+    },
+    {
+        "Producer": "Avvio",
+        "Regex": "Avvio[ _]([a-z0-9\\-]+)",
+        "Model": "",
+        "Models": [
+            {
+                "Regex": "Avvio[ _]PAD",
+                "Model": "PAD"
+            },
+            {
+                "Regex": "Avvio[ _]([a-z0-9\\-]+)",
+                "Model": "$1"
+            }
+        ]
+    },
+    {
+        "Producer": "'Barnes & Noble'",
+        "Regex": "Nook|BN[TR]V[0-9]+",
+        "Model": "",
+        "Models": [
+            {
+                "Regex": "Nook([a-z0-9]+)",
+                "Model": "Nook $1"
+            },
+            {
+                "Regex": "Nook[ _]([^/;]+)[ _]Build",
+                "Model": "Nook $1"
+            },
+            {
+                "Regex": "(BN[TR]V[0-9]+)",
+                "Model": "Nook $1"
+            }
+        ]
+    },
+    {
+        "Producer": "Blu",
+        "Regex": "blu ([^/;]+) Build",
+        "Model": "$1",
+        "Models": null
+    },
+    {
+        "Producer": "Vivo",
+        "Regex": "vivo",
+        "Model": "",
+        "Models": [
+            {
+                "Regex": "vivo ([^/;]+) Build",
+                "Model": "Vivo $1"
+            },
+            {
+                "Regex": "vivo_([a-z0-9]+)",
+                "Model": "Vivo $1"
+            }
+        ]
+    },
+    {
+        "Producer": "Bird",
+        "Regex": "BIRD[\\-. _]([^;/]+)",
+        "Model": "",
+        "Models": [
+            {
+                "Regex": "BIRD[\\-. _]([^;/]+) Build",
+                "Model": "$1"
+            },
+            {
+                "Regex": "BIRD[\\-. _]([^;/]+)_TD",
+                "Model": "$1"
+            },
+            {
+                "Regex": "BIRD[\\-. _]([^;/]+)",
+                "Model": "$1"
+            }
+        ]
+    },
+    {
+        "Producer": "Becker",
+        "Regex": "Becker-([a-z0-9]+)",
+        "Model": "$1",
+        "Models": null
+    },
+    {
+        "Producer": "Beetel",
+        "Regex": "Beetel ([a-z0-9]+)",
+        "Model": "$1",
+        "Models": null
+    },
+    {
+        "Producer": "BenQ-Siemens",
+        "Regex": "BENQ-SIEMENS - ([a-z0-9]+)",
+        "Model": "$1",
+        "Models": null
+    },
+    {
+        "Producer": "BenQ",
+        "Regex": "BENQ(?:[ \\-])?([a-z0-9]+)",
+        "Model": "$1",
+        "Models": null
+    },
+    {
+        "Producer": "Bmobile",
+        "Regex": "Bmobile_([a-z0-9]+)",
+        "Model": "$1",
+        "Models": null
+    },
+    {
+        "Producer": "bq",
+        "Regex": "Aquaris|bq [^/;]+ Build",
+        "Model": "",
+        "Models": [
+            {
+                "Regex": "(?:bq )?(Aquaris[^/;]*) Build",
+                "Model": "$1"
+            },
+            {
+                "Regex": "bq ([^/;]+) Build",
+                "Model": "$1"
+            }
+        ]
+    },
+    {
+        "Producer": "Capitel",
+        "Regex": "Capitel-([a-z0-9]+)",
+        "Model": "$1",
+        "Models": null
+    },
+    {
+        "Producer": "Casio",
+        "Regex": "(C811|C7[57]1)(?: 4G)? Build",
+        "Model": "",
+        "Models": [
+            {
+                "Regex": "C751 Build",
+                "Model": "\"GzOne Ravine\""
+            },
+            {
+                "Regex": "C771 Build",
+                "Model": "\"GzOne Commando\""
+            },
+            {
+                "Regex": "C811 4G Build",
+                "Model": "\"GzOne Commando 4G LTE\""
+            }
+        ]
+    },
+    {
+        "Producer": "Cat",
+        "Regex": "Cat ?(tablet|stargate|nova)",
+        "Model": "",
+        "Models": [
+            {
+                "Regex": "Cat ?(?:tablet)? ?((?:Galactica|Nova|StarGate|PHOENIX)[^/;]*) Build",
+                "Model": "$1"
+            },
+            {
+                "Regex": "Cat ?tablet",
+                "Model": "Nova"
+            }
+        ]
+    },
+    {
+        "Producer": "Celkon",
+        "Regex": "Celkon",
+        "Model": "",
+        "Models": [
+            {
+                "Regex": "Celkon[ _*](C[78]20)",
+                "Model": "$1"
+            },
+            {
+                "Regex": "Celkon[ _*](CT[^;/]+) Build",
+                "Model": "$1"
+            },
+            {
+                "Regex": "Celkon[ _*]([^;/]+) Build",
+                "Model": "$1"
+            },
+            {
+                "Regex": "Celkon[\\. _*]([^;/\\)]+)[\\)/]",
+                "Model": "$1"
+            }
+        ]
+    },
+    {
+        "Producer": "'Cherry Mobile'",
+        "Regex": "Cherry|Flare2X|Fusion Bolt",
+        "Model": "",
+        "Models": [
+            {
+                "Regex": "Cherry(?: ?Mobile)?[ _]?([^/;]+) Build",
+                "Model": "$1"
+            },
+            {
+                "Regex": "(Flare2X)",
+                "Model": "$1"
+            },
+            {
+                "Regex": "(Fusion Bolt)",
+                "Model": "$1"
+            }
+        ]
+    },
+    {
+        "Producer": "Compal",
+        "Regex": "Compal-[a-z0-9]+",
+        "Model": "$1",
+        "Models": null
+    },
+    {
+        "Producer": "ConCorde",
+        "Regex": "ConCorde ([^/;]+) Build",
+        "Model": "",
+        "Models": [
+            {
+                "Regex": "ConCorde Tab ?([^/;]+) Build",
+                "Model": "Tab $1"
+            },
+            {
+                "Regex": "ConCorde ReadMan ?([^/;]+) Build",
+                "Model": "ReadMan $1"
+            },
+            {
+                "Regex": "ConCorde ([^/;]+) Build",
+                "Model": "$1"
+            }
+        ]
+    },
+    {
+        "Producer": "Coolpad",
+        "Regex": "(?:YL-)?Coolpad",
+        "Model": "",
+        "Models": [
+            {
+                "Regex": "(?:YL-)?Coolpad[ _\\-]?([^/;]+) Build",
+                "Model": "$1"
+            },
+            {
+                "Regex": "(?:YL-)?Coolpad[ _\\-]?([a-z0-9\\-]+)",
+                "Model": "$1"
+            }
+        ]
+    },
+    {
+        "Producer": "Cricket",
+        "Regex": "Cricket-([a-z0-9]+)",
+        "Model": "$1",
+        "Models": null
+    },
+    {
+        "Producer": "'Crius Mea'",
+        "Regex": "(Q7A\\+?) Build",
+        "Model": "$1",
+        "Models": null
+    },
+    {
+        "Producer": "Cube",
+        "Regex": "Cube|(U[0-9]+GT(?:[0-9]|[\\-_][a-z]+)|K8GT)",
+        "Model": "",
+        "Models": [
+            {
+                "Regex": "(U[0-9]+GT(?:[0-9]|[\\-_][a-z]+))",
+                "Model": "$1"
+            },
+            {
+                "Regex": "(K8GT)",
+                "Model": "$1"
+            }
+        ]
+    },
+    {
+        "Producer": "Danew",
+        "Regex": "Dslide ?([^;/]+) Build",
+        "Model": "DSlide $1",
+        "Models": null
+    },
+    {
+        "Producer": "Denver",
+        "Regex": "(TA[CDQ]-[0-9]+)",
+        "Model": "$1",
+        "Models": null
+    },
+    {
+        "Producer": "Dell",
+        "Regex": "Dell|Venue",
+        "Model": "",
+        "Models": [
+            {
+                "Regex": "(?:Dell )?(Streak|Venue) ?([^/;]*) Build",
+                "Model": "$1 $2"
+            },
+            {
+                "Regex": "Dell; ((?:Streak|Venue)[^;/\\)]*)",
+                "Model": "$1"
+            },
+            {
+                "Regex": "Dell; ([^;/\\)]+)",
+                "Model": "$1"
+            },
+            {
+                "Regex": "Dell[ _\\-]([^/;]+) Build",
+                "Model": "$1"
+            }
+        ]
+    },
+    {
+        "Producer": "Dbtel",
+        "Regex": "DBTEL(?:[\\-/])?([a-z0-9]+)",
+        "Model": "$1",
+        "Models": null
+    },
+    {
+        "Producer": "Dicam",
+        "Regex": "DICAM-([a-z0-9]+)",
+        "Model": "$1",
+        "Models": null
+    },
+    {
+        "Producer": "DoCoMo",
+        "Regex": "DoCoMo|\\;FOMA|KGT/1\\.0",
+        "Model": "",
+        "Models": [
+            {
+                "Regex": "DoCoMo/[12]\\.0[/ ]([a-z0-9]+)",
+                "Model": "$1"
+            },
+            {
+                "Regex": "([a-z0-9]+)(?:_W)?\\;FOMA",
+                "Model": "$1"
+            },
+            {
+                "Regex": "KGT/1\\.0 ([a-z0-9]+)",
+                "Model": "$1"
+            }
+        ]
+    },
+    {
+        "Producer": "Doogee",
+        "Regex": "((?:BIGBOY|COLLO[23]?|DAGGER|DISCOVERY|FIND|HOTWIND|LATTE|MAX|MINT|MOON|PIXELS|RAINBOX|TURBO|VALENCIA|VOYAGER) DG[0-9]+) Build",
+        "Model": "$1",
+        "Models": null
+    },
+    {
+        "Producer": "Dopod",
+        "Regex": "Dopod(?: )?([a-z0-9]+)",
+        "Model": "$1",
+        "Models": null
+    },
+    {
+        "Producer": "E-Boda",
+        "Regex": "E-Boda",
+        "Model": "",
+        "Models": [
+            {
+                "Regex": "E-Boda ((?:Revo|Izzycomm|Essential|Intelligence|Supreme)[^/;]+) Build",
+                "Model": "$1"
+            },
+            {
+                "Regex": "E-Boda ([^/;]+) Build",
+                "Model": "$1"
+            }
+        ]
+    },
+    {
+        "Producer": "Easypix",
+        "Regex": "EasyPad|EasyPhone",
+        "Model": "",
+        "Models": [
+            {
+                "Regex": "(EasyPhone[^/;]+) Build",
+                "Model": "$1"
+            },
+            {
+                "Regex": "(EasyPad[^/;]+) Build",
+                "Model": "$1"
+            }
+        ]
+    },
+    {
+        "Producer": "ECS",
+        "Regex": "(?:TA10CA3|TM105A?|TR10CS1) Build",
+        "Model": "",
+        "Models": [
+            {
+                "Regex": "TA10CA3 Build",
+                "Model": "TA10CA3"
+            },
+            {
+                "Regex": "TR10CS1 Build",
+                "Model": "TR10CS1"
+            },
+            {
+                "Regex": "TM105A Build",
+                "Model": "TM105A"
+            },
+            {
+                "Regex": "TM105 Build",
+                "Model": "TM105"
+            }
+        ]
+    },
+    {
+        "Producer": "Elephone",
+        "Regex": "Elephone[ _\\-]([^/;]+) Build",
+        "Model": "$1",
+        "Models": null
+    },
+    {
+        "Producer": "Ericy",
+        "Regex": "Ericy-([a-z0-9]+)",
+        "Model": "$1",
+        "Models": null
+    },
+    {
+        "Producer": "Rikomagic",
+        "Regex": "MK(80[28][^/;]*) Build",
+        "Model": "MK$1",
+        "Models": null
+    },
+    {
+        "Producer": "Sony",
+        "Regex": "Sony(?: ?Ericsson)?|SGP|Xperia|C1[569]0[45]|C2[01]0[45]|C2305|C530[236]|C5502|C6[56]0[236]|C6616|C68(?:0[26]|[34]3)|C69(?:0[236]|16|43)|D200[45]|D21(?:0[45]|14)|D22(?:0[236]|12|43)|D230[2356]|D240[36]|D25(?:02|33)|D510[236]|D530[36]|D5322|D5503|D58[03]3|D65(?:0[23]|43)|D66[05]3|(?:WT|LT|SO|ST|SK|MK)[0-9]+[a-z]*[0-9]*(?: Build|\\))|X?L39H|portalmmm/2\\.0 K|X10[ia]v?|E1[05][ai]v?|MT[0-9]{2}[a-z]? Build|SO-0(?:[345]D|[234]E|[12]C|[1235]F|[12]G)|R800[aix]",
+        "Model": "",
+        "Models": [
+            {
+                "Regex": "(?:Sony(?:Ericsson)?)?E10[ai]v?",
+                "Model": "Xperia X10 mini"
+            },
+            {
+                "Regex": "(?:Sony(?:Ericsson)?)?U20",
+                "Model": "Xperia X10 mini pro"
+            },
+            {
+                "Regex": "(?:Sony(?:Ericsson)?)?E15[ai]v?",
+                "Model": "Xperia X8"
+            },
+            {
+                "Regex": "(?:Sony(?:Ericsson)?)?(LT15[ai]?v?|SO-01C)",
+                "Model": "Xperia arc"
+            },
+            {
+                "Regex": "(?:Sony(?:Ericsson)?)?LT18[ai]v?",
+                "Model": "Xperia arc S"
+            },
+            {
+                "Regex": "(?:Sony(?:Ericsson)?)?MT11",
+                "Model": "Xperia neo V"
+            },
+            {
+                "Regex": "(?:Sony(?:Ericsson)?)?MT15",
+                "Model": "Xperia neo"
+            },
+            {
+                "Regex": "(?:Sony(?:Ericsson)?)?MT27",
+                "Model": "Xperia Sola"
+            },
+            {
+                "Regex": "(?:Sony(?:Ericsson)?)?MK16[ai]",
+                "Model": "Xperia pro"
+            },
+            {
+                "Regex": "(?:Sony(?:Ericsson)?)?ST15[ai]",
+                "Model": "Xperia mini"
+            },
+            {
+                "Regex": "(?:Sony(?:Ericsson)?)?ST17[ai]",
+                "Model": "Xperia active"
+            },
+            {
+                "Regex": "(?:Sony(?:Ericsson)?)?ST18[ai]",
+                "Model": "Xperia ray"
+            },
+            {
+                "Regex": "(?:Sony(?:Ericsson)?)?SK17[ai]?",
+                "Model": "Xperia mini pro"
+            },
+            {
+                "Regex": "(?:Sony(?:Ericsson)?)?X10[ai]v?",
+                "Model": "Xperia X10"
+            },
+            {
+                "Regex": "(?:Sony(?:Ericsson)?)?M1",
+                "Model": "Aspen"
+            },
+            {
+                "Regex": "(?:Sony(?:Ericsson)?)?R800",
+                "Model": "Xperia PLAY"
+            },
+            {
+                "Regex": "(?:Sony(?:Ericsson)?)?WT19",
+                "Model": "Live with Walkman"
+            },
+            {
+                "Regex": "(?:Sony(?:Ericsson)?)?CK13i",
+                "Model": "txt"
+            },
+            {
+                "Regex": "(?:Sony(?:Ericsson)?)?CK15[ai]",
+                "Model": "txt pro"
+            },
+            {
+                "Regex": "(?:Sony(?:Ericsson)?)?F100i",
+                "Model": "Jalou"
+            },
+            {
+                "Regex": "(?:Sony(?:Ericsson)?)?J105",
+                "Model": "Naite"
+            },
+            {
+                "Regex": "(?:Sony(?:Ericsson)?)?J108",
+                "Model": "Cedar"
+            },
+            {
+                "Regex": "(?:Sony(?:Ericsson)?)?J10",
+                "Model": "Elm"
+            },
+            {
+                "Regex": "(?:Sony(?:Ericsson)?)?J20",
+                "Model": "Hazel"
+            },
+            {
+                "Regex": "(?:Sony(?:Ericsson)?)?U10",
+                "Model": "Aino"
+            },
+            {
+                "Regex": "(?:Sony(?:Ericsson)?)?U100",
+                "Model": "Yari"
+            },
+            {
+                "Regex": "(?:Sony(?:Ericsson)?)?U1",
+                "Model": "Satio"
+            },
+            {
+                "Regex": "(?:Sony(?:Ericsson)?)?U5",
+                "Model": "Vivaz"
+            },
+            {
+                "Regex": "(?:Sony(?:Ericsson)?)?U8",
+                "Model": "Vivaz pro"
+            },
+            {
+                "Regex": "(?:Sony(?:Ericsson)?)?W20",
+                "Model": "Zylo"
+            },
+            {
+                "Regex": "(?:Sony(?:Ericsson)?)?W100",
+                "Model": "Spiro"
+            },
+            {
+                "Regex": "(?:Sony(?:Ericsson)?)?W150",
+                "Model": "Yendo"
+            },
+            {
+                "Regex": "(?:Sony(?:Ericsson)?)?WT13",
+                "Model": "Mix Walkman"
+            },
+            {
+                "Regex": "(?:Sony(?:Ericsson)?)?LT22i",
+                "Model": "Xperia P"
+            },
+            {
+                "Regex": "(?:Sony(?:Ericsson)?)?LT25i",
+                "Model": "Xperia V"
+            },
+            {
+                "Regex": "(?:Sony(?:Ericsson)?)?LT26ii",
+                "Model": "Xperia SL"
+            },
+            {
+                "Regex": "(?:Sony(?:Ericsson)?)?LT26i",
+                "Model": "Xperia S"
+            },
+            {
+                "Regex": "(?:Sony(?:Ericsson)?)?SO-02C",
+                "Model": "Xperia arco"
+            },
+            {
+                "Regex": "(?:Sony(?:Ericsson)?)?SO-03D",
+                "Model": "Xperia arco HD"
+            },
+            {
+                "Regex": "(?:Sony(?:Ericsson)?)?LT26w",
+                "Model": "Xperia arco S"
+            },
+            {
+                "Regex": "(?:Sony(?:Ericsson)?)?LT28[aih]",
+                "Model": "Xperia ion"
+            },
+            {
+                "Regex": "(?:Sony(?:Ericsson)?)?LT29i",
+                "Model": "Xperia TX"
+            },
+            {
+                "Regex": "(?:Sony(?:Ericsson)?)?LT30a",
+                "Model": "Xperia T LTE"
+            },
+            {
+                "Regex": "(?:Sony(?:Ericsson)?)?LT30p",
+                "Model": "Xperia T"
+            },
+            {
+                "Regex": "(?:Sony(?:Ericsson)?)?ST21[ia]2",
+                "Model": "Xperia tipo dual"
+            },
+            {
+                "Regex": "(?:Sony(?:Ericsson)?)?ST21[ia]",
+                "Model": "Xperia tipo"
+            },
+            {
+                "Regex": "(?:Sony(?:Ericsson)?)?ST23[ia]",
+                "Model": "Xperia miro"
+            },
+            {
+                "Regex": "(?:Sony(?:Ericsson)?)?ST25[ia]",
+                "Model": "Xperia U"
+            },
+            {
+                "Regex": "(?:Sony(?:Ericsson)?)?ST26[ia]",
+                "Model": "Xperia J"
+            },
+            {
+                "Regex": "(?:Sony(?:Ericsson)?)?ST27[ia]",
+                "Model": "Xperia go"
+            },
+            {
+                "Regex": "(?:Sony(?:Ericsson)?)?C150[45]",
+                "Model": "Xperia E"
+            },
+            {
+                "Regex": "(?:Sony(?:Ericsson)?)?C160[45]",
+                "Model": "Xperia E Dual"
+            },
+            {
+                "Regex": "(?:Sony(?:Ericsson)?)?C190[45]",
+                "Model": "Xperia M"
+            },
+            {
+                "Regex": "(?:Sony(?:Ericsson)?)?C200[45]",
+                "Model": "Xperia M Dual"
+            },
+            {
+                "Regex": "(?:Sony(?:Ericsson)?)?C210[45]",
+                "Model": "Xperia L"
+            },
+            {
+                "Regex": "(?:Sony(?:Ericsson)?)?C2305",
+                "Model": "Xperia C"
+            },
+            {
+                "Regex": "(?:Sony(?:Ericsson)?)?C530[236]",
+                "Model": "Xperia SP"
+            },
+            {
+                "Regex": "(?:Sony(?:Ericsson)?)?C5502",
+                "Model": "Xperia ZR"
+            },
+            {
+                "Regex": "(?:Sony(?:Ericsson)?)?C650[236]",
+                "Model": "Xperia ZL"
+            },
+            {
+                "Regex": "(?:Sony(?:Ericsson)?)?(?:C66(?:0[236]|16)|SO-02E)",
+                "Model": "Xperia Z"
+            },
+            {
+                "Regex": "(?:Sony(?:Ericsson)?)?(?:C68(?:0[26]|[34]3)|XL39H)",
+                "Model": "Xperia Z Ultra"
+            },
+            {
+                "Regex": "(?:Sony(?:Ericsson)?)?(?:C69(?:0[236]|16|43)|L39H|SO-0[12]F)",
+                "Model": "Xperia Z1"
+            },
+            {
+                "Regex": "(?:Sony(?:Ericsson)?)?D200[45]",
+                "Model": "Xperia E1"
+            },
+            {
+                "Regex": "(?:Sony(?:Ericsson)?)?D21(?:0[45]|14)",
+                "Model": "Xperia E1 Dual"
+            },
+            {
+                "Regex": "(?:Sony(?:Ericsson)?)?D22(?:0[236]|43)",
+                "Model": "Xperia E3"
+            },
+            {
+                "Regex": "(?:Sony(?:Ericsson)?)?D2212",
+                "Model": "Xperia E3 Dual"
+            },
+            {
+                "Regex": "(?:Sony(?:Ericsson)?)?D2302",
+                "Model": "Xperia M2 Dual"
+            },
+            {
+                "Regex": "(?:Sony(?:Ericsson)?)?D230[356]",
+                "Model": "Xperia M2"
+            },
+            {
+                "Regex": "(?:Sony(?:Ericsson)?)?D240[36]",
+                "Model": "Xperia M2 Aqua"
+            },
+            {
+                "Regex": "(?:Sony(?:Ericsson)?)?D2502",
+                "Model": "Xperia C3 Dual"
+            },
+            {
+                "Regex": "(?:Sony(?:Ericsson)?)?D2533",
+                "Model": "Xperia C3"
+            },
+            {
+                "Regex": "(?:Sony(?:Ericsson)?)?D510[236]",
+                "Model": "Xperia T3"
+            },
+            {
+                "Regex": "(?:Sony(?:Ericsson)?)?D530[36]",
+                "Model": "Xperia T2 Ultra"
+            },
+            {
+                "Regex": "(?:Sony(?:Ericsson)?)?D5322",
+                "Model": "Xperia T2 Ultra Dual"
+            },
+            {
+                "Regex": "(?:Sony(?:Ericsson)?)?D5503",
+                "Model": "Xperia Z1 Compact"
+            },
+            {
+                "Regex": "(?:Sony(?:Ericsson)?)?(?:D58[03]3|SO-02G)",
+                "Model": "Xperia Z3 Compact"
+            },
+            {
+                "Regex": "(?:Sony(?:Ericsson)?)?(?:D65(?:0[23]|43)|SO-03F)",
+                "Model": "Xperia Z2"
+            },
+            {
+                "Regex": "(?:Sony(?:Ericsson)?)?(?:D66[05]3|SO-01G)",
+                "Model": "Xperia Z3"
+            },
+            {
+                "Regex": "(?:Sony(?:Ericsson)?)?SO-04E",
+                "Model": "Xperia A"
+            },
+            {
+                "Regex": "(?:Sony(?:Ericsson)?)?SO-04D",
+                "Model": "Xperia GX"
+            },
+            {
+                "Regex": "(?:Sony(?:Ericsson)?)?SO-05D",
+                "Model": "Xperia SX"
+            },
+            {
+                "Regex": "SGP(?:311|312|321) Build|SO-03E",
+                "Model": "Xperia Tablet Z"
+            },
+            {
+                "Regex": "SGP(?:511|512|521) Build|SO-05F",
+                "Model": "Xperia Tablet Z2"
+            },
+            {
+                "Regex": "SGP(?:6[24]1) Build",
+                "Model": "Xperia Tablet Z3 Compact"
+            },
+            {
+                "Regex": "SGPT(?:12|121|122|123|13|131|132|133) Build",
+                "Model": "Xperia Tablet S"
+            },
+            {
+                "Regex": "((?:WT|SO|ST|SK|MK)[0-9]+[a-z]*[0-9]*)(?: Build|\\))",
+                "Model": "$1"
+            },
+            {
+                "Regex": "(MT[0-9]{2}[a-z]?) Build",
+                "Model": "$1"
+            },
+            {
+                "Regex": "portalmmm/2.0 K([a-z0-9]+)",
+                "Model": "K$1"
+            },
+            {
+                "Regex": "Sony ?Ericsson?([^/;]*) Build",
+                "Model": "$1"
+            },
+            {
+                "Regex": "SonyEricsson([CGJKPTWZ][0-9]+[a-z]+)/",
+                "Model": "$1"
+            },
+            {
+                "Regex": "Sony ?Ericsson ?([a-z0-9\\-]+)",
+                "Model": "$1"
+            },
+            {
+                "Regex": "Sony (Tablet[^/;]*) Build",
+                "Model": "$1"
+            },
+            {
+                "Regex": "(SGP[^/;]*) Build",
+                "Model": "$1"
+            },
+            {
+                "Regex": "Xperia ([^/;]*Tablet[^/;]*) Build",
+                "Model": "Xperia $1"
+            },
+            {
+                "Regex": "Xperia ([^;/]+) Build",
+                "Model": "Xperia $1"
+            },
+            {
+                "Regex": "Sony[ ]?([^/;]*) Build",
+                "Model": "$1"
+            },
+            {
+                "Regex": "Sony[ ]?([a-z0-9\\-]+)",
+                "Model": "$1"
+            }
+        ]
+    },
+    {
+        "Producer": "Ericsson",
+        "Regex": "(?:Ericsson(?:/ )?[a-z0-9]+)|(?:R380 2.0 WAP1.1)",
+        "Model": "",
+        "Models": [
+            {
+                "Regex": "Ericsson(?:/ )?([a-z0-9]+)",
+                "Model": "$1"
+            },
+            {
+                "Regex": "R380 2.0 WAP1.1",
+                "Model": "R380"
+            }
+        ]
+    },
+    {
+        "Producer": "eTouch",
+        "Regex": "eTouch ?([a-z0-9]+)",
+        "Model": "$1",
+        "Models": null
+    },
+    {
+        "Producer": "Storex",
+        "Regex": "\"eZee[^a-z]*Tab ?([^;/]*) Build|STOREX LinkBox\"",
+        "Model": "",
+        "Models": [
+            {
+                "Regex": "\"eZee[^a-z]*Tab ?([^;/]*) Build\"",
+                "Model": "\"eZeeTab$1\""
+            },
+            {
+                "Regex": "STOREX LinkBox",
+                "Model": "LinkBox"
+            }
+        ]
+    },
+    {
+        "Producer": "Evertek",
+        "Regex": "(Ever(?:Glory|Shine|Miracle|Mellow|Classic|Trendy|Fancy)[^/;]*) Build",
+        "Model": "$1",
+        "Models": null
+    },
+    {
+        "Producer": "Ezze",
+        "Regex": "EZZE-|EZ[a-z0-9]+",
+        "Model": "",
+        "Models": [
+            {
+                "Regex": "EZZE-([a-z0-9]+)",
+                "Model": "$1"
+            },
+            {
+                "Regex": "EZ([a-z0-9]+)",
+                "Model": "EZ$1"
+            }
+        ]
+    },
+    {
+        "Producer": "Ezio",
+        "Regex": "EZIO-([a-z0-9]+)",
+        "Model": "$1",
+        "Models": null
+    },
+    {
+        "Producer": "Fujitsu",
+        "Regex": "F-01F|F-02[EF]|F-05[DE]|F-06E|F-08D|F-09E",
+        "Model": "",
+        "Models": [
+            {
+                "Regex": "F-01F",
+                "Model": "Arrows NX F-01F"
+            },
+            {
+                "Regex": "F-02E",
+                "Model": "Arrows X F-02E"
+            },
+            {
+                "Regex": "F-05D",
+                "Model": "Arrows X LTE F-05D"
+            },
+            {
+                "Regex": "F-06E",
+                "Model": "Arrows NX F-06E"
+            },
+            {
+                "Regex": "F-08D",
+                "Model": "F-08D Disney Mobile"
+            },
+            {
+                "Regex": "F-09E",
+                "Model": "Raku-Raku Smartphone Premium F-09E"
+            },
+            {
+                "Regex": "F-12C",
+                "Model": "F-12C"
+            },
+            {
+                "Regex": "F-02F",
+                "Model": "Arrows Tab F-02F"
+            },
+            {
+                "Regex": "F-05E",
+                "Model": "Arrows Tab F-05E"
+            }
+        ]
+    },
+    {
+        "Producer": "Gemini",
+        "Regex": "(GEM[0-9]+[a-z]*)",
+        "Model": "$1",
+        "Models": null
+    },
+    {
+        "Producer": "Gigabyte",
+        "Regex": "GSmart [a-z0-9 ]+ Build|Gigabyte-[a-z0-9]+",
+        "Model": "",
+        "Models": [
+            {
+                "Regex": "(GSmart [a-z0-9 ]+) Build",
+                "Model": "$1"
+            },
+            {
+                "Regex": "Gigabyte-([a-z0-9]+)",
+                "Model": "$1"
+            }
+        ]
+    },
+    {
+        "Producer": "Gigaset",
+        "Regex": "Gigaset QV(1030|830)",
+        "Model": "Gigaset QV$1",
+        "Models": null
+    },
+    {
+        "Producer": "Gionee",
+        "Regex": "GIONEE-[a-z0-9]+",
+        "Model": "",
+        "Models": [
+            {
+                "Regex": "GIONEE-([a-z0-9]+).*Android",
+                "Model": "$1"
+            },
+            {
+                "Regex": "Android.*GIONEE-([a-z0-9]+)",
+                "Model": "$1"
+            },
+            {
+                "Regex": "GIONEE-([a-z0-9]+)",
+                "Model": "$1"
+            }
+        ]
+    },
+    {
+        "Producer": "Google",
+        "Regex": "Nexus|GoogleTV|Glass",
+        "Model": "",
+        "Models": [
+            {
+                "Regex": "Glass",
+                "Model": "Glass"
+            },
+            {
+                "Regex": "Galaxy Nexus",
+                "Model": "Galaxy Nexus"
+            },
+            {
+                "Regex": "(Nexus (?:S|4|5|One))",
+                "Model": "$1"
+            },
+            {
+                "Regex": "(Nexus (?:6))",
+                "Model": "$1"
+            },
+            {
+                "Regex": "(Nexus (?:7|9|10))",
+                "Model": "$1"
+            },
+            {
+                "Regex": "GoogleTV",
+                "Model": "GoogleTV"
+            }
+        ]
+    },
+    {
+        "Producer": "Gradiente",
+        "Regex": "GRADIENTE",
+        "Model": "",
+        "Models": [
+            {
+                "Regex": "GRADIENTE-([a-z0-9]+)",
+                "Model": "$1"
+            },
+            {
+                "Regex": "GRADIENTE ([a-z0-9\\-]+)",
+                "Model": "$1"
+            }
+        ]
+    },
+    {
+        "Producer": "Grundig",
+        "Regex": "GR?-TB[0-9]+[a-z]*|GRUNDIG|portalmmm/2\\.0 G",
+        "Model": "",
+        "Models": [
+            {
+                "Regex": "(GR?-TB[0-9]+[a-z]*)",
+                "Model": "$1"
+            },
+            {
+                "Regex": "GRUNDIG ([a-z0-9]+)",
+                "Model": "$1"
+            },
+            {
+                "Regex": "portalmmm/2\\.0 G([a-z0-9]+)",
+                "Model": "G$1"
+            }
+        ]
+    },
+    {
+        "Producer": "Haier",
+        "Regex": "Haier",
+        "Model": "",
+        "Models": [
+            {
+                "Regex": "Haier[ _\\-](H[WT]-[^/;]+) Build",
+                "Model": "$1"
+            },
+            {
+                "Regex": "Haier[ _\\-](H[WT]-[a-z0-9_\\-]+)",
+                "Model": "$1"
+            },
+            {
+                "Regex": "Haier[ _\\-](sy[0-9]+)",
+                "Model": "$1"
+            },
+            {
+                "Regex": "Haier[ _\\-]([a-z0-9\\-]+)",
+                "Model": "$1"
+            }
+        ]
+    },
+    {
+        "Producer": "Hisense",
+        "Regex": "(?:HS-)?Hisense ([^;/]+) Build|HS-(?:U|EG?)[0-9]+[a-z0-9\\-]*|E270BSA|M470BS[AE]|E2281",
+        "Model": "",
+        "Models": [
+            {
+                "Regex": "E270BSA",
+                "Model": "Sero 7"
+            },
+            {
+                "Regex": "M470BS[AE]",
+                "Model": "Sero 7 Pro"
+            },
+            {
+                "Regex": "E2281",
+                "Model": "Sero 8"
+            },
+            {
+                "Regex": "(HS-(?:U|EG?)[0-9]+[a-z0-9\\-]*)",
+                "Model": "$1"
+            },
+            {
+                "Regex": "(?:HS-)?Hisense ([^;/]+) Build",
+                "Model": "$1"
+            }
+        ]
+    },
+    {
+        "Producer": "Hi-Level",
+        "Regex": "HLV-T([a-z0-9]+)",
+        "Model": "HLV-T$1",
+        "Models": null
+    },
+    {
+        "Producer": "Huawei",
+        "Regex": "(HW-)?Huawei|Ideos|vodafone[a-z0-9]+",
+        "Model": "",
+        "Models": [
+            {
+                "Regex": "(MediaPad[^/;]*) Build",
+                "Model": "$1"
+            },
+            {
+                "Regex": "Ideos([^;/]*) Build",
+                "Model": "Ideos$1"
+            },
+            {
+                "Regex": "HUAWEI MT([0-9]+)",
+                "Model": "Ascend Mate $1"
+            },
+            {
+                "Regex": "Huawei[ _\\-]?([^/;]*) Build",
+                "Model": "$1"
+            },
+            {
+                "Regex": "(?:HW-)?Huawei(?:/1\\.0/0?(?:Huawei))?[_\\- /]?([a-z0-9\\-_]+)",
+                "Model": "$1"
+            },
+            {
+                "Regex": "Huawei; ([a-z0-9 \\-]+)",
+                "Model": "$1"
+            },
+            {
+                "Regex": "vodafone([a-z0-9]+)",
+                "Model": "Vodafone $1"
+            }
+        ]
+    },
+    {
+        "Producer": "Hyundai",
+        "Regex": "Hyundai",
+        "Model": "",
+        "Models": [
+            {
+                "Regex": "Hyundai ([^;/]+) Build",
+                "Model": "$1"
+            }
+        ]
+    },
+    {
+        "Producer": "iBall",
+        "Regex": "iBall[ _]([^/;]*)[ _]Build",
+        "Model": "$1",
+        "Models": null
+    },
+    {
+        "Producer": "iBerry",
+        "Regex": "AUXUS ([^/;]+) Build",
+        "Model": "",
+        "Models": [
+            {
+                "Regex": "AUXUS (Core[^/;]+) Build",
+                "Model": "$1"
+            },
+            {
+                "Regex": "AUXUS ([^/;]+) Build",
+                "Model": "$1"
+            }
+        ]
+    },
+    {
+        "Producer": "Infinix",
+        "Regex": "Infinix",
+        "Model": "",
+        "Models": [
+            {
+                "Regex": "Infinix (X[78]00)",
+                "Model": "$1"
+            },
+            {
+                "Regex": "Infinix (X\\d+)",
+                "Model": "$1"
+            },
+            {
+                "Regex": "Infinix[ _]([a-z0-9_\\-]+)",
+                "Model": "$1"
+            }
+        ]
+    },
+    {
+        "Producer": "Inkti",
+        "Regex": "intki[ _]([^/;]*)[ _]Build",
+        "Model": "$1",
+        "Models": null
+    },
+    {
+        "Producer": "Innostream",
+        "Regex": "INNO([a-z0-9]+)",
+        "Model": "INNO$1",
+        "Models": null
+    },
+    {
+        "Producer": "INQ",
+        "Regex": "INQ[/ ]",
+        "Model": "",
+        "Models": [
+            {
+                "Regex": "INQ/([a-z0-9\\-]+)",
+                "Model": "$1"
+            },
+            {
+                "Regex": "INQ ([^;/]+) Build",
+                "Model": "$1"
+            }
+        ]
+    },
+    {
+        "Producer": "Intex",
+        "Regex": "Intex|(Aqua|Cloud)[ _\\.]([^/;\\)]+)(?:[ _]Build|(?:Build)/|\\))",
+        "Model": "",
+        "Models": [
+            {
+                "Regex": "Intex[ _]([^/;]*)[ _]Build",
+                "Model": "$1"
+            },
+            {
+                "Regex": "(Aqua|Cloud)[ _\\.]([^/;\\)]+)(?:[ _]Build|(?:Build)/|\\))",
+                "Model": "$1 $2"
+            },
+            {
+                "Regex": "Intex[ _]([a-z0-9_+\\-]+)",
+                "Model": "$1"
+            }
+        ]
+    },
+    {
+        "Producer": "i-mate",
+        "Regex": "i-mate ([a-z0-9]+)",
+        "Model": "$1",
+        "Models": null
+    },
+    {
+        "Producer": "i-mobile",
+        "Regex": "i-mobile ?[a-z0-9]+",
+        "Model": "",
+        "Models": [
+            {
+                "Regex": "i-mobile (i-note[^/;]*) Build",
+                "Model": "$1"
+            },
+            {
+                "Regex": "i-mobile ((?:IQ|i-style)[^/;]*) Build",
+                "Model": "$1"
+            },
+            {
+                "Regex": "i-mobile(?: )?([a-z0-9\\- ]+) Build",
+                "Model": "$1"
+            },
+            {
+                "Regex": "i-mobile(?: )?([a-z0-9]+)",
+                "Model": "$1"
+            }
+        ]
+    },
+    {
+        "Producer": "iKoMo",
+        "Regex": "iKoMo ([a-z0-9]+)",
+        "Model": "$1",
+        "Models": null
+    },
+    {
+        "Producer": "iTel",
+        "Regex": "itel|iNote",
+        "Model": "",
+        "Models": [
+            {
+                "Regex": "iNote ([^/;]*)Build",
+                "Model": "iNote $1"
+            },
+            {
+                "Regex": "iNote_([a-z0-9\\-_]+)",
+                "Model": "iNote $1"
+            },
+            {
+                "Regex": "iTel ([^/;]*)Build",
+                "Model": "$1"
+            },
+            {
+                "Regex": "iTel_([a-z0-9\\-_]*)",
+                "Model": "$1"
+            }
+        ]
+    },
+    {
+        "Producer": "Jiayu",
+        "Regex": "(JY-[a-z0-9]+) Build",
+        "Model": "$1",
+        "Models": null
+    },
+    {
+        "Producer": "Jolla",
+        "Regex": "Jolla",
+        "Model": "",
+        "Models": null
+    },
+    {
+        "Producer": "Kazam",
+        "Regex": "Kazam ([^;/]+) Build|Trooper_X[0-9][0-9] Build",
+        "Model": "",
+        "Models": [
+            {
+                "Regex": "Trooper_X([0-9])([0-9]) Build",
+                "Model": "Trooper X$1.$2"
+            },
+            {
+                "Regex": "Kazam ([^;/]+) Build",
+                "Model": "$1"
+            }
+        ]
+    },
+    {
+        "Producer": "KT-Tech",
+        "Regex": "(KM-[a-z0-9]+|EV-[a-z0-9]+) Build",
+        "Model": "$1",
+        "Models": null
+    },
+    {
+        "Producer": "KDDI",
+        "Regex": "kddi-([a-z0-9]+)",
+        "Model": "$1",
+        "Models": null
+    },
+    {
+        "Producer": "K-Touch",
+        "Regex": "K-Touch[ _][a-z0-9]+",
+        "Model": "",
+        "Models": [
+            {
+                "Regex": "K-Touch[ _]([^/;]*)[ _]Build",
+                "Model": "$1"
+            },
+            {
+                "Regex": "K-Touch[ _]([a-z0-9]+)",
+                "Model": "$1"
+            }
+        ]
+    },
+    {
+        "Producer": "Kyocera",
+        "Regex": "Kyocera|KWC-|QC-|C5170|C5155|C5215|C6750|C6522N?|S2151",
+        "Model": "",
+        "Models": [
+            {
+                "Regex": "C5155",
+                "Model": "Rise"
+            },
+            {
+                "Regex": "C5170",
+                "Model": "Hydro"
+            },
+            {
+                "Regex": "C5215",
+                "Model": "Hydro EDGE"
+            },
+            {
+                "Regex": "C6522N?",
+                "Model": "Hydro XTRM"
+            },
+            {
+                "Regex": "C6750",
+                "Model": "Hydro ELITE"
+            },
+            {
+                "Regex": "S2151",
+                "Model": "Coast"
+            },
+            {
+                "Regex": "Kyocera-KZ-([a-z0-9]+)",
+                "Model": "KZ $1"
+            },
+            {
+                "Regex": "Kyocera(?:[\\-/])?([a-z0-9]+)",
+                "Model": "$1"
+            },
+            {
+                "Regex": "(?:KWC|QC)-([a-z0-9]+)",
+                "Model": "$1"
+            }
+        ]
+    },
+    {
+        "Producer": "Lava",
+        "Regex": "iris[ _]?([^/;]+)(?:\\)| Build)",
+        "Model": "",
+        "Models": [
+            {
+                "Regex": "iris[ _]?([^/;]+)(?:\\)| Build)",
+                "Model": "Iris $1"
+            }
+        ]
+    },
+    {
+        "Producer": "Lanix",
+        "Regex": "LANIX-([a-z0-9]+)",
+        "Model": "$1",
+        "Models": null
+    },
+    {
+        "Producer": "LCT",
+        "Regex": "LCT_([a-z0-9]+)",
+        "Model": "$1",
+        "Models": null
+    },
+    {
+        "Producer": "'Le Pan'",
+        "Regex": "Le ?Pan|TC970 ([^;/]+)Build",
+        "Model": "",
+        "Models": [
+            {
+                "Regex": "TC802A",
+                "Model": "Le Pan Mini"
+            },
+            {
+                "Regex": "TC970 ([^;/]+)Build",
+                "Model": "TC970 $1"
+            },
+            {
+                "Regex": "Le ?Pan ?(II|S) Build",
+                "Model": "Le Pan $1"
+            },
+            {
+                "Regex": "Le ?Pan ?([^;/]+) Build",
+                "Model": "$1"
+            }
+        ]
+    },
+    {
+        "Producer": "Lenco",
+        "Regex": "Lenco ([^/;]*) Build",
+        "Model": "$1",
+        "Models": null
+    },
+    {
+        "Producer": "Lenovo",
+        "Regex": "(?:LNV-)?Lenovo|IdeaTab|IdeaPad|Thinkpad|Yoga Tablet",
+        "Model": "",
+        "Models": [
+            {
+                "Regex": "Lenovo (B[0-9]+[^/;]*) Build",
+                "Model": "IdeaTab $1"
+            },
+            {
+                "Regex": "ThinkPadTablet_(A[0-9]{3})_",
+                "Model": "ThinkPad Tablet $1"
+            },
+            {
+                "Regex": "ThinkPad ?Tablet([^;/]*) Build",
+                "Model": "ThinkPad Tablet$1"
+            },
+            {
+                "Regex": "IdeaPad ?([^;/]*) Build",
+                "Model": "IdeaPad $1"
+            },
+            {
+                "Regex": "Lenovo ([^/;]*) Build",
+                "Model": "$1"
+            },
+            {
+                "Regex": "(?:LNV-|Lenovo-)?Lenovo[ \\-_]([a-z0-9_+\\-]+)",
+                "Model": "$1"
+            },
+            {
+                "Regex": "IdeaTab[ \\-_]?([a-z0-9]+)",
+                "Model": "IdeaTab $1"
+            },
+            {
+                "Regex": "Yoga Tablet([^;/]+) Build",
+                "Model": "Yoga Tablet$1"
+            }
+        ]
+    },
+    {
+        "Producer": "Lexibook",
+        "Regex": "(MFC[0-9]{3}[a-z]{2,})",
+        "Model": "",
+        "Models": [
+            {
+                "Regex": "MFC191FR",
+                "Model": "Tablet Ultra 3 XL"
+            },
+            {
+                "Regex": "MFC045FR",
+                "Model": "TabTab"
+            },
+            {
+                "Regex": "MFC163FR",
+                "Model": "Tablet Master 3"
+            },
+            {
+                "Regex": "MFC142FR",
+                "Model": "Tablet Kids"
+            },
+            {
+                "Regex": "MFC250FR",
+                "Model": "Tablet Junior"
+            },
+            {
+                "Regex": "MFC270FR",
+                "Model": "Tablet Junior Power Touch"
+            },
+            {
+                "Regex": "MFC280FR",
+                "Model": "Tablet Junior 2"
+            },
+            {
+                "Regex": "MFC156FR",
+                "Model": "Tablet One"
+            },
+            {
+                "Regex": "MFC155FR",
+                "Model": "Tablet Master"
+            },
+            {
+                "Regex": "MFC157FR",
+                "Model": "Tablet Master 2"
+            },
+            {
+                "Regex": "MFC17[05]FR",
+                "Model": "Tablet Ultra"
+            },
+            {
+                "Regex": "MFC375FR",
+                "Model": "Tablet Ultra 2"
+            },
+            {
+                "Regex": "MFC162FR",
+                "Model": "Power Tablet"
+            },
+            {
+                "Regex": "MFC180FR",
+                "Model": "Tablet Advanced"
+            },
+            {
+                "Regex": "MFC181FR",
+                "Model": "Tablet Advanced 2"
+            },
+            {
+                "Regex": "MFC500FR",
+                "Model": "Tablet XL"
+            },
+            {
+                "Regex": "MFC190BBFR",
+                "Model": "Barbie Tablet"
+            },
+            {
+                "Regex": "MFC195DCFR",
+                "Model": "Tablet Disney Cars HD"
+            },
+            {
+                "Regex": "MFC195FUFR",
+                "Model": "Furby Tablet"
+            },
+            {
+                "Regex": "MFC195DPFR",
+                "Model": "Tablet Disney Princesse HD"
+            },
+            {
+                "Regex": "MFC140FR",
+                "Model": "LapTab"
+            },
+            {
+                "Regex": "MFC141FR",
+                "Model": "LapTab 2"
+            },
+            {
+                "Regex": "(MFC[0-9]{3}[a-z]{2,})",
+                "Model": "$1"
+            }
+        ]
+    },
+    {
+        "Producer": "LG",
+        "Regex": "LG|portalmmm/2\\.0 (?:KE|KG|KP|L3)|VX[0-9]+|L-01D|L-07C",
+        "Model": "",
+        "Models": [
+            {
+                "Regex": "L-01D",
+                "Model": "Optimus LTE L-01D"
+            },
+            {
+                "Regex": "L-07C",
+                "Model": "Optimus Bright L-07C"
+            },
+            {
+                "Regex": "LGE_DLNA_SDK|NetCast",
+                "Model": "NetCast"
+            },
+            {
+                "Regex": "LGE(?: |-LG| LG-AX|-)([a-z0-9]+)",
+                "Model": "$1"
+            },
+            {
+                "Regex": "LGE;([a-z0-9\\-]+)",
+                "Model": "$1"
+            },
+            {
+                "Regex": "LG[ _\\-](V90.*|Optimus[ _\\-]Pad.*) Build",
+                "Model": "$1"
+            },
+            {
+                "Regex": "LG(?:/|-LG| |-)?([^/;]*) Build",
+                "Model": "$1"
+            },
+            {
+                "Regex": "LG(?:/|-LG| |-)?([a-z0-9]+)",
+                "Model": "$1"
+            },
+            {
+                "Regex": "LG; ([a-z0-9 ]+)",
+                "Model": "$1"
+            },
+            {
+                "Regex": "portalmmm/2.0 ((?:KE|KG|KP|L3)[a-z0-9]+)",
+                "Model": "$1"
+            },
+            {
+                "Regex": "(VX[0-9]+)",
+                "Model": "$1"
+            }
+        ]
+    },
+    {
+        "Producer": "Logicom",
+        "Regex": "(TAB950|TAB1062|E731|E812|E912|E1031) Build",
+        "Model": "$1",
+        "Models": null
+    },
+    {
+        "Producer": "Microsoft",
+        "Regex": "KIN\\.(One|Two)",
+        "Model": "Kin $1",
+        "Models": null
+    },
+    {
+        "Producer": "Konka",
+        "Regex": "KONKA[_ ]([a-z0-9]+)",
+        "Model": "",
+        "Models": [
+            {
+                "Regex": "E5660S",
+                "Model": "Viva 5660s"
+            },
+            {
+                "Regex": "W830",
+                "Model": "Tango 830"
+            },
+            {
+                "Regex": "W(9[67]0)",
+                "Model": "Expose $1"
+            },
+            {
+                "Regex": "W990",
+                "Model": "Tuxedo 990"
+            },
+            {
+                "Regex": "KONKA[_ ]([a-z0-9]+)",
+                "Model": "$1"
+            }
+        ]
+    },
+    {
+        "Producer": "Karbonn",
+        "Regex": "(?:Browser-)?Karbonn",
+        "Model": "",
+        "Models": [
+            {
+                "Regex": "Karbonn ([a-z0-9]+) WAP-Browser",
+                "Model": "$1"
+            },
+            {
+                "Regex": "WAP Browser-Karbonn ([a-z0-9]+)/",
+                "Model": "$1"
+            },
+            {
+                "Regex": "Karbonn_([^;/)]+)",
+                "Model": "$1"
+            },
+            {
+                "Regex": "Karbonn ([^;/]+) Build",
+                "Model": "$1"
+            },
+            {
+                "Regex": "Karbonn ([^;/]+)/",
+                "Model": "$1"
+            }
+        ]
+    },
+    {
+        "Producer": "Sagem",
+        "Regex": "SAGEM|portalmmm/2.0 (?:SG|my)",
+        "Model": "",
+        "Models": [
+            {
+                "Regex": "SAGEM-(my[a-z0-9\\-]+)",
+                "Model": "$1"
+            },
+            {
+                "Regex": "SAGEM ([a-z0-9]+)",
+                "Model": "$1"
+            },
+            {
+                "Regex": "SAGEM-([a-z0-9\\-]+)",
+                "Model": "$1"
+            },
+            {
+                "Regex": "portalmmm/2.0 ((?:SG|my)[a-z0-9]+)",
+                "Model": "$1"
+            }
+        ]
+    },
+    {
+        "Producer": "Coby Kyros",
+        "Regex": "(MID(?:1024|1125|1126|1045|1048|1060|1065|4331|7012|7015A?|7016|7022|7032|7035|7036|7042|7047|7048|7052|7065|7120|8024|8042|8048|8065|8125|8127|8128|9724|9740|9742)) Build",
+        "Model": "$1",
+        "Models": null
+    },
+    {
+        "Producer": "Mpman",
+        "Regex": "(?:MPQC|MPDC)[0-9]+|PH(?:150|340|350|360|451|500|520)|(?:MID(?:7C|74C|82C|84C|801|811|701|711|170|77C|43C|102C|103C|104C|114C)|MP(?:843|717|718|1010|7007|7008|843|888|959|969)|MGP7) Build",
+        "Model": "",
+        "Models": [
+            {
+                "Regex": "((?:MPQC|MPDC)[0-9]+[^/;]+) Build",
+                "Model": "$1"
+            },
+            {
+                "Regex": "(MID(?:7C|74C|82C|84C|801|811|701|711|170|77C|43C|102C|103C|104C|114C)|MP(?:843|717|718|1010|7007|7008|843|888|959|969)|MGP7) Build",
+                "Model": "$1"
+            },
+            {
+                "Regex": "(PH(?:150|340|350|360|451|500|520))",
+                "Model": "$1"
+            }
+        ]
+    },
+    {
+        "Producer": "Manta Multimedia",
+        "Regex": "(MID(?:06[SN]|08[S]?|12|13|14|15|701|702|703|704|705(?:DC)?|706[AS]?|707|708|709|711|712|714|717|781|801|802|1001|1002|1003|1004(?: 3G)?|1005|7802|9701|9702)) Build",
+        "Model": "$1",
+        "Models": null
+    },
+    {
+        "Producer": "Medion",
+        "Regex": "Medion|(?:MD_)?LIFETAB",
+        "Model": "",
+        "Models": [
+            {
+                "Regex": "(?:MD_)?LIFETAB_([a-z0-9]+)",
+                "Model": "Lifetab $1"
+            },
+            {
+                "Regex": "Medion(?: Smartphone)? ([^/;]+) Build",
+                "Model": "$1"
+            }
+        ]
+    },
+    {
+        "Producer": "Meizu",
+        "Regex": "(M04[05]|M35[1356]|MX[ -]?[234](?: Pro)?|m1 note) Build",
+        "Model": "",
+        "Models": [
+            {
+                "Regex": "m1 note Build",
+                "Model": "M1 Note"
+            },
+            {
+                "Regex": "(M04[05]|MX[ -]?2) Build",
+                "Model": "MX2"
+            },
+            {
+                "Regex": "(M35[1356]|MX[ -]?3) Build",
+                "Model": "MX3"
+            },
+            {
+                "Regex": "MX[ -]?4 Build",
+                "Model": "MX4"
+            },
+            {
+                "Regex": "MX[ -]?4 Pro Build",
+                "Model": "MX4 Pro"
+            }
+        ]
+    },
+    {
+        "Producer": "Memup",
+        "Regex": "SlidePad ?([^;/]*) Build",
+        "Model": "SlidePad $1",
+        "Models": null
+    },
+    {
+        "Producer": "Mio",
+        "Regex": "MIO(?:/)?([a-z0-9]+)",
+        "Model": "$1",
+        "Models": null
+    },
+    {
+        "Producer": "Mitsubishi",
+        "Regex": "MITSU|portalmmm/[12]\\.0 M",
+        "Model": "",
+        "Models": [
+            {
+                "Regex": "MITSU/[a-z0-9.]+ \\(([a-z0-9]+)\\)",
+                "Model": "$1"
+            },
+            {
+                "Regex": "MITSU[ \\-]?([a-z0-9]+)",
+                "Model": "$1"
+            },
+            {
+                "Regex": "portalmmm/[12]\\.0 (M[a-z0-9]+)",
+                "Model": "$1"
+            }
+        ]
+    },
+    {
+        "Producer": "Mobistel",
+        "Regex": "(Cynus [^/;]+) Build",
+        "Model": "$1",
+        "Models": null
+    },
+    {
+        "Producer": "Motorola",
+        "Regex": "MOT|(?:AN)DROID ?(?:Build|[a-z0-9]+)|portalmmm/2.0 (?:E378i|L6|L7|v3)|XOOM [^;/]*Build|(?:XT|MZ|MB|ME)[0-9]{3,4}[a-z]?(?:\\(Defy\\))?(?: Build|\\))",
+        "Model": "",
+        "Models": [
+            {
+                "Regex": "MOT-V360",
+                "Model": "V360"
+            },
+            {
+                "Regex": "(?:MOT-|Motorola-)?XT300",
+                "Model": "Spice"
+            },
+            {
+                "Regex": "(?:MOT-|Motorola-)?XT30[35]",
+                "Model": "Motosmart ME"
+            },
+            {
+                "Regex": "(?:MOT-|Motorola-)?XT31[16]",
+                "Model": "Fire"
+            },
+            {
+                "Regex": "(?:MOT-|Motorola-)?XT32[01]",
+                "Model": "Defy Mini"
+            },
+            {
+                "Regex": "(?:MOT-|Motorola-)?XT3(?:89|90)",
+                "Model": "Motosmart"
+            },
+            {
+                "Regex": "(?:MOT-|Motorola-)?XT502",
+                "Model": "Quench"
+            },
+            {
+                "Regex": "(?:MOT-|Motorola-)?XT531",
+                "Model": "Fire XT"
+            },
+            {
+                "Regex": "(?:MOT-|Motorola-)?XT535",
+                "Model": "Defy"
+            },
+            {
+                "Regex": "(?:MOT-|Motorola-)?XT55[567]C?",
+                "Model": "Defy XT"
+            },
+            {
+                "Regex": "(?:MOT-|Motorola-)?XT603",
+                "Model": "Admiral"
+            },
+            {
+                "Regex": "(?:MOT-|Motorola-)?XT610",
+                "Model": "Droid Pro"
+            },
+            {
+                "Regex": "(?:MOT-|Motorola-)?XT615",
+                "Model": "Motoluxe"
+            },
+            {
+                "Regex": "(?:MOT-|Motorola-)?XT621",
+                "Model": "Primus"
+            },
+            {
+                "Regex": "(?:MOT-|Motorola-)?XT626",
+                "Model": "IronRock"
+            },
+            {
+                "Regex": "(?:MOT-|Motorola-)?XT682",
+                "Model": "Atrix"
+            },
+            {
+                "Regex": "(?:MOT-|Motorola-)?XT685",
+                "Model": "Motoluxe Dual-SIM"
+            },
+            {
+                "Regex": "(?:MOT-|Motorola-)?XT687",
+                "Model": "Atrix TV"
+            },
+            {
+                "Regex": "(?:MOT-|Motorola-)?XT720",
+                "Model": "Milestone"
+            },
+            {
+                "Regex": "(?:MOT-|Motorola-)?XT800W",
+                "Model": "Glam"
+            },
+            {
+                "Regex": "(?:MOT-|Motorola-)?XT860",
+                "Model": "Milestone 3"
+            },
+            {
+                "Regex": "(?:MOT-|Motorola-)?XT881",
+                "Model": "Electrify 2"
+            },
+            {
+                "Regex": "(?:MOT-|Motorola-)?XT882",
+                "Model": "Moto XT882"
+            },
+            {
+                "Regex": "(?:MOT-|Motorola-)?XT88[56]",
+                "Model": "Droid RAZR V"
+            },
+            {
+                "Regex": "(?:MOT-|Motorola-)?XT890",
+                "Model": "Droid RAZR i"
+            },
+            {
+                "Regex": "(?:MOT-|Motorola-)?XT894",
+                "Model": "Droid 4"
+            },
+            {
+                "Regex": "(?:MOT-|Motorola-)?XT897",
+                "Model": "Photon Q"
+            },
+            {
+                "Regex": "(?:MOT-|Motorola-)?XT901",
+                "Model": "Electrify M"
+            },
+            {
+                "Regex": "(?:MOT-|Motorola-)?XT90[567]",
+                "Model": "Droid RAZR M"
+            },
+            {
+                "Regex": "(?:MOT-|Motorola-)?XT910S?",
+                "Model": "Droid RAZR"
+            },
+            {
+                "Regex": "(?:MOT-|Motorola-)?XT91[4568]",
+                "Model": "Droid RAZR D1"
+            },
+            {
+                "Regex": "(?:MOT-|Motorola-)?XT9(?:19|20)",
+                "Model": "Droid RAZR D3"
+            },
+            {
+                "Regex": "(?:MOT-|Motorola-)?XT925",
+                "Model": "Droid RAZR HD"
+            },
+            {
+                "Regex": "(?:MOT-|Motorola-)?XT1022",
+                "Model": "Moto E"
+            },
+            {
+                "Regex": "(?:MOT-|Motorola-)?XT1030",
+                "Model": "Droid Mini"
+            },
+            {
+                "Regex": "(?:MOT-|Motorola-)?XT10(?:28|3[1234])",
+                "Model": "Moto G"
+            },
+            {
+                "Regex": "(?:MOT-|Motorola-)?XT10(?:49|5[23568]|60)",
+                "Model": "Moto X"
+            },
+            {
+                "Regex": "(?:MOT-|Motorola-)?XT1080",
+                "Model": "Droid Ultra"
+            },
+            {
+                "Regex": "Motorola[ _\\-]([a-z0-9]+)",
+                "Model": "$1"
+            },
+            {
+                "Regex": "MOTORAZR[ _\\-]([a-z0-9]+)",
+                "Model": "RAZR $1"
+            },
+            {
+                "Regex": "MOTORIZR[ _\\-]([a-z0-9]+)",
+                "Model": "RIZR $1"
+            },
+            {
+                "Regex": "MOT[O]?[_\\-]?([a-z0-9.]+)",
+                "Model": "$1"
+            },
+            {
+                "Regex": "(?:AN)DROID ?([a-z0-9 ]*) Build",
+                "Model": "DROID $1"
+            },
+            {
+                "Regex": "(?: AN)DROID ?([a-z0-9]+)",
+                "Model": "DROID $1"
+            },
+            {
+                "Regex": "portalmmm/2.0 ((?:E378i|L6|L7|V3)[a-z0-9]+)",
+                "Model": "$1"
+            },
+            {
+                "Regex": "(XOOM [^;/]*)Build",
+                "Model": "$1"
+            },
+            {
+                "Regex": "(MZ[0-9]{3}) Build",
+                "Model": "$1"
+            },
+            {
+                "Regex": "((?:ME|MB|XT)[0-9]{3,4}(?:\\(Defy\\))?) Build",
+                "Model": "$1"
+            }
+        ]
+    },
+    {
+        "Producer": "MyPhone",
+        "Regex": "(?:MyPhone|MyPad) .+ Build",
+        "Model": "",
+        "Models": [
+            {
+                "Regex": "MyPad (.+) Build",
+                "Model": "MyPad $1"
+            },
+            {
+                "Regex": "MyPhone (.+) Build",
+                "Model": "$1"
+            }
+        ]
+    },
+    {
+        "Producer": "M.T.T.",
+        "Regex": "M.T.T.",
+        "Model": "",
+        "Models": [
+            {
+                "Regex": "M.T.T. ?Tablet([^;/]+)? Build",
+                "Model": "Tablet$1"
+            },
+            {
+                "Regex": "M.T.T. ?([^;/]+) Build",
+                "Model": "$1"
+            }
+        ]
+    },
+    {
+        "Producer": "NEC",
+        "Regex": "NEC[ _\\-]|KGT/2\\.0|portalmmm/1\\.0 (?:DB|N)|(?:portalmmm|o2imode)/2.0[ ,]N",
+        "Model": "",
+        "Models": [
+            {
+                "Regex": "(?:NEC[ _\\-]|KGT/2\\.0 )([a-z0-9]+)",
+                "Model": "$1"
+            },
+            {
+                "Regex": "portalmmm/1\\.0 ((?:DB|N)[a-z0-9]+)",
+                "Model": "$1"
+            },
+            {
+                "Regex": "(?:portalmmm|o2imode)/2\\.0[ ,](N[a-z0-9]+)",
+                "Model": "$1"
+            }
+        ]
+    },
+    {
+        "Producer": "Newgen",
+        "Regex": "NEWGEN\\-([a-z0-9]+)",
+        "Model": "$1",
+        "Models": null
+    },
+    {
+        "Producer": "NGM",
+        "Regex": "NGM[_ ][a-z0-9]+|(Forward|Dynamic)[ _][^/;]+(?:Build|/)",
+        "Model": "",
+        "Models": [
+            {
+                "Regex": "((?:Forward|Dynamic)[ _][^/;]+) Build",
+                "Model": "$1"
+            },
+            {
+                "Regex": "((?:Forward|Dynamic)[ _][^/;]+)/",
+                "Model": "$1"
+            },
+            {
+                "Regex": "NGM ([^;/]+) Build",
+                "Model": "$1"
+            },
+            {
+                "Regex": "NGM_([a-z0-9]+)",
+                "Model": "$1"
+            }
+        ]
+    },
+    {
+        "Producer": "Nexian",
+        "Regex": "S?Nexian",
+        "Model": "",
+        "Models": [
+            {
+                "Regex": "S?Nexian[ ]?([a-z0-9\\-]+)",
+                "Model": "$1"
+            },
+            {
+                "Regex": "S?Nexian-([a-z0-9]+)",
+                "Model": "$1"
+            }
+        ]
+    },
+    {
+        "Producer": "O2",
+        "Regex": "Xda|O2[ \\-]|COCOON",
+        "Model": "",
+        "Models": [
+            {
+                "Regex": "(Xda[ _][a-z0-9_]+)",
+                "Model": "$1"
+            },
+            {
+                "Regex": "(COCOON)",
+                "Model": "$1"
+            },
+            {
+                "Regex": "O2 ([a-z0-9 ]+)",
+                "Model": "$1"
+            },
+            {
+                "Regex": "O2-([a-z0-9]+)",
+                "Model": "$1"
+            }
+        ]
+    },
+    {
+        "Producer": "Onda",
+        "Regex": "Onda",
+        "Model": "",
+        "Models": [
+            {
+                "Regex": "ONDA MID",
+                "Model": "MID"
+            },
+            {
+                "Regex": "([a-z0-9]+)[ _]Onda",
+                "Model": "$1"
+            },
+            {
+                "Regex": "Onda ([a-z0-9]+)",
+                "Model": "$1"
+            }
+        ]
+    },
+    {
+        "Producer": "OPPO",
+        "Regex": "OPPO[ _]?([a-z0-9]+)|X9006",
+        "Model": "",
+        "Models": [
+            {
+                "Regex": "OPPO[ _]?([a-z0-9]+)",
+                "Model": "$1"
+            },
+            {
+                "Regex": "X9006",
+                "Model": "Find 7a"
+            }
+        ]
+    },
+    {
+        "Producer": "Opsson",
+        "Regex": "Opsson ([^/;]+) Build",
+        "Model": "$1",
+        "Models": null
+    },
+    {
+        "Producer": "Orange",
+        "Regex": "SPV[ \\-]?([a-z0-9]+)|Orange ([^/;]+) Build",
+        "Model": "",
+        "Models": [
+            {
+                "Regex": "Orange ([^/;]+) Build",
+                "Model": "$1"
+            },
+            {
+                "Regex": "SPV[ \\-]?([a-z0-9]+)",
+                "Model": "SPV $1"
+            }
+        ]
+    },
+    {
+        "Producer": "Oysters",
+        "Regex": "Oysters",
+        "Model": "",
+        "Models": [
+            {
+                "Regex": "Oysters ((?:Arctic|Indian|Atlantic|Pacific)[^/;]+) Build",
+                "Model": "$1"
+            },
+            {
+                "Regex": "Oysters ([^/;]+) Build",
+                "Model": "$1"
+            }
+        ]
+    },
+    {
+        "Producer": "Panasonic",
+        "Regex": "Panasonic",
+        "Model": "",
+        "Models": [
+            {
+                "Regex": "Panasonic MIL DLNA",
+                "Model": "Viera Cast"
+            },
+            {
+                "Regex": "Panasonic[ \\-]?([a-z0-9]+)",
+                "Model": "$1"
+            },
+            {
+                "Regex": "portalmmm/2.0 (P[a-z0-9]+)",
+                "Model": "$1"
+            }
+        ]
+    },
+    {
+        "Producer": "Philips",
+        "Regex": "Philips",
+        "Model": "",
+        "Models": [
+            {
+                "Regex": "Philips-FISIO ([a-z0-9]+)",
+                "Model": "Fisio $1"
+            },
+            {
+                "Regex": "Philips[ ]?([a-z0-9]+)",
+                "Model": "$1"
+            },
+            {
+                "Regex": "Philips-([a-z0-9\\-@]+)",
+                "Model": "$1"
+            }
+        ]
+    },
+    {
+        "Producer": "phoneOne",
+        "Regex": "phoneOne[ \\-]?([a-z0-9]+)",
+        "Model": "$1",
+        "Models": null
+    },
+    {
+        "Producer": "Rover",
+        "Regex": "Rover ([0-9]+)",
+        "Model": "$1",
+        "Models": null
+    },
+    {
+        "Producer": "Siemens",
+        "Regex": "SIEMENS|SIE-|portalmmm/2\\.0 SI|S55|SL45i",
+        "Model": "",
+        "Models": [
+            {
+                "Regex": "SIEMENS[ \\-]([a-z0-9]+)",
+                "Model": "$1"
+            },
+            {
+                "Regex": "SIE(?:MENS )?[\\-]?([a-z0-9]+)",
+                "Model": "$1"
+            },
+            {
+                "Regex": "(S55|SL45i)",
+                "Model": "$1"
+            },
+            {
+                "Regex": "portalmmm/2.0 (SI[a-z0-9]+)",
+                "Model": "$1"
+            }
+        ]
+    },
+    {
+        "Producer": "Samsung",
+        "Regex": "SAMSUNG|SC-(?:02C|04E|01F)|N7100|S(?:CH|GH|PH|EC|AM|HV|HW|M)-|SMART-TV|GT-|Galaxy|(?:portalmmm|o2imode)/2\\.0 [SZ]|sam[rua]",
+        "Model": "",
+        "Models": [
+            {
+                "Regex": "GT-B9150",
+                "Model": "Home Sync"
+            },
+            {
+                "Regex": "(?:SAMSUNG-)?GT-N5100",
+                "Model": "GALAXY Note 8.0\""
+            },
+            {
+                "Regex": "(?:SAMSUNG-)?GT-N5110",
+                "Model": "GALAXY Note 8.0\" WiFi"
+            },
+            {
+                "Regex": "(?:SAMSUNG-)?GT-N5120",
+                "Model": "GALAXY Note 8.0\" LTE"
+            },
+            {
+                "Regex": "(?:SAMSUNG-)?GT-N8000",
+                "Model": "GALAXY Note 10.1\""
+            },
+            {
+                "Regex": "(?:SAMSUNG-)?GT-N8010",
+                "Model": "GALAXY Note 10.1\" WiFi"
+            },
+            {
+                "Regex": "(?:SAMSUNG-)?GT-N8020",
+                "Model": "GALAXY Note 10.1\" LTE"
+            },
+            {
+                "Regex": "(?:SAMSUNG-)?GT-P1000M?|SCH-I800",
+                "Model": "GALAXY Tab"
+            },
+            {
+                "Regex": "(?:SAMSUNG-)?GT-P3100B?",
+                "Model": "GALAXY Tab 2 7\""
+            },
+            {
+                "Regex": "(?:SAMSUNG-)?GT-P311[03]",
+                "Model": "GALAXY Tab 2 7\" WiFi"
+            },
+            {
+                "Regex": "(?:SAMSUNG-)?GT-P5100|SCH-I915",
+                "Model": "GALAXY Tab 2 10.1\""
+            },
+            {
+                "Regex": "(?:SAMSUNG-)?GT-P511[03]",
+                "Model": "GALAXY Tab 2 10.1\" WiFi"
+            },
+            {
+                "Regex": "(?:SAMSUNG-)?GT-P5200",
+                "Model": "GALAXY Tab 3 10.1\""
+            },
+            {
+                "Regex": "(?:SAMSUNG-)?GT-P5210",
+                "Model": "GALAXY Tab 3 10.1\" WiFi"
+            },
+            {
+                "Regex": "(?:SAMSUNG-)?GT-P5220",
+                "Model": "GALAXY Tab 3 10.1\" LTE"
+            },
+            {
+                "Regex": "(?:SAMSUNG-)?GT-P6200",
+                "Model": "GALAXY Tab 7\" Plus"
+            },
+            {
+                "Regex": "(?:SAMSUNG-)?GT-P6201",
+                "Model": "GALAXY Tab 7\" Plus N"
+            },
+            {
+                "Regex": "(?:SAMSUNG-)?GT-P6810",
+                "Model": "GALAXY Tab 7.7\""
+            },
+            {
+                "Regex": "(?:SAMSUNG-)?GT-P7100",
+                "Model": "GALAXY Tab 10.1v"
+            },
+            {
+                "Regex": "(?:SAMSUNG-)?GT-P7500",
+                "Model": "GALAXY Tab 10.1\" P7500"
+            },
+            {
+                "Regex": "(?:SAMSUNG-)?SM-P600",
+                "Model": "GALAXY Note 10.1\" 2014 Edition WiFi"
+            },
+            {
+                "Regex": "(?:SAMSUNG-)?SM-P60[12]",
+                "Model": "GALAXY Note 10.1\" 2014 Edition"
+            },
+            {
+                "Regex": "(?:SAMSUNG-)?SM-P605",
+                "Model": "GALAXY Note 10.1\" 2014 Edition LTE"
+            },
+            {
+                "Regex": "(?:SAMSUNG-)?SM-P900",
+                "Model": "GALAXY NotePRO 12.2\" WiFi"
+            },
+            {
+                "Regex": "(?:SAMSUNG-)?SM-P901",
+                "Model": "GALAXY NotePRO 12.2\""
+            },
+            {
+                "Regex": "(?:SAMSUNG-)?SM-P905",
+                "Model": "GALAXY NotePRO 12.2\" LTE"
+            },
+            {
+                "Regex": "(?:SAMSUNG-)?SM-T110",
+                "Model": "GALAXY Tab 3 7.0\" Lite WiFi"
+            },
+            {
+                "Regex": "(?:SAMSUNG-)?SM-T111",
+                "Model": "GALAXY Tab 3 7.0\" Lite"
+            },
+            {
+                "Regex": "(?:SAMSUNG-)?SM-T2105",
+                "Model": "GALAXY Tab 3 7.0\" Kids"
+            },
+            {
+                "Regex": "(?:SAMSUNG-)?SM-T210R?",
+                "Model": "GALAXY Tab 3 7.0\" WiFi"
+            },
+            {
+                "Regex": "(?:SAMSUNG-)?SM-T21(?:1|7[AS])",
+                "Model": "GALAXY Tab 3 7.0\""
+            },
+            {
+                "Regex": "(?:SAMSUNG-)?SM-T230(?:NU)?",
+                "Model": "GALAXY Tab 4 7.0\" WiFi"
+            },
+            {
+                "Regex": "(?:SAMSUNG-)?SM-T310",
+                "Model": "GALAXY Tab 3 8.0\" WiFi"
+            },
+            {
+                "Regex": "(?:SAMSUNG-)?SM-T311",
+                "Model": "GALAXY Tab 3 8.0\""
+            },
+            {
+                "Regex": "(?:SAMSUNG-)?SM-T315",
+                "Model": "GALAXY Tab 3 8.0\" LTE"
+            },
+            {
+                "Regex": "(?:SAMSUNG-)?SM-T335",
+                "Model": "GALAXY Tab 8.0\" LTE"
+            },
+            {
+                "Regex": "(?:SAMSUNG-)?SM-T520",
+                "Model": "GALAXY TabPRO 10.1\" WiFi"
+            },
+            {
+                "Regex": "(?:SAMSUNG-)?SM-T535",
+                "Model": "GALAXY Tab 4 10.1\" LTE"
+            },
+            {
+                "Regex": "(?:SAMSUNG-)?SM-T320",
+                "Model": "GALAXY TabPRO 8.4\" WiFi"
+            },
+            {
+                "Regex": "(?:SAMSUNG-)?SM-T325",
+                "Model": "GALAXY TabPRO 8.4\" LTE"
+            },
+            {
+                "Regex": "(?:SAMSUNG-)?SM-T525",
+                "Model": "GALAXY TabPRO 10.1\" LTE"
+            },
+            {
+                "Regex": "(?:SAMSUNG-)?SM-T530(?:NU)?",
+                "Model": "GALAXY Tab 4 10.1\" WiFi"
+            },
+            {
+                "Regex": "(?:SAMSUNG-)?SM-T700",
+                "Model": "GALAXY Tab S 8.4\" WiFi"
+            },
+            {
+                "Regex": "(?:SAMSUNG-)?SM-T705",
+                "Model": "GALAXY Tab S 8.4\" LTE"
+            },
+            {
+                "Regex": "(?:SAMSUNG-)?SM-T800",
+                "Model": "GALAXY Tab S 10.5\" WiFi"
+            },
+            {
+                "Regex": "(?:SAMSUNG-)?SM-T805",
+                "Model": "GALAXY Tab S 10.5\" LTE"
+            },
+            {
+                "Regex": "(?:SAMSUNG-)?SM-T900",
+                "Model": "GALAXY TabPRO 12.2\" WiFi"
+            },
+            {
+                "Regex": "(?:SAMSUNG-)?GT-B5330",
+                "Model": "GALAXY Chat"
+            },
+            {
+                "Regex": "(?:SAMSUNG-)?GT-B5510",
+                "Model": "GALAXY Y Pro"
+            },
+            {
+                "Regex": "(?:SAMSUNG-)?GT-B5512",
+                "Model": "GALAXY Y Pro Duos"
+            },
+            {
+                "Regex": "(?:SAMSUNG-)?GT-B7510",
+                "Model": "GALAXY Pro"
+            },
+            {
+                "Regex": "(?:SAMSUNG-)?GT-I5700",
+                "Model": "GALAXY Spica"
+            },
+            {
+                "Regex": "(?:SAMSUNG-)?GT-I5801",
+                "Model": "GALAXY Apollo"
+            },
+            {
+                "Regex": "(?:SAMSUNG-)?GT-I5800",
+                "Model": "GALAXY 3"
+            },
+            {
+                "Regex": "(?:SAMSUNG-)?GT-I8000",
+                "Model": "Omnia II"
+            },
+            {
+                "Regex": "(?:SAMSUNG-)?GT-I8150",
+                "Model": "GALAXY W"
+            },
+            {
+                "Regex": "(?:SAMSUNG-)?GT-I8160",
+                "Model": "GALAXY Ace 2"
+            },
+            {
+                "Regex": "(?:SAMSUNG-)?GT-I8190",
+                "Model": "GALAXY S III mini"
+            },
+            {
+                "Regex": "(?:SAMSUNG-)?GT-I8200",
+                "Model": "GALAXY S III mini Value Edition"
+            },
+            {
+                "Regex": "(?:SAMSUNG-)?GT-I826[02]",
+                "Model": "GALAXY Core"
+            },
+            {
+                "Regex": "(?:SAMSUNG-)?GT-I8320",
+                "Model": "H1"
+            },
+            {
+                "Regex": "(?:SAMSUNG-)?GT-I85[23]0",
+                "Model": "GALAXY Beam"
+            },
+            {
+                "Regex": "(?:SAMSUNG-)?GT-I855[028]",
+                "Model": "GALAXY Win"
+            },
+            {
+                "Regex": "(?:SAMSUNG-)?GT-I8580",
+                "Model": "GALAXY Core Advance"
+            },
+            {
+                "Regex": "(?:SAMSUNG-)?GT-I8730",
+                "Model": "GALAXY Express"
+            },
+            {
+                "Regex": "(?:SAMSUNG-)?GT-I90(?:00|08|18|88)",
+                "Model": "GALAXY S"
+            },
+            {
+                "Regex": "(?:SAMSUNG-)?GT-I9001",
+                "Model": "GALAXY S Plus"
+            },
+            {
+                "Regex": "(?:SAMSUNG-)?GT-I9003",
+                "Model": "GALAXY SL"
+            },
+            {
+                "Regex": "(?:SAMSUNG-)?GT-I9010",
+                "Model": "GALAXY S Giorgio Armani"
+            },
+            {
+                "Regex": "(?:SAMSUNG-)?GT-I9070",
+                "Model": "GALAXY S Advance"
+            },
+            {
+                "Regex": "(?:SAMSUNG-)?GT-I910[08]",
+                "Model": "GALAXY S II"
+            },
+            {
+                "Regex": "(?:SAMSUNG-)?GT-I9103",
+                "Model": "GALAXY R"
+            },
+            {
+                "Regex": "(?:SAMSUNG-)?GT-I9105",
+                "Model": "GALAXY S II Plus"
+            },
+            {
+                "Regex": "(?:SAMSUNG-)?(?:GT-I919[05]|SCH-I435)",
+                "Model": "GALAXY S4 mini"
+            },
+            {
+                "Regex": "(?:SAMSUNG-)?GT-I9295",
+                "Model": "GALAXY S4 ACTIVE"
+            },
+            {
+                "Regex": "(?:SAMSUNG-)?(?:GT-I9300|SCH-I535|SCH-L710)",
+                "Model": "GALAXY S III"
+            },
+            {
+                "Regex": "(?:SAMSUNG-)?(?:GT-I9305|SCH-R530)",
+                "Model": "GALAXY S III LTE"
+            },
+            {
+                "Regex": "(?:SAMSUNG-)?(?:GT-I9505|SCH-I545|SCH-I959|SCH-R970)",
+                "Model": "GALAXY S4"
+            },
+            {
+                "Regex": "(?:SAMSUNG-)?GT-I9506",
+                "Model": "GALAXY S4 with LTE+"
+            },
+            {
+                "Regex": "(?:SAMSUNG-)?GT-S5280",
+                "Model": "GALAXY STAR"
+            },
+            {
+                "Regex": "(?:SAMSUNG-)?GT-S5301",
+                "Model": "GALAXY POCKET Plus"
+            },
+            {
+                "Regex": "(?:SAMSUNG-)?GT-S5310",
+                "Model": "GALAXY POCKET Neo"
+            },
+            {
+                "Regex": "(?:SAMSUNG-)?GT-S5360",
+                "Model": "GALAXY Y Hello Kitty"
+            },
+            {
+                "Regex": "(?:SAMSUNG-)?GT-S6310",
+                "Model": "GALAXY Young"
+            },
+            {
+                "Regex": "(?:SAMSUNG-)?GT-S6312",
+                "Model": "GALAXY Young DUOS"
+            },
+            {
+                "Regex": "(?:SAMSUNG-)?GT-S6790",
+                "Model": "GALAXY FAME Lite with NFC"
+            },
+            {
+                "Regex": "(?:SAMSUNG-)?GT-S6810",
+                "Model": "GALAXY FAME"
+            },
+            {
+                "Regex": "(?:SAMSUNG-)?GT-S7275",
+                "Model": "GALAXY ACE 3"
+            },
+            {
+                "Regex": "(?:SAMSUNG-)?GT-S7390",
+                "Model": "GALAXY Trend Lite"
+            },
+            {
+                "Regex": "(?:SAMSUNG-)?GT-S7500",
+                "Model": "GALAXY ACE Plus"
+            },
+            {
+                "Regex": "(?:SAMSUNG-)?(?:GT-S7560|SCH-I699)",
+                "Model": "GALAXY Trend"
+            },
+            {
+                "Regex": "(?:SAMSUNG-)?(?:GT-S7562|SCH-I919)",
+                "Model": "GALAXY S DUOS"
+            },
+            {
+                "Regex": "(?:SAMSUNG-)?GT-S7580",
+                "Model": "GALAXY Trend Plus"
+            },
+            {
+                "Regex": "(?:SAMSUNG-)?GT-S7582",
+                "Model": "GALAXY DUOS 2"
+            },
+            {
+                "Regex": "(?:SAMSUNG-)?GT-S7710",
+                "Model": "GALAXY Xcover 2"
+            },
+            {
+                "Regex": "(?:SAMSUNG-)?SM-C101",
+                "Model": "GALAXY S4 zoom"
+            },
+            {
+                "Regex": "(?:SAMSUNG-)?SM-C115",
+                "Model": "GALAXY K zoom"
+            },
+            {
+                "Regex": "(?:SAMSUNG-)?SM-G350",
+                "Model": "GALAXY CORE Plus"
+            },
+            {
+                "Regex": "(?:SAMSUNG-)?SM-G386F",
+                "Model": "GALAXY CORE LTE"
+            },
+            {
+                "Regex": "(?:SAMSUNG-)?SM-G3815",
+                "Model": "GALAXY EXPRESS II"
+            },
+            {
+                "Regex": "(?:SAMSUNG-)?SM-G800",
+                "Model": "GALAXY S5 mini"
+            },
+            {
+                "Regex": "(?:SAMSUNG-)?SM-G9009D",
+                "Model": "GALAXY S5 Dual-SIM"
+            },
+            {
+                "Regex": "(?:SAMSUNG-)?SM-G900",
+                "Model": "GALAXY S5"
+            },
+            {
+                "Regex": "(?:SAMSUNG-)?SCH-I200",
+                "Model": "GALAXY Stellar"
+            },
+            {
+                "Regex": "(?:SAMSUNG-)?SCH-I829",
+                "Model": "GALAXY Style Duos"
+            },
+            {
+                "Regex": "(?:SAMSUNG-)?(?:SGH-S730|SCH-R740)",
+                "Model": "GALAXY Discover"
+            },
+            {
+                "Regex": "(?:SAMSUNG-)?SCH-S738",
+                "Model": "GALAXY Centura"
+            },
+            {
+                "Regex": "(?:SAMSUNG-)?GT-I9060",
+                "Model": "GALAXY Grand Neo"
+            },
+            {
+                "Regex": "(?:SAMSUNG-)?GT-I9063",
+                "Model": "GALAXY Grand Neo Duos"
+            },
+            {
+                "Regex": "(?:SAMSUNG-)?GT-I9(?:080|128)",
+                "Model": "GALAXY Grand"
+            },
+            {
+                "Regex": "(?:SAMSUNG-)?GT-I9168",
+                "Model": "GALAXY Grand Neo+"
+            },
+            {
+                "Regex": "(?:SAMSUNG-)?GT-I9082",
+                "Model": "GALAXY Grand Duos"
+            },
+            {
+                "Regex": "(?:SAMSUNG-)?(?:(?:GT-)?N7100|SCH-I605|SCH-N719|SCH-R950|SPH-L900)",
+                "Model": "GALAXY Note II"
+            },
+            {
+                "Regex": "(?:SAMSUNG-)?GT-N7105",
+                "Model": "GALAXY Note II LTE"
+            },
+            {
+                "Regex": "(?:SAMSUNG-)?SM-G7105",
+                "Model": "GALAXY Grand 2"
+            },
+            {
+                "Regex": "(?:SAMSUNG-)?SM-N7502",
+                "Model": "GALAXY Note 3 Neo Duos"
+            },
+            {
+                "Regex": "(?:SAMSUNG-)?SM-N750[L50]?",
+                "Model": "GALAXY Note 3 Neo"
+            },
+            {
+                "Regex": "(?:SAMSUNG-)?SM-N9002",
+                "Model": "GALAXY Note 3 Duos"
+            },
+            {
+                "Regex": "(?:SAMSUNG-)?SM-N900(?:[05689][VQ]?|[AKLPSTV]|W8)?",
+                "Model": "GALAXY Note 3"
+            },
+            {
+                "Regex": "(?:SAMSUNG-)?SM-N910",
+                "Model": "GALAXY Note 4"
+            },
+            {
+                "Regex": "(?:SAMSUNG-)?SM-N915",
+                "Model": "GALAXY Note 4 Edge"
+            },
+            {
+                "Regex": "(?:SAMSUNG-)?GT-I915[028]",
+                "Model": "GALAXY Mega 5.8"
+            },
+            {
+                "Regex": "(?:SAMSUNG-)?GT-I920[05]",
+                "Model": "GALAXY Mega 6.3"
+            },
+            {
+                "Regex": "(?:SAMSUNG-)?GT-E2152",
+                "Model": "E2152"
+            },
+            {
+                "Regex": "(?:SAMSUNG-)?(GT-(P|N8|N5)[0-9]+[a-z]?)",
+                "Model": "$1"
+            },
+            {
+                "Regex": "SC-02C",
+                "Model": "GALAXY S II"
+            },
+            {
+                "Regex": "SC-01F",
+                "Model": "GALAXY Note 3"
+            },
+            {
+                "Regex": "SC-04E",
+                "Model": "GALAXY S4"
+            },
+            {
+                "Regex": "(?:SAMSUNG-)?((?:SM-[TNP]|GT-P)[a-z0-9_\\-]+)",
+                "Model": "$1"
+            },
+            {
+                "Regex": "((?:SCH|SGH|SPH|SHV|SHW|GT|SM)-[a-z0-9_\\-]+)",
+                "Model": "$1"
+            },
+            {
+                "Regex": "SAMSUNG[\\-][ ]?([a-z0-9]+[\\-_][a-z0-9]+)",
+                "Model": "$1"
+            },
+            {
+                "Regex": "SAMSUNG;[ ]?([a-z0-9]+[\\-_][a-z0-9]+)",
+                "Model": "$1"
+            },
+            {
+                "Regex": "SAMSUNG[ _/\\-]?([a-z0-9\\-]+)",
+                "Model": "$1"
+            },
+            {
+                "Regex": "SAMSUNG;[ ]?([a-z0-9 ]+)",
+                "Model": "$1"
+            },
+            {
+                "Regex": "SEC-([a-z0-9]+)",
+                "Model": "$1"
+            },
+            {
+                "Regex": "SAM-([a-z0-9]+)",
+                "Model": "SCH-$1"
+            },
+            {
+                "Regex": "SMART-TV",
+                "Model": "Smart TV"
+            },
+            {
+                "Regex": "Galaxy ([^/;]+) Build",
+                "Model": "GALAXY $1"
+            },
+            {
+                "Regex": "Galaxy ([a-z0-9]+)",
+                "Model": "GALAXY $1"
+            },
+            {
+                "Regex": "(?:portalmmm|o2imode)/2\\.0 ([SZ][a-z0-9]+)",
+                "Model": "$1"
+            },
+            {
+                "Regex": "sam([rua][0-9]+)",
+                "Model": "SCH-$1"
+            }
+        ]
+    },
+    {
+        "Producer": "Smartfren",
+        "Regex": "Smartfren|Androtab|Andromax|PD6D1J|AD682J|AD68[89]G|AD6B1H|AD9A1H|AD682H|AD683G",
+        "Model": "",
+        "Models": [
+            {
+                "Regex": "S7 Build",
+                "Model": "Andromax Tab 7.0"
+            },
+            {
+                "Regex": "PD6D1J",
+                "Model": "Andromax V3s"
+            },
+            {
+                "Regex": "AD682J",
+                "Model": "Andromax T"
+            },
+            {
+                "Regex": "AD688G",
+                "Model": "Andromax C2"
+            },
+            {
+                "Regex": "AD689G",
+                "Model": "Andromax i3"
+            },
+            {
+                "Regex": "AD682H",
+                "Model": "Andromax i3s"
+            },
+            {
+                "Regex": "AD6B1H",
+                "Model": "Andromax G2 Hot"
+            },
+            {
+                "Regex": "AD9A1H",
+                "Model": "Andromax G2"
+            },
+            {
+                "Regex": "AD683G",
+                "Model": "Andromax I"
+            },
+            {
+                "Regex": "New Andromax-i",
+                "Model": "New Andromax I"
+            },
+            {
+                "Regex": "Andromax[ _\\-]([^/;]+) Build",
+                "Model": "Andromax $1"
+            },
+            {
+                "Regex": "Andromax[ _\\-]([a-z0-9]+)",
+                "Model": "Andromax $1"
+            },
+            {
+                "Regex": "Smartfren[ _\\-]([^/;]+) Build",
+                "Model": "$1"
+            },
+            {
+                "Regex": "(Androtab[^/;]+) Build",
+                "Model": "$1"
+            }
+        ]
+    },
+    {
+        "Producer": "SuperSonic",
+        "Regex": "(SC-[0-9]+[a-z]+)",
+        "Model": "$1",
+        "Models": null
+    },
+    {
+        "Producer": "Sumvision",
+        "Regex": "(Cyclone [^/;]+) Build",
+        "Model": "$1",
+        "Models": null
+    },
+    {
+        "Producer": "Pantech",
+        "Regex": "Pantech|P[GN]-|PT-[a-z0-9]{3,}|TX[T]?[0-9]+|IM-[a-z0-9]+ Build|ADR910L",
+        "Model": "",
+        "Models": [
+            {
+                "Regex": "ADR910L",
+                "Model": "Star Q"
+            },
+            {
+                "Regex": "Pantech[ \\-]?([a-z0-9]+)",
+                "Model": "$1"
+            },
+            {
+                "Regex": "Pantech_([a-z0-9\\-]+)",
+                "Model": "$1"
+            },
+            {
+                "Regex": "(P[GTN]-[a-z0-9]+)",
+                "Model": "$1"
+            },
+            {
+                "Regex": "(TX[T]?[0-9]+)",
+                "Model": "$1"
+            },
+            {
+                "Regex": "(IM-[a-z0-9]+) Build",
+                "Model": "$1"
+            }
+        ]
+    },
+    {
+        "Producer": "Polaroid",
+        "Regex": "Polaroid|(?:PMID|MIDC)[0-9a-z]+ Build|MID(?:1014|0714)|PRO[VG]?(?:[0-9]{3,}[a-z]*|[0-9]{2}[a-z])",
+        "Model": "",
+        "Models": [
+            {
+                "Regex": "PRO4611(?:PR201)?",
+                "Model": "Pro4611"
+            },
+            {
+                "Regex": "PROV400",
+                "Model": "Agate"
+            },
+            {
+                "Regex": "PROV350",
+                "Model": "ProV350"
+            },
+            {
+                "Regex": "PRO([VG]?(?:[0-9]{3,}[a-z]*|[0-9]{2}[a-z]))",
+                "Model": "Pro$1"
+            },
+            {
+                "Regex": "(MID(?:1014|0714))",
+                "Model": "$1"
+            },
+            {
+                "Regex": "((?:PMID|MIDC)[0-9a-z]+) Build",
+                "Model": "$1"
+            },
+            {
+                "Regex": "Polaroid",
+                "Model": ""
+            }
+        ]
+    },
+    {
+        "Producer": "PolyPad",
+        "Regex": "POLY ?PAD",
+        "Model": "",
+        "Models": [
+            {
+                "Regex": "POLY ?PAD[_ \\.]([a-z0-9]+) Build",
+                "Model": "$1"
+            },
+            {
+                "Regex": "POLY ?PAD[_\\.]([a-z0-9]+)",
+                "Model": "$1"
+            }
+        ]
+    },
+    {
+        "Producer": "Positivo",
+        "Regex": "YPY_S450",
+        "Model": "",
+        "Models": [
+            {
+                "Regex": "YPY_S450",
+                "Model": "YPY S450"
+            }
+        ]
+    },
+    {
+        "Producer": "Prestigio",
+        "Regex": "(?:PMP|PAP)[0-9]+[a-z0-9_]+ Build",
+        "Model": "",
+        "Models": [
+            {
+                "Regex": "(PMP[0-9]+[a-z0-9_]+) Build",
+                "Model": "$1"
+            },
+            {
+                "Regex": "(PAP[0-9]+[a-z0-9_]+) Build",
+                "Model": "$1"
+            }
+        ]
+    },
+    {
+        "Producer": "Sanyo",
+        "Regex": "Sanyo|MobilePhone[ ;]",
+        "Model": "",
+        "Models": [
+            {
+                "Regex": "SCP-?6750",
+                "Model": "Katana Eclipse X"
+            },
+            {
+                "Regex": "SCP-?6760",
+                "Model": "Incognito"
+            },
+            {
+                "Regex": "SCP-?6780",
+                "Model": "Innuendo"
+            },
+            {
+                "Regex": "SANYO[ \\-_]([a-z0-9\\-]+)",
+                "Model": "$1"
+            },
+            {
+                "Regex": "MobilePhone ([a-z0-9\\-]+)",
+                "Model": "$1"
+            }
+        ]
+    },
+    {
+        "Producer": "Qilive",
+        "Regex": "Qilive [0-9][^;/]*",
+        "Model": "",
+        "Models": [
+            {
+                "Regex": "Qilive ([0-5][^;/]*) Build",
+                "Model": "$1"
+            },
+            {
+                "Regex": "Qilive ([0-5][^;/]*)/",
+                "Model": "$1"
+            },
+            {
+                "Regex": "Qilive ([6-9][^;/]*) Build",
+                "Model": "$1"
+            },
+            {
+                "Regex": "Qilive ([6-9][^;/]*)/",
+                "Model": "$1"
+            }
+        ]
+    },
+    {
+        "Producer": "Quechua",
+        "Regex": "Quechua Phone 5",
+        "Model": "Quechua Phone 5",
+        "Models": null
+    },
+    {
+        "Producer": "Ramos",
+        "Regex": "Ramos ?([^/;]+) Build",
+        "Model": "$1",
+        "Models": null
+    },
+    {
+        "Producer": "Sendo",
+        "Regex": "Sendo([a-z0-9]+)",
+        "Model": "$1",
+        "Models": null
+    },
+    {
+        "Producer": "Turbo-X",
+        "Regex": "Turbo-X",
+        "Model": "",
+        "Models": [
+            {
+                "Regex": "Turbo-X Ice Build",
+                "Model": "Ice"
+            },
+            {
+                "Regex": "Turbo-X Tablet([^;/]+) Build",
+                "Model": "Tablet$1"
+            },
+            {
+                "Regex": "Turbo-X ([^;/]+) Build",
+                "Model": "$1"
+            }
+        ]
+    },
+    {
+        "Producer": "Spice",
+        "Regex": "Spice",
+        "Model": "",
+        "Models": [
+            {
+                "Regex": "Spice[ _\\-]?([^/;]+)(?:[\\)]| Build)",
+                "Model": "$1"
+            },
+            {
+                "Regex": "Spice[ _\\-]?([^/;]+)(?:/|$)",
+                "Model": "$1"
+            }
+        ]
+    },
+    {
+        "Producer": "Sharp",
+        "Regex": "SHARP|SBM|SH-[0-9]+[a-z]? Build|AQUOS",
+        "Model": "",
+        "Models": [
+            {
+                "Regex": "SH-02E",
+                "Model": "Aquos Phone Zeta"
+            },
+            {
+                "Regex": "SH06D",
+                "Model": "Aquos Phone SH-06D"
+            },
+            {
+                "Regex": "SH-08E",
+                "Model": "Sharp Aquos Pad"
+            },
+            {
+                "Regex": "SHARP-AQUOS|AQUOSBrowser",
+                "Model": "Aquos Net Plus"
+            },
+            {
+                "Regex": "SHARP[ \\-]([a-z0-9\\-]+)",
+                "Model": "$1"
+            },
+            {
+                "Regex": "(?:SHARP|SBM)([a-z0-9]+)",
+                "Model": "$1"
+            },
+            {
+                "Regex": "(SH-[0-9]+[a-z]?) Build",
+                "Model": "$1"
+            }
+        ]
+    },
+    {
+        "Producer": "Softbank",
+        "Regex": "Softbank|J-PHONE",
+        "Model": "",
+        "Models": [
+            {
+                "Regex": "Softbank/[12]\\.0/([a-z0-9]+)",
+                "Model": "$1"
+            },
+            {
+                "Regex": "([a-z0-9]+);Softbank;",
+                "Model": "$1"
+            },
+            {
+                "Regex": "J-PHONE/[0-9]\\.[0-9]/([a-z0-9\\-]+)",
+                "Model": "$1"
+            }
+        ]
+    },
+    {
+        "Producer": "Kindle",
+        "Regex": "KF(?:OT|TT|JWI|JWA|SOWI|APWI|THWI) Build|Kindle|Silk/\\d+\\.\\d+|Amazon (?:Tate|Jem)",
+        "Model": "",
+        "Models": [
+            {
+                "Regex": "KFTT Build",
+                "Model": "Kindle Fire HD"
+            },
+            {
+                "Regex": "KFJWI Build|Amazon Jem",
+                "Model": "Kindle Fire HD 8.9\" WiFi"
+            },
+            {
+                "Regex": "KFJWA Build",
+                "Model": "Kindle Fire HD 8.9\" 4G"
+            },
+            {
+                "Regex": "KFSOWI Build|Amazon Tate",
+                "Model": "Kindle Fire HD 7\" WiFi"
+            },
+            {
+                "Regex": "KFTHWI Build",
+                "Model": "Kindle Fire HDX 7\" WiFi"
+            },
+            {
+                "Regex": "KFTHWA Build",
+                "Model": "Kindle Fire HDX 7\" 4G"
+            },
+            {
+                "Regex": "KFAPWI Build",
+                "Model": "Kindle Fire HDX 8.9\" WiFi"
+            },
+            {
+                "Regex": "KFAPWA Build",
+                "Model": "Kindle Fire HDX 8.9\" 4G"
+            },
+            {
+                "Regex": "KFOT|Kindle Fire|Silk/\\d+\\.\\d+",
+                "Model": "Kindle Fire"
+            },
+            {
+                "Regex": "Kindle",
+                "Model": "Kindle"
+            }
+        ]
+    },
+    {
+        "Producer": "Symphony",
+        "Regex": "SYMPHONY[ \\_]([a-z0-9]+)",
+        "Model": "$1",
+        "Models": null
+    },
+    {
+        "Producer": "Qtek",
+        "Regex": "Qtek[ _]?([a-z0-9]+)",
+        "Model": "$1",
+        "Models": null
+    },
+    {
+        "Producer": "T-Mobile",
+        "Regex": "T-Mobile[ _][a-z0-9 ]+",
+        "Model": "",
+        "Models": [
+            {
+                "Regex": "T-Mobile[ _]([a-z0-9_ ]+) Build",
+                "Model": "$1"
+            },
+            {
+                "Regex": "T-Mobile[ _]([a-z0-9_ ]+)",
+                "Model": "$1"
+            }
+        ]
+    },
+    {
+        "Producer": "TCL",
+        "Regex": "TCL-([a-z0-9]+)",
+        "Model": "$1",
+        "Models": null
+    },
+    {
+        "Producer": "Tecno Mobile",
+        "Regex": "Tecno",
+        "Model": "",
+        "Models": [
+            {
+                "Regex": "Tecno ([^;/]+) Build",
+                "Model": "$1"
+            },
+            {
+                "Regex": "Tecno_?([a-z0-9_\\-]+)",
+                "Model": "$1"
+            }
+        ]
+    },
+    {
+        "Producer": "Tesco",
+        "Regex": "Hudl ([^/;]+) Build",
+        "Model": "Hudl $1",
+        "Models": null
+    },
+    {
+        "Producer": "teXet",
+        "Regex": "(NaviPad [^/;]*) Build",
+        "Model": "$1",
+        "Models": null
+    },
+    {
+        "Producer": "Telit",
+        "Regex": "Telit",
+        "Model": "",
+        "Models": [
+            {
+                "Regex": "Telit_Mobile_Terminals-([a-z0-9]+)",
+                "Model": "$1"
+            },
+            {
+                "Regex": "Telit[\\-_]?([a-z0-9]+)",
+                "Model": "$1"
+            }
+        ]
+    },
+    {
+        "Producer": "TIANYU",
+        "Regex": "TIANYU",
+        "Model": "",
+        "Models": [
+            {
+                "Regex": "TIANYU ([a-z0-9]+)",
+                "Model": "$1"
+            },
+            {
+                "Regex": "TIANYU-KTOUCH/([a-z0-9]+)",
+                "Model": "$1"
+            }
+        ]
+    },
+    {
+        "Producer": "Tolino",
+        "Regex": "Tolino Tab ([^/;]+) Build",
+        "Model": "Tolino Tab $1",
+        "Models": null
+    },
+    {
+        "Producer": "Toplux",
+        "Regex": "Toplux ([a-z0-9]+)",
+        "Model": "$1",
+        "Models": null
+    },
+    {
+        "Producer": "TVC",
+        "Regex": "(NuclearSX-SP5)",
+        "Model": "Nuclear SX-SP5",
+        "Models": null
+    },
+    {
+        "Producer": "Unowhy",
+        "Regex": "QOOQ",
+        "Model": "QOOQ",
+        "Models": null
+    },
+    {
+        "Producer": "UTStarcom",
+        "Regex": "utstar[ _-]?([a-z0-9]+)",
+        "Model": "$1",
+        "Models": null
+    },
+    {
+        "Producer": "ViewSonic",
+        "Regex": "ViewSonic|VSD[0-9]+ Build|ViewPad",
+        "Model": "",
+        "Models": [
+            {
+                "Regex": "(?:ViewSonic-)?ViewPad ?([^;/]+) Build",
+                "Model": "ViewPad $1"
+            },
+            {
+                "Regex": "(VSD[0-9]+) Build",
+                "Model": "$1"
+            }
+        ]
+    },
+    {
+        "Producer": "Vitelcom",
+        "Regex": "Vitelcom|portalmmm/[12].0 TSM",
+        "Model": "",
+        "Models": [
+            {
+                "Regex": "TSM-([a-z0-9]+)",
+                "Model": "$1"
+            },
+            {
+                "Regex": "TSM([a-z0-9\\-]+)",
+                "Model": "$1"
+            },
+            {
+                "Regex": "portalmmm/[12].0 (TSM[a-z0-9 ]+)",
+                "Model": "$1"
+            }
+        ]
+    },
+    {
+        "Producer": "VK Mobile",
+        "Regex": "VK[\\-]?([a-z0-9 ]+)",
+        "Model": "$1",
+        "Models": null
+    },
+    {
+        "Producer": "Vertu",
+        "Regex": "Vertu[ ]?([a-z0-9]+)",
+        "Model": "$1",
+        "Models": null
+    },
+    {
+        "Producer": "Videocon",
+        "Regex": "Videocon[_ ]([a-z0-9]+)",
+        "Model": "$1",
+        "Models": null
+    },
+    {
+        "Producer": "Voxtel",
+        "Regex": "Voxtel_([a-z0-9]+)",
+        "Model": "$1",
+        "Models": null
+    },
+    {
+        "Producer": "WellcoM",
+        "Regex": "WELLCOM[ _\\-/]([a-z0-9]+)",
+        "Model": "$1",
+        "Models": null
+    },
+    {
+        "Producer": "Wiko",
+        "Regex": "(?:WIKO-)?CINK_[a-z0-9_]+|(?:WIKO-)?HIGHWAY_[a-z0-9_]+|(?:WIKO-)?(?:Cink.*|Highway.*|Iggy|Stairway|Rainbow|Darkside|Darkmoon|Darkfull|Darknight|Sublim|Ozzy|Barry|Birdy|Bloom|Getaway|Goa|Kite|Lenny|Slide|Sunset|Wax) Build",
+        "Model": "",
+        "Models": [
+            {
+                "Regex": "(?:WIKO-)?CINK_([a-z0-9_]+)",
+                "Model": "Cink $1"
+            },
+            {
+                "Regex": "(?:Wiko-)?Cink(.*) Build",
+                "Model": "Cink$1"
+            },
+            {
+                "Regex": "(?:WIKO-)?HIGHWAY_([a-z0-9_]+)",
+                "Model": "Highway $1"
+            },
+            {
+                "Regex": "(?:Wiko-)?Highway(.*) Build",
+                "Model": "Highway$1"
+            },
+            {
+                "Regex": "(?:WIKO-)?Iggy Build",
+                "Model": "Iggy"
+            },
+            {
+                "Regex": "(?:WIKO-)?Stairway Build",
+                "Model": "Stairway"
+            },
+            {
+                "Regex": "(?:WIKO-)?Rainbow Build",
+                "Model": "Rainbow"
+            },
+            {
+                "Regex": "(?:WIKO-)?Darkside Build",
+                "Model": "Darkside"
+            },
+            {
+                "Regex": "(?:WIKO-)?Darkmoon Build",
+                "Model": "Darkmoon"
+            },
+            {
+                "Regex": "(?:WIKO-)?Darkfull Build",
+                "Model": "Darkfull"
+            },
+            {
+                "Regex": "(?:WIKO-)?Darknight Build",
+                "Model": "Darknight"
+            },
+            {
+                "Regex": "(?:WIKO-)?Sublim Build",
+                "Model": "Sublim"
+            },
+            {
+                "Regex": "(?:WIKO-)?Ozzy Build",
+                "Model": "Ozzy"
+            },
+            {
+                "Regex": "(?:WIKO-)?Barry Build",
+                "Model": "Barry"
+            },
+            {
+                "Regex": "(?:WIKO-)?Birdy Build",
+                "Model": "Birdy"
+            },
+            {
+                "Regex": "(?:WIKO-)?Bloom Build",
+                "Model": "Bloom"
+            },
+            {
+                "Regex": "(?:WIKO-)?Getaway Build",
+                "Model": "Getaway"
+            },
+            {
+                "Regex": "(?:WIKO-)?Goa Build",
+                "Model": "Goa"
+            },
+            {
+                "Regex": "(?:WIKO-)?Kite Build",
+                "Model": "Kite"
+            },
+            {
+                "Regex": "(?:WIKO-)?Lenny Build",
+                "Model": "Lenny"
+            },
+            {
+                "Regex": "(?:WIKO-)?Slide Build",
+                "Model": "Slide"
+            },
+            {
+                "Regex": "(?:WIKO-)?Sunset Build",
+                "Model": "Sunset"
+            },
+            {
+                "Regex": "(?:WIKO-)?Wax Build",
+                "Model": "Wax"
+            }
+        ]
+    },
+    {
+        "Producer": "Wolder",
+        "Regex": "miSmart|miTab",
+        "Model": "",
+        "Models": [
+            {
+                "Regex": "miSmart[ \\-_]?([^/]+) Build",
+                "Model": "miSmart $1"
+            },
+            {
+                "Regex": "miTab[ \\-_]?([^/]+) Build",
+                "Model": "miTab $1"
+            }
+        ]
+    },
+    {
+        "Producer": "Wonu",
+        "Regex": "Wonu ([a-z0-9]+)",
+        "Model": "$1",
+        "Models": null
+    },
+    {
+        "Producer": "Woxter",
+        "Regex": "Woxter (.+) Build",
+        "Model": "$1",
+        "Models": null
+    },
+    {
+        "Producer": "Xiaomi",
+        "Regex": "(MI [a-z0-9]+|MI-One[ _]Plus) Build|HM ([^/;]+) Build",
+        "Model": "",
+        "Models": [
+            {
+                "Regex": "(MI [a-z0-9]+|MI-One[ _]Plus) Build",
+                "Model": "$1"
+            },
+            {
+                "Regex": "HM Note ([^/;]+) Build",
+                "Model": "HM Note $1"
+            },
+            {
+                "Regex": "HM ([^/;]+) Build",
+                "Model": "HM $1"
+            }
+        ]
+    },
+    {
+        "Producer": "Yarvik",
+        "Regex": "Xenta[ \\-]Tab|Luna TAB|TAB09-410|TAB10-410|TAB07-485|TAB0[78]-200|TAB08-201-3G|TAB9-200|TAB09-211|TAB10-2[01]1|TAB13-201",
+        "Model": "",
+        "Models": [
+            {
+                "Regex": "Luna TAB07-920N",
+                "Model": "Luna 7"
+            },
+            {
+                "Regex": "Luna TAB07-10[01]",
+                "Model": "Luna 7c"
+            },
+            {
+                "Regex": "Luna TAB274",
+                "Model": "Luna 7c"
+            },
+            {
+                "Regex": "Luna TAB474",
+                "Model": "Luna 10"
+            },
+            {
+                "Regex": "Luna TAB10-150",
+                "Model": "Luna 10c"
+            },
+            {
+                "Regex": "TAB09-410",
+                "Model": "Noble 9.7"
+            },
+            {
+                "Regex": "TAB10-410",
+                "Model": "Noble 10.1"
+            },
+            {
+                "Regex": "TAB07-485",
+                "Model": "Noble Mini"
+            },
+            {
+                "Regex": "Xenta-TAB07-21[01]",
+                "Model": "Xenta 7c"
+            },
+            {
+                "Regex": "TAB07-200",
+                "Model": "Xenta 7ic"
+            },
+            {
+                "Regex": "TAB08-200",
+                "Model": "Xenta 8ic"
+            },
+            {
+                "Regex": "TAB08-201-3G",
+                "Model": "Xenta 8c"
+            },
+            {
+                "Regex": "TAB9-200",
+                "Model": "Xenta 9.7ic"
+            },
+            {
+                "Regex": "TAB09-211",
+                "Model": "Xenta 9.7ic+"
+            },
+            {
+                "Regex": "TAB10-2[01]1",
+                "Model": "Xenta 10ic"
+            },
+            {
+                "Regex": "TAB13-201",
+                "Model": "Xenta 13c"
+            }
+        ]
+    },
+    {
+        "Producer": "Yuandao",
+        "Regex": "N101[ _]DUAL(?:[ _]CORE)?(?:[ _]?2|\\|\\|)?(?:[ _]V11)? Build",
+        "Model": "N101",
+        "Models": null
+    },
+    {
+        "Producer": "Yusun",
+        "Regex": "Yusun|LA2-T",
+        "Model": "",
+        "Models": [
+            {
+                "Regex": "LA2-T",
+                "Model": "LA2-T"
+            },
+            {
+                "Regex": "Yusun ([^;/]+) Build",
+                "Model": "$1"
+            },
+            {
+                "Regex": "Yusun ([a-z0-9_\\-\\+]+)",
+                "Model": "$1"
+            }
+        ]
+    },
+    {
+        "Producer": "Zonda",
+        "Regex": "(ZM(?:CK|EM|TFTV|TN)[a-z0-9]+)",
+        "Model": "$1",
+        "Models": null
+    },
+    {
+        "Producer": "Toshiba",
+        "Regex": "Toshiba|portalmmm/[12].0 TS|T-01C|T-0[12]D|IS04|IS11T|AT1S0|AT300SE|AT(100|200|270|300|330|374|400|470|500|503|570|703|830)",
+        "Model": "",
+        "Models": [
+            {
+                "Regex": "T-01C",
+                "Model": "Regza T-01C"
+            },
+            {
+                "Regex": "T-01D",
+                "Model": "Regza T-01D"
+            },
+            {
+                "Regex": "T-02D",
+                "Model": "Regza T-02D"
+            },
+            {
+                "Regex": "IS04",
+                "Model": "Regza IS04"
+            },
+            {
+                "Regex": "IS11T",
+                "Model": "Regza IS11T"
+            },
+            {
+                "Regex": "AT1S0",
+                "Model": "Regza AT1S0"
+            },
+            {
+                "Regex": "AT300SE",
+                "Model": "Regza AT300SE"
+            },
+            {
+                "Regex": "AT500a",
+                "Model": "Regza AT500a"
+            },
+            {
+                "Regex": "AT(100|200|270|300|330|374|400|470|500|503|570|703|830)",
+                "Model": "Regza AT$1"
+            },
+            {
+                "Regex": "Toshiba[ /_\\-]?([a-z0-9_ \\-]+) Build",
+                "Model": "$1"
+            },
+            {
+                "Regex": "Toshiba[ /_\\-]?([a-z0-9_\\-]+)",
+                "Model": "$1"
+            },
+            {
+                "Regex": "portalmmm/[12].0 (TS[a-z0-9 ]+)",
+                "Model": "$1"
+            }
+        ]
+    },
+    {
+        "Producer": "Fly",
+        "Regex": "Fly(?:Flow|touch)|MERIDIAN-",
+        "Model": "",
+        "Models": [
+            {
+                "Regex": "Fly[ _\\-]?([a-z0-9_]+)/",
+                "Model": "$1"
+            },
+            {
+                "Regex": "Flylife[ _\\-]?(.*) Build",
+                "Model": "Flylife $1"
+            },
+            {
+                "Regex": "Fly[ _\\-]?([a-z0-9]+)",
+                "Model": "$1"
+            },
+            {
+                "Regex": "MERIDIAN-([a-z0-9]+)",
+                "Model": "$1"
+            }
+        ]
+    },
+    {
+        "Producer": "Web TV",
+        "Regex": "WebTV/(\\d+\\.\\d+)",
+        "Model": "",
+        "Models": null
+    },
+    {
+        "Producer": "Zopo",
+        "Regex": "(?:ZOPO[_ ])?(ZP[0-9]{2,}[^/;]+) Build",
+        "Model": "$1",
+        "Models": null
+    },
+    {
+        "Producer": "ZTE",
+        "Regex": "ZTE|Z331|N799D|([a-z0-9]+)_USA_Cricket",
+        "Model": "",
+        "Models": [
+            {
+                "Regex": "N799D",
+                "Model": "MTS Blaze 4"
+            },
+            {
+                "Regex": "([a-z0-9]+)_USA_Cricket",
+                "Model": "$1"
+            },
+            {
+                "Regex": "ZTE[\\- ](V98|V96A|V81|V70) Build",
+                "Model": "$1"
+            },
+            {
+                "Regex": "ZTE[\\- ]([a-z0-9\\-_ ]+) Build",
+                "Model": "$1"
+            },
+            {
+                "Regex": "ZTE-(?:G |G-)?([a-z0-9 _]+)",
+                "Model": "$1"
+            },
+            {
+                "Regex": "ZTE[ _]([a-z0-9]+)",
+                "Model": "$1"
+            },
+            {
+                "Regex": "Z331",
+                "Model": "Z331"
+            }
+        ]
+    }
+]

@@ -1,0 +1,34 @@
+[
+    {
+        "Regex": "NetFront",
+        "Name": "NetFront"
+    },
+    {
+        "Regex": "Edge",
+        "Name": "Edge"
+    },
+    {
+        "Regex": "Trident",
+        "Name": "Trident"
+    },
+    {
+        "Regex": "Blink",
+        "Name": "Blink"
+    },
+    {
+        "Regex": "(?:Apple)?WebKit",
+        "Name": "WebKit"
+    },
+    {
+        "Regex": "Presto",
+        "Name": "Presto"
+    },
+    {
+        "Regex": "(?:like )Gecko",
+        "Name": "Gecko"
+    },
+    {
+        "Regex": "KHTML",
+        "Name": "KHTML"
+    }
+]

@@ -1,0 +1,27 @@
+[
+    {
+        "Regex": "AndroidDownloadManager(?:[ /]([\\d\\.]+))?",
+        "Name": "AndroidDownloadManager",
+        "Version": "$1"
+    },
+    {
+        "Regex": "([^/]+)/(\\d+(?:\\.\\d+)+) \\((?:iPhone|iPad); iOS [0-9\\.]+; Scale/[0-9\\.]+\\)",
+        "Name": "$1",
+        "Version": "$2"
+    },
+    {
+        "Regex": "FeedR(?:/([\\d\\.]+))?",
+        "Name": "FeedR",
+        "Version": "$1"
+    },
+    {
+        "Regex": "MicroMessenger/([^ ]+)",
+        "Name": "WeChat",
+        "Version": "$1"
+    },
+    {
+        "Regex": ".*__weibo__([0-9\\.]+)__",
+        "Name": "Sina Weibo",
+        "Version": "$1"
+    }
+]

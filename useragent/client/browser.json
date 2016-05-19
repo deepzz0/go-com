@@ -1,0 +1,1223 @@
+[
+    {
+        "Regex": "Edge[ /](\\d+[\\.\\d]+)",
+        "Name": "Microsoft Edge",
+        "Version": "$1",
+        "Engine": {
+            "Default": "Edge",
+            "Versions": null
+        }
+    },
+    {
+        "Regex": "360 Aphone Browser(?: \\((\\d+[\\.\\d]+)(?:beta)?\\))?",
+        "Name": "360 Phone Browser",
+        "Version": "$1",
+        "Engine": {
+            "Default": "WebKit",
+            "Versions": null
+        }
+    },
+    {
+        "Regex": "SailfishBrowser(?:/(\\d+[\\.\\d]+))?",
+        "Name": "Sailfish Browser",
+        "Version": "$1",
+        "Engine": {
+            "Default": "Gecko",
+            "Versions": null
+        }
+    },
+    {
+        "Regex": "(Iceape|SeaMonkey|gnuzilla)(?:/(\\d+[\\.\\d]+))?",
+        "Name": "$1",
+        "Version": "$2",
+        "Engine": {
+            "Default": "Gecko",
+            "Versions": null
+        }
+    },
+    {
+        "Regex": "Camino(?:/(\\d+[\\.\\d]+))?",
+        "Name": "Camino",
+        "Version": "$1",
+        "Engine": {
+            "Default": "Gecko",
+            "Versions": null
+        }
+    },
+    {
+        "Regex": "Fennec(?:/(\\d+[\\.\\d]+))?",
+        "Name": "Fennec",
+        "Version": "$1",
+        "Engine": {
+            "Default": "Gecko",
+            "Versions": null
+        }
+    },
+    {
+        "Regex": "Firefox.*Tablet browser (\\d+[\\.\\d]+)",
+        "Name": "MicroB",
+        "Version": "$1",
+        "Engine": {
+            "Default": "Gecko",
+            "Versions": null
+        }
+    },
+    {
+        "Regex": "Avant Browser",
+        "Name": "Avant Browser",
+        "Version": "",
+        "Engine": {
+            "Default": "# multiple",
+            "Versions": null
+        }
+    },
+    {
+        "Regex": "Chrome/(\\d+[\\.\\d]+).*MRCHROME",
+        "Name": "Amigo",
+        "Version": "$1",
+        "Engine": {
+            "Default": "WebKit",
+            "Versions": {
+                "28": "Blink"
+            }
+        }
+    },
+    {
+        "Regex": "Bunjalloo(?:/(\\d+[\\.\\d]+))?",
+        "Name": "Bunjalloo",
+        "Version": "$1",
+        "Engine": {
+            "Default": "",
+            "Versions": null
+        }
+    },
+    {
+        "Regex": "Iceweasel(?:/(\\d+[\\.\\d]+))?",
+        "Name": "Iceweasel",
+        "Version": "$1",
+        "Engine": {
+            "Default": "Gecko",
+            "Versions": null
+        }
+    },
+    {
+        "Regex": "WebPositive",
+        "Name": "WebPositive",
+        "Version": "",
+        "Engine": {
+            "Default": "WebKit",
+            "Versions": null
+        }
+    },
+    {
+        "Regex": "PaleMoon(?:/(\\d+[\\.\\d]+))?",
+        "Name": "Pale Moon",
+        "Version": "$1",
+        "Engine": {
+            "Default": "Gecko",
+            "Versions": null
+        }
+    },
+    {
+        "Regex": "CometBird(?:/(\\d+[\\.\\d]+))?",
+        "Name": "CometBird",
+        "Version": "$1",
+        "Engine": {
+            "Default": "Gecko",
+            "Versions": null
+        }
+    },
+    {
+        "Regex": "IceDragon(?:/(\\d+[\\.\\d]+))?",
+        "Name": "IceDragon",
+        "Version": "$1",
+        "Engine": {
+            "Default": "Gecko",
+            "Versions": null
+        }
+    },
+    {
+        "Regex": "Flock(?:/(\\d+[\\.\\d]+))?",
+        "Name": "Flock",
+        "Version": "$1",
+        "Engine": {
+            "Default": "Gecko",
+            "Versions": {
+                "3": "WebKit"
+            }
+        }
+    },
+    {
+        "Regex": "Kapiko(?:/(\\d+[\\.\\d]+))?",
+        "Name": "Kapiko",
+        "Version": "$1",
+        "Engine": {
+            "Default": "Gecko",
+            "Versions": null
+        }
+    },
+    {
+        "Regex": "Firefox/(\\d+[\\.\\d]+).*\\(Swiftfox\\)",
+        "Name": "Swiftfox",
+        "Version": "$1",
+        "Engine": {
+            "Default": "Gecko",
+            "Versions": null
+        }
+    },
+    {
+        "Regex": "Firefox(?:/(\\d+[\\.\\d]+))?",
+        "Name": "Firefox",
+        "Version": "$1",
+        "Engine": {
+            "Default": "Gecko",
+            "Versions": null
+        }
+    },
+    {
+        "Regex": "(BonEcho|GranParadiso|Lorentz|Minefield|Namoroka|Shiretoko)/(\\d+[\\.\\d]+)",
+        "Name": "Firefox",
+        "Version": "$1 ($2)",
+        "Engine": {
+            "Default": "Gecko",
+            "Versions": null
+        }
+    },
+    {
+        "Regex": "FxiOS/(\\d+[\\.\\d]+)",
+        "Name": "Firefox",
+        "Version": "iOS $1",
+        "Engine": {
+            "Default": "WebKit",
+            "Versions": null
+        }
+    },
+    {
+        "Regex": "ANTGalio(?:/(\\d+[\\.\\d]+))?",
+        "Name": "ANTGalio",
+        "Version": "$1",
+        "Engine": {
+            "Default": "",
+            "Versions": null
+        }
+    },
+    {
+        "Regex": "(?:Espial|Escape)(?:[/ ](\\d+[\\.\\d]+))?",
+        "Name": "Espial TV Browser",
+        "Version": "$1",
+        "Engine": {
+            "Default": "",
+            "Versions": null
+        }
+    },
+    {
+        "Regex": "RockMelt(?:/(\\d+[\\.\\d]+))?",
+        "Name": "RockMelt",
+        "Version": "$1",
+        "Engine": {
+            "Default": "WebKit",
+            "Versions": null
+        }
+    },
+    {
+        "Regex": "Fireweb Navigator(?:/(\\d+[\\.\\d]+))?",
+        "Name": "Fireweb Navigator",
+        "Version": "$1",
+        "Engine": {
+            "Default": "",
+            "Versions": null
+        }
+    },
+    {
+        "Regex": "(?:Navigator|Netscape6)(?:/(\\d+[\\.\\d]+))?",
+        "Name": "Netscape",
+        "Version": "$1",
+        "Engine": {
+            "Default": "# Mosaic in the first versions, then Gecko",
+            "Versions": null
+        }
+    },
+    {
+        "Regex": "(?:Opera Tablet.*Version|Opera/.+Opera Mobi.+Version|Mobile.+OPR)/(\\d+[\\.\\d]+)",
+        "Name": "Opera Mobile",
+        "Version": "$1",
+        "Engine": {
+            "Default": "Presto",
+            "Versions": {
+                "15": "Blink"
+            }
+        }
+    },
+    {
+        "Regex": "Opera Mini/(?:att/)?(\\d+[\\.\\d]+)",
+        "Name": "Opera Mini",
+        "Version": "$1",
+        "Engine": {
+            "Default": "Presto",
+            "Versions": null
+        }
+    },
+    {
+        "Regex": "Opera.+Edition Next.+Version/(\\d+[\\.\\d]+)",
+        "Name": "Opera Next",
+        "Version": "$1",
+        "Engine": {
+            "Default": "Presto",
+            "Versions": {
+                "15": "Blink"
+            }
+        }
+    },
+    {
+        "Regex": "(?:Opera|OPR)[/ ](?:9.80.*Version/)?(\\d+[\\.\\d]+).+Edition Next",
+        "Name": "Opera Next",
+        "Version": "$1",
+        "Engine": {
+            "Default": "Presto",
+            "Versions": {
+                "15": "Blink"
+            }
+        }
+    },
+    {
+        "Regex": "(?:Opera|OPR)[/ ](?:9.80.*Version/)?(\\d+[\\.\\d]+)",
+        "Name": "Opera",
+        "Version": "$1",
+        "Engine": {
+            "Default": "Presto",
+            "Versions": {
+                "15": "Blink"
+            }
+        }
+    },
+    {
+        "Regex": "rekonq(?:/(\\d+[\\.\\d]+))?",
+        "Name": "Rekonq",
+        "Version": "$1",
+        "Engine": {
+            "Default": "WebKit",
+            "Versions": null
+        }
+    },
+    {
+        "Regex": "CoolNovo(?:/(\\d+[\\.\\d]+))?",
+        "Name": "CoolNovo",
+        "Version": "$1",
+        "Engine": {
+            "Default": "# multi engine",
+            "Versions": null
+        }
+    },
+    {
+        "Regex": "Comodo[ _]Dragon(?:/(\\d+[\\.\\d]+))?",
+        "Name": "Comodo Dragon",
+        "Version": "$1",
+        "Engine": {
+            "Default": "WebKit",
+            "Versions": {
+                "28": "Blink"
+            }
+        }
+    },
+    {
+        "Regex": "ChromePlus(?:/(\\d+[\\.\\d]+))?",
+        "Name": "ChromePlus",
+        "Version": "$1",
+        "Engine": {
+            "Default": "# multi engine",
+            "Versions": null
+        }
+    },
+    {
+        "Regex": "Conkeror(?:/(\\d+[\\.\\d]+))?",
+        "Name": "Conkeror",
+        "Version": "$1",
+        "Engine": {
+            "Default": "Gecko",
+            "Versions": null
+        }
+    },
+    {
+        "Regex": "Konqueror(?:/(\\d+[\\.\\d]+))?",
+        "Name": "Konqueror",
+        "Version": "$1",
+        "Engine": {
+            "Default": "KHTML",
+            "Versions": {
+                "4": "# multiple (KHTML or WebKit)"
+            }
+        }
+    },
+    {
+        "Regex": "baidubrowser(?:[/ ](\\d+[\\.\\d]*))?",
+        "Name": "Baidu Browser",
+        "Version": "$1",
+        "Engine": {
+            "Default": "",
+            "Versions": null
+        }
+    },
+    {
+        "Regex": "(?:(?:BD)?Spark|BIDUBrowser)[/ ](\\d+[\\.\\d]*)",
+        "Name": "Baidu Spark",
+        "Version": "$1",
+        "Engine": {
+            "Default": "",
+            "Versions": null
+        }
+    },
+    {
+        "Regex": "YaBrowser(?:/(\\d+[\\.\\d]*))?",
+        "Name": "Yandex Browser",
+        "Version": "$1",
+        "Engine": {
+            "Default": "Blink",
+            "Versions": null
+        }
+    },
+    {
+        "Regex": "Vivaldi(?:/(\\d+[\\.\\d]+))?",
+        "Name": "Vivaldi",
+        "Version": "$1",
+        "Engine": {
+            "Default": "Blink",
+            "Versions": null
+        }
+    },
+    {
+        "Regex": "Midori(?:/(\\d+[\\.\\d]+))?",
+        "Name": "Midori",
+        "Version": "$1",
+        "Engine": {
+            "Default": "WebKit",
+            "Versions": null
+        }
+    },
+    {
+        "Regex": "Mercury(?:/(\\d+[\\.\\d]+))?",
+        "Name": "Mercury",
+        "Version": "$1",
+        "Engine": {
+            "Default": "",
+            "Versions": null
+        }
+    },
+    {
+        "Regex": "Maxthon[ /](\\d+[\\.\\d]+)",
+        "Name": "Maxthon",
+        "Version": "$1",
+        "Engine": {
+            "Default": "# Trident and WebKit",
+            "Versions": {
+                "3": "WebKit"
+            }
+        }
+    },
+    {
+        "Regex": "(?:Maxthon|MyIE2|Uzbl)",
+        "Name": "Maxthon",
+        "Version": "",
+        "Engine": {
+            "Default": "# Trident and WebKit",
+            "Versions": null
+        }
+    },
+    {
+        "Regex": "Puffin(?:/(\\d+[\\.\\d]+))?",
+        "Name": "Puffin",
+        "Version": "$1",
+        "Engine": {
+            "Default": "",
+            "Versions": null
+        }
+    },
+    {
+        "Regex": "Iron(?:/(\\d+[\\.\\d]+))?",
+        "Name": "Iron",
+        "Version": "$1",
+        "Engine": {
+            "Default": "WebKit",
+            "Versions": {
+                "28": "Blink"
+            }
+        }
+    },
+    {
+        "Regex": "Epiphany(?:/(\\d+[\\.\\d]+))?",
+        "Name": "Epiphany",
+        "Version": "$1",
+        "Engine": {
+            "Default": "Gecko",
+            "Versions": {
+                "2.28": "WebKit",
+                "2.9.16": "# multi engine"
+            }
+        }
+    },
+    {
+        "Regex": "LBBrowser(?:[ /](\\d+[\\.\\d]+))?",
+        "Name": "Liebao",
+        "Version": "$1",
+        "Engine": {
+            "Default": "",
+            "Versions": null
+        }
+    },
+    {
+        "Regex": "SE (\\d+[\\.\\d]+)",
+        "Name": "Sogou Explorer",
+        "Version": "$1",
+        "Engine": {
+            "Default": "",
+            "Versions": null
+        }
+    },
+    {
+        "Regex": "QQBrowser/([\\.\\d]+)",
+        "Name": "QQ Browser",
+        "Version": "$1",
+        "Engine": {
+            "Default": "",
+            "Versions": null
+        }
+    },
+    {
+        "Regex": "CrMo(?:/(\\d+[\\.\\d]+))?",
+        "Name": "Chrome Mobile",
+        "Version": "$1",
+        "Engine": {
+            "Default": "WebKit",
+            "Versions": {
+                "28": "Blink"
+            }
+        }
+    },
+    {
+        "Regex": "CriOS(?:/(\\d+[\\.\\d]+))?",
+        "Name": "Chrome Mobile iOS",
+        "Version": "$1",
+        "Engine": {
+            "Default": "WebKit",
+            "Versions": null
+        }
+    },
+    {
+        "Regex": "Chrome(?:/(\\d+[\\.\\d]+))?.*Mobile",
+        "Name": "Chrome Mobile",
+        "Version": "$1",
+        "Engine": {
+            "Default": "WebKit",
+            "Versions": {
+                "28": "Blink"
+            }
+        }
+    },
+    {
+        "Regex": "chromeframe(?:/(\\d+[\\.\\d]+))?",
+        "Name": "Chrome Frame",
+        "Version": "$1",
+        "Engine": {
+            "Default": "WebKit",
+            "Versions": null
+        }
+    },
+    {
+        "Regex": "Chromium(?:/(\\d+[\\.\\d]+))?",
+        "Name": "Chromium",
+        "Version": "$1",
+        "Engine": {
+            "Default": "WebKit",
+            "Versions": {
+                "28": "Blink"
+            }
+        }
+    },
+    {
+        "Regex": "Chrome(?:/(\\d+[\\.\\d]+))?",
+        "Name": "Chrome",
+        "Version": "$1",
+        "Engine": {
+            "Default": "WebKit",
+            "Versions": {
+                "28": "Blink"
+            }
+        }
+    },
+    {
+        "Regex": "UC[ ]?Browser(?:[ /]?(\\d+[\\.\\d]+))?",
+        "Name": "UC Browser",
+        "Version": "$1",
+        "Engine": {
+            "Default": "",
+            "Versions": null
+        }
+    },
+    {
+        "Regex": "UCWEB(?:[ /]?(\\d+[\\.\\d]+))?",
+        "Name": "UC Browser",
+        "Version": "$1",
+        "Engine": {
+            "Default": "",
+            "Versions": null
+        }
+    },
+    {
+        "Regex": "(?:Tizen|SLP) Browser(?:/(\\d+[\\.\\d]+))?",
+        "Name": "Tizen Browser",
+        "Version": "$1",
+        "Engine": {
+            "Default": "",
+            "Versions": null
+        }
+    },
+    {
+        "Regex": "Blazer(?:/(\\d+[\\.\\d]+))?",
+        "Name": "Palm Blazer",
+        "Version": "$1",
+        "Engine": {
+            "Default": "",
+            "Versions": null
+        }
+    },
+    {
+        "Regex": "Pre/(\\d+[\\.\\d]+)",
+        "Name": "Palm Pre",
+        "Version": "$1",
+        "Engine": {
+            "Default": "",
+            "Versions": null
+        }
+    },
+    {
+        "Regex": "(?:hpw|web)OS/(\\d+[\\.\\d]+)",
+        "Name": "wOSBrowser",
+        "Version": "$1",
+        "Engine": {
+            "Default": "",
+            "Versions": null
+        }
+    },
+    {
+        "Regex": "WebPro(?:[ /](\\d+[\\.\\d]+))?",
+        "Name": "Palm WebPro",
+        "Version": "$1",
+        "Engine": {
+            "Default": "",
+            "Versions": null
+        }
+    },
+    {
+        "Regex": "Jasmine(?:[ /](\\d+[\\.\\d]+))?",
+        "Name": "Jasmine",
+        "Version": "$1",
+        "Engine": {
+            "Default": "",
+            "Versions": null
+        }
+    },
+    {
+        "Regex": "Lynx(?:/(\\d+[\\.\\d]+))?",
+        "Name": "Lynx",
+        "Version": "$1",
+        "Engine": {
+            "Default": "Text-based",
+            "Versions": null
+        }
+    },
+    {
+        "Regex": "NCSA_Mosaic(?:/(\\d+[\\.\\d]+))?",
+        "Name": "NCSA Mosaic",
+        "Version": "$1",
+        "Engine": {
+            "Default": "",
+            "Versions": null
+        }
+    },
+    {
+        "Regex": "ABrowse(?: (\\d+[\\.\\d]+))?",
+        "Name": "ABrowse",
+        "Version": "$1",
+        "Engine": {
+            "Default": "",
+            "Versions": null
+        }
+    },
+    {
+        "Regex": "amaya(?:/(\\d+[\\.\\d]+))?",
+        "Name": "Amaya",
+        "Version": "$1",
+        "Engine": {
+            "Default": "",
+            "Versions": null
+        }
+    },
+    {
+        "Regex": "AmigaVoyager(?:/(\\d+[\\.\\d]+))?",
+        "Name": "Amiga Voyager",
+        "Version": "$1",
+        "Engine": {
+            "Default": "",
+            "Versions": null
+        }
+    },
+    {
+        "Regex": "Amiga-Aweb(?:/(\\d+[\\.\\d]+))?",
+        "Name": "Amiga Aweb",
+        "Version": "$1",
+        "Engine": {
+            "Default": "",
+            "Versions": null
+        }
+    },
+    {
+        "Regex": "Arora(?:/(\\d+[\\.\\d]+))?",
+        "Name": "Arora",
+        "Version": "$1",
+        "Engine": {
+            "Default": "WebKit",
+            "Versions": null
+        }
+    },
+    {
+        "Regex": "Beonex(?:/(\\d+[\\.\\d]+))?",
+        "Name": "Beonex",
+        "Version": "$1",
+        "Engine": {
+            "Default": "Gecko",
+            "Versions": null
+        }
+    },
+    {
+        "Regex": "BlackBerry|PlayBook|BB10",
+        "Name": "BlackBerry Browser",
+        "Version": "",
+        "Engine": {
+            "Default": "",
+            "Versions": null
+        }
+    },
+    {
+        "Regex": "BrowseX \\((\\d+[\\.\\d]+)",
+        "Name": "BrowseX",
+        "Version": "$1",
+        "Engine": {
+            "Default": "",
+            "Versions": null
+        }
+    },
+    {
+        "Regex": "Charon(?:[/ ](\\d+[\\.\\d]+))?",
+        "Name": "Charon",
+        "Version": "$1",
+        "Engine": {
+            "Default": "",
+            "Versions": null
+        }
+    },
+    {
+        "Regex": "Cheshire(?:/(\\d+[\\.\\d]+))?",
+        "Name": "Cheshire",
+        "Version": "$1",
+        "Engine": {
+            "Default": "",
+            "Versions": null
+        }
+    },
+    {
+        "Regex": "Dillo(?:/(\\d+[\\.\\d]+))?",
+        "Name": "Dillo",
+        "Version": "$1",
+        "Engine": {
+            "Default": "Dillo",
+            "Versions": null
+        }
+    },
+    {
+        "Regex": "Dolfin(?:/(\\d+[\\.\\d]+))?|dolphin",
+        "Name": "Dolphin",
+        "Version": "$1",
+        "Engine": {
+            "Default": "WebKit",
+            "Versions": null
+        }
+    },
+    {
+        "Regex": "Elinks(?:/(\\d+[\\.\\d]+))?",
+        "Name": "Elinks",
+        "Version": "$1",
+        "Engine": {
+            "Default": "Text-based",
+            "Versions": null
+        }
+    },
+    {
+        "Regex": "Firebird(?:/(\\d+[\\.\\d]+))?",
+        "Name": "Firebird",
+        "Version": "$1",
+        "Engine": {
+            "Default": "Gecko",
+            "Versions": null
+        }
+    },
+    {
+        "Regex": "Fluid(?:/(\\d+[\\.\\d]+))?",
+        "Name": "Fluid",
+        "Version": "$1",
+        "Engine": {
+            "Default": "WebKit",
+            "Versions": null
+        }
+    },
+    {
+        "Regex": "Galeon(?:/(\\d+[\\.\\d]+))?",
+        "Name": "Galeon",
+        "Version": "$1",
+        "Engine": {
+            "Default": "Gecko",
+            "Versions": null
+        }
+    },
+    {
+        "Regex": "Google Earth(?:/(\\d+[\\.\\d]+))?",
+        "Name": "Google Earth",
+        "Version": "$1",
+        "Engine": {
+            "Default": "WebKit",
+            "Versions": null
+        }
+    },
+    {
+        "Regex": "HotJava(?:/(\\d+[\\.\\d]+))?",
+        "Name": "HotJava",
+        "Version": "$1",
+        "Engine": {
+            "Default": "",
+            "Versions": null
+        }
+    },
+    {
+        "Regex": "IBrowse(?:[ /](\\d+[\\.\\d]+))?",
+        "Name": "IBrowse",
+        "Version": "$1",
+        "Engine": {
+            "Default": "",
+            "Versions": null
+        }
+    },
+    {
+        "Regex": "iCab(?:[ /](\\d+[\\.\\d]+))?",
+        "Name": "iCab",
+        "Version": "$1",
+        "Engine": {
+            "Default": "iCab",
+            "Versions": {
+                "4": "WebKit"
+            }
+        }
+    },
+    {
+        "Regex": "Sleipnir(?:[ /](\\d+[\\.\\d]+))?",
+        "Name": "Sleipnir",
+        "Version": "$1",
+        "Engine": {
+            "Default": "# multi engine",
+            "Versions": null
+        }
+    },
+    {
+        "Regex": "Lunascape(?:[/ ](\\d+[\\.\\d]+))?",
+        "Name": "Lunascape",
+        "Version": "$1",
+        "Engine": {
+            "Default": "# multi engine",
+            "Versions": null
+        }
+    },
+    {
+        "Regex": "IEMobile[ /](\\d+[\\.\\d]+)",
+        "Name": "IE Mobile",
+        "Version": "$1",
+        "Engine": {
+            "Default": "Trident",
+            "Versions": null
+        }
+    },
+    {
+        "Regex": "MSIE (\\d+[\\.\\d]+).*XBLWP7",
+        "Name": "IE Mobile",
+        "Version": "$1",
+        "Engine": {
+            "Default": "Trident",
+            "Versions": null
+        }
+    },
+    {
+        "Regex": "MSIE.*Trident/4.0",
+        "Name": "Internet Explorer",
+        "Version": "8.0",
+        "Engine": {
+            "Default": "Trident",
+            "Versions": null
+        }
+    },
+    {
+        "Regex": "MSIE.*Trident/5.0",
+        "Name": "Internet Explorer",
+        "Version": "9.0",
+        "Engine": {
+            "Default": "Trident",
+            "Versions": null
+        }
+    },
+    {
+        "Regex": "MSIE.*Trident/6.0",
+        "Name": "Internet Explorer",
+        "Version": "10.0",
+        "Engine": {
+            "Default": "Trident",
+            "Versions": null
+        }
+    },
+    {
+        "Regex": "Trident/7.0",
+        "Name": "Internet Explorer",
+        "Version": "11.0",
+        "Engine": {
+            "Default": "Trident",
+            "Versions": null
+        }
+    },
+    {
+        "Regex": "MSIE (\\d+[\\.\\d]+)",
+        "Name": "Internet Explorer",
+        "Version": "$1",
+        "Engine": {
+            "Default": "Trident",
+            "Versions": null
+        }
+    },
+    {
+        "Regex": "IE[ /](\\d+[\\.\\d]+)",
+        "Name": "Internet Explorer",
+        "Version": "$1",
+        "Engine": {
+            "Default": "Trident",
+            "Versions": null
+        }
+    },
+    {
+        "Regex": "Kazehakase(?:/(\\d+[\\.\\d]+))?",
+        "Name": "Kazehakase",
+        "Version": "$1",
+        "Engine": {
+            "Default": "# multi engine",
+            "Versions": null
+        }
+    },
+    {
+        "Regex": "Kindle/(\\d+[\\.\\d]+)",
+        "Name": "Kindle Browser",
+        "Version": "$1",
+        "Engine": {
+            "Default": "",
+            "Versions": null
+        }
+    },
+    {
+        "Regex": "K-meleon(?:/(\\d+[\\.\\d]+))?",
+        "Name": "K-meleon",
+        "Version": "$1",
+        "Engine": {
+            "Default": "Gecko",
+            "Versions": null
+        }
+    },
+    {
+        "Regex": "Links(?: \\((\\d+[\\.\\d]+))?",
+        "Name": "Links",
+        "Version": "$1",
+        "Engine": {
+            "Default": "Text-based",
+            "Versions": null
+        }
+    },
+    {
+        "Regex": "UP.Browser(?:/(\\d+[\\.\\d]+))?",
+        "Name": "Openwave Mobile Browser",
+        "Version": "$1",
+        "Engine": {
+            "Default": "",
+            "Versions": null
+        }
+    },
+    {
+        "Regex": "OmniWeb(?:/[v]?(\\d+[\\.\\d]+))?",
+        "Name": "OmniWeb",
+        "Version": "$1",
+        "Engine": {
+            "Default": "WebKit",
+            "Versions": null
+        }
+    },
+    {
+        "Regex": "Phoenix(?:/(\\d+[\\.\\d]+))?",
+        "Name": "Phoenix",
+        "Version": "$1",
+        "Engine": {
+            "Default": "",
+            "Versions": null
+        }
+    },
+    {
+        "Regex": "Silk(?:/(\\d+[\\.\\d]+))?",
+        "Name": "Mobile Silk",
+        "Version": "$1",
+        "Engine": {
+            "Default": "Blink",
+            "Versions": null
+        }
+    },
+    {
+        "Regex": "MIUIBrowser(?:/(\\d+[\\.\\d]+))?",
+        "Name": "MIUI Browser",
+        "Version": "$1",
+        "Engine": {
+            "Default": "",
+            "Versions": null
+        }
+    },
+    {
+        "Regex": "(?:NokiaBrowser|BrowserNG)(?:/(\\d+[\\.\\d]+))?",
+        "Name": "Nokia Browser",
+        "Version": "$1",
+        "Engine": {
+            "Default": "",
+            "Versions": null
+        }
+    },
+    {
+        "Regex": "Series60/5\\.0",
+        "Name": "Nokia Browser",
+        "Version": "7.0",
+        "Engine": {
+            "Default": "",
+            "Versions": null
+        }
+    },
+    {
+        "Regex": "Series60/(\\d+[\\.\\d]+)",
+        "Name": "Nokia OSS Browser",
+        "Version": "$1",
+        "Engine": {
+            "Default": "",
+            "Versions": null
+        }
+    },
+    {
+        "Regex": "S40OviBrowser/(\\d+[\\.\\d]+)",
+        "Name": "Nokia Ovi Browser",
+        "Version": "$1",
+        "Engine": {
+            "Default": "",
+            "Versions": null
+        }
+    },
+    {
+        "Regex": "^Nokia|Nokia[EN]?\\d+",
+        "Name": "Nokia Browser",
+        "Version": "",
+        "Engine": {
+            "Default": "",
+            "Versions": null
+        }
+    },
+    {
+        "Regex": "NetFrontLifeBrowser(?:/(\\d+[\\.\\d]+))?",
+        "Name": "NetFront Life",
+        "Version": "$1",
+        "Engine": {
+            "Default": "NetFront",
+            "Versions": null
+        }
+    },
+    {
+        "Regex": "NetFront(?:/(\\d+[\\.\\d]+))?",
+        "Name": "NetFront",
+        "Version": "$1",
+        "Engine": {
+            "Default": "NetFront",
+            "Versions": null
+        }
+    },
+    {
+        "Regex": "PLAYSTATION|NINTENDO 3|AppleWebKit.+ NX/\\d+\\.\\d+\\.\\d+",
+        "Name": "NetFront",
+        "Version": "",
+        "Engine": {
+            "Default": "",
+            "Versions": null
+        }
+    },
+    {
+        "Regex": "NetPositive(?:/(\\d+[\\.\\d]+))?",
+        "Name": "NetPositive",
+        "Version": "$1",
+        "Engine": {
+            "Default": "",
+            "Versions": null
+        }
+    },
+    {
+        "Regex": "Obigo[ ]?(?:InternetBrowser|Browser)?(?:[ /]([a-z0-9]*))?",
+        "Name": "Obigo",
+        "Version": "$1",
+        "Engine": {
+            "Default": "",
+            "Versions": null
+        }
+    },
+    {
+        "Regex": "Obigo|Teleca",
+        "Name": "Obigo",
+        "Version": "",
+        "Engine": {
+            "Default": "",
+            "Versions": null
+        }
+    },
+    {
+        "Regex": "Odyssey Web Browser(?:.*OWB/(\\d+[\\.\\d]+))?",
+        "Name": "Odyssey Web Browser",
+        "Version": "$1",
+        "Engine": {
+            "Default": "",
+            "Versions": null
+        }
+    },
+    {
+        "Regex": "OffByOne",
+        "Name": "Off By One",
+        "Version": "",
+        "Engine": {
+            "Default": "",
+            "Versions": null
+        }
+    },
+    {
+        "Regex": "Oregano(?:[ /](\\d+[\\.\\d]+))?",
+        "Name": "Oregano",
+        "Version": "$1",
+        "Engine": {
+            "Default": "",
+            "Versions": null
+        }
+    },
+    {
+        "Regex": "(?:Polaris|Embider)(?:[/ ](\\d+[\\.\\d]+))?",
+        "Name": "Polaris",
+        "Version": "$1",
+        "Engine": {
+            "Default": "",
+            "Versions": null
+        }
+    },
+    {
+        "Regex": "SEMC-Browser(?:[/ ](\\d+[\\.\\d]+))?",
+        "Name": "SEMC-Browser",
+        "Version": "$1",
+        "Engine": {
+            "Default": "",
+            "Versions": null
+        }
+    },
+    {
+        "Regex": "Shiira(?:[/ ](\\d+[\\.\\d]+))?",
+        "Name": "Shiira",
+        "Version": "$1",
+        "Engine": {
+            "Default": "WebKit",
+            "Versions": null
+        }
+    },
+    {
+        "Regex": "Snowshoe(?:/(\\d+[\\.\\d]+))?",
+        "Name": "Snowshoe",
+        "Version": "$1",
+        "Engine": {
+            "Default": "WebKit",
+            "Versions": null
+        }
+    },
+    {
+        "Regex": "Sunrise(?:Browser)?(?:/(\\d+[\\.\\d]+))?",
+        "Name": "Sunrise",
+        "Version": "$1",
+        "Engine": {
+            "Default": "",
+            "Versions": null
+        }
+    },
+    {
+        "Regex": "WeTab-Browser",
+        "Name": "WeTab Browser",
+        "Version": "",
+        "Engine": {
+            "Default": "",
+            "Versions": null
+        }
+    },
+    {
+        "Regex": "Xiino(?:/(\\d+[\\.\\d]+))?",
+        "Name": "Xiino",
+        "Version": "$1",
+        "Engine": {
+            "Default": "",
+            "Versions": null
+        }
+    },
+    {
+        "Regex": "Android",
+        "Name": "Android Browser",
+        "Version": "",
+        "Engine": {
+            "Default": "WebKit",
+            "Versions": null
+        }
+    },
+    {
+        "Regex": "(?:iPod|iPad|iPhone).+Version/(\\d+[\\.\\d]+)",
+        "Name": "Mobile Safari",
+        "Version": "$1",
+        "Engine": {
+            "Default": "WebKit",
+            "Versions": null
+        }
+    },
+    {
+        "Regex": "Version/(\\d+[\\.\\d]+).*Mobile.*Safari/",
+        "Name": "Mobile Safari",
+        "Version": "$1",
+        "Engine": {
+            "Default": "WebKit",
+            "Versions": null
+        }
+    },
+    {
+        "Regex": "(?:iPod|iPhone|iPad)",
+        "Name": "Mobile Safari",
+        "Version": "",
+        "Engine": {
+            "Default": "WebKit",
+            "Versions": null
+        }
+    },
+    {
+        "Regex": "Version/(\\d+[\\.\\d]+).*Safari/|Safari/\\d+",
+        "Name": "Safari",
+        "Version": "$1",
+        "Engine": {
+            "Default": "WebKit",
+            "Versions": null
+        }
+    }
+]

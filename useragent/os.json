@@ -1,0 +1,442 @@
+[
+    {
+        "Regex": "Tizen",
+        "Name": "Tizen",
+        "Version": ""
+    },
+    {
+        "Regex": "Sailfish|Jolla",
+        "Name": "Sailfish OS",
+        "Version": ""
+    },
+    {
+        "Regex": "(?:Ali)?YunOS[ /]?(\\d+[\\.\\d]+)?",
+        "Name": "YunOS",
+        "Version": "$1"
+    },
+    {
+        "Regex": "Windows Phone (?:OS)?[ ]?(\\d+[\\.\\d]+)",
+        "Name": "Windows Phone",
+        "Version": "$1"
+    },
+    {
+        "Regex": "XBLWP7|Windows Phone",
+        "Name": "Windows Phone",
+        "Version": ""
+    },
+    {
+        "Regex": "Windows CE",
+        "Name": "Windows CE",
+        "Version": ""
+    },
+    {
+        "Regex": "(?:IEMobile|Windows Mobile)(?: (\\d+[\\.\\d]+))?",
+        "Name": "Windows Mobile",
+        "Version": "$1"
+    },
+    {
+        "Regex": "Windows NT 6.2; ARM;",
+        "Name": "Windows RT",
+        "Version": ""
+    },
+    {
+        "Regex": "Windows NT 6.3; ARM;",
+        "Name": "Windows RT",
+        "Version": "8.1"
+    },
+    {
+        "Regex": "RazoDroiD(?: v(\\d+[\\.\\d]*))?",
+        "Name": "RazoDroiD",
+        "Version": "$1"
+    },
+    {
+        "Regex": "MildWild(?: CM-(\\d+[\\.\\d]*))?",
+        "Name": "MildWild",
+        "Version": "$1"
+    },
+    {
+        "Regex": "CyanogenMod(?:[\\-/](?:CM)?(\\d+[\\.\\d]*))?",
+        "Name": "CyanogenMod",
+        "Version": "$1"
+    },
+    {
+        "Regex": "(?:.*_)?MocorDroid(?:(\\d+[\\.\\d]*))?",
+        "Name": "MocorDroid",
+        "Version": "$1"
+    },
+    {
+        "Regex": "(?:Android|Adr)[ /](?:[a-z]+ )?(\\d+[\\.\\d]+)",
+        "Name": "Android",
+        "Version": "$1"
+    },
+    {
+        "Regex": "Android|Silk-Accelerated=[a-z]{4,5}",
+        "Name": "Android",
+        "Version": ""
+    },
+    {
+        "Regex": "AmigaOS[ ]?(\\d+[\\.\\d]+)",
+        "Name": "AmigaOS",
+        "Version": "$1"
+    },
+    {
+        "Regex": "AmigaOS|AmigaVoyager|Amiga-AWeb",
+        "Name": "AmigaOS",
+        "Version": ""
+    },
+    {
+        "Regex": "Arch ?Linux(?:[ /\\-](\\d+[\\.\\d]+))?",
+        "Name": "Arch Linux",
+        "Version": "$1"
+    },
+    {
+        "Regex": "VectorLinux(?: package)?(?:[ /\\-](\\d+[\\.\\d]+))?",
+        "Name": "VectorLinux",
+        "Version": "$1"
+    },
+    {
+        "Regex": "Linux; .*((?:Debian|Knoppix|Mint|Ubuntu|Kubuntu|Xubuntu|Lubuntu|Fedora|Red Hat|Mandriva|Gentoo|Sabayon|Slackware|SUSE|CentOS|BackTrack))[ /](\\d+[\\.\\d]+)",
+        "Name": "$1",
+        "Version": "$2"
+    },
+    {
+        "Regex": "(Debian|Knoppix|Mint|Ubuntu|Kubuntu|Xubuntu|Lubuntu|Fedora|Red Hat|Mandriva|Gentoo|Sabayon|Slackware|SUSE|CentOS|BackTrack)(?:(?: Enterprise)? Linux)?(?:[ /\\-](\\d+[\\.\\d]+))?",
+        "Name": "$1",
+        "Version": "$2"
+    },
+    {
+        "Regex": "(?:webOS|Palm webOS)(?:/(\\d+[\\.\\d]+))?",
+        "Name": "webOS",
+        "Version": "$1"
+    },
+    {
+        "Regex": "(?:PalmOS|Palm OS)(?:[/ ](\\d+[\\.\\d]+))?|Palm",
+        "Name": "palmOS",
+        "Version": "$1"
+    },
+    {
+        "Regex": "Xiino(?:.*v\\. (\\d+[\\.\\d]+))?  # palmOS only browser",
+        "Name": "palmOS",
+        "Version": "$1"
+    },
+    {
+        "Regex": "MorphOS(?:[ /](\\d+[\\.\\d]+))?",
+        "Name": "MorphOS",
+        "Version": "$1"
+    },
+    {
+        "Regex": "CYGWIN_NT-10.0|Windows NT 10.0|Windows 10",
+        "Name": "Windows",
+        "Version": "10"
+    },
+    {
+        "Regex": "CYGWIN_NT-6.4|Windows NT 6.4|Windows 10",
+        "Name": "Windows",
+        "Version": "10"
+    },
+    {
+        "Regex": "CYGWIN_NT-6.3|Windows NT 6.3|Windows 8.1",
+        "Name": "Windows",
+        "Version": "8.1"
+    },
+    {
+        "Regex": "CYGWIN_NT-6.2|Windows NT 6.2|Windows 8",
+        "Name": "Windows",
+        "Version": "8"
+    },
+    {
+        "Regex": "CYGWIN_NT-6.1|Windows NT 6.1|Windows 7",
+        "Name": "Windows",
+        "Version": "7"
+    },
+    {
+        "Regex": "CYGWIN_NT-6.0|Windows NT 6.0|Windows Vista",
+        "Name": "Windows",
+        "Version": "Vista"
+    },
+    {
+        "Regex": "CYGWIN_NT-5.2|Windows NT 5.2|Windows Server 2003 / XP x64",
+        "Name": "Windows",
+        "Version": "Server 2003"
+    },
+    {
+        "Regex": "CYGWIN_NT-5.1|Windows NT 5.1|Windows XP",
+        "Name": "Windows",
+        "Version": "XP"
+    },
+    {
+        "Regex": "CYGWIN_NT-5.0|Windows NT 5.0|Windows 2000",
+        "Name": "Windows",
+        "Version": "2000"
+    },
+    {
+        "Regex": "CYGWIN_NT-4.0|Windows NT 4.0|WinNT|Windows NT",
+        "Name": "Windows",
+        "Version": "NT"
+    },
+    {
+        "Regex": "CYGWIN_ME-4.90|Win 9x 4.90|Windows ME",
+        "Name": "Windows",
+        "Version": "ME"
+    },
+    {
+        "Regex": "CYGWIN_98-4.10|Win98|Windows 98",
+        "Name": "Windows",
+        "Version": "98"
+    },
+    {
+        "Regex": "CYGWIN_95-4.0|Win32|Win95|Windows 95|Windows_95",
+        "Name": "Windows",
+        "Version": "95"
+    },
+    {
+        "Regex": "Windows 3.1",
+        "Name": "Windows",
+        "Version": "3.1"
+    },
+    {
+        "Regex": "Windows",
+        "Name": "Windows",
+        "Version": ""
+    },
+    {
+        "Regex": "(?:CPU OS|iPhone OS|iOS)[ _](\\d+(?:[_\\.]\\d+)*)",
+        "Name": "iOS",
+        "Version": "$1"
+    },
+    {
+        "Regex": "(?:Apple-)?(?:iPhone|iPad|iPod)(?:.*Mac OS X.*Version/(\\d+\\.\\d+)|; Opera)?",
+        "Name": "iOS",
+        "Version": "$1"
+    },
+    {
+        "Regex": "Mac OS X(?: (?:Version )?(\\d+(?:[_\\.]\\d+)+))?",
+        "Name": "Mac",
+        "Version": "$1"
+    },
+    {
+        "Regex": "Mac (\\d+(?:[_\\.]\\d+)+)",
+        "Name": "Mac",
+        "Version": "$1"
+    },
+    {
+        "Regex": "Darwin|Macintosh|Mac_PowerPC|PPC|Mac PowerPC",
+        "Name": "Mac",
+        "Version": ""
+    },
+    {
+        "Regex": "CrOS [a-z0-9_]+ (\\d+[\\.\\d]+)",
+        "Name": "Chrome OS",
+        "Version": "$1"
+    },
+    {
+        "Regex": "(?:BB10;.+Version|Black[Bb]erry[0-9a-z]+|Black[Bb]erry.+Version)/(\\d+[\\.\\d]+)",
+        "Name": "BlackBerry OS",
+        "Version": "$1"
+    },
+    {
+        "Regex": "RIM Tablet OS (\\d+[\\.\\d]+)",
+        "Name": "BlackBerry Tablet OS",
+        "Version": "$1"
+    },
+    {
+        "Regex": "RIM Tablet OS|QNX|Play[Bb]ook",
+        "Name": "BlackBerry Tablet OS",
+        "Version": ""
+    },
+    {
+        "Regex": "BlackBerry",
+        "Name": "BlackBerry OS",
+        "Version": ""
+    },
+    {
+        "Regex": "Haiku",
+        "Name": "Haiku OS",
+        "Version": ""
+    },
+    {
+        "Regex": "BeOS",
+        "Name": "BeOS",
+        "Version": ""
+    },
+    {
+        "Regex": "Symbian/3.+NokiaBrowser/7\\.3",
+        "Name": "Symbian^3",
+        "Version": "Anna"
+    },
+    {
+        "Regex": "Symbian/3.+NokiaBrowser/7\\.4",
+        "Name": "Symbian^3",
+        "Version": "Belle"
+    },
+    {
+        "Regex": "Symbian/3",
+        "Name": "Symbian^3",
+        "Version": ""
+    },
+    {
+        "Regex": "(?:Series ?60|SymbOS|S60)(?:[ /]?(\\d+[\\.\\d]+|V\\d+))?",
+        "Name": "Symbian OS Series 60",
+        "Version": "$1"
+    },
+    {
+        "Regex": "Series40",
+        "Name": "Symbian OS Series 40",
+        "Version": ""
+    },
+    {
+        "Regex": "SymbianOS/(\\d+[\\.\\d]+)",
+        "Name": "Symbian OS",
+        "Version": "$1"
+    },
+    {
+        "Regex": "MeeGo|WeTab",
+        "Name": "MeeGo",
+        "Version": ""
+    },
+    {
+        "Regex": "Symbian OS|SymbOS",
+        "Name": "Symbian OS",
+        "Version": ""
+    },
+    {
+        "Regex": "Nokia",
+        "Name": "Symbian",
+        "Version": ""
+    },
+    {
+        "Regex": "(?:Mobile|Tablet);.+Firefox/\\d+\\.\\d+",
+        "Name": "Firefox OS",
+        "Version": ""
+    },
+    {
+        "Regex": "RISC OS(?:-NC)?(?:[ /](\\d+[\\.\\d]+))?",
+        "Name": "RISC OS",
+        "Version": "$1"
+    },
+    {
+        "Regex": "Inferno(?:[ /](\\d+[\\.\\d]+))?",
+        "Name": "Inferno",
+        "Version": "$1"
+    },
+    {
+        "Regex": "bada(?:[ /](\\d+[\\.\\d]+))",
+        "Name": "Bada",
+        "Version": "$1"
+    },
+    {
+        "Regex": "bada",
+        "Name": "Bada",
+        "Version": ""
+    },
+    {
+        "Regex": "(?:Brew MP|BREW|BMP)(?:[ /](\\d+[\\.\\d]+))",
+        "Name": "Brew",
+        "Version": "$1"
+    },
+    {
+        "Regex": "Brew MP|BREW|BMP",
+        "Name": "Brew",
+        "Version": ""
+    },
+    {
+        "Regex": "GoogleTV(?:[ /](\\d+[\\.\\d]+))?",
+        "Name": "Google TV",
+        "Version": "$1"
+    },
+    {
+        "Regex": "AppleTV(?:/?(\\d+[\\.\\d]+))?",
+        "Name": "Apple TV",
+        "Version": "$1"
+    },
+    {
+        "Regex": "WebTV/(\\d+[\\.\\d]+)",
+        "Name": "WebTV",
+        "Version": "$1"
+    },
+    {
+        "Regex": "(?:SunOS|Solaris)(?:[/ ](\\d+[\\.\\d]+))?",
+        "Name": "Solaris",
+        "Version": "$1"
+    },
+    {
+        "Regex": "AIX(?:[/ ]?(\\d+[\\.\\d]+))?",
+        "Name": "AIX",
+        "Version": "$1"
+    },
+    {
+        "Regex": "HP-UX(?:[/ ]?(\\d+[\\.\\d]+))?",
+        "Name": "HP-UX",
+        "Version": "$1"
+    },
+    {
+        "Regex": "FreeBSD(?:[/ ]?(\\d+[\\.\\d]+))?",
+        "Name": "FreeBSD",
+        "Version": "$1"
+    },
+    {
+        "Regex": "NetBSD(?:[/ ]?(\\d+[\\.\\d]+))?",
+        "Name": "NetBSD",
+        "Version": "$1"
+    },
+    {
+        "Regex": "OpenBSD(?:[/ ]?(\\d+[\\.\\d]+))?",
+        "Name": "OpenBSD",
+        "Version": "$1"
+    },
+    {
+        "Regex": "DragonFly(?:[/ ]?(\\d+[\\.\\d]+))?",
+        "Name": "DragonFly",
+        "Version": "$1"
+    },
+    {
+        "Regex": "Syllable(?:[/ ]?(\\d+[\\.\\d]+))?",
+        "Name": "Syllable",
+        "Version": "$1"
+    },
+    {
+        "Regex": "IRIX(?:[/ ]?(\\d+[\\.\\d]+))",
+        "Name": "IRIX",
+        "Version": "$1"
+    },
+    {
+        "Regex": "OSF1(?:[/ ]?v?(\\d+[\\.\\d]+))?",
+        "Name": "OSF1",
+        "Version": "$1"
+    },
+    {
+        "Regex": "Nintendo Wii",
+        "Name": "Nintendo",
+        "Version": "Wii"
+    },
+    {
+        "Regex": "PlayStation ?([3|4])",
+        "Name": "PlayStation",
+        "Version": "$1"
+    },
+    {
+        "Regex": "Xbox|KIN\\.(?:One|Two)",
+        "Name": "Xbox",
+        "Version": "360"
+    },
+    {
+        "Regex": "Nitro|Nintendo ([3]?DS[i]?)",
+        "Name": "Nintendo Mobile",
+        "Version": "$1"
+    },
+    {
+        "Regex": "PlayStation ((?:Portable|Vita))",
+        "Name": "PlayStation Portable",
+        "Version": "$1"
+    },
+    {
+        "Regex": "OS/2",
+        "Name": "OS/2",
+        "Version": ""
+    },
+    {
+        "Regex": "Linux[^a-z]",
+        "Name": "GNU/Linux",
+        "Version": ""
+    }
+]

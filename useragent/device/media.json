@@ -1,0 +1,94 @@
+[
+    {
+        "Producer": "Apple",
+        "Regex": "(?:Apple-)?iPod",
+        "Model": "",
+        "Models": [
+            {
+                "Regex": "(?:Apple-)?iPod1[C,]1",
+                "Model": "iPod Touch 1G"
+            },
+            {
+                "Regex": "(?:Apple-)?iPod2[C,]1",
+                "Model": "iPod Touch 2G"
+            },
+            {
+                "Regex": "(?:Apple-)?iPod3[C,]1",
+                "Model": "iPod Touch 3"
+            },
+            {
+                "Regex": "(?:Apple-)?iPod4[C,]1",
+                "Model": "iPod Touch 4"
+            },
+            {
+                "Regex": "(?:Apple-)?iPod5[C,]1",
+                "Model": "iPod Touch 5"
+            },
+            {
+                "Regex": "(?:Apple-)?iPod1[C,]1",
+                "Model": "iPod Touch"
+            },
+            {
+                "Regex": "(?:Apple-)?iPod1[C,]1",
+                "Model": "iPod Touch"
+            },
+            {
+                "Regex": "(?:Apple-)?iPod",
+                "Model": "iPod Touch"
+            }
+        ]
+    },
+    {
+        "Producer": "Cowon",
+        "Regex": "COWON ([^;/]+) Build",
+        "Model": "$1",
+        "Models": null
+    },
+    {
+        "Producer": "Microsoft",
+        "Regex": "Microsoft ZuneHD",
+        "Model": "Zune HD",
+        "Models": null
+    },
+    {
+        "Producer": "Panasonic",
+        "Regex": "(SV-MV100)",
+        "Model": "$1",
+        "Models": null
+    },
+    {
+        "Producer": "Samsung",
+        "Regex": "YP-(G[SIPB]?1|G[57]0|GB70D)",
+        "Model": "",
+        "Models": [
+            {
+                "Regex": "YP-G[B]?1",
+                "Model": "Galaxy Player 4.0"
+            },
+            {
+                "Regex": "YP-G70",
+                "Model": "Galaxy Player 5.0"
+            },
+            {
+                "Regex": "YP-GS1",
+                "Model": "Galaxy Player 3.6"
+            },
+            {
+                "Regex": "YP-GI1",
+                "Model": "Galaxy Player 4.2"
+            },
+            {
+                "Regex": "YP-GP1",
+                "Model": "Galaxy Player 5.8"
+            },
+            {
+                "Regex": "YP-G50",
+                "Model": "Galaxy Player 50"
+            },
+            {
+                "Regex": "YP-GB70D",
+                "Model": "Galaxy Player 70 Plus"
+            }
+        ]
+    }
+]

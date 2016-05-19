@@ -1,0 +1,32 @@
+[
+    {
+        "Regex": "Wget(?:/(\\d+[\\.\\d]+))?",
+        "Name": "Wget",
+        "Version": "$1"
+    },
+    {
+        "Regex": "(?:lib)?curl(?:/(\\d+[\\.\\d]+))?",
+        "Name": "curl",
+        "Version": "$1"
+    },
+    {
+        "Regex": "python-requests(?:/(\\d+[\\.\\d]+))?",
+        "Name": "Python Requests",
+        "Version": "$1"
+    },
+    {
+        "Regex": "Python-urllib(?:/?(\\d+[\\.\\d]+))?",
+        "Name": "Python urllib",
+        "Version": "$1"
+    },
+    {
+        "Regex": "Java(?:/?(\\d+[\\.\\d]+))?",
+        "Name": "Java",
+        "Version": "$1"
+    },
+    {
+        "Regex": "(?:perlclient|libwww-perl)(?:/?(\\d+[\\.\\d]+))?",
+        "Name": "Perl",
+        "Version": "$1"
+    }
+]

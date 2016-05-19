@@ -2,7 +2,7 @@ package useragent
 
 import (
 	"fmt"
-	"os"
+	// "os"
 	// "strings"
 	"testing"
 )
@@ -67,20 +67,20 @@ var SortTestData = [...]string{
 	"BingBot",
 	"BaiduSpider",
 	"GoogleBot",
-	"YahooChina",
-	"YodaoBot",
-	"YoudaoBot",
-	"MSNBot",
-	"SousouSpider",
-	"YahooSeeker",
-	"chinasospider",
+	// "YahooChina",
+	// "YodaoBot",
+	// "YoudaoBot",
+	// "MSNBot",
+	// "SousouSpider",
+	// "YahooSeeker",
+	// "chinasospider",
 	///////////////////////////////////////////////////////////////
-	"ie6",
-	"ie7",
-	"ie8",
-	"ie9",
-	"ie10",
-	"ie11",
+	// "ie6",
+	// "ie7",
+	// "ie8",
+	// "ie9",
+	// "ie10",
+	// "ie11",
 
 	"ipad",
 	"iphone",
@@ -125,6 +125,6 @@ func TestTrimSpace(t *testing.T) {
 	for _, k := range SortTestData {
 		v := TestData[k]
 		agent := ParseByString(v)
-		f.WriteString(fmt.Sprintf("%#v\n", *agent))
+		f.WriteString(fmt.Sprintf("%#v\n", agent))
 	}
 }

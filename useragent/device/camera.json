@@ -1,0 +1,35 @@
+[
+    {
+        "Producer": "Nikon",
+        "Regex": "Coolpix S800c",
+        "Model": "Coolpix S800c",
+        "Models": null
+    },
+    {
+        "Producer": "Samsung",
+        "Regex": "EK-G[CN][0-9]{3}",
+        "Model": "",
+        "Models": [
+            {
+                "Regex": "EK-GN120",
+                "Model": "GALAXY NX"
+            },
+            {
+                "Regex": "EK-GC100",
+                "Model": "GALAXY Camera"
+            },
+            {
+                "Regex": "EK-GC110",
+                "Model": "GALAXY Camera WiFi only"
+            },
+            {
+                "Regex": "EK-GC200",
+                "Model": "GALAXY Camera 2"
+            },
+            {
+                "Regex": "EK-GC([0-9]{3})",
+                "Model": "GALAXY Camera $1"
+            }
+        ]
+    }
+]

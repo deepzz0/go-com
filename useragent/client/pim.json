@@ -1,0 +1,42 @@
+[
+    {
+        "Regex": "Outlook-Express(?:/(\\d+[\\.\\d]+))?",
+        "Name": "Outlook Express",
+        "Version": "$1"
+    },
+    {
+        "Regex": "Microsoft Outlook(?:[/ ](\\d+[\\.\\d]+))?",
+        "Name": "Microsoft Outlook",
+        "Version": "$1"
+    },
+    {
+        "Regex": "(?:Thunderbird|Icedove|Shredder)(?:/(\\d+[\\.\\d]+))?",
+        "Name": "Thunderbird",
+        "Version": "$1"
+    },
+    {
+        "Regex": "Airmail(?: (\\d+[\\.\\d]+))?",
+        "Name": "Airmail",
+        "Version": "$1"
+    },
+    {
+        "Regex": "Lotus-Notes(?:/(\\d+[\\.\\d]+))?",
+        "Name": "Lotus Notes",
+        "Version": "$1"
+    },
+    {
+        "Regex": "Barca(?:Pro)?(?:[/ ](\\d+[\\.\\d]+))?",
+        "Name": "Barca",
+        "Version": "$1"
+    },
+    {
+        "Regex": "Postbox(?:[/ ](\\d+[\\.\\d]+))?",
+        "Name": "Postbox",
+        "Version": "$1"
+    },
+    {
+        "Regex": "The Bat!(?: Voyager)?(?:[/ ](\\d+[\\.\\d]+))?",
+        "Name": "The Bat!",
+        "Version": "$1"
+    }
+]

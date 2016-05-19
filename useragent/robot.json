@@ -1,0 +1,1280 @@
+[
+    {
+        "Regex": "360Spider(-Image|-Video)?",
+        "Name": "360Spider",
+        "URL": "http://www.so.com/help/help_3_2.html",
+        "Producer": {
+            "Name": "Online Media Group, Inc.",
+            "URL": ""
+        }
+    },
+    {
+        "Regex": "Aboundex",
+        "Name": "Aboundexbot",
+        "URL": "http://www.aboundex.com/crawler/",
+        "Producer": {
+            "Name": "Aboundex.com",
+            "URL": "http://www.aboundex.com"
+        }
+    },
+    {
+        "Regex": "AcoonBot",
+        "Name": "Acoon",
+        "URL": "http://www.acoon.de/robot.asp",
+        "Producer": {
+            "Name": "Acoon GmbH",
+            "URL": "http://www.acoon.de"
+        }
+    },
+    {
+        "Regex": "AddThis.com",
+        "Name": "AddThis.com",
+        "URL": "",
+        "Producer": {
+            "Name": "Clearspring Technologies, Inc.",
+            "URL": "http://www.clearspring.com"
+        }
+    },
+    {
+        "Regex": "AhrefsBot",
+        "Name": "aHrefs Bot",
+        "URL": "http://ahrefs.com/robot",
+        "Producer": {
+            "Name": "Ahrefs Pte Ltd",
+            "URL": "http://ahrefs.com/robot"
+        }
+    },
+    {
+        "Regex": "ia_archiver|alexabot|verifybot",
+        "Name": "Alexa Crawler",
+        "URL": "https://alexa.zendesk.com/hc/en-us/sections/200100794-Crawlers",
+        "Producer": {
+            "Name": "Alexa Internet",
+            "URL": "http://www.alexa.com"
+        }
+    },
+    {
+        "Regex": "AmorankSpider",
+        "Name": "Amorank Spider",
+        "URL": "http://amorank.com/webcrawler.html",
+        "Producer": {
+            "Name": "Amorank",
+            "URL": "http://www.amorank.com"
+        }
+    },
+    {
+        "Regex": "Curious George",
+        "Name": "Analytics SEO Crawler",
+        "URL": "http://www.analyticsseo.com/crawler",
+        "Producer": {
+            "Name": "Analytics SEO",
+            "URL": "http://www.analyticsseo.com"
+        }
+    },
+    {
+        "Regex": "archive.org_bot|special_archiver",
+        "Name": "archive.org bot",
+        "URL": "http://www.archive.org/details/archive.org_bot",
+        "Producer": {
+            "Name": "The Internet Archive",
+            "URL": "http://www.archive.org"
+        }
+    },
+    {
+        "Regex": "Ask Jeeves/Teoma",
+        "Name": "Ask Jeeves",
+        "URL": "",
+        "Producer": {
+            "Name": "Ask Jeeves Inc.",
+            "URL": "http://www.ask.com"
+        }
+    },
+    {
+        "Regex": "Backlink-Ceck.de",
+        "Name": "Backlink-Ceck.de",
+        "URL": "http://www.backlink-check.de/bot.html",
+        "Producer": {
+            "Name": "Mediagreen Medienservice",
+            "URL": "http://www.backlink-check.de"
+        }
+    },
+    {
+        "Regex": "BacklinkCrawler",
+        "Name": "BacklinkCrawler",
+        "URL": "http://www.backlinktest.com/crawler.html",
+        "Producer": {
+            "Name": "2.0Promotion GbR",
+            "URL": "http://www.backlinktest.com"
+        }
+    },
+    {
+        "Regex": "baiduspider(-image)?|baidu Transcoder|baidu.*spider",
+        "Name": "Baidu Spider",
+        "URL": "http://www.baidu.com/search/spider.htm",
+        "Producer": {
+            "Name": "Baidu",
+            "URL": "http://www.baidu.com"
+        }
+    },
+    {
+        "Regex": "MSNBot|msrbot|bingbot|BingPreview|msnbot-(UDiscovery|NewsBlogs)|adidxbot",
+        "Name": "BingBot",
+        "URL": "http://search.msn.com/msnbot.htmn",
+        "Producer": {
+            "Name": "Microsoft Corporation",
+            "URL": "http://www.microsoft.com"
+        }
+    },
+    {
+        "Regex": "Blekkobot",
+        "Name": "Blekkobot",
+        "URL": "http://blekko.com/about/blekkobot",
+        "Producer": {
+            "Name": "Blekko",
+            "URL": "http://blekko.com"
+        }
+    },
+    {
+        "Regex": "BLEXBot(Test)?",
+        "Name": "BLEXBot Crawler",
+        "URL": "http://webmeup-crawler.com",
+        "Producer": {
+            "Name": "WebMeUp",
+            "URL": "http://webmeup.com"
+        }
+    },
+    {
+        "Regex": "Bloglovin",
+        "Name": "Bloglovin",
+        "URL": "http://www.bloglovin.com",
+        "Producer": {
+            "Name": "",
+            "URL": ""
+        }
+    },
+    {
+        "Regex": "BountiiBot",
+        "Name": "Bountii Bot",
+        "URL": "http://bountii.com/contact.php",
+        "Producer": {
+            "Name": "Bountii Inc.",
+            "URL": "http://bountii.com"
+        }
+    },
+    {
+        "Regex": "Browsershots",
+        "Name": "Browsershots",
+        "URL": "http://browsershots.org/faq",
+        "Producer": {
+            "Name": "Browsershots.org",
+            "URL": "http://browsershots.org"
+        }
+    },
+    {
+        "Regex": "(?:HTC)[ _]Butterfly",
+        "Name": "Butterfly Robot",
+        "URL": "http://labs.topsy.com/butterfly",
+        "Producer": {
+            "Name": "Topsy Labs",
+            "URL": "http://labs.topsy.com"
+        }
+    },
+    {
+        "Regex": "CareerBot",
+        "Name": "CareerBot",
+        "URL": "http://www.career-x.de/bot.html",
+        "Producer": {
+            "Name": "career-x GmbH",
+            "URL": "http://www.career-x.de"
+        }
+    },
+    {
+        "Regex": "CCBot",
+        "Name": "ccBot crawler",
+        "URL": "http://commoncrawl.org/faq/",
+        "Producer": {
+            "Name": "reddit inc.",
+            "URL": "http://www.reddit.com"
+        }
+    },
+    {
+        "Regex": "Cliqzbot",
+        "Name": "Cliqzbot",
+        "URL": "http://cliqz.com/company/cliqzbot",
+        "Producer": {
+            "Name": "10betterpages GmbH",
+            "URL": "http://cliqz.com"
+        }
+    },
+    {
+        "Regex": "CloudFlare-AlwaysOnline",
+        "Name": "CloudFlare Always Online",
+        "URL": "http://www.cloudflare.com/always-online",
+        "Producer": {
+            "Name": "CloudFlare",
+            "URL": "http://www.cloudflare.com"
+        }
+    },
+    {
+        "Regex": "CommaFeed",
+        "Name": "CommaFeed",
+        "URL": "http://www.commafeed.com",
+        "Producer": {
+            "Name": "",
+            "URL": ""
+        }
+    },
+    {
+        "Regex": "Dazoobot",
+        "Name": "Dazoobot",
+        "URL": "",
+        "Producer": {
+            "Name": "DAZOO.FR",
+            "URL": "http://dazoo.fr"
+        }
+    },
+    {
+        "Regex": "discobot(-news)?",
+        "Name": "Discobot",
+        "URL": "http://discoveryengine.com/discobot.html",
+        "Producer": {
+            "Name": "Discovery Engine",
+            "URL": "http://discoveryengine.com"
+        }
+    },
+    {
+        "Regex": "DotBot",
+        "Name": "DotBot",
+        "URL": "http://www.opensiteexplorer.org/dotbot",
+        "Producer": {
+            "Name": "SEOmoz, Inc.",
+            "URL": "http://moz.com/"
+        }
+    },
+    {
+        "Regex": "EasouSpider",
+        "Name": "Easou Spider",
+        "URL": "http://www.easou.com/search/spider.html",
+        "Producer": {
+            "Name": "easou ICP",
+            "URL": "http://www.easou.com"
+        }
+    },
+    {
+        "Regex": "EMail Exractor",
+        "Name": "EMail Exractor",
+        "URL": "",
+        "Producer": {
+            "Name": "",
+            "URL": ""
+        }
+    },
+    {
+        "Regex": "Exabot(-Thumbnails|-Images)?|ExaleadCloudview",
+        "Name": "ExaBot",
+        "URL": "http://www.exabot.com/go/robot",
+        "Producer": {
+            "Name": "Dassault Systèmes",
+            "URL": "http://www.3ds.com"
+        }
+    },
+    {
+        "Regex": "ExactSeek Crawler",
+        "Name": "ExactSeek Crawler",
+        "URL": "http://www.exactseek.com",
+        "Producer": {
+            "Name": "Jayde Online, Inc.",
+            "URL": "http://www.jaydeonlineinc.com"
+        }
+    },
+    {
+        "Regex": "Ezooms",
+        "Name": "Ezooms",
+        "URL": "",
+        "Producer": {
+            "Name": "SEOmoz, Inc.",
+            "URL": "http://moz.com/"
+        }
+    },
+    {
+        "Regex": "facebookexternalhit|facebookplatform",
+        "Name": "Facebook External Hit",
+        "URL": "https://www.facebook.com/externalhit_uatext.php",
+        "Producer": {
+            "Name": "Facebook",
+            "URL": "http://www.facebook.com"
+        }
+    },
+    {
+        "Regex": "Feedbin",
+        "Name": "Feedbin",
+        "URL": "http://feedbin.com/",
+        "Producer": {
+            "Name": "",
+            "URL": ""
+        }
+    },
+    {
+        "Regex": "FeedBurner",
+        "Name": "FeedBurner",
+        "URL": "http://www.feedburner.com",
+        "Producer": {
+            "Name": "",
+            "URL": ""
+        }
+    },
+    {
+        "Regex": "(Meta)?Feedly(Bot|App)?",
+        "Name": "Feedly",
+        "URL": "http://www.feedly.com",
+        "Producer": {
+            "Name": "",
+            "URL": ""
+        }
+    },
+    {
+        "Regex": "Feedspot",
+        "Name": "Feedspot",
+        "URL": "http://www.feedspot.com",
+        "Producer": {
+            "Name": "",
+            "URL": ""
+        }
+    },
+    {
+        "Regex": "Fever",
+        "Name": "Fever",
+        "URL": "http://feedafever.com/",
+        "Producer": {
+            "Name": "",
+            "URL": ""
+        }
+    },
+    {
+        "Regex": "Genieo",
+        "Name": "Genieo Web filter",
+        "URL": "http://www.genieo.com/webfilter.html",
+        "Producer": {
+            "Name": "Genieo",
+            "URL": "http://www.genieo.com"
+        }
+    },
+    {
+        "Regex": "ichiro/mobile goo",
+        "Name": "Goo",
+        "URL": "http://search.goo.ne.jp/option/use/sub4/sub4-1",
+        "Producer": {
+            "Name": "NTT Resonant",
+            "URL": "http://goo.ne.jp"
+        }
+    },
+    {
+        "Regex": "Google Page Speed Insights",
+        "Name": "Google PageSpeed Insights",
+        "URL": "http://developers.google.com/speed/pagespeed/insights/",
+        "Producer": {
+            "Name": "Google Inc.",
+            "URL": "http://www.google.com"
+        }
+    },
+    {
+        "Regex": "Googlebot(-Mobile|-Image|-Video|-News)?|Feedfetcher-Google|Google-Test|Google-Site-Verification|Google Web Preview|AdsBot-Google(-Mobile)?|Mediapartners-Google|Google.*/\\+/web/snippet|GoogleProducer",
+        "Name": "Googlebot",
+        "URL": "http://www.google.com/bot.html",
+        "Producer": {
+            "Name": "Google Inc.",
+            "URL": "http://www.google.com"
+        }
+    },
+    {
+        "Regex": "heritrix",
+        "Name": "Heritrix",
+        "URL": "https://webarchive.jira.com/wiki/display/Heritrix/Heritrix",
+        "Producer": {
+            "Name": "The Internet Archive",
+            "URL": "http://www.archive.org"
+        }
+    },
+    {
+        "Regex": "HTTPMon",
+        "Name": "HTTPMon",
+        "URL": "http://www.httpmon.com",
+        "Producer": {
+            "Name": "towards GmbH",
+            "URL": "http://www.towards.ch/"
+        }
+    },
+    {
+        "Regex": "iisbot",
+        "Name": "IIS Site Analysis",
+        "URL": "http://www.iis.net/iisbot.html",
+        "Producer": {
+            "Name": "Microsoft Corporation",
+            "URL": "http://www.microsoft.com"
+        }
+    },
+    {
+        "Regex": "kouio",
+        "Name": "Kouio",
+        "URL": "http://kouio.com/",
+        "Producer": {
+            "Name": "",
+            "URL": ""
+        }
+    },
+    {
+        "Regex": "linkdexbot(-mobile)?|linkdex.com",
+        "Name": "Linkdex Bot",
+        "URL": "http://www.linkdex.com/bots",
+        "Producer": {
+            "Name": "Mojeek Ltd.",
+            "URL": "http://www.mojeek.com"
+        }
+    },
+    {
+        "Regex": "LinkedInBot",
+        "Name": "LinkedIn Bot",
+        "URL": "http://www.linkedin.com",
+        "Producer": {
+            "Name": "LinkedIn",
+            "URL": "http://www.linkedin.com"
+        }
+    },
+    {
+        "Regex": "Mail.RU(_Bot)?",
+        "Name": "Mail.Ru Bot",
+        "URL": "http://help.mail.ru/webmaster/indexing/robots/types_robots",
+        "Producer": {
+            "Name": "Mail.Ru Group",
+            "URL": "http://corp.mail.ru"
+        }
+    },
+    {
+        "Regex": "magpie-crawler",
+        "Name": "Magpie-Crawler",
+        "URL": "http://www.brandwatch.com/magpie-crawler/",
+        "Producer": {
+            "Name": "Brandwatch",
+            "URL": "http://www.brandwatch.com"
+        }
+    },
+    {
+        "Regex": "MagpieRSS",
+        "Name": "MagpieRSS",
+        "URL": "http://magpierss.sourceforge.net/",
+        "Producer": {
+            "Name": "",
+            "URL": ""
+        }
+    },
+    {
+        "Regex": "meanpathbot",
+        "Name": "Meanpath Bot",
+        "URL": "http://www.meanpath.com/meanpathbot.html",
+        "Producer": {
+            "Name": "Meanpath",
+            "URL": "http://www.meanpath.com"
+        }
+    },
+    {
+        "Regex": "MixrankBot",
+        "Name": "Mixrank Bot",
+        "URL": "http://mixrank.com",
+        "Producer": {
+            "Name": "Online Media Group, Inc.",
+            "URL": ""
+        }
+    },
+    {
+        "Regex": "MJ12bot",
+        "Name": "MJ12 Bot",
+        "URL": "http://majestic12.co.uk/bot.php",
+        "Producer": {
+            "Name": "Majestic-12",
+            "URL": "http://majestic12.co.uk"
+        }
+    },
+    {
+        "Regex": "MojeekBot",
+        "Name": "MojeekBot",
+        "URL": "http://www.mojeek.com/bot.html",
+        "Producer": {
+            "Name": "Mojeek Ltd.",
+            "URL": "http://www.mojeek.com"
+        }
+    },
+    {
+        "Regex": "NalezenCzBot",
+        "Name": "NalezenCzBot",
+        "URL": "http://www.nalezen.cz/about-crawler",
+        "Producer": {
+            "Name": "Jaroslav Kuboš",
+            "URL": ""
+        }
+    },
+    {
+        "Regex": "Netcraft Web Server Survey",
+        "Name": "Netcraft Survey Bot",
+        "URL": "",
+        "Producer": {
+            "Name": "Netcraft",
+            "URL": "http://www.netcraft.com"
+        }
+    },
+    {
+        "Regex": "Netvibes",
+        "Name": "Netvibes",
+        "URL": "http://www.netvibes.com/",
+        "Producer": {
+            "Name": "",
+            "URL": ""
+        }
+    },
+    {
+        "Regex": "NewsBlur .*(Fetcher|Finder)",
+        "Name": "NewsBlur",
+        "URL": "http://www.newsblur.com",
+        "Producer": {
+            "Name": "",
+            "URL": ""
+        }
+    },
+    {
+        "Regex": "NewsGatorOnline",
+        "Name": "NewsGator",
+        "URL": "http://www.newsgator.com",
+        "Producer": {
+            "Name": "",
+            "URL": ""
+        }
+    },
+    {
+        "Regex": "nlcrawler",
+        "Name": "NLCrawler",
+        "URL": "",
+        "Producer": {
+            "Name": "Northern Light",
+            "URL": "http://northernlight.com"
+        }
+    },
+    {
+        "Regex": "omgilibot",
+        "Name": "Omgili bot",
+        "URL": "http://www.omgili.com/Crawler.html",
+        "Producer": {
+            "Name": "Omgili",
+            "URL": "http://www.omgili.com"
+        }
+    },
+    {
+        "Regex": "OpenindexSpider",
+        "Name": "Openindex Spider",
+        "URL": "http://www.openindex.io/en/webmasters/spider.html",
+        "Producer": {
+            "Name": "Openindex B.V.",
+            "URL": "http://www.openindex.io"
+        }
+    },
+    {
+        "Regex": "spbot",
+        "Name": "OpenLinkProfiler",
+        "URL": "http://openlinkprofiler.org/bot",
+        "Producer": {
+            "Name": "Axandra GmbH",
+            "URL": "http://www.axandra.com"
+        }
+    },
+    {
+        "Regex": "OpenWebSpider",
+        "Name": "OpenWebSpider",
+        "URL": "http://www.openwebspider.org",
+        "Producer": {
+            "Name": "OpenWebSpider Lab",
+            "URL": "http://lab.openwebspider.org"
+        }
+    },
+    {
+        "Regex": "PaperLiBot",
+        "Name": "PaperLiBot",
+        "URL": "http://support.paper.li/entries/20023257-what-is-paper-li",
+        "Producer": {
+            "Name": "Smallrivers SA",
+            "URL": "http://www.paper.li"
+        }
+    },
+    {
+        "Regex": "psbot(-page)?",
+        "Name": "Picsearch bot",
+        "URL": "http://www.picsearch.com/bot.html",
+        "Producer": {
+            "Name": "Picsearch",
+            "URL": "http://www.picsearch.com"
+        }
+    },
+    {
+        "Regex": "Pingdom.com",
+        "Name": "Pingdom Bot",
+        "URL": "",
+        "Producer": {
+            "Name": "Pingdom AB",
+            "URL": "https://www.pingdom.com"
+        }
+    },
+    {
+        "Regex": "QuerySeekerSpider",
+        "Name": "QuerySeekerSpider",
+        "URL": "http://queryseeker.com/bot.html",
+        "Producer": {
+            "Name": "QueryEye Inc.",
+            "URL": "http://queryeye.com"
+        }
+    },
+    {
+        "Regex": "redditbot",
+        "Name": "Reddit Bot",
+        "URL": "http://www.reddit.com/feedback",
+        "Producer": {
+            "Name": "reddit inc.",
+            "URL": "http://www.reddit.com"
+        }
+    },
+    {
+        "Regex": "rogerbot",
+        "Name": "Rogerbot",
+        "URL": "http://moz.com/help/pro/what-is-rogerbot-",
+        "Producer": {
+            "Name": "SEOmoz, Inc.",
+            "URL": "http://moz.com/"
+        }
+    },
+    {
+        "Regex": "Screaming Frog SEO Spider",
+        "Name": "Screaming Frog SEO Spider",
+        "URL": "http://www.screamingfrog.co.uk/seo-spider",
+        "Producer": {
+            "Name": "Screaming Frog Ltd",
+            "URL": "http://www.screamingfrog.co.uk"
+        }
+    },
+    {
+        "Regex": "ScreenerBot",
+        "Name": "ScreenerBot",
+        "URL": "http://www.screenerbot.com",
+        "Producer": {
+            "Name": "",
+            "URL": ""
+        }
+    },
+    {
+        "Regex": "SemrushBot",
+        "Name": "Semrush Bot",
+        "URL": "http://www.semrush.com/bot.html",
+        "Producer": {
+            "Name": "SEMrush",
+            "URL": "http://www.semrush.com"
+        }
+    },
+    {
+        "Regex": "SensikaBot",
+        "Name": "Sensika Bot",
+        "URL": "",
+        "Producer": {
+            "Name": "Sensika",
+            "URL": "http://sensika.com"
+        }
+    },
+    {
+        "Regex": "SEOENG(World)?Bot",
+        "Name": "SEOENGBot",
+        "URL": "http://www.seoengine.com/seoengbot.htm",
+        "Producer": {
+            "Name": "SEO Engine",
+            "URL": "http://www.seoengine.com"
+        }
+    },
+    {
+        "Regex": "SeznamBot|SklikBot|Seznam screenshot-generator",
+        "Name": "Seznam Bot",
+        "URL": "http://www.mapy.cz/cz/seznambot.html",
+        "Producer": {
+            "Name": "Seznam.cz, a.s.",
+            "URL": "http://www.seznam.cz/"
+        }
+    },
+    {
+        "Regex": "ShopWiki",
+        "Name": "ShopWiki",
+        "URL": "http://www.shopwiki.com/wiki/Help:Bot",
+        "Producer": {
+            "Name": "ShopWiki Corp.",
+            "URL": "http://www.shopwiki.com"
+        }
+    },
+    {
+        "Regex": "SilverReader",
+        "Name": "SilverReader",
+        "URL": "http://silverreader.com",
+        "Producer": {
+            "Name": "",
+            "URL": ""
+        }
+    },
+    {
+        "Regex": "SimplePie",
+        "Name": "SimplePie",
+        "URL": "http://www.simplepie.org",
+        "Producer": {
+            "Name": "",
+            "URL": ""
+        }
+    },
+    {
+        "Regex": "SISTRIX Crawler",
+        "Name": "SISTRIX Crawler",
+        "URL": "http://crawler.sistrix.net",
+        "Producer": {
+            "Name": "SISTRIX GmbH",
+            "URL": "http://www.sistrix.de"
+        }
+    },
+    {
+        "Regex": "(Sogou (web|inst|Pic) spider)|New-Sogou-Spider",
+        "Name": "Sogou Spider",
+        "URL": "http://www.sogou.com/docs/help/webmasters.htm",
+        "Producer": {
+            "Name": "Sohu, Inc.",
+            "URL": "http://www.sogou.com"
+        }
+    },
+    {
+        "Regex": "Sosospider|Sosoimagespider",
+        "Name": "Soso Spider",
+        "URL": "http://help.soso.com/webspider.htm",
+        "Producer": {
+            "Name": "Tencent Holdings",
+            "URL": "http://www.soso.com"
+        }
+    },
+    {
+        "Regex": "Superfeedr bot",
+        "Name": "Superfeedr Bot",
+        "URL": "",
+        "Producer": {
+            "Name": "Superfeedr",
+            "URL": "https://superfeedr.com/"
+        }
+    },
+    {
+        "Regex": "Spinn3r",
+        "Name": "Spinn3r",
+        "URL": "http://spinn3r.com/robot",
+        "Producer": {
+            "Name": "Tailrank Inc",
+            "URL": "http://spinn3r.com"
+        }
+    },
+    {
+        "Regex": "Sputnik(Image)?Bot",
+        "Name": "Sputnik Bot",
+        "URL": "",
+        "Producer": {
+            "Name": "",
+            "URL": ""
+        }
+    },
+    {
+        "Regex": "SurveyBot",
+        "Name": "Survey Bot",
+        "URL": "http://www.domaintools.com/webmasters/surveybot.php",
+        "Producer": {
+            "Name": "Domain Tools",
+            "URL": "http://www.domaintools.com"
+        }
+    },
+    {
+        "Regex": "TinEye-bot",
+        "Name": "TinEye Crawler",
+        "URL": "http://www.tineye.com/crawler.html",
+        "Producer": {
+            "Name": "Idée Inc.",
+            "URL": "http://ideeinc.com"
+        }
+    },
+    {
+        "Regex": "Tiny Tiny RSS",
+        "Name": "Tiny Tiny RSS",
+        "URL": "http://tt-rss.org",
+        "Producer": {
+            "Name": "",
+            "URL": ""
+        }
+    },
+    {
+        "Regex": "TurnitinBot",
+        "Name": "TurnitinBot",
+        "URL": "http://www.turnitin.com/robot/crawlerinfo.html",
+        "Producer": {
+            "Name": "iParadigms, LLC.",
+            "URL": "http://www.turnitin.com"
+        }
+    },
+    {
+        "Regex": "TweetedTimes Bot",
+        "Name": "TweetedTimes Bot",
+        "URL": "http://tweetedtimes.com",
+        "Producer": {
+            "Name": "TweetedTimes",
+            "URL": "http://tweetedtimes.com/"
+        }
+    },
+    {
+        "Regex": "TweetmemeBot",
+        "Name": "Tweetmeme Bot",
+        "URL": "http://tweetmeme.com/",
+        "Producer": {
+            "Name": "Mediasift",
+            "URL": ""
+        }
+    },
+    {
+        "Regex": "Twitterbot",
+        "Name": "Twitterbot",
+        "URL": "https://dev.twitter.com/docs/cards/getting-started",
+        "Producer": {
+            "Name": "Twitter",
+            "URL": "http://www.twitter.com"
+        }
+    },
+    {
+        "Regex": "UptimeRobot",
+        "Name": "Uptime Robot",
+        "URL": "",
+        "Producer": {
+            "Name": "Uptime Robot",
+            "URL": "http://uptimerobot.com"
+        }
+    },
+    {
+        "Regex": "URLAppendBot",
+        "Name": "URLAppendBot",
+        "URL": "http://www.profound.net/urlappendbot.html",
+        "Producer": {
+            "Name": "Profound Networks",
+            "URL": "http://www.profound.net"
+        }
+    },
+    {
+        "Regex": "VSMCrawler",
+        "Name": "Visual Site Mapper Crawler",
+        "URL": "http://www.visualsitemapper.com/crawler",
+        "Producer": {
+            "Name": "Alentum Software Ltd.",
+            "URL": "http://www.alentum.com"
+        }
+    },
+    {
+        "Regex": "VoilaBot",
+        "Name": "Voila Bot",
+        "URL": "http://www.voila.fr",
+        "Producer": {
+            "Name": "",
+            "URL": ""
+        }
+    },
+    {
+        "Regex": "Jigsaw",
+        "Name": "W3C CSS Validator",
+        "URL": "http://jigsaw.w3.org/css-validator",
+        "Producer": {
+            "Name": "W3C",
+            "URL": "http://www.w3.org"
+        }
+    },
+    {
+        "Regex": "W3C_I18n-Checker",
+        "Name": "W3C I18N Checker",
+        "URL": "http://validator.w3.org/i18n-checker",
+        "Producer": {
+            "Name": "W3C",
+            "URL": "http://www.w3.org"
+        }
+    },
+    {
+        "Regex": "W3C-checklink",
+        "Name": "W3C Link Checker",
+        "URL": "http://validator.w3.org/checklink",
+        "Producer": {
+            "Name": "W3C",
+            "URL": "http://www.w3.org"
+        }
+    },
+    {
+        "Regex": "W3C_Validator",
+        "Name": "W3C Markup Validation Service",
+        "URL": "http://validator.w3.org/services",
+        "Producer": {
+            "Name": "W3C",
+            "URL": "http://www.w3.org"
+        }
+    },
+    {
+        "Regex": "W3C-mobileOK",
+        "Name": "W3C MobileOK Checker",
+        "URL": "http://validator.w3.org/mobile",
+        "Producer": {
+            "Name": "W3C",
+            "URL": "http://www.w3.org"
+        }
+    },
+    {
+        "Regex": "W3C_Unicorn",
+        "Name": "W3C Unified Validator",
+        "URL": "http://validator.w3.org/unicorn",
+        "Producer": {
+            "Name": "W3C",
+            "URL": "http://www.w3.org"
+        }
+    },
+    {
+        "Regex": "WeSEE(:Search)?",
+        "Name": "WeSEE:Search",
+        "URL": "http://www.wesee.com/bot",
+        "Producer": {
+            "Name": "WeSEE Ltd",
+            "URL": "http://www.wesee.com"
+        }
+    },
+    {
+        "Regex": "WebbCrawler",
+        "Name": "WebbCrawler",
+        "URL": "http://badcheese.com/crawler.html",
+        "Producer": {
+            "Name": "Steve Webb",
+            "URL": "http://badcheese.com"
+        }
+    },
+    {
+        "Regex": "Wotbox",
+        "Name": "Wotbox",
+        "URL": "http://www.wotbox.com/bot/",
+        "Producer": {
+            "Name": "Wotbox",
+            "URL": "http://www.wotbox.com"
+        }
+    },
+    {
+        "Regex": "yacybot",
+        "Name": "YaCy",
+        "URL": "http://yacy.net/bot.html",
+        "Producer": {
+            "Name": "YaCy",
+            "URL": "http://yacy.net"
+        }
+    },
+    {
+        "Regex": "Yahoo! Slurp|Yahoo!-AdCrawler",
+        "Name": "Yahoo! Slurp",
+        "URL": "http://help.yahoo.com/ysearch/slurp",
+        "Producer": {
+            "Name": "Yahoo! Inc.",
+            "URL": "http://www.yahoo.com"
+        }
+    },
+    {
+        "Regex": "Yandex(Bot|Images|Antivirus|Direct|Blogs|Favicons|ImageResizer|News(links)?|Metrika|.Gazeta Bot)",
+        "Name": "Yandex Bot",
+        "URL": "http://www.yandex.com/bots",
+        "Producer": {
+            "Name": "Yandex LLC",
+            "URL": "http://company.yandex.com"
+        }
+    },
+    {
+        "Regex": "Yeti",
+        "Name": "Yeti/Naverbot",
+        "URL": "http://help.naver.com/robots/",
+        "Producer": {
+            "Name": "Naver",
+            "URL": "http://www.naver.com"
+        }
+    },
+    {
+        "Regex": "YoudaoBot",
+        "Name": "Youdao Bot",
+        "URL": "http://www.youdao.com/help/webmaster/spider",
+        "Producer": {
+            "Name": "NetEase, Inc.",
+            "URL": "http://corp.163.com"
+        }
+    },
+    {
+        "Regex": "YRSpider|YYSpider",
+        "Name": "Yunyun Bot",
+        "URL": "http://www.yunyun.com/SiteInfo.php?r=about",
+        "Producer": {
+            "Name": "YunYun",
+            "URL": "http://www.yunyun.com"
+        }
+    },
+    {
+        "Regex": "Zookabot",
+        "Name": "Zookabot",
+        "URL": "http://zookabot.com",
+        "Producer": {
+            "Name": "Hwacha ApS",
+            "URL": "http://hwacha.dk"
+        }
+    },
+    {
+        "Regex": "ZumBot",
+        "Name": "ZumBot",
+        "URL": "http://help.zum.com/inquiry",
+        "Producer": {
+            "Name": "ZUM internet",
+            "URL": "http://www.zuminternet.com/"
+        }
+    },
+    {
+        "Regex": "YottaaMonitor",
+        "Name": "Yottaa Site Monitor",
+        "URL": "http://www.yottaa.com/products/site-monitor",
+        "Producer": {
+            "Name": "Yottaa",
+            "URL": "http://www.yottaa.com/"
+        }
+    },
+    {
+        "Regex": "Yahoo Ad monitoring.*yahoo-ad-monitoring-SLN24857.*",
+        "Name": "Yahoo Gemini",
+        "URL": "https://help.yahoo.com/kb/yahoo-ad-monitoring-SLN24857.html",
+        "Producer": {
+            "Name": "Yahoo! Inc.",
+            "URL": "http://www.yahoo.com"
+        }
+    },
+    {
+        "Regex": ".*Java.*outbrain",
+        "Name": "Outbrain",
+        "URL": "",
+        "Producer": {
+            "Name": "Outbrain",
+            "URL": "http://www.outbrain.com/"
+        }
+    },
+    {
+        "Regex": "HubPages.*crawlingpolicy",
+        "Name": "HubPages",
+        "URL": "http://hubpages.com/help/crawlingpolicy",
+        "Producer": {
+            "Name": "HubPages",
+            "URL": "http://hubpages.com/"
+        }
+    },
+    {
+        "Regex": "Pinterest/\\d\\.\\d.*www.pinterest.com.*",
+        "Name": "Pinterest",
+        "URL": "",
+        "Producer": {
+            "Name": "Pinterest",
+            "URL": "http://www.pinterest.com/"
+        }
+    },
+    {
+        "Regex": "Site24x7",
+        "Name": "Site24x7 Website Monitoring",
+        "URL": "https://www.site24x7.com/site24x7-faq.html",
+        "Producer": {
+            "Name": "Site24x7",
+            "URL": "https://www.site24x7.com"
+        }
+    },
+    {
+        "Regex": "www.monitor.us",
+        "Name": "Monitor.Us",
+        "URL": "http://www.monitor.us",
+        "Producer": {
+            "Name": "Monitor.Us",
+            "URL": "http://www.monitor.us"
+        }
+    },
+    {
+        "Regex": "lycos",
+        "Name": "Lycos",
+        "URL": "",
+        "Producer": {
+            "Name": "",
+            "URL": ""
+        }
+    },
+    {
+        "Regex": "Slurp",
+        "Name": "Inktomi Slurp",
+        "URL": "",
+        "Producer": {
+            "Name": "",
+            "URL": ""
+        }
+    },
+    {
+        "Regex": "Speedy Spider",
+        "Name": "Speedy",
+        "URL": "",
+        "Producer": {
+            "Name": "",
+            "URL": ""
+        }
+    },
+    {
+        "Regex": "ScoutJet",
+        "Name": "ScoutJet",
+        "URL": "",
+        "Producer": {
+            "Name": "",
+            "URL": ""
+        }
+    },
+    {
+        "Regex": "nrsbot|netresearch",
+        "Name": "NetResearchServer",
+        "URL": "",
+        "Producer": {
+            "Name": "",
+            "URL": ""
+        }
+    },
+    {
+        "Regex": "scooter",
+        "Name": "Scooter",
+        "URL": "",
+        "Producer": {
+            "Name": "",
+            "URL": ""
+        }
+    },
+    {
+        "Regex": "gigabot",
+        "Name": "Gigabot",
+        "URL": "",
+        "Producer": {
+            "Name": "",
+            "URL": ""
+        }
+    },
+    {
+        "Regex": "charlotte",
+        "Name": "Charlotte",
+        "URL": "",
+        "Producer": {
+            "Name": "",
+            "URL": ""
+        }
+    },
+    {
+        "Regex": "Pompos",
+        "Name": "Pompos",
+        "URL": "",
+        "Producer": {
+            "Name": "",
+            "URL": ""
+        }
+    },
+    {
+        "Regex": "ichiro",
+        "Name": "ichiro",
+        "URL": "",
+        "Producer": {
+            "Name": "",
+            "URL": ""
+        }
+    },
+    {
+        "Regex": "PagePeeker",
+        "Name": "PagePeeker",
+        "URL": "",
+        "Producer": {
+            "Name": "",
+            "URL": ""
+        }
+    },
+    {
+        "Regex": "WebThumbnail",
+        "Name": "WebThumbnail",
+        "URL": "",
+        "Producer": {
+            "Name": "",
+            "URL": ""
+        }
+    },
+    {
+        "Regex": "Willow Internet Crawler",
+        "Name": "Willow Internet Crawler",
+        "URL": "",
+        "Producer": {
+            "Name": "",
+            "URL": ""
+        }
+    },
+    {
+        "Regex": "EmailWolf",
+        "Name": "EmailWolf",
+        "URL": "",
+        "Producer": {
+            "Name": "",
+            "URL": ""
+        }
+    },
+    {
+        "Regex": "NetLyzer FastProbe",
+        "Name": "NetLyzer FastProbe",
+        "URL": "",
+        "Producer": {
+            "Name": "",
+            "URL": ""
+        }
+    },
+    {
+        "Regex": "AdMantX.*admantx.com",
+        "Name": "ADMantX",
+        "URL": "",
+        "Producer": {
+            "Name": "",
+            "URL": ""
+        }
+    },
+    {
+        "Regex": "Server Density Service Monitoring.*",
+        "Name": "Server Density",
+        "URL": "",
+        "Producer": {
+            "Name": "",
+            "URL": ""
+        }
+    },
+    {
+        "Regex": "(nuhk|TsolCrawler|Yammybot|Openbot|Gulper Web Bot|grub-client|Download Demon|SearchExpress|Microsoft URL Control|borg|altavista|teoma|blitzbot|oegp|furlbot|http%20client|polybot|htdig|mogimogi|larbin|scrubby|searchsight|seekbot|semanticdiscovery|snappy|vortex|zao|zeal|fast-webcrawler|converacrawler|dataparksearch|findlinks|BrowserMob|HttpMonitor|ThumbShotsBot|URL2PNG|ZooShot|GomezA|Catchpoint bot|Google SketchUp|Read%20Later|Minimo|RackspaceBot)",
+        "Name": "Bot",
+        "URL": "",
+        "Producer": {
+            "Name": "",
+            "URL": ""
+        }
+    },
+    {
+        "Regex": "Nutch",
+        "Name": "Nutch-based Bot",
+        "URL": "https://nutch.apache.org",
+        "Producer": {
+            "Name": "The Apache Software Foundation",
+            "URL": "http://www.apache.org/foundation/"
+        }
+    },
+    {
+        "Regex": "[a-z0-9\\-_]*(bot|crawler|archiver|transcoder|spider)",
+        "Name": "Generic Bot",
+        "URL": "",
+        "Producer": {
+            "Name": "",
+            "URL": ""
+        }
+    }
+]

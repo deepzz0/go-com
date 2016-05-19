@@ -2,273 +2,380 @@
 package useragent
 
 import (
+	"github.com/deepzz0/go-common/log"
 	"net/http"
 	"regexp"
 	"strings"
+	"sync"
+	// "time"
+)
 
-	"github.com/deepzz0/go-common/log"
+const (
+	CAMERA      = "camera"
+	CAR_BROWSER = "car_browser"
+	CONSOLE     = "console"
+	MEDIA       = "media"
+	MOBILE      = "mobile"
+	TV          = "tv"
+)
+
+const (
+	APP     = "app"
+	BROWSER = "browser"
+	LIBRARY = "library"
+	PIM     = "pim"
+	PLAYER  = "player"
+	READER  = "reader"
+	ROBOT   = "robot"
+	VENDOR  = "vendor"
+)
+
+const (
+	// TYPE     = "type"
+	// PRODUCER = "producer"
+	// MODEL    = "model"
+	// NAME     = "name"
+	// VERSION  = "version"
+	// URL      = "url"
+	// SUB_TYPE = "sub_type"
+	// ENGINE   = "engine"
+	TYPE     = "类型"
+	PRODUCER = "厂家"
+	MODEL    = "型号"
+	NAME     = "名称"
+	VERSION  = "版本号"
+	URL      = "网址"
+	SUB_TYPE = "详细类型"
+	ENGINE   = "引擎"
 )
 
 type UserAgent struct {
-	Agent_Type             string // brower (mobile)
-	Agent_Name             string // chrome
-	Agent_Version          string // 50.0.2661.86
-	Agent_Rendering_Engine string // Webkit
-	Agent_Producer         string // 生产者
-	Agent_Producer_Url     string // 网址
-	OS_Type                string // OS X
-	OS_Name                string // iPhone OS 10.6.6
-	OS_Language            string // en-US
-	OS_Encryption          string // 加密等级  N无   I弱   U强
-	Device_Type            string // mobile
-	Device_Model           string //
+	Type   string `json:"类型"`
+	Device struct {
+		Type     string `json:"类型"`
+		Producer string `json:"厂家"`
+		Model    string `json:"型号"`
+	} `json:"设备"`
+	Client map[string]string `json:"客户端"`
+	OS     struct {
+		Name    string `json:"名称"`
+		Version string `json:"版本号"`
+	} `json:"操作系统"`
+	Robot struct {
+		Name     string `json:"名称"`
+		URL      string `json:"网址"`
+		Producer struct {
+			Name string `json:"名称"`
+			URL  string `json:"网址"`
+		} `json:"厂家"`
+	} `json:"机器人"`
+	Vendor string `json:"供应商"`
 }
 
-func ParseByString(useragent string) *UserAgent {
-	agent := &UserAgent{}
-	if robot := IsRobot(useragent); robot != "" {
-		agent.Agent_Type = ROBOT
-		agent.Agent_Name = robot
-		return agent
+func ParseByString(useragent string) UserAgent {
+	ua := UserAgent{Client: make(map[string]string)}
+	ua.queryRobot(useragent)
+	if ua.Robot.Name != "" {
+		return ua
 	}
-	reg, _ := regexp.Compile(`\(.*\)`)
-	index := reg.FindStringIndex(useragent)
-	if len(index) < 2 {
-		log.Warn(useragent)
-		return agent
-	}
-	osInfo := useragent[index[0]:index[1]]
-	slice := strings.Split(osInfo, ";")
-	agent.OS_Type = slice[0][1:len(slice[0])]
-	agent.OS_Encryption = GetOSSecurity(osInfo)
-	regLanguage, _ := regexp.Compile(`en-[\w]+`)
-	agent.OS_Language = regLanguage.FindString(osInfo)
-	switch agent.OS_Type {
-	case "iPad", "iPhone", "iPod", "Macintosh":
-		regVersion, _ := regexp.Compile(`(?:(Mac OS X [\d\_\.]+)|(iPhone OS [\d\_]+))`)
-		agent.OS_Name = strings.Replace(regVersion.FindString(osInfo), "_", ".", -1)
-	case "Android":
-		regVersion, _ := regexp.Compile(`rv:[\d\.]+`)
-		agent.OS_Name = regVersion.FindString(osInfo)
-	case "Linux":
-		regVersion, _ := regexp.Compile(`Android [\d\.]+`)
-		agent.OS_Name = regVersion.FindString(osInfo)
-	case "X11":
-		regVersion, _ := regexp.Compile(`Linux x[\d]+_[\d]+`)
-		agent.OS_Name = regVersion.FindString(osInfo)
-	case "compatible", "Windows":
-		regVersion, _ := regexp.Compile(`(?:(Windows NT [\d\.]+)|(Windows Phone( OS)? [\d\.]+))`)
-		agent.OS_Name = regVersion.FindString(osInfo)
-	case "PlayBook":
-		regVersion, _ := regexp.Compile(`RIM Tablet OS [\d\.]+`)
-		agent.OS_Name = regVersion.FindString(osInfo)
-	default:
-		if strings.Contains(agent.OS_Type, "Windows NT") {
-			agent.OS_Name = agent.OS_Type
-		}
-	}
-	if strings.Contains(useragent, "Mobile") {
-		agent.Device_Type = "mobile"
-	}
-	agent.Device_Model = FindDevice(slice)
-	// ------------------------------------------------------------
-	browserInfo := useragent[index[0]:]
-	var Name, Version string
-	// 是否是web
-	if name, version := IsWebBrowser(browserInfo); name != "" {
-		Name, Version = name, version
-		agent.Agent_Type = WEB_BROWSER
-	}
-	// 是否是
-	if name, version := IsMobileBrowser(browserInfo); name != "" {
-		Name, Version = name, version
-		agent.Agent_Type = MOBILE_BROWSER
-	}
-	// 是否是
-	if name, version := IsTextBrowser(browserInfo); name != "" {
-		Name, Version = name, version
-		agent.Agent_Type = TEXT_BROWSER
-	}
-	//
-	if name, version := IsEmailClient(browserInfo); name != "" {
-		Name, Version = name, version
-		agent.Agent_Type = EMAIL_CLIENT
-	}
-	//
-	if name, version := IsTool(browserInfo); name != "" {
-		Name, Version = name, version
-		agent.Agent_Type = TOOL
-	}
-	//
-	if name, version := IsApp(browserInfo); name != "" {
-		Name, Version = name, version
-		agent.Agent_Type = APP
-	}
-	agent.Agent_Name = Name
-	agent.Agent_Version = Version
-	agent.Agent_Rendering_Engine = GetEngine(agent.Agent_Type, Name)
-	agent.Agent_Producer = GetProducer(Name)
-	return agent
+	waitgroup := sync.WaitGroup{}
+	waitgroup.Add(4)
+	go func() {
+		ua.queryDevice(useragent)
+		waitgroup.Done()
+	}()
+	go func() {
+		ua.queryClient(useragent)
+		waitgroup.Done()
+	}()
+	go func() {
+		ua.queryOS(useragent)
+		waitgroup.Done()
+	}()
+	go func() {
+		ua.queryVendor(useragent)
+		waitgroup.Done()
+	}()
+	waitgroup.Wait()
+	return ua
 }
 
-func ParseByRequest(request *http.Request) *UserAgent {
-	return ParseByString(request.UserAgent())
+func ParseByRequest(requst *http.Request) UserAgent {
+	return ParseByString(requst.UserAgent())
 }
 
-func IsWebBrowser(useragent string) (string, string) {
-	for k, v := range Agent_types[WEB_BROWSER] {
-		reg, err := regexp.Compile(k)
-		if err != nil {
-			log.Error(err)
-			return "", ""
-		}
-		if str := reg.FindString(useragent); str == "" {
-			continue
-		} else {
-			return v, TypeToName[v](str)
+func (ua *UserAgent) queryDevice(useragent string) {
+	for _, mobile := range ConfigCache.Mobiles {
+		reg, err := regexp.Compile(mobile.Regex)
+		checkErr(err)
+		if str := reg.FindString(useragent); str != "" {
+			ua.Device.Producer = mobile.Producer
+			ua.Device.Type = MOBILE
+			if mobile.Models != nil {
+				ua.Device.Model = regexModel(mobile.Models, str)
+			} else {
+				ua.Device.Model = mobile.Model
+			}
+			return
 		}
 	}
-	return "", ""
-}
-
-func IsMobileBrowser(useragent string) (string, string) {
-	for k, v := range Agent_types[MOBILE_BROWSER] {
-		reg, err := regexp.Compile(k)
-		if err != nil {
-			log.Error(err)
-			return "", ""
-		}
-		if str := reg.FindString(useragent); str == "" {
-			continue
-		} else {
-			return v, TypeToName[v](str)
+	for _, console := range ConfigCache.Consoles {
+		reg, err := regexp.Compile(console.Regex)
+		checkErr(err)
+		if str := reg.FindString(useragent); str != "" {
+			ua.Device.Producer = console.Producer
+			ua.Device.Type = CONSOLE
+			if console.Models != nil {
+				ua.Device.Model = regexModel(console.Models, str)
+			} else {
+				ua.Device.Model = console.Model
+			}
+			return
 		}
 	}
-	return "", ""
-}
-
-func IsTextBrowser(useragent string) (string, string) {
-	for k, v := range Agent_types[TEXT_BROWSER] {
-		reg, err := regexp.Compile(k)
-		if err != nil {
-			log.Error(err)
-			return "", ""
-		}
-		if str := reg.FindString(useragent); str == "" {
-			continue
-		} else {
-			return v, TypeToName[v](str)
-		}
-		return k, v
-	}
-	return "", ""
-}
-
-func IsEmailClient(useragent string) (string, string) {
-	for k, v := range Agent_types[EMAIL_CLIENT] {
-		reg, err := regexp.Compile(k)
-		if err != nil {
-			log.Error(err)
-			return "", ""
-		}
-		if str := reg.FindString(useragent); str == "" {
-			continue
-		} else {
-			return v, TypeToName[v](str)
-		}
-		return k, v
-	}
-	return "", ""
-}
-
-func IsTool(useragent string) (string, string) {
-	for k, v := range Agent_types[TOOL] {
-		reg, err := regexp.Compile(k)
-		if err != nil {
-			log.Error(err)
-			return "", ""
-		}
-		if str := reg.FindString(useragent); str == "" {
-			continue
-		} else {
-			return v, TypeToName[v](str)
-		}
-		return k, v
-	}
-	return "", ""
-}
-
-func IsApp(useragent string) (string, string) {
-	for k, v := range Agent_types[APP] {
-		reg, err := regexp.Compile(k)
-		if err != nil {
-			log.Error(err)
-			return "", ""
-		}
-		if str := reg.FindString(useragent); str == "" {
-			continue
-		} else {
-			return v, TypeToName[v](str)
+	for _, camera := range ConfigCache.Cameras {
+		reg, err := regexp.Compile(camera.Regex)
+		checkErr(err)
+		if str := reg.FindString(useragent); str != "" {
+			ua.Device.Producer = camera.Producer
+			ua.Device.Type = CAMERA
+			if camera.Models != nil {
+				ua.Device.Model = regexModel(camera.Models, str)
+			} else {
+				ua.Device.Model = camera.Model
+			}
+			return
 		}
 	}
-	return "", ""
-}
-
-func IsRobot(useragent string) string {
-	for k, v := range Agent_types[ROBOT] {
-		reg, err := regexp.Compile(k)
-		if err != nil {
-			log.Error(err)
-			return ""
-		}
-		if str := reg.FindString(useragent); str == "" {
-			continue
-		} else {
-			return v
+	for _, car := range ConfigCache.CarBrowsers {
+		reg, err := regexp.Compile(car.Regex)
+		checkErr(err)
+		if str := reg.FindString(useragent); str != "" {
+			ua.Device.Producer = car.Producer
+			ua.Device.Type = CAR_BROWSER
+			if car.Models != nil {
+				ua.Device.Model = regexModel(car.Models, str)
+			} else {
+				ua.Device.Model = car.Model
+			}
+			return
 		}
 	}
-	return ""
+	for _, media := range ConfigCache.Medias {
+		reg, err := regexp.Compile(media.Regex)
+		checkErr(err)
+		if str := reg.FindString(useragent); str != "" {
+			ua.Device.Producer = media.Producer
+			ua.Device.Type = MEDIA
+			if media.Models != nil {
+				ua.Device.Model = regexModel(media.Models, str)
+			} else {
+				ua.Device.Model = media.Model
+			}
+			return
+		}
+	}
+	for _, tv := range ConfigCache.TVs {
+		reg, err := regexp.Compile(tv.Regex)
+		checkErr(err)
+		if str := reg.FindString(useragent); str != "" {
+			ua.Device.Producer = tv.Producer
+			ua.Device.Type = TV
+			if tv.Models != nil {
+				ua.Device.Model = regexModel(tv.Models, str)
+			} else {
+				ua.Device.Model = tv.Model
+			}
+			return
+		}
+	}
 }
 
-func FindDevice(slice []string) (model string) {
-	for _, v := range slice {
-		if strings.Contains(v, "Build") {
-			model = strings.TrimSpace(v)
+func (ua *UserAgent) queryClient(useragent string) {
+	for _, app := range ConfigCache.Apps {
+		reg, err := regexp.Compile(app.Regex)
+		checkErr(err)
+		if str := reg.FindString(useragent); str != "" {
+			ua.Type = APP
+
+			sli := reg.FindStringSubmatch(str)
+			if app.Name == "$1" {
+				app.Name = sli[1]
+			}
+			ua.Client[NAME] = app.Name
+			if app.Version == "$1" {
+				app.Version = sli[1]
+			}
+			if app.Version == "$2" {
+				app.Version = sli[2]
+			}
+			ua.Client[VERSION] = app.Version
+			return
 		}
-		if strings.Contains(model, ")") {
-			model = model[:strings.Index(model, ")")]
+	}
+	for _, browser := range ConfigCache.Browsers {
+		reg, err := regexp.Compile(browser.Regex)
+		checkErr(err)
+		if str := reg.FindString(useragent); str != "" {
+			ua.Type = BROWSER
+			ua.Client[NAME] = browser.Name
+
+			sli := reg.FindStringSubmatch(str)
+			if browser.Version == "$1" {
+				browser.Version = sli[1]
+			}
+			if browser.Engine.Versions != nil {
+				for k, v := range browser.Engine.Versions {
+					if browser.Version == k {
+						ua.Client[ENGINE] = v
+					}
+				}
+			} else {
+				ua.Client[ENGINE] = browser.Engine.Default
+			}
+			if ua.Client[ENGINE] == "" {
+				for _, engine := range ConfigCache.Engines {
+					reg, err = regexp.Compile(engine.Regex)
+					checkErr(err)
+					if reg.MatchString(useragent) {
+						ua.Client[ENGINE] = engine.Name
+						break
+					}
+				}
+			}
+			ua.Client[VERSION] = browser.Version
+			return
+		}
+	}
+
+	for _, library := range ConfigCache.Libraries {
+		reg, err := regexp.Compile(library.Regex)
+		checkErr(err)
+		if str := reg.FindString(useragent); str != "" {
+			ua.Type = LIBRARY
+			ua.Client[NAME] = library.Name
+			if library.Version == "$1" {
+				sli := reg.FindStringSubmatch(str)
+				library.Version = sli[1]
+			}
+			ua.Client[VERSION] = library.Version
+			return
+		}
+	}
+	for _, pim := range ConfigCache.Pims {
+		reg, err := regexp.Compile(pim.Regex)
+		checkErr(err)
+		if str := reg.FindString(useragent); str != "" {
+			ua.Type = PIM
+			ua.Client[NAME] = pim.Name
+			if pim.Version == "$1" {
+				sli := reg.FindStringSubmatch(str)
+				pim.Version = sli[1]
+			}
+			ua.Client[VERSION] = pim.Version
+			return
+		}
+	}
+	for _, player := range ConfigCache.MediaPlayers {
+		reg, err := regexp.Compile(player.Regex)
+		checkErr(err)
+		if str := reg.FindString(useragent); str != "" {
+			ua.Type = PLAYER
+			ua.Client[NAME] = player.Name
+			if player.Version == "$1" {
+				sli := reg.FindStringSubmatch(str)
+				player.Version = sli[1]
+			}
+			ua.Client[VERSION] = player.Version
+			return
+		}
+	}
+	for _, reader := range ConfigCache.Readers {
+		reg, err := regexp.Compile(reader.Regex)
+		checkErr(err)
+		if str := reg.FindString(useragent); str != "" {
+			ua.Type = READER
+			ua.Client[NAME] = reader.Name
+			if reader.Version == "$1" {
+				sli := reg.FindStringSubmatch(str)
+				reader.Version = sli[1]
+			}
+			ua.Client[VERSION] = reader.Version
+			ua.Client[URL] = reader.URL
+			ua.Client[SUB_TYPE] = reader.Type
+		}
+	}
+}
+
+func (ua *UserAgent) queryOS(useragent string) {
+	for _, os := range ConfigCache.OSs {
+		reg, err := regexp.Compile(os.Regex)
+		checkErr(err)
+		if str := reg.FindString(useragent); str != "" {
+			sli := reg.FindStringSubmatch(str)
+			if os.Name == "$1" {
+				os.Name = sli[1]
+			}
+			ua.OS.Name = os.Name
+			if os.Version == "$1" {
+				os.Version = sli[1]
+			}
+			if os.Version == "$2" {
+				os.Version = sli[2]
+			}
+			ua.OS.Version = os.Version
+			return
+		}
+	}
+}
+
+func (ua *UserAgent) queryRobot(useragent string) {
+	for _, robot := range ConfigCache.Robots {
+		reg, err := regexp.Compile(robot.Regex)
+		checkErr(err)
+		if reg.MatchString(useragent) {
+			ua.Type = ROBOT
+			ua.Robot.Name = robot.Name
+			ua.Robot.URL = robot.URL
+			ua.Robot.Producer.Name = robot.Producer.Name
+			ua.Robot.Producer.URL = robot.Producer.URL
+			return
+		}
+	}
+}
+
+func (ua *UserAgent) queryVendor(useragent string) {
+	for _, ven := range ConfigCache.Vendors {
+		for _, regex := range ven.Regex {
+			reg, err := regexp.Compile(regex)
+			checkErr(err)
+			if reg.MatchString(useragent) {
+				ua.Type = VERSION
+				ua.Vendor = ven.Producer
+				return
+			}
+		}
+	}
+}
+
+func regexModel(models []Model, str string) (result string) {
+	for _, model := range models {
+		reg, err := regexp.Compile(model.Regex)
+		checkErr(err)
+		if reg.MatchString(str) {
+			if strings.Contains(model.Model, "$1") {
+				sli := reg.FindStringSubmatch(str)
+				model.Model = strings.Replace(model.Model, "$1", sli[1], 1)
+			}
+			result = model.Model
+			return
 		}
 	}
 	return
 }
 
-func GetOSSecurity(osinfo string) string {
-	reg, _ := regexp.Compile(`(?:U|I|N)\;`)
-	str := reg.FindString(osinfo)
-	if str != "" {
-		str = str[:len(str)-1]
-	}
-	return str
-}
-
-func GetProducer(name string) string {
-	if producer := TypeToProducer[name]; producer == "" {
-		return "UNKNOWN"
-	} else {
-		return producer
-	}
-}
-
-func GetEngine(typ, name string) string {
-	if engine := TypeToRenderingEngine[typ][name]; engine == "" {
-		return "UNKNOWN"
-	} else {
-		return engine
-	}
-}
-
 func checkErr(err error) {
 	if err != nil {
-		panic(err)
+		log.Error(err)
 	}
 }
