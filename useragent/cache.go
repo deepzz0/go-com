@@ -1,9 +1,9 @@
 package useragent
 
 import (
-	"encoding/json"
-	"fmt"
-	"io/ioutil"
+	// "encoding/json"
+	// "fmt"
+	// "io/ioutil"
 	"os"
 )
 
@@ -53,250 +53,672 @@ func NewCache() *Cache {
 }
 
 func (this *Cache) loadRobots() {
-	f, err := os.Open(fmt.Sprintf("%s/src/%s/%s", gopath, wdpath, "robot.json"))
-	if err != nil {
-		checkErr(err)
-	}
-	data, err := ioutil.ReadAll(f)
-	if err != nil {
-		checkErr(err)
-	}
-	err = json.Unmarshal(data, &this.Robots)
-	if err != nil {
-		checkErr(err)
-	}
+	// f, err := os.Open(fmt.Sprintf("%s/src/%s/%s", gopath, wdpath, "robot.json"))
+	// if err != nil {
+	// 	checkErr(err)
+	// }
+	// data, err := ioutil.ReadAll(f)
+	// if err != nil {
+	// 	checkErr(err)
+	// }
+	// err = json.Unmarshal(data, &this.Robots)
+	// if err != nil {
+	// 	checkErr(err)
+	// }
+	this.Robots = []Robot{Robot{Regex: "360Spider(-Image|-Video)?", Name: "360Spider", URL: "http://www.so.com/help/help_3_2.html", Producer: ProduceBy{Name: "Online Media Group, Inc.", URL: ""}}, Robot{Regex: "Aboundex", Name: "Aboundexbot", URL: "http://www.aboundex.com/crawler/", Producer: ProduceBy{Name: "Aboundex.com", URL: "http://www.aboundex.com"}}, Robot{Regex: "AcoonBot", Name: "Acoon", URL: "http://www.acoon.de/robot.asp", Producer: ProduceBy{Name: "Acoon GmbH", URL: "http://www.acoon.de"}}, Robot{Regex: "AddThis.com", Name: "AddThis.com", URL: "", Producer: ProduceBy{Name: "Clearspring Technologies, Inc.", URL: "http://www.clearspring.com"}}, Robot{Regex: "AhrefsBot", Name: "aHrefs Bot", URL: "http://ahrefs.com/robot", Producer: ProduceBy{Name: "Ahrefs Pte Ltd", URL: "http://ahrefs.com/robot"}}, Robot{Regex: "ia_archiver|alexabot|verifybot", Name: "Alexa Crawler", URL: "https://alexa.zendesk.com/hc/en-us/sections/200100794-Crawlers", Producer: ProduceBy{Name: "Alexa Internet", URL: "http://www.alexa.com"}}, Robot{Regex: "AmorankSpider", Name: "Amorank Spider", URL: "http://amorank.com/webcrawler.html", Producer: ProduceBy{Name: "Amorank", URL: "http://www.amorank.com"}}, Robot{Regex: "Curious George", Name: "Analytics SEO Crawler", URL: "http://www.analyticsseo.com/crawler", Producer: ProduceBy{Name: "Analytics SEO", URL: "http://www.analyticsseo.com"}}, Robot{Regex: "archive.org_bot|special_archiver", Name: "archive.org bot", URL: "http://www.archive.org/details/archive.org_bot", Producer: ProduceBy{Name: "The Internet Archive", URL: "http://www.archive.org"}}, Robot{Regex: "Ask Jeeves/Teoma", Name: "Ask Jeeves", URL: "", Producer: ProduceBy{Name: "Ask Jeeves Inc.", URL: "http://www.ask.com"}}, Robot{Regex: "Backlink-Ceck.de", Name: "Backlink-Ceck.de", URL: "http://www.backlink-check.de/bot.html", Producer: ProduceBy{Name: "Mediagreen Medienservice", URL: "http://www.backlink-check.de"}}, Robot{Regex: "BacklinkCrawler", Name: "BacklinkCrawler", URL: "http://www.backlinktest.com/crawler.html", Producer: ProduceBy{Name: "2.0Promotion GbR", URL: "http://www.backlinktest.com"}}, Robot{Regex: "baiduspider(-image)?|baidu Transcoder|baidu.*spider", Name: "Baidu Spider", URL: "http://www.baidu.com/search/spider.htm", Producer: ProduceBy{Name: "Baidu", URL: "http://www.baidu.com"}}, Robot{Regex: "MSNBot|msrbot|bingbot|BingPreview|msnbot-(UDiscovery|NewsBlogs)|adidxbot", Name: "BingBot", URL: "http://search.msn.com/msnbot.htmn", Producer: ProduceBy{Name: "Microsoft Corporation", URL: "http://www.microsoft.com"}}, Robot{Regex: "Blekkobot", Name: "Blekkobot", URL: "http://blekko.com/about/blekkobot", Producer: ProduceBy{Name: "Blekko", URL: "http://blekko.com"}}, Robot{Regex: "BLEXBot(Test)?", Name: "BLEXBot Crawler", URL: "http://webmeup-crawler.com", Producer: ProduceBy{Name: "WebMeUp", URL: "http://webmeup.com"}}, Robot{Regex: "Bloglovin", Name: "Bloglovin", URL: "http://www.bloglovin.com", Producer: ProduceBy{Name: "", URL: ""}}, Robot{Regex: "BountiiBot", Name: "Bountii Bot", URL: "http://bountii.com/contact.php", Producer: ProduceBy{Name: "Bountii Inc.", URL: "http://bountii.com"}}, Robot{Regex: "Browsershots", Name: "Browsershots", URL: "http://browsershots.org/faq", Producer: ProduceBy{Name: "Browsershots.org", URL: "http://browsershots.org"}}, Robot{Regex: "(?:HTC)[ _]Butterfly", Name: "Butterfly Robot", URL: "http://labs.topsy.com/butterfly", Producer: ProduceBy{Name: "Topsy Labs", URL: "http://labs.topsy.com"}}, Robot{Regex: "CareerBot", Name: "CareerBot", URL: "http://www.career-x.de/bot.html", Producer: ProduceBy{Name: "career-x GmbH", URL: "http://www.career-x.de"}}, Robot{Regex: "CCBot", Name: "ccBot crawler", URL: "http://commoncrawl.org/faq/", Producer: ProduceBy{Name: "reddit inc.", URL: "http://www.reddit.com"}}, Robot{Regex: "Cliqzbot", Name: "Cliqzbot", URL: "http://cliqz.com/company/cliqzbot", Producer: ProduceBy{Name: "10betterpages GmbH", URL: "http://cliqz.com"}}, Robot{Regex: "CloudFlare-AlwaysOnline", Name: "CloudFlare Always Online", URL: "http://www.cloudflare.com/always-online", Producer: ProduceBy{Name: "CloudFlare", URL: "http://www.cloudflare.com"}}, Robot{Regex: "CommaFeed", Name: "CommaFeed", URL: "http://www.commafeed.com", Producer: ProduceBy{Name: "", URL: ""}}, Robot{Regex: "Dazoobot", Name: "Dazoobot", URL: "", Producer: ProduceBy{Name: "DAZOO.FR", URL: "http://dazoo.fr"}}, Robot{Regex: "discobot(-news)?", Name: "Discobot", URL: "http://discoveryengine.com/discobot.html", Producer: ProduceBy{Name: "Discovery Engine", URL: "http://discoveryengine.com"}}, Robot{Regex: "DotBot", Name: "DotBot", URL: "http://www.opensiteexplorer.org/dotbot", Producer: ProduceBy{Name: "SEOmoz, Inc.", URL: "http://moz.com/"}}, Robot{Regex: "EasouSpider", Name: "Easou Spider", URL: "http://www.easou.com/search/spider.html", Producer: ProduceBy{Name: "easou ICP", URL: "http://www.easou.com"}}, Robot{Regex: "EMail Exractor", Name: "EMail Exractor", URL: "", Producer: ProduceBy{Name: "", URL: ""}}, Robot{Regex: "Exabot(-Thumbnails|-Images)?|ExaleadCloudview", Name: "ExaBot", URL: "http://www.exabot.com/go/robot", Producer: ProduceBy{Name: "Dassault Systèmes", URL: "http://www.3ds.com"}}, Robot{Regex: "ExactSeek Crawler", Name: "ExactSeek Crawler", URL: "http://www.exactseek.com", Producer: ProduceBy{Name: "Jayde Online, Inc.", URL: "http://www.jaydeonlineinc.com"}}, Robot{Regex: "Ezooms", Name: "Ezooms", URL: "", Producer: ProduceBy{Name: "SEOmoz, Inc.", URL: "http://moz.com/"}}, Robot{Regex: "facebookexternalhit|facebookplatform", Name: "Facebook External Hit", URL: "https://www.facebook.com/externalhit_uatext.php", Producer: ProduceBy{Name: "Facebook", URL: "http://www.facebook.com"}}, Robot{Regex: "Feedbin", Name: "Feedbin", URL: "http://feedbin.com/", Producer: ProduceBy{Name: "", URL: ""}}, Robot{Regex: "FeedBurner", Name: "FeedBurner", URL: "http://www.feedburner.com", Producer: ProduceBy{Name: "", URL: ""}}, Robot{Regex: "(Meta)?Feedly(Bot|App)?", Name: "Feedly", URL: "http://www.feedly.com", Producer: ProduceBy{Name: "", URL: ""}}, Robot{Regex: "Feedspot", Name: "Feedspot", URL: "http://www.feedspot.com", Producer: ProduceBy{Name: "", URL: ""}}, Robot{Regex: "Fever", Name: "Fever", URL: "http://feedafever.com/", Producer: ProduceBy{Name: "", URL: ""}}, Robot{Regex: "Genieo", Name: "Genieo Web filter", URL: "http://www.genieo.com/webfilter.html", Producer: ProduceBy{Name: "Genieo", URL: "http://www.genieo.com"}}, Robot{Regex: "ichiro/mobile goo", Name: "Goo", URL: "http://search.goo.ne.jp/option/use/sub4/sub4-1", Producer: ProduceBy{Name: "NTT Resonant", URL: "http://goo.ne.jp"}}, Robot{Regex: "Google Page Speed Insights", Name: "Google PageSpeed Insights", URL: "http://developers.google.com/speed/pagespeed/insights/", Producer: ProduceBy{Name: "Google Inc.", URL: "http://www.google.com"}}, Robot{Regex: "Googlebot(-Mobile|-Image|-Video|-News)?|Feedfetcher-Google|Google-Test|Google-Site-Verification|Google Web Preview|AdsBot-Google(-Mobile)?|Mediapartners-Google|Google.*/\\+/web/snippet|GoogleProducer", Name: "Googlebot", URL: "http://www.google.com/bot.html", Producer: ProduceBy{Name: "Google Inc.", URL: "http://www.google.com"}}, Robot{Regex: "heritrix", Name: "Heritrix", URL: "https://webarchive.jira.com/wiki/display/Heritrix/Heritrix", Producer: ProduceBy{Name: "The Internet Archive", URL: "http://www.archive.org"}}, Robot{Regex: "HTTPMon", Name: "HTTPMon", URL: "http://www.httpmon.com", Producer: ProduceBy{Name: "towards GmbH", URL: "http://www.towards.ch/"}}, Robot{Regex: "iisbot", Name: "IIS Site Analysis", URL: "http://www.iis.net/iisbot.html", Producer: ProduceBy{Name: "Microsoft Corporation", URL: "http://www.microsoft.com"}}, Robot{Regex: "kouio", Name: "Kouio", URL: "http://kouio.com/", Producer: ProduceBy{Name: "", URL: ""}}, Robot{Regex: "linkdexbot(-mobile)?|linkdex.com", Name: "Linkdex Bot", URL: "http://www.linkdex.com/bots", Producer: ProduceBy{Name: "Mojeek Ltd.", URL: "http://www.mojeek.com"}}, Robot{Regex: "LinkedInBot", Name: "LinkedIn Bot", URL: "http://www.linkedin.com", Producer: ProduceBy{Name: "LinkedIn", URL: "http://www.linkedin.com"}}, Robot{Regex: "Mail.RU(_Bot)?", Name: "Mail.Ru Bot", URL: "http://help.mail.ru/webmaster/indexing/robots/types_robots", Producer: ProduceBy{Name: "Mail.Ru Group", URL: "http://corp.mail.ru"}}, Robot{Regex: "magpie-crawler", Name: "Magpie-Crawler", URL: "http://www.brandwatch.com/magpie-crawler/", Producer: ProduceBy{Name: "Brandwatch", URL: "http://www.brandwatch.com"}}, Robot{Regex: "MagpieRSS", Name: "MagpieRSS", URL: "http://magpierss.sourceforge.net/", Producer: ProduceBy{Name: "", URL: ""}}, Robot{Regex: "meanpathbot", Name: "Meanpath Bot", URL: "http://www.meanpath.com/meanpathbot.html", Producer: ProduceBy{Name: "Meanpath", URL: "http://www.meanpath.com"}}, Robot{Regex: "MixrankBot", Name: "Mixrank Bot", URL: "http://mixrank.com", Producer: ProduceBy{Name: "Online Media Group, Inc.", URL: ""}}, Robot{Regex: "MJ12bot", Name: "MJ12 Bot", URL: "http://majestic12.co.uk/bot.php", Producer: ProduceBy{Name: "Majestic-12", URL: "http://majestic12.co.uk"}}, Robot{Regex: "MojeekBot", Name: "MojeekBot", URL: "http://www.mojeek.com/bot.html", Producer: ProduceBy{Name: "Mojeek Ltd.", URL: "http://www.mojeek.com"}}, Robot{Regex: "NalezenCzBot", Name: "NalezenCzBot", URL: "http://www.nalezen.cz/about-crawler", Producer: ProduceBy{Name: "Jaroslav Kuboš", URL: ""}}, Robot{Regex: "Netcraft Web Server Survey", Name: "Netcraft Survey Bot", URL: "", Producer: ProduceBy{Name: "Netcraft", URL: "http://www.netcraft.com"}}, Robot{Regex: "Netvibes", Name: "Netvibes", URL: "http://www.netvibes.com/", Producer: ProduceBy{Name: "", URL: ""}}, Robot{Regex: "NewsBlur .*(Fetcher|Finder)", Name: "NewsBlur", URL: "http://www.newsblur.com", Producer: ProduceBy{Name: "", URL: ""}}, Robot{Regex: "NewsGatorOnline", Name: "NewsGator", URL: "http://www.newsgator.com", Producer: ProduceBy{Name: "", URL: ""}}, Robot{Regex: "nlcrawler", Name: "NLCrawler", URL: "", Producer: ProduceBy{Name: "Northern Light", URL: "http://northernlight.com"}}, Robot{Regex: "omgilibot", Name: "Omgili bot", URL: "http://www.omgili.com/Crawler.html", Producer: ProduceBy{Name: "Omgili", URL: "http://www.omgili.com"}}, Robot{Regex: "OpenindexSpider", Name: "Openindex Spider", URL: "http://www.openindex.io/en/webmasters/spider.html", Producer: ProduceBy{Name: "Openindex B.V.", URL: "http://www.openindex.io"}}, Robot{Regex: "spbot", Name: "OpenLinkProfiler", URL: "http://openlinkprofiler.org/bot", Producer: ProduceBy{Name: "Axandra GmbH", URL: "http://www.axandra.com"}}, Robot{Regex: "OpenWebSpider", Name: "OpenWebSpider", URL: "http://www.openwebspider.org", Producer: ProduceBy{Name: "OpenWebSpider Lab", URL: "http://lab.openwebspider.org"}}, Robot{Regex: "PaperLiBot", Name: "PaperLiBot", URL: "http://support.paper.li/entries/20023257-what-is-paper-li", Producer: ProduceBy{Name: "Smallrivers SA", URL: "http://www.paper.li"}}, Robot{Regex: "psbot(-page)?", Name: "Picsearch bot", URL: "http://www.picsearch.com/bot.html", Producer: ProduceBy{Name: "Picsearch", URL: "http://www.picsearch.com"}}, Robot{Regex: "Pingdom.com", Name: "Pingdom Bot", URL: "", Producer: ProduceBy{Name: "Pingdom AB", URL: "https://www.pingdom.com"}}, Robot{Regex: "QuerySeekerSpider", Name: "QuerySeekerSpider", URL: "http://queryseeker.com/bot.html", Producer: ProduceBy{Name: "QueryEye Inc.", URL: "http://queryeye.com"}}, Robot{Regex: "redditbot", Name: "Reddit Bot", URL: "http://www.reddit.com/feedback", Producer: ProduceBy{Name: "reddit inc.", URL: "http://www.reddit.com"}}, Robot{Regex: "rogerbot", Name: "Rogerbot", URL: "http://moz.com/help/pro/what-is-rogerbot-", Producer: ProduceBy{Name: "SEOmoz, Inc.", URL: "http://moz.com/"}}, Robot{Regex: "Screaming Frog SEO Spider", Name: "Screaming Frog SEO Spider", URL: "http://www.screamingfrog.co.uk/seo-spider", Producer: ProduceBy{Name: "Screaming Frog Ltd", URL: "http://www.screamingfrog.co.uk"}}, Robot{Regex: "ScreenerBot", Name: "ScreenerBot", URL: "http://www.screenerbot.com", Producer: ProduceBy{Name: "", URL: ""}}, Robot{Regex: "SemrushBot", Name: "Semrush Bot", URL: "http://www.semrush.com/bot.html", Producer: ProduceBy{Name: "SEMrush", URL: "http://www.semrush.com"}}, Robot{Regex: "SensikaBot", Name: "Sensika Bot", URL: "", Producer: ProduceBy{Name: "Sensika", URL: "http://sensika.com"}}, Robot{Regex: "SEOENG(World)?Bot", Name: "SEOENGBot", URL: "http://www.seoengine.com/seoengbot.htm", Producer: ProduceBy{Name: "SEO Engine", URL: "http://www.seoengine.com"}}, Robot{Regex: "SeznamBot|SklikBot|Seznam screenshot-generator", Name: "Seznam Bot", URL: "http://www.mapy.cz/cz/seznambot.html", Producer: ProduceBy{Name: "Seznam.cz, a.s.", URL: "http://www.seznam.cz/"}}, Robot{Regex: "ShopWiki", Name: "ShopWiki", URL: "http://www.shopwiki.com/wiki/Help:Bot", Producer: ProduceBy{Name: "ShopWiki Corp.", URL: "http://www.shopwiki.com"}}, Robot{Regex: "SilverReader", Name: "SilverReader", URL: "http://silverreader.com", Producer: ProduceBy{Name: "", URL: ""}}, Robot{Regex: "SimplePie", Name: "SimplePie", URL: "http://www.simplepie.org", Producer: ProduceBy{Name: "", URL: ""}}, Robot{Regex: "SISTRIX Crawler", Name: "SISTRIX Crawler", URL: "http://crawler.sistrix.net", Producer: ProduceBy{Name: "SISTRIX GmbH", URL: "http://www.sistrix.de"}}, Robot{Regex: "(Sogou (web|inst|Pic) spider)|New-Sogou-Spider", Name: "Sogou Spider", URL: "http://www.sogou.com/docs/help/webmasters.htm", Producer: ProduceBy{Name: "Sohu, Inc.", URL: "http://www.sogou.com"}}, Robot{Regex: "Sosospider|Sosoimagespider", Name: "Soso Spider", URL: "http://help.soso.com/webspider.htm", Producer: ProduceBy{Name: "Tencent Holdings", URL: "http://www.soso.com"}}, Robot{Regex: "Superfeedr bot", Name: "Superfeedr Bot", URL: "", Producer: ProduceBy{Name: "Superfeedr", URL: "https://superfeedr.com/"}}, Robot{Regex: "Spinn3r", Name: "Spinn3r", URL: "http://spinn3r.com/robot", Producer: ProduceBy{Name: "Tailrank Inc", URL: "http://spinn3r.com"}}, Robot{Regex: "Sputnik(Image)?Bot", Name: "Sputnik Bot", URL: "", Producer: ProduceBy{Name: "", URL: ""}}, Robot{Regex: "SurveyBot", Name: "Survey Bot", URL: "http://www.domaintools.com/webmasters/surveybot.php", Producer: ProduceBy{Name: "Domain Tools", URL: "http://www.domaintools.com"}}, Robot{Regex: "TinEye-bot", Name: "TinEye Crawler", URL: "http://www.tineye.com/crawler.html", Producer: ProduceBy{Name: "Idée Inc.", URL: "http://ideeinc.com"}}, Robot{Regex: "Tiny Tiny RSS", Name: "Tiny Tiny RSS", URL: "http://tt-rss.org", Producer: ProduceBy{Name: "", URL: ""}}, Robot{Regex: "TurnitinBot", Name: "TurnitinBot", URL: "http://www.turnitin.com/robot/crawlerinfo.html", Producer: ProduceBy{Name: "iParadigms, LLC.", URL: "http://www.turnitin.com"}}, Robot{Regex: "TweetedTimes Bot", Name: "TweetedTimes Bot", URL: "http://tweetedtimes.com", Producer: ProduceBy{Name: "TweetedTimes", URL: "http://tweetedtimes.com/"}}, Robot{Regex: "TweetmemeBot", Name: "Tweetmeme Bot", URL: "http://tweetmeme.com/", Producer: ProduceBy{Name: "Mediasift", URL: ""}}, Robot{Regex: "Twitterbot", Name: "Twitterbot", URL: "https://dev.twitter.com/docs/cards/getting-started", Producer: ProduceBy{Name: "Twitter", URL: "http://www.twitter.com"}}, Robot{Regex: "UptimeRobot", Name: "Uptime Robot", URL: "", Producer: ProduceBy{Name: "Uptime Robot", URL: "http://uptimerobot.com"}}, Robot{Regex: "URLAppendBot", Name: "URLAppendBot", URL: "http://www.profound.net/urlappendbot.html", Producer: ProduceBy{Name: "Profound Networks", URL: "http://www.profound.net"}}, Robot{Regex: "VSMCrawler", Name: "Visual Site Mapper Crawler", URL: "http://www.visualsitemapper.com/crawler", Producer: ProduceBy{Name: "Alentum Software Ltd.", URL: "http://www.alentum.com"}}, Robot{Regex: "VoilaBot", Name: "Voila Bot", URL: "http://www.voila.fr", Producer: ProduceBy{Name: "", URL: ""}}, Robot{Regex: "Jigsaw", Name: "W3C CSS Validator", URL: "http://jigsaw.w3.org/css-validator", Producer: ProduceBy{Name: "W3C", URL: "http://www.w3.org"}}, Robot{Regex: "W3C_I18n-Checker", Name: "W3C I18N Checker", URL: "http://validator.w3.org/i18n-checker", Producer: ProduceBy{Name: "W3C", URL: "http://www.w3.org"}}, Robot{Regex: "W3C-checklink", Name: "W3C Link Checker", URL: "http://validator.w3.org/checklink", Producer: ProduceBy{Name: "W3C", URL: "http://www.w3.org"}}, Robot{Regex: "W3C_Validator", Name: "W3C Markup Validation Service", URL: "http://validator.w3.org/services", Producer: ProduceBy{Name: "W3C", URL: "http://www.w3.org"}}, Robot{Regex: "W3C-mobileOK", Name: "W3C MobileOK Checker", URL: "http://validator.w3.org/mobile", Producer: ProduceBy{Name: "W3C", URL: "http://www.w3.org"}}, Robot{Regex: "W3C_Unicorn", Name: "W3C Unified Validator", URL: "http://validator.w3.org/unicorn", Producer: ProduceBy{Name: "W3C", URL: "http://www.w3.org"}}, Robot{Regex: "WeSEE(:Search)?", Name: "WeSEE:Search", URL: "http://www.wesee.com/bot", Producer: ProduceBy{Name: "WeSEE Ltd", URL: "http://www.wesee.com"}}, Robot{Regex: "WebbCrawler", Name: "WebbCrawler", URL: "http://badcheese.com/crawler.html", Producer: ProduceBy{Name: "Steve Webb", URL: "http://badcheese.com"}}, Robot{Regex: "Wotbox", Name: "Wotbox", URL: "http://www.wotbox.com/bot/", Producer: ProduceBy{Name: "Wotbox", URL: "http://www.wotbox.com"}}, Robot{Regex: "yacybot", Name: "YaCy", URL: "http://yacy.net/bot.html", Producer: ProduceBy{Name: "YaCy", URL: "http://yacy.net"}}, Robot{Regex: "Yahoo! Slurp|Yahoo!-AdCrawler", Name: "Yahoo! Slurp", URL: "http://help.yahoo.com/ysearch/slurp", Producer: ProduceBy{Name: "Yahoo! Inc.", URL: "http://www.yahoo.com"}}, Robot{Regex: "Yandex(Bot|Images|Antivirus|Direct|Blogs|Favicons|ImageResizer|News(links)?|Metrika|.Gazeta Bot)", Name: "Yandex Bot", URL: "http://www.yandex.com/bots", Producer: ProduceBy{Name: "Yandex LLC", URL: "http://company.yandex.com"}}, Robot{Regex: "Yeti", Name: "Yeti/Naverbot", URL: "http://help.naver.com/robots/", Producer: ProduceBy{Name: "Naver", URL: "http://www.naver.com"}}, Robot{Regex: "YoudaoBot", Name: "Youdao Bot", URL: "http://www.youdao.com/help/webmaster/spider", Producer: ProduceBy{Name: "NetEase, Inc.", URL: "http://corp.163.com"}}, Robot{Regex: "YRSpider|YYSpider", Name: "Yunyun Bot", URL: "http://www.yunyun.com/SiteInfo.php?r=about", Producer: ProduceBy{Name: "YunYun", URL: "http://www.yunyun.com"}}, Robot{Regex: "Zookabot", Name: "Zookabot", URL: "http://zookabot.com", Producer: ProduceBy{Name: "Hwacha ApS", URL: "http://hwacha.dk"}}, Robot{Regex: "ZumBot", Name: "ZumBot", URL: "http://help.zum.com/inquiry", Producer: ProduceBy{Name: "ZUM internet", URL: "http://www.zuminternet.com/"}}, Robot{Regex: "YottaaMonitor", Name: "Yottaa Site Monitor", URL: "http://www.yottaa.com/products/site-monitor", Producer: ProduceBy{Name: "Yottaa", URL: "http://www.yottaa.com/"}}, Robot{Regex: "Yahoo Ad monitoring.*yahoo-ad-monitoring-SLN24857.*", Name: "Yahoo Gemini", URL: "https://help.yahoo.com/kb/yahoo-ad-monitoring-SLN24857.html", Producer: ProduceBy{Name: "Yahoo! Inc.", URL: "http://www.yahoo.com"}}, Robot{Regex: ".*Java.*outbrain", Name: "Outbrain", URL: "", Producer: ProduceBy{Name: "Outbrain", URL: "http://www.outbrain.com/"}}, Robot{Regex: "HubPages.*crawlingpolicy", Name: "HubPages", URL: "http://hubpages.com/help/crawlingpolicy", Producer: ProduceBy{Name: "HubPages", URL: "http://hubpages.com/"}}, Robot{Regex: "Pinterest/\\d\\.\\d.*www.pinterest.com.*", Name: "Pinterest", URL: "", Producer: ProduceBy{Name: "Pinterest", URL: "http://www.pinterest.com/"}}, Robot{Regex: "Site24x7", Name: "Site24x7 Website Monitoring", URL: "https://www.site24x7.com/site24x7-faq.html", Producer: ProduceBy{Name: "Site24x7", URL: "https://www.site24x7.com"}}, Robot{Regex: "www.monitor.us", Name: "Monitor.Us", URL: "http://www.monitor.us", Producer: ProduceBy{Name: "Monitor.Us", URL: "http://www.monitor.us"}}, Robot{Regex: "lycos", Name: "Lycos", URL: "", Producer: ProduceBy{Name: "", URL: ""}}, Robot{Regex: "Slurp", Name: "Inktomi Slurp", URL: "", Producer: ProduceBy{Name: "", URL: ""}}, Robot{Regex: "Speedy Spider", Name: "Speedy", URL: "", Producer: ProduceBy{Name: "", URL: ""}}, Robot{Regex: "ScoutJet", Name: "ScoutJet", URL: "", Producer: ProduceBy{Name: "", URL: ""}}, Robot{Regex: "nrsbot|netresearch", Name: "NetResearchServer", URL: "", Producer: ProduceBy{Name: "", URL: ""}}, Robot{Regex: "scooter", Name: "Scooter", URL: "", Producer: ProduceBy{Name: "", URL: ""}}, Robot{Regex: "gigabot", Name: "Gigabot", URL: "", Producer: ProduceBy{Name: "", URL: ""}}, Robot{Regex: "charlotte", Name: "Charlotte", URL: "", Producer: ProduceBy{Name: "", URL: ""}}, Robot{Regex: "Pompos", Name: "Pompos", URL: "", Producer: ProduceBy{Name: "", URL: ""}}, Robot{Regex: "ichiro", Name: "ichiro", URL: "", Producer: ProduceBy{Name: "", URL: ""}}, Robot{Regex: "PagePeeker", Name: "PagePeeker", URL: "", Producer: ProduceBy{Name: "", URL: ""}}, Robot{Regex: "WebThumbnail", Name: "WebThumbnail", URL: "", Producer: ProduceBy{Name: "", URL: ""}}, Robot{Regex: "Willow Internet Crawler", Name: "Willow Internet Crawler", URL: "", Producer: ProduceBy{Name: "", URL: ""}}, Robot{Regex: "EmailWolf", Name: "EmailWolf", URL: "", Producer: ProduceBy{Name: "", URL: ""}}, Robot{Regex: "NetLyzer FastProbe", Name: "NetLyzer FastProbe", URL: "", Producer: ProduceBy{Name: "", URL: ""}}, Robot{Regex: "AdMantX.*admantx.com", Name: "ADMantX", URL: "", Producer: ProduceBy{Name: "", URL: ""}}, Robot{Regex: "Server Density Service Monitoring.*", Name: "Server Density", URL: "", Producer: ProduceBy{Name: "", URL: ""}}, Robot{Regex: "(nuhk|TsolCrawler|Yammybot|Openbot|Gulper Web Bot|grub-client|Download Demon|SearchExpress|Microsoft URL Control|borg|altavista|teoma|blitzbot|oegp|furlbot|http%20client|polybot|htdig|mogimogi|larbin|scrubby|searchsight|seekbot|semanticdiscovery|snappy|vortex|zao|zeal|fast-webcrawler|converacrawler|dataparksearch|findlinks|BrowserMob|HttpMonitor|ThumbShotsBot|URL2PNG|ZooShot|GomezA|Catchpoint bot|Google SketchUp|Read%20Later|Minimo|RackspaceBot)", Name: "Bot", URL: "", Producer: ProduceBy{Name: "", URL: ""}}, Robot{Regex: "Nutch", Name: "Nutch-based Bot", URL: "https://nutch.apache.org", Producer: ProduceBy{Name: "The Apache Software Foundation", URL: "http://www.apache.org/foundation/"}}, Robot{Regex: "[a-z0-9\\-_]*(bot|crawler|archiver|transcoder|spider)", Name: "Generic Bot", URL: "", Producer: ProduceBy{Name: "", URL: ""}}}
 }
 
 func (this *Cache) loadOSs() {
-	f, err := os.Open(fmt.Sprintf("%s/src/%s/%s", gopath, wdpath, "os.json"))
-	if err != nil {
-		checkErr(err)
-	}
-	data, err := ioutil.ReadAll(f)
-	if err != nil {
-		checkErr(err)
-	}
-	err = json.Unmarshal(data, &this.OSs)
-	if err != nil {
-		checkErr(err)
-	}
+	// f, err := os.Open(fmt.Sprintf("%s/src/%s/%s", gopath, wdpath, "os.json"))
+	// if err != nil {
+	// 	checkErr(err)
+	// }
+	// data, err := ioutil.ReadAll(f)
+	// if err != nil {
+	// 	checkErr(err)
+	// }
+	// err = json.Unmarshal(data, &this.OSs)
+	// if err != nil {
+	// 	checkErr(err)
+	// }
+	this.OSs = []OS{OS{Regex: "Tizen", Name: "Tizen", Version: ""}, OS{Regex: "Sailfish|Jolla", Name: "Sailfish OS", Version: ""}, OS{Regex: "(?:Ali)?YunOS[ /]?(\\d+[\\.\\d]+)?", Name: "YunOS", Version: "$1"}, OS{Regex: "Windows Phone (?:OS)?[ ]?(\\d+[\\.\\d]+)", Name: "Windows Phone", Version: "$1"}, OS{Regex: "XBLWP7|Windows Phone", Name: "Windows Phone", Version: ""}, OS{Regex: "Windows CE", Name: "Windows CE", Version: ""}, OS{Regex: "(?:IEMobile|Windows Mobile)(?: (\\d+[\\.\\d]+))?", Name: "Windows Mobile", Version: "$1"}, OS{Regex: "Windows NT 6.2; ARM;", Name: "Windows RT", Version: ""}, OS{Regex: "Windows NT 6.3; ARM;", Name: "Windows RT", Version: "8.1"}, OS{Regex: "RazoDroiD(?: v(\\d+[\\.\\d]*))?", Name: "RazoDroiD", Version: "$1"}, OS{Regex: "MildWild(?: CM-(\\d+[\\.\\d]*))?", Name: "MildWild", Version: "$1"}, OS{Regex: "CyanogenMod(?:[\\-/](?:CM)?(\\d+[\\.\\d]*))?", Name: "CyanogenMod", Version: "$1"}, OS{Regex: "(?:.*_)?MocorDroid(?:(\\d+[\\.\\d]*))?", Name: "MocorDroid", Version: "$1"}, OS{Regex: "(?:Android|Adr)[ /](?:[a-z]+ )?(\\d+[\\.\\d]+)", Name: "Android", Version: "$1"}, OS{Regex: "Android|Silk-Accelerated=[a-z]{4,5}", Name: "Android", Version: ""}, OS{Regex: "AmigaOS[ ]?(\\d+[\\.\\d]+)", Name: "AmigaOS", Version: "$1"}, OS{Regex: "AmigaOS|AmigaVoyager|Amiga-AWeb", Name: "AmigaOS", Version: ""}, OS{Regex: "Arch ?Linux(?:[ /\\-](\\d+[\\.\\d]+))?", Name: "Arch Linux", Version: "$1"}, OS{Regex: "VectorLinux(?: package)?(?:[ /\\-](\\d+[\\.\\d]+))?", Name: "VectorLinux", Version: "$1"}, OS{Regex: "Linux; .*((?:Debian|Knoppix|Mint|Ubuntu|Kubuntu|Xubuntu|Lubuntu|Fedora|Red Hat|Mandriva|Gentoo|Sabayon|Slackware|SUSE|CentOS|BackTrack))[ /](\\d+[\\.\\d]+)", Name: "$1", Version: "$2"}, OS{Regex: "(Debian|Knoppix|Mint|Ubuntu|Kubuntu|Xubuntu|Lubuntu|Fedora|Red Hat|Mandriva|Gentoo|Sabayon|Slackware|SUSE|CentOS|BackTrack)(?:(?: Enterprise)? Linux)?(?:[ /\\-](\\d+[\\.\\d]+))?", Name: "$1", Version: "$2"}, OS{Regex: "(?:webOS|Palm webOS)(?:/(\\d+[\\.\\d]+))?", Name: "webOS", Version: "$1"}, OS{Regex: "(?:PalmOS|Palm OS)(?:[/ ](\\d+[\\.\\d]+))?|Palm", Name: "palmOS", Version: "$1"}, OS{Regex: "Xiino(?:.*v\\. (\\d+[\\.\\d]+))?  # palmOS only browser", Name: "palmOS", Version: "$1"}, OS{Regex: "MorphOS(?:[ /](\\d+[\\.\\d]+))?", Name: "MorphOS", Version: "$1"}, OS{Regex: "CYGWIN_NT-10.0|Windows NT 10.0|Windows 10", Name: "Windows", Version: "10"}, OS{Regex: "CYGWIN_NT-6.4|Windows NT 6.4|Windows 10", Name: "Windows", Version: "10"}, OS{Regex: "CYGWIN_NT-6.3|Windows NT 6.3|Windows 8.1", Name: "Windows", Version: "8.1"}, OS{Regex: "CYGWIN_NT-6.2|Windows NT 6.2|Windows 8", Name: "Windows", Version: "8"}, OS{Regex: "CYGWIN_NT-6.1|Windows NT 6.1|Windows 7", Name: "Windows", Version: "7"}, OS{Regex: "CYGWIN_NT-6.0|Windows NT 6.0|Windows Vista", Name: "Windows", Version: "Vista"}, OS{Regex: "CYGWIN_NT-5.2|Windows NT 5.2|Windows Server 2003 / XP x64", Name: "Windows", Version: "Server 2003"}, OS{Regex: "CYGWIN_NT-5.1|Windows NT 5.1|Windows XP", Name: "Windows", Version: "XP"}, OS{Regex: "CYGWIN_NT-5.0|Windows NT 5.0|Windows 2000", Name: "Windows", Version: "2000"}, OS{Regex: "CYGWIN_NT-4.0|Windows NT 4.0|WinNT|Windows NT", Name: "Windows", Version: "NT"}, OS{Regex: "CYGWIN_ME-4.90|Win 9x 4.90|Windows ME", Name: "Windows", Version: "ME"}, OS{Regex: "CYGWIN_98-4.10|Win98|Windows 98", Name: "Windows", Version: "98"}, OS{Regex: "CYGWIN_95-4.0|Win32|Win95|Windows 95|Windows_95", Name: "Windows", Version: "95"}, OS{Regex: "Windows 3.1", Name: "Windows", Version: "3.1"}, OS{Regex: "Windows", Name: "Windows", Version: ""}, OS{Regex: "(?:CPU OS|iPhone OS|iOS)[ _](\\d+(?:[_\\.]\\d+)*)", Name: "iOS", Version: "$1"}, OS{Regex: "(?:Apple-)?(?:iPhone|iPad|iPod)(?:.*Mac OS X.*Version/(\\d+\\.\\d+)|; Opera)?", Name: "iOS", Version: "$1"}, OS{Regex: "Mac OS X(?: (?:Version )?(\\d+(?:[_\\.]\\d+)+))?", Name: "Mac", Version: "$1"}, OS{Regex: "Mac (\\d+(?:[_\\.]\\d+)+)", Name: "Mac", Version: "$1"}, OS{Regex: "Darwin|Macintosh|Mac_PowerPC|PPC|Mac PowerPC", Name: "Mac", Version: ""}, OS{Regex: "CrOS [a-z0-9_]+ (\\d+[\\.\\d]+)", Name: "Chrome OS", Version: "$1"}, OS{Regex: "(?:BB10;.+Version|Black[Bb]erry[0-9a-z]+|Black[Bb]erry.+Version)/(\\d+[\\.\\d]+)", Name: "BlackBerry OS", Version: "$1"}, OS{Regex: "RIM Tablet OS (\\d+[\\.\\d]+)", Name: "BlackBerry Tablet OS", Version: "$1"}, OS{Regex: "RIM Tablet OS|QNX|Play[Bb]ook", Name: "BlackBerry Tablet OS", Version: ""}, OS{Regex: "BlackBerry", Name: "BlackBerry OS", Version: ""}, OS{Regex: "Haiku", Name: "Haiku OS", Version: ""}, OS{Regex: "BeOS", Name: "BeOS", Version: ""}, OS{Regex: "Symbian/3.+NokiaBrowser/7\\.3", Name: "Symbian^3", Version: "Anna"}, OS{Regex: "Symbian/3.+NokiaBrowser/7\\.4", Name: "Symbian^3", Version: "Belle"}, OS{Regex: "Symbian/3", Name: "Symbian^3", Version: ""}, OS{Regex: "(?:Series ?60|SymbOS|S60)(?:[ /]?(\\d+[\\.\\d]+|V\\d+))?", Name: "Symbian OS Series 60", Version: "$1"}, OS{Regex: "Series40", Name: "Symbian OS Series 40", Version: ""}, OS{Regex: "SymbianOS/(\\d+[\\.\\d]+)", Name: "Symbian OS", Version: "$1"}, OS{Regex: "MeeGo|WeTab", Name: "MeeGo", Version: ""}, OS{Regex: "Symbian OS|SymbOS", Name: "Symbian OS", Version: ""}, OS{Regex: "Nokia", Name: "Symbian", Version: ""}, OS{Regex: "(?:Mobile|Tablet);.+Firefox/\\d+\\.\\d+", Name: "Firefox OS", Version: ""}, OS{Regex: "RISC OS(?:-NC)?(?:[ /](\\d+[\\.\\d]+))?", Name: "RISC OS", Version: "$1"}, OS{Regex: "Inferno(?:[ /](\\d+[\\.\\d]+))?", Name: "Inferno", Version: "$1"}, OS{Regex: "bada(?:[ /](\\d+[\\.\\d]+))", Name: "Bada", Version: "$1"}, OS{Regex: "bada", Name: "Bada", Version: ""}, OS{Regex: "(?:Brew MP|BREW|BMP)(?:[ /](\\d+[\\.\\d]+))", Name: "Brew", Version: "$1"}, OS{Regex: "Brew MP|BREW|BMP", Name: "Brew", Version: ""}, OS{Regex: "GoogleTV(?:[ /](\\d+[\\.\\d]+))?", Name: "Google TV", Version: "$1"}, OS{Regex: "AppleTV(?:/?(\\d+[\\.\\d]+))?", Name: "Apple TV", Version: "$1"}, OS{Regex: "WebTV/(\\d+[\\.\\d]+)", Name: "WebTV", Version: "$1"}, OS{Regex: "(?:SunOS|Solaris)(?:[/ ](\\d+[\\.\\d]+))?", Name: "Solaris", Version: "$1"}, OS{Regex: "AIX(?:[/ ]?(\\d+[\\.\\d]+))?", Name: "AIX", Version: "$1"}, OS{Regex: "HP-UX(?:[/ ]?(\\d+[\\.\\d]+))?", Name: "HP-UX", Version: "$1"}, OS{Regex: "FreeBSD(?:[/ ]?(\\d+[\\.\\d]+))?", Name: "FreeBSD", Version: "$1"}, OS{Regex: "NetBSD(?:[/ ]?(\\d+[\\.\\d]+))?", Name: "NetBSD", Version: "$1"}, OS{Regex: "OpenBSD(?:[/ ]?(\\d+[\\.\\d]+))?", Name: "OpenBSD", Version: "$1"}, OS{Regex: "DragonFly(?:[/ ]?(\\d+[\\.\\d]+))?", Name: "DragonFly", Version: "$1"}, OS{Regex: "Syllable(?:[/ ]?(\\d+[\\.\\d]+))?", Name: "Syllable", Version: "$1"}, OS{Regex: "IRIX(?:[/ ]?(\\d+[\\.\\d]+))", Name: "IRIX", Version: "$1"}, OS{Regex: "OSF1(?:[/ ]?v?(\\d+[\\.\\d]+))?", Name: "OSF1", Version: "$1"}, OS{Regex: "Nintendo Wii", Name: "Nintendo", Version: "Wii"}, OS{Regex: "PlayStation ?([3|4])", Name: "PlayStation", Version: "$1"}, OS{Regex: "Xbox|KIN\\.(?:One|Two)", Name: "Xbox", Version: "360"}, OS{Regex: "Nitro|Nintendo ([3]?DS[i]?)", Name: "Nintendo Mobile", Version: "$1"}, OS{Regex: "PlayStation ((?:Portable|Vita))", Name: "PlayStation Portable", Version: "$1"}, OS{Regex: "OS/2", Name: "OS/2", Version: ""}, OS{Regex: "Linux[^a-z]", Name: "GNU/Linux", Version: ""}}
 }
 
 func (this *Cache) loadVendor() {
-	f, err := os.Open(fmt.Sprintf("%s/src/%s/%s", gopath, wdpath, "vendorfragment.json"))
-	if err != nil {
-		checkErr(err)
-	}
-	data, err := ioutil.ReadAll(f)
-	if err != nil {
-		checkErr(err)
-	}
-	temp := make(map[string][]string)
-	err = json.Unmarshal(data, &temp)
-	if err != nil {
-		checkErr(err)
-	}
-	for k, v := range temp {
-		ven := Vendor{}
-		ven.Producer = k
-		for _, value := range v {
-			ven.Regex = append(ven.Regex, value)
-		}
-		this.Vendors = append(this.Vendors, ven)
-	}
+	// f, err := os.Open(fmt.Sprintf("%s/src/%s/%s", gopath, wdpath, "vendorfragment.json"))
+	// if err != nil {
+	// 	checkErr(err)
+	// }
+	// data, err := ioutil.ReadAll(f)
+	// if err != nil {
+	// 	checkErr(err)
+	// }
+	// temp := make(map[string][]string)
+	// err = json.Unmarshal(data, &temp)
+	// if err != nil {
+	// 	checkErr(err)
+	// }
+	// for k, v := range temp {
+	// 	ven := Vendor{}
+	// 	ven.Producer = k
+	// 	for _, value := range v {
+	// 		ven.Regex = append(ven.Regex, value)
+	// 	}
+	// 	this.Vendors = append(this.Vendors, ven)
+	// }
+	this.Vendors = []Vendor{Vendor{Producer: "Compaq", Regex: []string{"CPDTDF", "CPNTDF(JS?)", "CMNTDF(JS)?"}}, Vendor{Producer: "Fujitsu", Regex: []string{"MAFS(JS)?", "FSJB"}}, Vendor{Producer: "MSI", Regex: []string{"MAMI(JS)?", "MAM3"}}, Vendor{Producer: "Acer", Regex: []string{"MAAR(JS)?"}}, Vendor{Producer: "Sony", Regex: []string{"MASE(JS)?", "MASP(JS)?", "MASA(JS)?"}}, Vendor{Producer: "Hyrican", Regex: []string{"MANM(JS)?"}}, Vendor{Producer: "Dell", Regex: []string{"MDDR(JS)?", "MDDC(JS)?", "MDDS(JS)?"}}, Vendor{Producer: "Gateway", Regex: []string{"MAGW(JS)?"}}, Vendor{Producer: "HP", Regex: []string{"HPCMHP", "HPNTDF(JS)?", "HPDTDF(JS)?"}}, Vendor{Producer: "Lenovo", Regex: []string{"MALC(JS)?", "MALE(JS)?", "MALN(JS)?", "LCJB", "LEN2"}}, Vendor{Producer: "Medion", Regex: []string{"MAMD"}}, Vendor{Producer: "Samsung", Regex: []string{"MASM(JS)?", "SMJB"}}, Vendor{Producer: "Toshiba", Regex: []string{"MATM(JS)?", "MATB(JS)?", "MATP(JS)?", "TNJB", "TAJB"}}, Vendor{Producer: "Asus", Regex: []string{"MAAU", "NP0[6789]", "ASJB", "ASU2(JS)?"}}}
 }
 
 func (this *Cache) loadApps() {
-	f, err := os.Open(fmt.Sprintf("%s/src/%s/%s", gopath, wdpath, "client/app.json"))
-	if err != nil {
-		checkErr(err)
-	}
-	data, err := ioutil.ReadAll(f)
-	if err != nil {
-		checkErr(err)
-	}
-	err = json.Unmarshal(data, &this.Apps)
-	if err != nil {
-		checkErr(err)
-	}
+	// f, err := os.Open(fmt.Sprintf("%s/src/%s/%s", gopath, wdpath, "client/app.json"))
+	// if err != nil {
+	// 	checkErr(err)
+	// }
+	// data, err := ioutil.ReadAll(f)
+	// if err != nil {
+	// 	checkErr(err)
+	// }
+	// err = json.Unmarshal(data, &this.Apps)
+	// if err != nil {
+	// 	checkErr(err)
+	// }
+	this.Apps = []Client{Client{Regex: "AndroidDownloadManager(?:[ /]([\\d\\.]+))?", Name: "AndroidDownloadManager", Version: "$1"}, Client{Regex: "([^/]+)/(\\d+(?:\\.\\d+)+) \\((?:iPhone|iPad); iOS [0-9\\.]+; Scale/[0-9\\.]+\\)", Name: "$1", Version: "$2"}, Client{Regex: "FeedR(?:/([\\d\\.]+))?", Name: "FeedR", Version: "$1"}, Client{Regex: "MicroMessenger/([^ ]+)", Name: "WeChat", Version: "$1"}, Client{Regex: ".*__weibo__([0-9\\.]+)__", Name: "Sina Weibo", Version: "$1"}}
 }
 
 func (this *Cache) loadBrowser() {
-	f, err := os.Open(fmt.Sprintf("%s/src/%s/%s", gopath, wdpath, "client/browser.json"))
-	if err != nil {
-		checkErr(err)
-	}
-	data, err := ioutil.ReadAll(f)
-	if err != nil {
-		checkErr(err)
-	}
-	err = json.Unmarshal(data, &this.Browsers)
-	if err != nil {
-		checkErr(err)
-	}
+	// f, err := os.Open(fmt.Sprintf("%s/src/%s/%s", gopath, wdpath, "client/browser.json"))
+	// if err != nil {
+	// 	checkErr(err)
+	// }
+	// data, err := ioutil.ReadAll(f)
+	// if err != nil {
+	// 	checkErr(err)
+	// }
+	// err = json.Unmarshal(data, &this.Browsers)
+	// if err != nil {
+	// 	checkErr(err)
+	// }
+	this.Browsers = []Browser{Browser{Client: Client{Regex: "Edge[ /](\\d+[\\.\\d]+)", Name: "Microsoft Edge", Version: "$1"}, Engine: struct {
+		Default  string
+		Versions map[string]string
+	}{Default: "Edge", Versions: map[string]string(nil)}}, Browser{Client: Client{Regex: "360 Aphone Browser(?: \\((\\d+[\\.\\d]+)(?:beta)?\\))?", Name: "360 Phone Browser", Version: "$1"}, Engine: struct {
+		Default  string
+		Versions map[string]string
+	}{Default: "WebKit", Versions: map[string]string(nil)}}, Browser{Client: Client{Regex: "SailfishBrowser(?:/(\\d+[\\.\\d]+))?", Name: "Sailfish Browser", Version: "$1"}, Engine: struct {
+		Default  string
+		Versions map[string]string
+	}{Default: "Gecko", Versions: map[string]string(nil)}}, Browser{Client: Client{Regex: "(Iceape|SeaMonkey|gnuzilla)(?:/(\\d+[\\.\\d]+))?", Name: "$1", Version: "$2"}, Engine: struct {
+		Default  string
+		Versions map[string]string
+	}{Default: "Gecko", Versions: map[string]string(nil)}}, Browser{Client: Client{Regex: "Camino(?:/(\\d+[\\.\\d]+))?", Name: "Camino", Version: "$1"}, Engine: struct {
+		Default  string
+		Versions map[string]string
+	}{Default: "Gecko", Versions: map[string]string(nil)}}, Browser{Client: Client{Regex: "Fennec(?:/(\\d+[\\.\\d]+))?", Name: "Fennec", Version: "$1"}, Engine: struct {
+		Default  string
+		Versions map[string]string
+	}{Default: "Gecko", Versions: map[string]string(nil)}}, Browser{Client: Client{Regex: "Firefox.*Tablet browser (\\d+[\\.\\d]+)", Name: "MicroB", Version: "$1"}, Engine: struct {
+		Default  string
+		Versions map[string]string
+	}{Default: "Gecko", Versions: map[string]string(nil)}}, Browser{Client: Client{Regex: "Avant Browser", Name: "Avant Browser", Version: ""}, Engine: struct {
+		Default  string
+		Versions map[string]string
+	}{Default: "# multiple", Versions: map[string]string(nil)}}, Browser{Client: Client{Regex: "Chrome/(\\d+[\\.\\d]+).*MRCHROME", Name: "Amigo", Version: "$1"}, Engine: struct {
+		Default  string
+		Versions map[string]string
+	}{Default: "WebKit", Versions: map[string]string{"28": "Blink"}}}, Browser{Client: Client{Regex: "Bunjalloo(?:/(\\d+[\\.\\d]+))?", Name: "Bunjalloo", Version: "$1"}, Engine: struct {
+		Default  string
+		Versions map[string]string
+	}{Default: "", Versions: map[string]string(nil)}}, Browser{Client: Client{Regex: "Iceweasel(?:/(\\d+[\\.\\d]+))?", Name: "Iceweasel", Version: "$1"}, Engine: struct {
+		Default  string
+		Versions map[string]string
+	}{Default: "Gecko", Versions: map[string]string(nil)}}, Browser{Client: Client{Regex: "WebPositive", Name: "WebPositive", Version: ""}, Engine: struct {
+		Default  string
+		Versions map[string]string
+	}{Default: "WebKit", Versions: map[string]string(nil)}}, Browser{Client: Client{Regex: "PaleMoon(?:/(\\d+[\\.\\d]+))?", Name: "Pale Moon", Version: "$1"}, Engine: struct {
+		Default  string
+		Versions map[string]string
+	}{Default: "Gecko", Versions: map[string]string(nil)}}, Browser{Client: Client{Regex: "CometBird(?:/(\\d+[\\.\\d]+))?", Name: "CometBird", Version: "$1"}, Engine: struct {
+		Default  string
+		Versions map[string]string
+	}{Default: "Gecko", Versions: map[string]string(nil)}}, Browser{Client: Client{Regex: "IceDragon(?:/(\\d+[\\.\\d]+))?", Name: "IceDragon", Version: "$1"}, Engine: struct {
+		Default  string
+		Versions map[string]string
+	}{Default: "Gecko", Versions: map[string]string(nil)}}, Browser{Client: Client{Regex: "Flock(?:/(\\d+[\\.\\d]+))?", Name: "Flock", Version: "$1"}, Engine: struct {
+		Default  string
+		Versions map[string]string
+	}{Default: "Gecko", Versions: map[string]string{"3": "WebKit"}}}, Browser{Client: Client{Regex: "Kapiko(?:/(\\d+[\\.\\d]+))?", Name: "Kapiko", Version: "$1"}, Engine: struct {
+		Default  string
+		Versions map[string]string
+	}{Default: "Gecko", Versions: map[string]string(nil)}}, Browser{Client: Client{Regex: "Firefox/(\\d+[\\.\\d]+).*\\(Swiftfox\\)", Name: "Swiftfox", Version: "$1"}, Engine: struct {
+		Default  string
+		Versions map[string]string
+	}{Default: "Gecko", Versions: map[string]string(nil)}}, Browser{Client: Client{Regex: "Firefox(?:/(\\d+[\\.\\d]+))?", Name: "Firefox", Version: "$1"}, Engine: struct {
+		Default  string
+		Versions map[string]string
+	}{Default: "Gecko", Versions: map[string]string(nil)}}, Browser{Client: Client{Regex: "(BonEcho|GranParadiso|Lorentz|Minefield|Namoroka|Shiretoko)/(\\d+[\\.\\d]+)", Name: "Firefox", Version: "$1 ($2)"}, Engine: struct {
+		Default  string
+		Versions map[string]string
+	}{Default: "Gecko", Versions: map[string]string(nil)}}, Browser{Client: Client{Regex: "FxiOS/(\\d+[\\.\\d]+)", Name: "Firefox", Version: "iOS $1"}, Engine: struct {
+		Default  string
+		Versions map[string]string
+	}{Default: "WebKit", Versions: map[string]string(nil)}}, Browser{Client: Client{Regex: "ANTGalio(?:/(\\d+[\\.\\d]+))?", Name: "ANTGalio", Version: "$1"}, Engine: struct {
+		Default  string
+		Versions map[string]string
+	}{Default: "", Versions: map[string]string(nil)}}, Browser{Client: Client{Regex: "(?:Espial|Escape)(?:[/ ](\\d+[\\.\\d]+))?", Name: "Espial TV Browser", Version: "$1"}, Engine: struct {
+		Default  string
+		Versions map[string]string
+	}{Default: "", Versions: map[string]string(nil)}}, Browser{Client: Client{Regex: "RockMelt(?:/(\\d+[\\.\\d]+))?", Name: "RockMelt", Version: "$1"}, Engine: struct {
+		Default  string
+		Versions map[string]string
+	}{Default: "WebKit", Versions: map[string]string(nil)}}, Browser{Client: Client{Regex: "Fireweb Navigator(?:/(\\d+[\\.\\d]+))?", Name: "Fireweb Navigator", Version: "$1"}, Engine: struct {
+		Default  string
+		Versions map[string]string
+	}{Default: "", Versions: map[string]string(nil)}}, Browser{Client: Client{Regex: "(?:Navigator|Netscape6)(?:/(\\d+[\\.\\d]+))?", Name: "Netscape", Version: "$1"}, Engine: struct {
+		Default  string
+		Versions map[string]string
+	}{Default: "# Mosaic in the first versions, then Gecko", Versions: map[string]string(nil)}}, Browser{Client: Client{Regex: "(?:Opera Tablet.*Version|Opera/.+Opera Mobi.+Version|Mobile.+OPR)/(\\d+[\\.\\d]+)", Name: "Opera Mobile", Version: "$1"}, Engine: struct {
+		Default  string
+		Versions map[string]string
+	}{Default: "Presto", Versions: map[string]string{"15": "Blink"}}}, Browser{Client: Client{Regex: "Opera Mini/(?:att/)?(\\d+[\\.\\d]+)", Name: "Opera Mini", Version: "$1"}, Engine: struct {
+		Default  string
+		Versions map[string]string
+	}{Default: "Presto", Versions: map[string]string(nil)}}, Browser{Client: Client{Regex: "Opera.+Edition Next.+Version/(\\d+[\\.\\d]+)", Name: "Opera Next", Version: "$1"}, Engine: struct {
+		Default  string
+		Versions map[string]string
+	}{Default: "Presto", Versions: map[string]string{"15": "Blink"}}}, Browser{Client: Client{Regex: "(?:Opera|OPR)[/ ](?:9.80.*Version/)?(\\d+[\\.\\d]+).+Edition Next", Name: "Opera Next", Version: "$1"}, Engine: struct {
+		Default  string
+		Versions map[string]string
+	}{Default: "Presto", Versions: map[string]string{"15": "Blink"}}}, Browser{Client: Client{Regex: "(?:Opera|OPR)[/ ](?:9.80.*Version/)?(\\d+[\\.\\d]+)", Name: "Opera", Version: "$1"}, Engine: struct {
+		Default  string
+		Versions map[string]string
+	}{Default: "Presto", Versions: map[string]string{"15": "Blink"}}}, Browser{Client: Client{Regex: "rekonq(?:/(\\d+[\\.\\d]+))?", Name: "Rekonq", Version: "$1"}, Engine: struct {
+		Default  string
+		Versions map[string]string
+	}{Default: "WebKit", Versions: map[string]string(nil)}}, Browser{Client: Client{Regex: "CoolNovo(?:/(\\d+[\\.\\d]+))?", Name: "CoolNovo", Version: "$1"}, Engine: struct {
+		Default  string
+		Versions map[string]string
+	}{Default: "# multi engine", Versions: map[string]string(nil)}}, Browser{Client: Client{Regex: "Comodo[ _]Dragon(?:/(\\d+[\\.\\d]+))?", Name: "Comodo Dragon", Version: "$1"}, Engine: struct {
+		Default  string
+		Versions map[string]string
+	}{Default: "WebKit", Versions: map[string]string{"28": "Blink"}}}, Browser{Client: Client{Regex: "ChromePlus(?:/(\\d+[\\.\\d]+))?", Name: "ChromePlus", Version: "$1"}, Engine: struct {
+		Default  string
+		Versions map[string]string
+	}{Default: "# multi engine", Versions: map[string]string(nil)}}, Browser{Client: Client{Regex: "Conkeror(?:/(\\d+[\\.\\d]+))?", Name: "Conkeror", Version: "$1"}, Engine: struct {
+		Default  string
+		Versions map[string]string
+	}{Default: "Gecko", Versions: map[string]string(nil)}}, Browser{Client: Client{Regex: "Konqueror(?:/(\\d+[\\.\\d]+))?", Name: "Konqueror", Version: "$1"}, Engine: struct {
+		Default  string
+		Versions map[string]string
+	}{Default: "KHTML", Versions: map[string]string{"4": "# multiple (KHTML or WebKit)"}}}, Browser{Client: Client{Regex: "baidubrowser(?:[/ ](\\d+[\\.\\d]*))?", Name: "Baidu Browser", Version: "$1"}, Engine: struct {
+		Default  string
+		Versions map[string]string
+	}{Default: "", Versions: map[string]string(nil)}}, Browser{Client: Client{Regex: "(?:(?:BD)?Spark|BIDUBrowser)[/ ](\\d+[\\.\\d]*)", Name: "Baidu Spark", Version: "$1"}, Engine: struct {
+		Default  string
+		Versions map[string]string
+	}{Default: "", Versions: map[string]string(nil)}}, Browser{Client: Client{Regex: "YaBrowser(?:/(\\d+[\\.\\d]*))?", Name: "Yandex Browser", Version: "$1"}, Engine: struct {
+		Default  string
+		Versions map[string]string
+	}{Default: "Blink", Versions: map[string]string(nil)}}, Browser{Client: Client{Regex: "Vivaldi(?:/(\\d+[\\.\\d]+))?", Name: "Vivaldi", Version: "$1"}, Engine: struct {
+		Default  string
+		Versions map[string]string
+	}{Default: "Blink", Versions: map[string]string(nil)}}, Browser{Client: Client{Regex: "Midori(?:/(\\d+[\\.\\d]+))?", Name: "Midori", Version: "$1"}, Engine: struct {
+		Default  string
+		Versions map[string]string
+	}{Default: "WebKit", Versions: map[string]string(nil)}}, Browser{Client: Client{Regex: "Mercury(?:/(\\d+[\\.\\d]+))?", Name: "Mercury", Version: "$1"}, Engine: struct {
+		Default  string
+		Versions map[string]string
+	}{Default: "", Versions: map[string]string(nil)}}, Browser{Client: Client{Regex: "Maxthon[ /](\\d+[\\.\\d]+)", Name: "Maxthon", Version: "$1"}, Engine: struct {
+		Default  string
+		Versions map[string]string
+	}{Default: "# Trident and WebKit", Versions: map[string]string{"3": "WebKit"}}}, Browser{Client: Client{Regex: "(?:Maxthon|MyIE2|Uzbl)", Name: "Maxthon", Version: ""}, Engine: struct {
+		Default  string
+		Versions map[string]string
+	}{Default: "# Trident and WebKit", Versions: map[string]string(nil)}}, Browser{Client: Client{Regex: "Puffin(?:/(\\d+[\\.\\d]+))?", Name: "Puffin", Version: "$1"}, Engine: struct {
+		Default  string
+		Versions map[string]string
+	}{Default: "", Versions: map[string]string(nil)}}, Browser{Client: Client{Regex: "Iron(?:/(\\d+[\\.\\d]+))?", Name: "Iron", Version: "$1"}, Engine: struct {
+		Default  string
+		Versions map[string]string
+	}{Default: "WebKit", Versions: map[string]string{"28": "Blink"}}}, Browser{Client: Client{Regex: "Epiphany(?:/(\\d+[\\.\\d]+))?", Name: "Epiphany", Version: "$1"}, Engine: struct {
+		Default  string
+		Versions map[string]string
+	}{Default: "Gecko", Versions: map[string]string{"2.28": "WebKit", "2.9.16": "# multi engine"}}}, Browser{Client: Client{Regex: "LBBrowser(?:[ /](\\d+[\\.\\d]+))?", Name: "Liebao", Version: "$1"}, Engine: struct {
+		Default  string
+		Versions map[string]string
+	}{Default: "", Versions: map[string]string(nil)}}, Browser{Client: Client{Regex: "SE (\\d+[\\.\\d]+)", Name: "Sogou Explorer", Version: "$1"}, Engine: struct {
+		Default  string
+		Versions map[string]string
+	}{Default: "", Versions: map[string]string(nil)}}, Browser{Client: Client{Regex: "QQBrowser/([\\.\\d]+)", Name: "QQ Browser", Version: "$1"}, Engine: struct {
+		Default  string
+		Versions map[string]string
+	}{Default: "", Versions: map[string]string(nil)}}, Browser{Client: Client{Regex: "CrMo(?:/(\\d+[\\.\\d]+))?", Name: "Chrome Mobile", Version: "$1"}, Engine: struct {
+		Default  string
+		Versions map[string]string
+	}{Default: "WebKit", Versions: map[string]string{"28": "Blink"}}}, Browser{Client: Client{Regex: "CriOS(?:/(\\d+[\\.\\d]+))?", Name: "Chrome Mobile iOS", Version: "$1"}, Engine: struct {
+		Default  string
+		Versions map[string]string
+	}{Default: "WebKit", Versions: map[string]string(nil)}}, Browser{Client: Client{Regex: "Chrome(?:/(\\d+[\\.\\d]+))?.*Mobile", Name: "Chrome Mobile", Version: "$1"}, Engine: struct {
+		Default  string
+		Versions map[string]string
+	}{Default: "WebKit", Versions: map[string]string{"28": "Blink"}}}, Browser{Client: Client{Regex: "chromeframe(?:/(\\d+[\\.\\d]+))?", Name: "Chrome Frame", Version: "$1"}, Engine: struct {
+		Default  string
+		Versions map[string]string
+	}{Default: "WebKit", Versions: map[string]string(nil)}}, Browser{Client: Client{Regex: "Chromium(?:/(\\d+[\\.\\d]+))?", Name: "Chromium", Version: "$1"}, Engine: struct {
+		Default  string
+		Versions map[string]string
+	}{Default: "WebKit", Versions: map[string]string{"28": "Blink"}}}, Browser{Client: Client{Regex: "Chrome(?:/(\\d+[\\.\\d]+))?", Name: "Chrome", Version: "$1"}, Engine: struct {
+		Default  string
+		Versions map[string]string
+	}{Default: "WebKit", Versions: map[string]string{"28": "Blink"}}}, Browser{Client: Client{Regex: "UC[ ]?Browser(?:[ /]?(\\d+[\\.\\d]+))?", Name: "UC Browser", Version: "$1"}, Engine: struct {
+		Default  string
+		Versions map[string]string
+	}{Default: "", Versions: map[string]string(nil)}}, Browser{Client: Client{Regex: "UCWEB(?:[ /]?(\\d+[\\.\\d]+))?", Name: "UC Browser", Version: "$1"}, Engine: struct {
+		Default  string
+		Versions map[string]string
+	}{Default: "", Versions: map[string]string(nil)}}, Browser{Client: Client{Regex: "(?:Tizen|SLP) Browser(?:/(\\d+[\\.\\d]+))?", Name: "Tizen Browser", Version: "$1"}, Engine: struct {
+		Default  string
+		Versions map[string]string
+	}{Default: "", Versions: map[string]string(nil)}}, Browser{Client: Client{Regex: "Blazer(?:/(\\d+[\\.\\d]+))?", Name: "Palm Blazer", Version: "$1"}, Engine: struct {
+		Default  string
+		Versions map[string]string
+	}{Default: "", Versions: map[string]string(nil)}}, Browser{Client: Client{Regex: "Pre/(\\d+[\\.\\d]+)", Name: "Palm Pre", Version: "$1"}, Engine: struct {
+		Default  string
+		Versions map[string]string
+	}{Default: "", Versions: map[string]string(nil)}}, Browser{Client: Client{Regex: "(?:hpw|web)OS/(\\d+[\\.\\d]+)", Name: "wOSBrowser", Version: "$1"}, Engine: struct {
+		Default  string
+		Versions map[string]string
+	}{Default: "", Versions: map[string]string(nil)}}, Browser{Client: Client{Regex: "WebPro(?:[ /](\\d+[\\.\\d]+))?", Name: "Palm WebPro", Version: "$1"}, Engine: struct {
+		Default  string
+		Versions map[string]string
+	}{Default: "", Versions: map[string]string(nil)}}, Browser{Client: Client{Regex: "Jasmine(?:[ /](\\d+[\\.\\d]+))?", Name: "Jasmine", Version: "$1"}, Engine: struct {
+		Default  string
+		Versions map[string]string
+	}{Default: "", Versions: map[string]string(nil)}}, Browser{Client: Client{Regex: "Lynx(?:/(\\d+[\\.\\d]+))?", Name: "Lynx", Version: "$1"}, Engine: struct {
+		Default  string
+		Versions map[string]string
+	}{Default: "Text-based", Versions: map[string]string(nil)}}, Browser{Client: Client{Regex: "NCSA_Mosaic(?:/(\\d+[\\.\\d]+))?", Name: "NCSA Mosaic", Version: "$1"}, Engine: struct {
+		Default  string
+		Versions map[string]string
+	}{Default: "", Versions: map[string]string(nil)}}, Browser{Client: Client{Regex: "ABrowse(?: (\\d+[\\.\\d]+))?", Name: "ABrowse", Version: "$1"}, Engine: struct {
+		Default  string
+		Versions map[string]string
+	}{Default: "", Versions: map[string]string(nil)}}, Browser{Client: Client{Regex: "amaya(?:/(\\d+[\\.\\d]+))?", Name: "Amaya", Version: "$1"}, Engine: struct {
+		Default  string
+		Versions map[string]string
+	}{Default: "", Versions: map[string]string(nil)}}, Browser{Client: Client{Regex: "AmigaVoyager(?:/(\\d+[\\.\\d]+))?", Name: "Amiga Voyager", Version: "$1"}, Engine: struct {
+		Default  string
+		Versions map[string]string
+	}{Default: "", Versions: map[string]string(nil)}}, Browser{Client: Client{Regex: "Amiga-Aweb(?:/(\\d+[\\.\\d]+))?", Name: "Amiga Aweb", Version: "$1"}, Engine: struct {
+		Default  string
+		Versions map[string]string
+	}{Default: "", Versions: map[string]string(nil)}}, Browser{Client: Client{Regex: "Arora(?:/(\\d+[\\.\\d]+))?", Name: "Arora", Version: "$1"}, Engine: struct {
+		Default  string
+		Versions map[string]string
+	}{Default: "WebKit", Versions: map[string]string(nil)}}, Browser{Client: Client{Regex: "Beonex(?:/(\\d+[\\.\\d]+))?", Name: "Beonex", Version: "$1"}, Engine: struct {
+		Default  string
+		Versions map[string]string
+	}{Default: "Gecko", Versions: map[string]string(nil)}}, Browser{Client: Client{Regex: "BlackBerry|PlayBook|BB10", Name: "BlackBerry Browser", Version: ""}, Engine: struct {
+		Default  string
+		Versions map[string]string
+	}{Default: "", Versions: map[string]string(nil)}}, Browser{Client: Client{Regex: "BrowseX \\((\\d+[\\.\\d]+)", Name: "BrowseX", Version: "$1"}, Engine: struct {
+		Default  string
+		Versions map[string]string
+	}{Default: "", Versions: map[string]string(nil)}}, Browser{Client: Client{Regex: "Charon(?:[/ ](\\d+[\\.\\d]+))?", Name: "Charon", Version: "$1"}, Engine: struct {
+		Default  string
+		Versions map[string]string
+	}{Default: "", Versions: map[string]string(nil)}}, Browser{Client: Client{Regex: "Cheshire(?:/(\\d+[\\.\\d]+))?", Name: "Cheshire", Version: "$1"}, Engine: struct {
+		Default  string
+		Versions map[string]string
+	}{Default: "", Versions: map[string]string(nil)}}, Browser{Client: Client{Regex: "Dillo(?:/(\\d+[\\.\\d]+))?", Name: "Dillo", Version: "$1"}, Engine: struct {
+		Default  string
+		Versions map[string]string
+	}{Default: "Dillo", Versions: map[string]string(nil)}}, Browser{Client: Client{Regex: "Dolfin(?:/(\\d+[\\.\\d]+))?|dolphin", Name: "Dolphin", Version: "$1"}, Engine: struct {
+		Default  string
+		Versions map[string]string
+	}{Default: "WebKit", Versions: map[string]string(nil)}}, Browser{Client: Client{Regex: "Elinks(?:/(\\d+[\\.\\d]+))?", Name: "Elinks", Version: "$1"}, Engine: struct {
+		Default  string
+		Versions map[string]string
+	}{Default: "Text-based", Versions: map[string]string(nil)}}, Browser{Client: Client{Regex: "Firebird(?:/(\\d+[\\.\\d]+))?", Name: "Firebird", Version: "$1"}, Engine: struct {
+		Default  string
+		Versions map[string]string
+	}{Default: "Gecko", Versions: map[string]string(nil)}}, Browser{Client: Client{Regex: "Fluid(?:/(\\d+[\\.\\d]+))?", Name: "Fluid", Version: "$1"}, Engine: struct {
+		Default  string
+		Versions map[string]string
+	}{Default: "WebKit", Versions: map[string]string(nil)}}, Browser{Client: Client{Regex: "Galeon(?:/(\\d+[\\.\\d]+))?", Name: "Galeon", Version: "$1"}, Engine: struct {
+		Default  string
+		Versions map[string]string
+	}{Default: "Gecko", Versions: map[string]string(nil)}}, Browser{Client: Client{Regex: "Google Earth(?:/(\\d+[\\.\\d]+))?", Name: "Google Earth", Version: "$1"}, Engine: struct {
+		Default  string
+		Versions map[string]string
+	}{Default: "WebKit", Versions: map[string]string(nil)}}, Browser{Client: Client{Regex: "HotJava(?:/(\\d+[\\.\\d]+))?", Name: "HotJava", Version: "$1"}, Engine: struct {
+		Default  string
+		Versions map[string]string
+	}{Default: "", Versions: map[string]string(nil)}}, Browser{Client: Client{Regex: "IBrowse(?:[ /](\\d+[\\.\\d]+))?", Name: "IBrowse", Version: "$1"}, Engine: struct {
+		Default  string
+		Versions map[string]string
+	}{Default: "", Versions: map[string]string(nil)}}, Browser{Client: Client{Regex: "iCab(?:[ /](\\d+[\\.\\d]+))?", Name: "iCab", Version: "$1"}, Engine: struct {
+		Default  string
+		Versions map[string]string
+	}{Default: "iCab", Versions: map[string]string{"4": "WebKit"}}}, Browser{Client: Client{Regex: "Sleipnir(?:[ /](\\d+[\\.\\d]+))?", Name: "Sleipnir", Version: "$1"}, Engine: struct {
+		Default  string
+		Versions map[string]string
+	}{Default: "# multi engine", Versions: map[string]string(nil)}}, Browser{Client: Client{Regex: "Lunascape(?:[/ ](\\d+[\\.\\d]+))?", Name: "Lunascape", Version: "$1"}, Engine: struct {
+		Default  string
+		Versions map[string]string
+	}{Default: "# multi engine", Versions: map[string]string(nil)}}, Browser{Client: Client{Regex: "IEMobile[ /](\\d+[\\.\\d]+)", Name: "IE Mobile", Version: "$1"}, Engine: struct {
+		Default  string
+		Versions map[string]string
+	}{Default: "Trident", Versions: map[string]string(nil)}}, Browser{Client: Client{Regex: "MSIE (\\d+[\\.\\d]+).*XBLWP7", Name: "IE Mobile", Version: "$1"}, Engine: struct {
+		Default  string
+		Versions map[string]string
+	}{Default: "Trident", Versions: map[string]string(nil)}}, Browser{Client: Client{Regex: "MSIE.*Trident/4.0", Name: "Internet Explorer", Version: "8.0"}, Engine: struct {
+		Default  string
+		Versions map[string]string
+	}{Default: "Trident", Versions: map[string]string(nil)}}, Browser{Client: Client{Regex: "MSIE.*Trident/5.0", Name: "Internet Explorer", Version: "9.0"}, Engine: struct {
+		Default  string
+		Versions map[string]string
+	}{Default: "Trident", Versions: map[string]string(nil)}}, Browser{Client: Client{Regex: "MSIE.*Trident/6.0", Name: "Internet Explorer", Version: "10.0"}, Engine: struct {
+		Default  string
+		Versions map[string]string
+	}{Default: "Trident", Versions: map[string]string(nil)}}, Browser{Client: Client{Regex: "Trident/7.0", Name: "Internet Explorer", Version: "11.0"}, Engine: struct {
+		Default  string
+		Versions map[string]string
+	}{Default: "Trident", Versions: map[string]string(nil)}}, Browser{Client: Client{Regex: "MSIE (\\d+[\\.\\d]+)", Name: "Internet Explorer", Version: "$1"}, Engine: struct {
+		Default  string
+		Versions map[string]string
+	}{Default: "Trident", Versions: map[string]string(nil)}}, Browser{Client: Client{Regex: "IE[ /](\\d+[\\.\\d]+)", Name: "Internet Explorer", Version: "$1"}, Engine: struct {
+		Default  string
+		Versions map[string]string
+	}{Default: "Trident", Versions: map[string]string(nil)}}, Browser{Client: Client{Regex: "Kazehakase(?:/(\\d+[\\.\\d]+))?", Name: "Kazehakase", Version: "$1"}, Engine: struct {
+		Default  string
+		Versions map[string]string
+	}{Default: "# multi engine", Versions: map[string]string(nil)}}, Browser{Client: Client{Regex: "Kindle/(\\d+[\\.\\d]+)", Name: "Kindle Browser", Version: "$1"}, Engine: struct {
+		Default  string
+		Versions map[string]string
+	}{Default: "", Versions: map[string]string(nil)}}, Browser{Client: Client{Regex: "K-meleon(?:/(\\d+[\\.\\d]+))?", Name: "K-meleon", Version: "$1"}, Engine: struct {
+		Default  string
+		Versions map[string]string
+	}{Default: "Gecko", Versions: map[string]string(nil)}}, Browser{Client: Client{Regex: "Links(?: \\((\\d+[\\.\\d]+))?", Name: "Links", Version: "$1"}, Engine: struct {
+		Default  string
+		Versions map[string]string
+	}{Default: "Text-based", Versions: map[string]string(nil)}}, Browser{Client: Client{Regex: "UP.Browser(?:/(\\d+[\\.\\d]+))?", Name: "Openwave Mobile Browser", Version: "$1"}, Engine: struct {
+		Default  string
+		Versions map[string]string
+	}{Default: "", Versions: map[string]string(nil)}}, Browser{Client: Client{Regex: "OmniWeb(?:/[v]?(\\d+[\\.\\d]+))?", Name: "OmniWeb", Version: "$1"}, Engine: struct {
+		Default  string
+		Versions map[string]string
+	}{Default: "WebKit", Versions: map[string]string(nil)}}, Browser{Client: Client{Regex: "Phoenix(?:/(\\d+[\\.\\d]+))?", Name: "Phoenix", Version: "$1"}, Engine: struct {
+		Default  string
+		Versions map[string]string
+	}{Default: "", Versions: map[string]string(nil)}}, Browser{Client: Client{Regex: "Silk(?:/(\\d+[\\.\\d]+))?", Name: "Mobile Silk", Version: "$1"}, Engine: struct {
+		Default  string
+		Versions map[string]string
+	}{Default: "Blink", Versions: map[string]string(nil)}}, Browser{Client: Client{Regex: "MIUIBrowser(?:/(\\d+[\\.\\d]+))?", Name: "MIUI Browser", Version: "$1"}, Engine: struct {
+		Default  string
+		Versions map[string]string
+	}{Default: "", Versions: map[string]string(nil)}}, Browser{Client: Client{Regex: "(?:NokiaBrowser|BrowserNG)(?:/(\\d+[\\.\\d]+))?", Name: "Nokia Browser", Version: "$1"}, Engine: struct {
+		Default  string
+		Versions map[string]string
+	}{Default: "", Versions: map[string]string(nil)}}, Browser{Client: Client{Regex: "Series60/5\\.0", Name: "Nokia Browser", Version: "7.0"}, Engine: struct {
+		Default  string
+		Versions map[string]string
+	}{Default: "", Versions: map[string]string(nil)}}, Browser{Client: Client{Regex: "Series60/(\\d+[\\.\\d]+)", Name: "Nokia OSS Browser", Version: "$1"}, Engine: struct {
+		Default  string
+		Versions map[string]string
+	}{Default: "", Versions: map[string]string(nil)}}, Browser{Client: Client{Regex: "S40OviBrowser/(\\d+[\\.\\d]+)", Name: "Nokia Ovi Browser", Version: "$1"}, Engine: struct {
+		Default  string
+		Versions map[string]string
+	}{Default: "", Versions: map[string]string(nil)}}, Browser{Client: Client{Regex: "^Nokia|Nokia[EN]?\\d+", Name: "Nokia Browser", Version: ""}, Engine: struct {
+		Default  string
+		Versions map[string]string
+	}{Default: "", Versions: map[string]string(nil)}}, Browser{Client: Client{Regex: "NetFrontLifeBrowser(?:/(\\d+[\\.\\d]+))?", Name: "NetFront Life", Version: "$1"}, Engine: struct {
+		Default  string
+		Versions map[string]string
+	}{Default: "NetFront", Versions: map[string]string(nil)}}, Browser{Client: Client{Regex: "NetFront(?:/(\\d+[\\.\\d]+))?", Name: "NetFront", Version: "$1"}, Engine: struct {
+		Default  string
+		Versions map[string]string
+	}{Default: "NetFront", Versions: map[string]string(nil)}}, Browser{Client: Client{Regex: "PLAYSTATION|NINTENDO 3|AppleWebKit.+ NX/\\d+\\.\\d+\\.\\d+", Name: "NetFront", Version: ""}, Engine: struct {
+		Default  string
+		Versions map[string]string
+	}{Default: "", Versions: map[string]string(nil)}}, Browser{Client: Client{Regex: "NetPositive(?:/(\\d+[\\.\\d]+))?", Name: "NetPositive", Version: "$1"}, Engine: struct {
+		Default  string
+		Versions map[string]string
+	}{Default: "", Versions: map[string]string(nil)}}, Browser{Client: Client{Regex: "Obigo[ ]?(?:InternetBrowser|Browser)?(?:[ /]([a-z0-9]*))?", Name: "Obigo", Version: "$1"}, Engine: struct {
+		Default  string
+		Versions map[string]string
+	}{Default: "", Versions: map[string]string(nil)}}, Browser{Client: Client{Regex: "Obigo|Teleca", Name: "Obigo", Version: ""}, Engine: struct {
+		Default  string
+		Versions map[string]string
+	}{Default: "", Versions: map[string]string(nil)}}, Browser{Client: Client{Regex: "Odyssey Web Browser(?:.*OWB/(\\d+[\\.\\d]+))?", Name: "Odyssey Web Browser", Version: "$1"}, Engine: struct {
+		Default  string
+		Versions map[string]string
+	}{Default: "", Versions: map[string]string(nil)}}, Browser{Client: Client{Regex: "OffByOne", Name: "Off By One", Version: ""}, Engine: struct {
+		Default  string
+		Versions map[string]string
+	}{Default: "", Versions: map[string]string(nil)}}, Browser{Client: Client{Regex: "Oregano(?:[ /](\\d+[\\.\\d]+))?", Name: "Oregano", Version: "$1"}, Engine: struct {
+		Default  string
+		Versions map[string]string
+	}{Default: "", Versions: map[string]string(nil)}}, Browser{Client: Client{Regex: "(?:Polaris|Embider)(?:[/ ](\\d+[\\.\\d]+))?", Name: "Polaris", Version: "$1"}, Engine: struct {
+		Default  string
+		Versions map[string]string
+	}{Default: "", Versions: map[string]string(nil)}}, Browser{Client: Client{Regex: "SEMC-Browser(?:[/ ](\\d+[\\.\\d]+))?", Name: "SEMC-Browser", Version: "$1"}, Engine: struct {
+		Default  string
+		Versions map[string]string
+	}{Default: "", Versions: map[string]string(nil)}}, Browser{Client: Client{Regex: "Shiira(?:[/ ](\\d+[\\.\\d]+))?", Name: "Shiira", Version: "$1"}, Engine: struct {
+		Default  string
+		Versions map[string]string
+	}{Default: "WebKit", Versions: map[string]string(nil)}}, Browser{Client: Client{Regex: "Snowshoe(?:/(\\d+[\\.\\d]+))?", Name: "Snowshoe", Version: "$1"}, Engine: struct {
+		Default  string
+		Versions map[string]string
+	}{Default: "WebKit", Versions: map[string]string(nil)}}, Browser{Client: Client{Regex: "Sunrise(?:Browser)?(?:/(\\d+[\\.\\d]+))?", Name: "Sunrise", Version: "$1"}, Engine: struct {
+		Default  string
+		Versions map[string]string
+	}{Default: "", Versions: map[string]string(nil)}}, Browser{Client: Client{Regex: "WeTab-Browser", Name: "WeTab Browser", Version: ""}, Engine: struct {
+		Default  string
+		Versions map[string]string
+	}{Default: "", Versions: map[string]string(nil)}}, Browser{Client: Client{Regex: "Xiino(?:/(\\d+[\\.\\d]+))?", Name: "Xiino", Version: "$1"}, Engine: struct {
+		Default  string
+		Versions map[string]string
+	}{Default: "", Versions: map[string]string(nil)}}, Browser{Client: Client{Regex: "Android", Name: "Android Browser", Version: ""}, Engine: struct {
+		Default  string
+		Versions map[string]string
+	}{Default: "WebKit", Versions: map[string]string(nil)}}, Browser{Client: Client{Regex: "(?:iPod|iPad|iPhone).+Version/(\\d+[\\.\\d]+)", Name: "Mobile Safari", Version: "$1"}, Engine: struct {
+		Default  string
+		Versions map[string]string
+	}{Default: "WebKit", Versions: map[string]string(nil)}}, Browser{Client: Client{Regex: "Version/(\\d+[\\.\\d]+).*Mobile.*Safari/", Name: "Mobile Safari", Version: "$1"}, Engine: struct {
+		Default  string
+		Versions map[string]string
+	}{Default: "WebKit", Versions: map[string]string(nil)}}, Browser{Client: Client{Regex: "(?:iPod|iPhone|iPad)", Name: "Mobile Safari", Version: ""}, Engine: struct {
+		Default  string
+		Versions map[string]string
+	}{Default: "WebKit", Versions: map[string]string(nil)}}, Browser{Client: Client{Regex: "Version/(\\d+[\\.\\d]+).*Safari/|Safari/\\d+", Name: "Safari", Version: "$1"}, Engine: struct {
+		Default  string
+		Versions map[string]string
+	}{Default: "WebKit", Versions: map[string]string(nil)}}}
 }
 
 func (this *Cache) loadEngines() {
-	f, err := os.Open(fmt.Sprintf("%s/src/%s/%s", gopath, wdpath, "client/engine.json"))
-	if err != nil {
-		checkErr(err)
-	}
-	data, err := ioutil.ReadAll(f)
-	if err != nil {
-		checkErr(err)
-	}
-	err = json.Unmarshal(data, &this.Engines)
-	if err != nil {
-		checkErr(err)
-	}
+	// f, err := os.Open(fmt.Sprintf("%s/src/%s/%s", gopath, wdpath, "client/engine.json"))
+	// if err != nil {
+	// 	checkErr(err)
+	// }
+	// data, err := ioutil.ReadAll(f)
+	// if err != nil {
+	// 	checkErr(err)
+	// }
+	// err = json.Unmarshal(data, &this.Engines)
+	// if err != nil {
+	// 	checkErr(err)
+	// }
+	this.Engines = []Engine{Engine{Regex: "NetFront", Name: "NetFront"}, Engine{Regex: "Edge", Name: "Edge"}, Engine{Regex: "Trident", Name: "Trident"}, Engine{Regex: "Blink", Name: "Blink"}, Engine{Regex: "(?:Apple)?WebKit", Name: "WebKit"}, Engine{Regex: "Presto", Name: "Presto"}, Engine{Regex: "(?:like )Gecko", Name: "Gecko"}, Engine{Regex: "KHTML", Name: "KHTML"}}
 }
 
 func (this *Cache) loadLibraries() {
-	f, err := os.Open(fmt.Sprintf("%s/src/%s/%s", gopath, wdpath, "client/library.json"))
-	if err != nil {
-		checkErr(err)
-	}
-	data, err := ioutil.ReadAll(f)
-	if err != nil {
-		checkErr(err)
-	}
-	err = json.Unmarshal(data, &this.Libraries)
-	if err != nil {
-		checkErr(err)
-	}
+	// f, err := os.Open(fmt.Sprintf("%s/src/%s/%s", gopath, wdpath, "client/library.json"))
+	// if err != nil {
+	// 	checkErr(err)
+	// }
+	// data, err := ioutil.ReadAll(f)
+	// if err != nil {
+	// 	checkErr(err)
+	// }
+	// err = json.Unmarshal(data, &this.Libraries)
+	// if err != nil {
+	// 	checkErr(err)
+	// }
+	this.Libraries = []Client{Client{Regex: "Wget(?:/(\\d+[\\.\\d]+))?", Name: "Wget", Version: "$1"}, Client{Regex: "(?:lib)?curl(?:/(\\d+[\\.\\d]+))?", Name: "curl", Version: "$1"}, Client{Regex: "python-requests(?:/(\\d+[\\.\\d]+))?", Name: "Python Requests", Version: "$1"}, Client{Regex: "Python-urllib(?:/?(\\d+[\\.\\d]+))?", Name: "Python urllib", Version: "$1"}, Client{Regex: "Java(?:/?(\\d+[\\.\\d]+))?", Name: "Java", Version: "$1"}, Client{Regex: "(?:perlclient|libwww-perl)(?:/?(\\d+[\\.\\d]+))?", Name: "Perl", Version: "$1"}}
+
 }
 
 func (this *Cache) loadPims() {
-	f, err := os.Open(fmt.Sprintf("%s/src/%s/%s", gopath, wdpath, "client/pim.json"))
-	if err != nil {
-		checkErr(err)
-	}
-	data, err := ioutil.ReadAll(f)
-	if err != nil {
-		checkErr(err)
-	}
-	err = json.Unmarshal(data, &this.Pims)
-	if err != nil {
-		checkErr(err)
-	}
+	// f, err := os.Open(fmt.Sprintf("%s/src/%s/%s", gopath, wdpath, "client/pim.json"))
+	// if err != nil {
+	// 	checkErr(err)
+	// }
+	// data, err := ioutil.ReadAll(f)
+	// if err != nil {
+	// 	checkErr(err)
+	// }
+	// err = json.Unmarshal(data, &this.Pims)
+	// if err != nil {
+	// 	checkErr(err)
+	// }
+	this.Pims = []Client{Client{Regex: "Outlook-Express(?:/(\\d+[\\.\\d]+))?", Name: "Outlook Express", Version: "$1"}, Client{Regex: "Microsoft Outlook(?:[/ ](\\d+[\\.\\d]+))?", Name: "Microsoft Outlook", Version: "$1"}, Client{Regex: "(?:Thunderbird|Icedove|Shredder)(?:/(\\d+[\\.\\d]+))?", Name: "Thunderbird", Version: "$1"}, Client{Regex: "Airmail(?: (\\d+[\\.\\d]+))?", Name: "Airmail", Version: "$1"}, Client{Regex: "Lotus-Notes(?:/(\\d+[\\.\\d]+))?", Name: "Lotus Notes", Version: "$1"}, Client{Regex: "Barca(?:Pro)?(?:[/ ](\\d+[\\.\\d]+))?", Name: "Barca", Version: "$1"}, Client{Regex: "Postbox(?:[/ ](\\d+[\\.\\d]+))?", Name: "Postbox", Version: "$1"}, Client{Regex: "The Bat!(?: Voyager)?(?:[/ ](\\d+[\\.\\d]+))?", Name: "The Bat!", Version: "$1"}}
+
 }
 
 func (this *Cache) loadMeidaPlayers() {
-	f, err := os.Open(fmt.Sprintf("%s/src/%s/%s", gopath, wdpath, "client/player.json"))
-	if err != nil {
-		checkErr(err)
-	}
-	data, err := ioutil.ReadAll(f)
-	if err != nil {
-		checkErr(err)
-	}
-	err = json.Unmarshal(data, &this.MediaPlayers)
-	if err != nil {
-		checkErr(err)
-	}
+	// f, err := os.Open(fmt.Sprintf("%s/src/%s/%s", gopath, wdpath, "client/player.json"))
+	// if err != nil {
+	// 	checkErr(err)
+	// }
+	// data, err := ioutil.ReadAll(f)
+	// if err != nil {
+	// 	checkErr(err)
+	// }
+	// err = json.Unmarshal(data, &this.MediaPlayers)
+	// if err != nil {
+	// 	checkErr(err)
+	// }
+	this.MediaPlayers = []Client{Client{Regex: "Banshee(?:[ /]([\\d\\.]+))?", Name: "Banshee", Version: "$1"}, Client{Regex: "Clementine(?:[ /]([\\d\\.]+))?", Name: "Clementine", Version: "$1"}, Client{Regex: "iTunes(?:/([\\d\\.]+))?", Name: "iTunes", Version: "$1"}, Client{Regex: "FlyCast(?:/([\\d\\.]+))?", Name: "FlyCast", Version: "$1"}, Client{Regex: "MediaMonkey(?:[ /](\\d+[\\.\\d]+))?", Name: "MediaMonkey", Version: "$1"}, Client{Regex: "Miro(?:/(\\d+[\\.\\d]+))?", Name: "Miro", Version: "$1"}, Client{Regex: "NexPlayer(?:/(\\d+[\\.\\d]+))?", Name: "NexPlayer", Version: "$1"}, Client{Regex: "Nightingale(?:/([\\d\\.]+))?", Name: "Nightingale", Version: "$1"}, Client{Regex: "QuickTime(?:(?:(?:.+qtver=)|(?:(?: E-)?[\\./]))([\\d\\.]+))?", Name: "QuickTime", Version: "$1"}, Client{Regex: "Songbird(?:/([\\d\\.]+))?", Name: "Songbird", Version: "$1"}, Client{Regex: "SubStream(?:/([\\d\\.]+))?", Name: "SubStream", Version: "$1"}, Client{Regex: "VLC(?:/([\\d\\.]+))?", Name: "VLC", Version: "$1"}, Client{Regex: "Winamp(?:MPEG)?(?:/(\\d+[\\.\\d]+))?", Name: "Winamp", Version: "$1"}, Client{Regex: "Windows-Media-Player(?:/(\\d+[\\.\\d]+))?", Name: "Windows Media Player", Version: "$1"}, Client{Regex: "XBMC(?:/([\\d\\.]+))?", Name: "XBMC", Version: "$1"}, Client{Regex: "Kodi(?:/([\\d\\.]+))?", Name: "Kodi", Version: "$1"}, Client{Regex: "stagefright(?:/([\\d\\.]+))?", Name: "Stagefright", Version: "$1"}, Client{Regex: "Instacast\\/([\\d\\.]+) CFNetwork\\/([\\d\\.]+)", Name: "Instacast", Version: "$1"}}
+
 }
 
 func (this *Cache) loadReaders() {
-	f, err := os.Open(fmt.Sprintf("%s/src/%s/%s", gopath, wdpath, "client/reader.json"))
-	if err != nil {
-		checkErr(err)
-	}
-	data, err := ioutil.ReadAll(f)
-	if err != nil {
-		checkErr(err)
-	}
-	err = json.Unmarshal(data, &this.Readers)
-	if err != nil {
-		checkErr(err)
-	}
+	// f, err := os.Open(fmt.Sprintf("%s/src/%s/%s", gopath, wdpath, "client/reader.json"))
+	// if err != nil {
+	// 	checkErr(err)
+	// }
+	// data, err := ioutil.ReadAll(f)
+	// if err != nil {
+	// 	checkErr(err)
+	// }
+	// err = json.Unmarshal(data, &this.Readers)
+	// if err != nil {
+	// 	checkErr(err)
+	// }
+	this.Readers = []Reader{Reader{Client: Client{Regex: "Akregator(?:/(\\d+[\\.\\d]+))?", Name: "Akregator", Version: "$1"}, URL: "http://userbase.kde.org/Akregator", Type: "Feed Reader"}, Reader{Client: Client{Regex: "Apple-PubSub(?:/(\\d+[\\.\\d]+))?", Name: "Apple PubSub", Version: "$1"}, URL: "https://developer.apple.com/library/mac/documentation/Darwin/Reference/ManPages/man1/pubsub.1.html", Type: "Feed Reader"}, Reader{Client: Client{Regex: "FeedDemon(?:/(\\d+[\\.\\d]+))?", Name: "FeedDemon", Version: "$1"}, URL: "http://www.feeddemon.com/", Type: "Feed Reader"}, Reader{Client: Client{Regex: "Feeddler(?:RSS|PRO)(?:[/ ](\\d+[\\.\\d]+))?", Name: "Feeddler RSS Reader", Version: "$1"}, URL: "http://www.chebinliu.com/projects/iphone/feeddler-rss-reader/", Type: "Feed Reader App"}, Reader{Client: Client{Regex: "JetBrains Omea Reader(?:[/ ](\\d+[\\.\\d]+))?", Name: "JetBrains Omea Reader", Version: "$1"}, URL: "http://www.jetbrains.com/omea/reader/", Type: "Feed Reader"}, Reader{Client: Client{Regex: "Liferea(?:[/ ](\\d+[\\.\\d]+))?", Name: "Liferea", Version: "$1"}, URL: "http://liferea.sf.net/", Type: "Feed Reader"}, Reader{Client: Client{Regex: "NetNewsWire(?:[/ ](\\d+[\\.\\d]+))?", Name: "NetNewsWire", Version: "$1"}, URL: "http://netnewswireapp.com/", Type: "Feed Reader"}, Reader{Client: Client{Regex: "NewsBlur (?:iPhone|iPad) App(?: v(\\d+[\\.\\d]+))?", Name: "NewsBlur Mobile App", Version: "$1"}, URL: "http://www.newsblur.com", Type: "Feed Reader App"}, Reader{Client: Client{Regex: "NewsBlur(?:/(\\d+[\\.\\d]+))", Name: "NewsBlur", Version: "$1"}, URL: "http://www.newsblur.com", Type: "Feed Reader"}, Reader{Client: Client{Regex: "newsbeuter(?:[/ ](\\d+[\\.\\d]+))?", Name: "Newsbeuter", Version: "$1"}, URL: "http://www.newsbeuter.org/", Type: "Feed Reader"}, Reader{Client: Client{Regex: "Pulp(?:[/ ](\\d+[\\.\\d]+))?", Name: "Pulp", Version: "$1"}, URL: "http://www.acrylicapps.com/pulp/", Type: "Feed Reader App"}, Reader{Client: Client{Regex: "ReadKit(?:[/ ](\\d+[\\.\\d]+))?", Name: "ReadKit", Version: "$1"}, URL: "http://readkitapp.com/", Type: "Feed Reader App"}, Reader{Client: Client{Regex: "Reeder(?:[/ ](\\d+[\\.\\d]+))?", Name: "Reeder", Version: "$1"}, URL: "http://reederapp.com/", Type: "Feed Reader App"}, Reader{Client: Client{Regex: "RSSBandit(?:[/ ](\\d+[\\.\\d]+))?", Name: "RSS Bandit", Version: "$1"}, URL: "http://www.rssbandit.org", Type: "Feed Reader"}, Reader{Client: Client{Regex: "RSS Junkie(?:[/ ](\\d+[\\.\\d]+))?", Name: "RSS Junkie", Version: "$1"}, URL: "https://play.google.com/store/apps/details?id=com.bitpowder.rssjunkie", Type: "Feed Reader App"}, Reader{Client: Client{Regex: "RSSOwl(?:[/ ](\\d+[\\.\\d]+))?", Name: "RSSOwl", Version: "$1"}, URL: "http://www.rssowl.org/", Type: "Feed Reader"}}
+
 }
 
 func (this *Cache) loadCameras() {
-	f, err := os.Open(fmt.Sprintf("%s/src/%s/%s", gopath, wdpath, "device/camera.json"))
-	if err != nil {
-		checkErr(err)
-	}
-	data, err := ioutil.ReadAll(f)
-	if err != nil {
-		checkErr(err)
-	}
-	err = json.Unmarshal(data, &this.Cameras)
-	if err != nil {
-		checkErr(err)
-	}
+	// f, err := os.Open(fmt.Sprintf("%s/src/%s/%s", gopath, wdpath, "device/camera.json"))
+	// if err != nil {
+	// 	checkErr(err)
+	// }
+	// data, err := ioutil.ReadAll(f)
+	// if err != nil {
+	// 	checkErr(err)
+	// }
+	// err = json.Unmarshal(data, &this.Cameras)
+	// if err != nil {
+	// 	checkErr(err)
+	// }
+	this.Cameras = []Device{Device{Producer: "Nikon", Regex: "Coolpix S800c", Model: "Coolpix S800c", Models: []Model(nil)}, Device{Producer: "Samsung", Regex: "EK-G[CN][0-9]{3}", Model: "", Models: []Model{Model{Regex: "EK-GN120", Model: "GALAXY NX"}, Model{Regex: "EK-GC100", Model: "GALAXY Camera"}, Model{Regex: "EK-GC110", Model: "GALAXY Camera WiFi only"}, Model{Regex: "EK-GC200", Model: "GALAXY Camera 2"}, Model{Regex: "EK-GC([0-9]{3})", Model: "GALAXY Camera $1"}}}}
+
 }
 
 func (this *Cache) loadCarBrowser() {
-	f, err := os.Open(fmt.Sprintf("%s/src/%s/%s", gopath, wdpath, "device/car_browser.json"))
-	if err != nil {
-		checkErr(err)
-	}
-	data, err := ioutil.ReadAll(f)
-	if err != nil {
-		checkErr(err)
-	}
-	err = json.Unmarshal(data, &this.CarBrowsers)
-	if err != nil {
-		checkErr(err)
-	}
+	// f, err := os.Open(fmt.Sprintf("%s/src/%s/%s", gopath, wdpath, "device/car_browser.json"))
+	// if err != nil {
+	// 	checkErr(err)
+	// }
+	// data, err := ioutil.ReadAll(f)
+	// if err != nil {
+	// 	checkErr(err)
+	// }
+	// err = json.Unmarshal(data, &this.CarBrowsers)
+	// if err != nil {
+	// 	checkErr(err)
+	// }
+	this.CarBrowsers = []Device{Device{Producer: "Tesla", Regex: "QtCarBrowser", Model: "Model S", Models: []Model(nil)}}
+
 }
 
 func (this *Cache) loadConsole() {
-	f, err := os.Open(fmt.Sprintf("%s/src/%s/%s", gopath, wdpath, "device/console.json"))
-	if err != nil {
-		checkErr(err)
-	}
-	data, err := ioutil.ReadAll(f)
-	if err != nil {
-		checkErr(err)
-	}
-	err = json.Unmarshal(data, &this.Consoles)
-	if err != nil {
-		checkErr(err)
-	}
+	// f, err := os.Open(fmt.Sprintf("%s/src/%s/%s", gopath, wdpath, "device/console.json"))
+	// if err != nil {
+	// 	checkErr(err)
+	// }
+	// data, err := ioutil.ReadAll(f)
+	// if err != nil {
+	// 	checkErr(err)
+	// }
+	// err = json.Unmarshal(data, &this.Consoles)
+	// if err != nil {
+	// 	checkErr(err)
+	// }
+	this.Consoles = []Device{Device{Producer: "Archos", Regex: "Archos.*GAMEPAD([2]?)", Model: "Gamepad $1", Models: []Model(nil)}, Device{Producer: "Microsoft", Regex: "Xbox", Model: "", Models: []Model{Model{Regex: "Xbox One", Model: "Xbox One"}, Model{Regex: "Xbox", Model: "Xbox 360"}}}, Device{Producer: "Nintendo", Regex: "Nintendo (([3]?DS[i]?)|Wii[U]?)", Model: "$1", Models: []Model(nil)}, Device{Producer: "OUYA", Regex: "OUYA", Model: "OUYA", Models: []Model(nil)}, Device{Producer: "Sega", Regex: "Dreamcast", Model: "Dreamcast", Models: []Model(nil)}, Device{Producer: "Sony", Regex: "PlayStation (3|4|Portable|Vita)", Model: "PlayStation $1", Models: []Model(nil)}}
+
 }
 
 func (this *Cache) loadMedia() {
-	f, err := os.Open(fmt.Sprintf("%s/src/%s/%s", gopath, wdpath, "device/media.json"))
-	if err != nil {
-		checkErr(err)
-	}
-	data, err := ioutil.ReadAll(f)
-	if err != nil {
-		checkErr(err)
-	}
-	err = json.Unmarshal(data, &this.Medias)
-	if err != nil {
-		checkErr(err)
-	}
+	// f, err := os.Open(fmt.Sprintf("%s/src/%s/%s", gopath, wdpath, "device/media.json"))
+	// if err != nil {
+	// 	checkErr(err)
+	// }
+	// data, err := ioutil.ReadAll(f)
+	// if err != nil {
+	// 	checkErr(err)
+	// }
+	// err = json.Unmarshal(data, &this.Medias)
+	// if err != nil {
+	// 	checkErr(err)
+	// }
+	this.Medias = []Device{Device{Producer: "Apple", Regex: "(?:Apple-)?iPod", Model: "", Models: []Model{Model{Regex: "(?:Apple-)?iPod1[C,]1", Model: "iPod Touch 1G"}, Model{Regex: "(?:Apple-)?iPod2[C,]1", Model: "iPod Touch 2G"}, Model{Regex: "(?:Apple-)?iPod3[C,]1", Model: "iPod Touch 3"}, Model{Regex: "(?:Apple-)?iPod4[C,]1", Model: "iPod Touch 4"}, Model{Regex: "(?:Apple-)?iPod5[C,]1", Model: "iPod Touch 5"}, Model{Regex: "(?:Apple-)?iPod1[C,]1", Model: "iPod Touch"}, Model{Regex: "(?:Apple-)?iPod1[C,]1", Model: "iPod Touch"}, Model{Regex: "(?:Apple-)?iPod", Model: "iPod Touch"}}}, Device{Producer: "Cowon", Regex: "COWON ([^;/]+) Build", Model: "$1", Models: []Model(nil)}, Device{Producer: "Microsoft", Regex: "Microsoft ZuneHD", Model: "Zune HD", Models: []Model(nil)}, Device{Producer: "Panasonic", Regex: "(SV-MV100)", Model: "$1", Models: []Model(nil)}, Device{Producer: "Samsung", Regex: "YP-(G[SIPB]?1|G[57]0|GB70D)", Model: "", Models: []Model{Model{Regex: "YP-G[B]?1", Model: "Galaxy Player 4.0"}, Model{Regex: "YP-G70", Model: "Galaxy Player 5.0"}, Model{Regex: "YP-GS1", Model: "Galaxy Player 3.6"}, Model{Regex: "YP-GI1", Model: "Galaxy Player 4.2"}, Model{Regex: "YP-GP1", Model: "Galaxy Player 5.8"}, Model{Regex: "YP-G50", Model: "Galaxy Player 50"}, Model{Regex: "YP-GB70D", Model: "Galaxy Player 70 Plus"}}}}
+
 }
 
 func (this *Cache) loadMobile() {
-	f, err := os.Open(fmt.Sprintf("%s/src/%s/%s", gopath, wdpath, "device/mobile.json"))
-	if err != nil {
-		checkErr(err)
-	}
-	data, err := ioutil.ReadAll(f)
-	if err != nil {
-		checkErr(err)
-	}
-	err = json.Unmarshal(data, &this.Mobiles)
-	if err != nil {
-		checkErr(err)
-	}
+	// f, err := os.Open(fmt.Sprintf("%s/src/%s/%s", gopath, wdpath, "device/mobile.json"))
+	// if err != nil {
+	// 	checkErr(err)
+	// }
+	// data, err := ioutil.ReadAll(f)
+	// if err != nil {
+	// 	checkErr(err)
+	// }
+	// err = json.Unmarshal(data, &this.Mobiles)
+	// if err != nil {
+	// 	checkErr(err)
+	// }
+	this.Mobiles = []Device{Device{Producer: "'Tunisie Telecom'", Regex: "StarTrail TT Build", Model: "StarTrail", Models: []Model(nil)}, Device{Producer: "SFR", Regex: "StarShine|StarTrail|STARADDICT|StarText|StarNaute|StarXtrem|StarTab", Model: "", Models: []Model{Model{Regex: "StarXtrem Build", Model: "StarXtrem"}, Model{Regex: "StarTrail Build", Model: "StarTrail"}, Model{Regex: "StarTrail II Build", Model: "StarTrail 2"}, Model{Regex: "StarTrail III Build", Model: "StarTrail 3"}, Model{Regex: "StarTrail ?4 Build", Model: "StarTrail 4"}, Model{Regex: "StarShine Build", Model: "StarShine"}, Model{Regex: "StarShine II Build", Model: "StarShine 2"}, Model{Regex: "STARADDICT Build", Model: "Staraddict"}, Model{Regex: "STARADDICT II Build", Model: "Staraddict 2"}, Model{Regex: "STARADDICT II Plus Build", Model: "Staraddict 2 Plus"}, Model{Regex: "STARADDICT III Build", Model: "Staraddict 3"}, Model{Regex: "StarText Build", Model: "StarText"}, Model{Regex: "StarText II Build", Model: "StarText 2"}, Model{Regex: "StarNaute Build", Model: "StarNaute"}, Model{Regex: "StarNaute II Build", Model: "StarNaute 2"}, Model{Regex: "StarTab", Model: "StarTab"}, Model{Regex: "((?:StarShine|StarTrail|STARADDICT|StarText|StarNaute|StarXtrem)[^;/]*) Build", Model: "$1"}}}, Device{Producer: "HTC", Regex: "HTC|Sprint (?:APA|ATP)|ADR(?:910L)[a-z0-9]+|NexusHD2|Amaze[ _]4G Build|(Desire|Sensation|Evo ?3D)[ _]?([^;/]+) Build|(Amaze[ _]4G|One ?[XELSV\\+]+) Build|SPV E6[05]0", Model: "", Models: []Model{Model{Regex: "ADR6300", Model: "Droid Incredible"}, Model{Regex: "ADR6400L", Model: "ThunderBolt"}, Model{Regex: "ADR6410LRA", Model: "Droid Incredible 3"}, Model{Regex: "SPV E600", Model: "Excalibur"}, Model{Regex: "SPV E650", Model: "Vox"}, Model{Regex: "NexusHD2 # custom rom for hd2", Model: "HD2"}, Model{Regex: "HTC[ _\\-]((?:Flyer|P715a).*) Build", Model: "$1"}, Model{Regex: "HTC[ _\\-]One[ _\\-]max Build", Model: "One max"}, Model{Regex: "HTC[ _]([^/;]+) [0-9]+(?:\\.[0-9]+)+ Build", Model: "$1"}, Model{Regex: "HTC[ _]([^/;]+) Build", Model: "$1"}, Model{Regex: "HTC[ _]([a-z0-9]+[ _\\-]?(?:[a-z0-9_+\\-])*)", Model: "$1"}, Model{Regex: "USCCHTC(\\d+)", Model: "$1"}, Model{Regex: "Sprint (ATP.*) Build", Model: "$1 (Sprint)"}, Model{Regex: "Sprint (APA.*) Build", Model: "$1 (Sprint)"}, Model{Regex: "HTC(?:[\\-/ ])?([a-z0-9\\-_]+)", Model: "$1"}, Model{Regex: "HTC;(?: )?([a-z0-9 ]+)", Model: "$1"}, Model{Regex: "(Desire|Sensation|Evo ?3D)[ _]?([^;/]+) Build", Model: "$1 $2"}, Model{Regex: "(Amaze[ _]4G|One ?[XELSV\\+]*) Build", Model: "$1"}, Model{Regex: "(ADR.+) Build", Model: "$1"}, Model{Regex: "(ADR[a-z0-9]+)", Model: "$1"}}}, Device{Producer: "Nokia", Regex: "Nokia|Lumia|Maemo RX|portalmmm/2\\.0 N7|portalmmm/2\\.0 NK|nok[0-9]+|Symbian.*\\s([a-z0-9]+)$", Model: "", Models: []Model{Model{Regex: "Nokia(N[0-9]+)", Model: "$1"}, Model{Regex: "Nokia-([a-z0-9]+)", Model: "N$1"}, Model{Regex: "NOKIA; ([a-z0-9\\- ]+)", Model: "$1"}, Model{Regex: "NOKIA[ _]?([a-z0-9\\-]+)", Model: "$1"}, Model{Regex: "NOKIA/([a-z0-9 ]+)", Model: "$1"}, Model{Regex: "(Lumia [a-z0-9\\-]+ XL)", Model: "$1"}, Model{Regex: "(Lumia [a-z0-9\\-]+)", Model: "$1"}, Model{Regex: "Maemo RX-51 ([a-z0-9]+)", Model: "$1"}, Model{Regex: "Maemo RX-34", Model: "N800"}, Model{Regex: "NokiaInternal|Nokia-WAP-Toolkit|Nokia-MIT-Browser|Nokia Mobile|Nokia Browser|Nokia/Series", Model: ""}, Model{Regex: "portalmmm/2\\.0 (N7[37]|NK[a-z0-9]+)", Model: "$1"}, Model{Regex: "nok([0-9]+)", Model: "$1"}, Model{Regex: "Symbian.*\\s([a-z0-9]+)$", Model: "$1"}}}, Device{Producer: "CnM", Regex: "CnM", Model: "", Models: []Model{Model{Regex: "CnM[ \\-](?:Touchpad|TP)[ \\-]([0-9\\.]+)", Model: "Touchpad $1"}}}, Device{Producer: "RIM", Regex: "BB10;|BlackBerry|rim[0-9]+|PlayBook", Model: "", Models: []Model{Model{Regex: "BB10; ([a-z0-9\\- ]+)\\)", Model: "BlackBerry $1"}, Model{Regex: "PlayBook.+RIM Tablet OS", Model: "BlackBerry Playbook"}, Model{Regex: "BlackBerry(?: )?([a-z0-9]+)", Model: "BlackBerry $1"}, Model{Regex: "rim([0-9]+)", Model: "BlackBerry $1"}, Model{Regex: "BlackBerry", Model: "BlackBerry"}}}, Device{Producer: "Palm", Regex: "(?:Pre|Pixi)/(\\d+)\\.(\\d+)|Palm|Treo|Xiino", Model: "", Models: []Model{Model{Regex: "((?:Pre|Pixi))/(\\d+\\.\\d+)", Model: "$1 $2"}, Model{Regex: "Palm(?:[ \\-])?((?:OS|Source)[a-z0-9]+)", Model: "$1"}, Model{Regex: "Treo([a-z0-9]+)", Model: "Treo $1"}, Model{Regex: "Tungsten", Model: "Tungsten"}, Model{Regex: "Xiino # Browser for Palm OS only", Model: ""}}}, Device{Producer: "HP", Regex: "TouchPad/\\d+\\.\\d+|hp-tablet|HP ?iPAQ|webOS.*P160U|HP Slate|HP [78]", Model: "", Models: []Model{Model{Regex: "HP ([78][^/;]*) Build", Model: "Slate $1"}, Model{Regex: "HP Slate ?(.+) Build", Model: "Slate $1"}, Model{Regex: "HP Slate ?([0-9]+)", Model: "Slate $1"}, Model{Regex: "TouchPad/(\\d+\\.\\d+)|hp-tablet", Model: "TouchPad"}, Model{Regex: "HP(?: )?iPAQ(?: )?([a-z0-9]+)", Model: "iPAQ $1"}, Model{Regex: "webOS.*(P160U)", Model: "Veer"}}}, Device{Producer: "TiPhone", Regex: "TiPhone ?([a-z0-9]+)", Model: "$1", Models: []Model(nil)}, Device{Producer: "Apple", Regex: "AppleTV|(?:Apple-)?(?:iPad|iPhone)", Model: "", Models: []Model{Model{Regex: "(?:Apple-)?iPhone1[C,]1", Model: "iPhone"}, Model{Regex: "(?:Apple-)?iPhone1[C,]2", Model: "iPhone 3G"}, Model{Regex: "(?:Apple-)?iPhone2[C,]1", Model: "iPhone 3GS"}, Model{Regex: "(?:Apple-)?iPhone3[C,][123]", Model: "iPhone 4"}, Model{Regex: "(?:Apple-)?iPhone4[C,]1", Model: "iPhone 4S"}, Model{Regex: "(?:Apple-)?iPhone5[C,][12]", Model: "iPhone 5"}, Model{Regex: "(?:Apple-)?iPhone5[C,][34]", Model: "iPhone 5C"}, Model{Regex: "(?:Apple-)?iPhone6[C,][12]", Model: "iPhone 5S"}, Model{Regex: "(?:Apple-)?iPhone7[C,]1", Model: "iPhone 6 Plus"}, Model{Regex: "(?:Apple-)?iPhone7[C,]2", Model: "iPhone 6"}, Model{Regex: "(?:Apple-)?iPad1[C,]1", Model: "iPad"}, Model{Regex: "(?:Apple-)?iPad2[C,][1234]", Model: "iPad 2"}, Model{Regex: "(?:Apple-)?iPad2[C,][567]", Model: "iPad Mini"}, Model{Regex: "(?:Apple-)?iPad3[C,][123]", Model: "iPad 3"}, Model{Regex: "(?:Apple-)?iPad3[C,][456]", Model: "iPad 4"}, Model{Regex: "(?:Apple-)?iPad4[C,][123]", Model: "iPad Air"}, Model{Regex: "(?:Apple-)?iPad4[C,][456]", Model: "iPad Mini 2"}, Model{Regex: "(?:Apple-)?iPad4[C,][789]", Model: "iPad Mini 3"}, Model{Regex: "(?:Apple-)?iPad5[C,][34]", Model: "iPad Air 2"}, Model{Regex: "AppleTV", Model: "Apple TV"}, Model{Regex: "(?:Apple-)?iPad", Model: "iPad"}, Model{Regex: "(?:Apple-)?iPhone ?(3GS?|4S?|5[CS]?|6(:? Plus)?)?", Model: "iPhone $1"}}}, Device{Producer: "MicroMax", Regex: "MicroMax[ \\-\\_]?[a-z0-9]+", Model: "", Models: []Model{Model{Regex: "MicroMax(?:[ \\-\\_])?(P[a-z0-9]+)", Model: "$1"}, Model{Regex: "MicroMax(?:[ \\-\\_])?([a-z0-9]+)", Model: "$1"}}}, Device{Producer: "3Q", Regex: "(AC0731B|AC1024C|AC7803C|BC9710AM|EL72B|LC0720C|LC0723B|LC0725B|LC0804B|LC0808B|LC0809B|LC0810C|LC0816C|LC0901D|LC1016C|MT0724B|MT0729B|MT0729D|MT0811B|OC1020A|RC0709B|RC0710B|RC0718C|RC0719H|RC0721B|RC0722C|RC0726B|RC0734H|RC0743H|RC0817C|RC1018C|RC1019G|RC1025F|RC1301C|RC7802F|RC9711B|RC9712C|RC9716B|RC9717B|RC9724C|RC9726C|RC9727F|RC9730C|RC9731C|TS0807B|TS1013B|VM0711A|VM1017A|RC0813C|QS9719D|QS9718C|QS9715F|QS1023H|QS0815C|QS0730C|QS0728C|QS0717D|QS0716D|QS0715C|MT7801C)", Model: "$1", Models: []Model(nil)}, Device{Producer: "Acer", Regex: "acer|a(?:101|110|200|210|211|500|501|510|511|700|701) Build|Android.*V3[67]0 Build|Android.*Z1[23456]0 Build|Android.*Z500 Build|A1-830|A1-81[01]|A3-A[12][01]|B1-7[1235][01]|B1-810|B1-A71|E39 Build|S5[12]0 Build", Model: "", Models: []Model{Model{Regex: "A1-81[01]", Model: "Iconia A"}, Model{Regex: "A1-830", Model: "Iconia A1"}, Model{Regex: "A3-A[12][01]", Model: "Iconia A3"}, Model{Regex: "B1-7[1235][01]|B1-810|B1-A71", Model: "Iconia B1"}, Model{Regex: "E39 Build", Model: "Liquid E700"}, Model{Regex: "Android.*V360 Build", Model: "Liquid E1"}, Model{Regex: "Android.*V370 Build", Model: "Liquid E2"}, Model{Regex: "S510 Build", Model: "Liquid S1"}, Model{Regex: "S520 Build", Model: "Liquid S2"}, Model{Regex: "Android.*Z1([2345])0 Build", Model: "Liquid Z$1"}, Model{Regex: "Android.*Z160 Build", Model: "Liquid Z4"}, Model{Regex: "Android.*Z500 Build", Model: "Liquid Z500"}, Model{Regex: "Acer; ?([^;\\)]+)", Model: "$1"}, Model{Regex: "Acer[ _\\-]?([^;\\)]+) Build", Model: "$1"}, Model{Regex: "acer[\\-_]([a-z0-9]+)", Model: "$1"}, Model{Regex: "a(101|110|200|210|211|500|501|510|511|700|701) Build", Model: "Iconia Tab A$1"}}}, Device{Producer: "Airness", Regex: "AIRNESS-([\\w0-9]+)", Model: "$1", Models: []Model(nil)}, Device{Producer: "Alcatel", Regex: "Alcatel|Alc[a-z0-9]+|One ?Touch", Model: "", Models: []Model{Model{Regex: "(?:Alcatel[ _])?One[ _]?Touch[ _]((?:T[0-9]+|TAB[^/;]+|EVO[78](?:HD)?)) Build", Model: "One Touch $1"}, Model{Regex: "(?:Alcatel[ _])?One[ _]?Touch([^/;]*) Build", Model: "One Touch$1"}, Model{Regex: "Alcatel UP", Model: ""}, Model{Regex: "ALCATEL([^/;]+) Build", Model: "$1"}, Model{Regex: "ALCATEL[ \\-]?([^/;\\)]+)", Model: "$1"}, Model{Regex: "ALCATEL_([^/;\\)]+)", Model: "$1"}, Model{Regex: "Alc([a-z0-9]+)", Model: "$1"}}}, Device{Producer: "Amoi", Regex: "Amoi|A862W", Model: "", Models: []Model{Model{Regex: "A862W", Model: "A862W"}, Model{Regex: "Amoi[\\- /]([a-z0-9]+)", Model: "$1"}, Model{Regex: "Amoisonic-([a-z0-9]+)", Model: "$1"}}}, Device{Producer: "Archos", Regex: "Archos", Model: "", Models: []Model{Model{Regex: "Archos ?5 Build", Model: "5"}, Model{Regex: "Archos ([^/;]*(?:PAD)[^/;]*) Build", Model: "$1"}, Model{Regex: "Archos ((?:[789]|10)[0-9]?[a-z]* ?(?:G9|G10|Helium|Titanium|Cobalt|Platinum|Xenon|Carbon|Neon|XS|IT)[^/;]*) Build", Model: "$1"}, Model{Regex: "Archos ([a-z0-9 ]+) Build", Model: "$1"}, Model{Regex: "Archos ([a-z0-9]+)", Model: "$1"}}}, Device{Producer: "Axxion", Regex: "Axxion ATAB-[0-9]+ Build", Model: "", Models: []Model{Model{Regex: "Axxion ATAB-([0-9]+) Build", Model: "ATAB-$1"}}}, Device{Producer: "MEU", Regex: "MEU ([a-z0-9]+) Build", Model: "$1", Models: []Model(nil)}, Device{Producer: "Arnova", Regex: "arnova|ARCHM901|AN7CG2|AN7G2(DTE|I)?|AN7[BCDFH]?G3|A80KSC|AN8G2|AN8[BC]?G3|AN9G2I?|AN9G3|A101[BC]|AN10G2|AN10BG2(DT|I)?|AN10BG3(DT)?|AN10[CD]G3", Model: "", Models: []Model{Model{Regex: "ARCHM901", Model: "M901"}, Model{Regex: "AN7CG2", Model: "7c G2"}, Model{Regex: "AN7G2I|AN7G2|AN7G2DTE", Model: "7 G2"}, Model{Regex: "AN7G3", Model: "7 G3"}, Model{Regex: "AN7BG3", Model: "7b G3"}, Model{Regex: "AN7CG3", Model: "7c G3"}, Model{Regex: "AN7DG3-CP", Model: "Childpad"}, Model{Regex: "AN7DG3", Model: "7d G3"}, Model{Regex: "AN7FG3", Model: "7f G3"}, Model{Regex: "AN7HG3", Model: "7h G3"}, Model{Regex: "A80KSC", Model: "8"}, Model{Regex: "AN8G2", Model: "8 G2"}, Model{Regex: "AN8G3", Model: "8 G3"}, Model{Regex: "AN8BG3", Model: "8b G3"}, Model{Regex: "AN8CG3", Model: "8c G3"}, Model{Regex: "AN9G2I", Model: "9i G2"}, Model{Regex: "AN9G2", Model: "9 G2"}, Model{Regex: "AN9G3", Model: "9 G3"}, Model{Regex: "A101B2|A101C|AN10G2", Model: "10 G2"}, Model{Regex: "A101B", Model: "10"}, Model{Regex: "AN10BG2|AN10BG2DT|AN10BG2I", Model: "10b G2"}, Model{Regex: "AN10BG3|AN10BG3DT|AN10BG3-LZ", Model: "10b G3"}, Model{Regex: "AN10CG3", Model: "10c G3"}, Model{Regex: "AN10DG3", Model: "10d G3"}, Model{Regex: "ARNOVA 90G3", Model: "90 G3"}, Model{Regex: "ARNOVA 90 G4", Model: "90 G4"}, Model{Regex: "ARNOVA 97G4", Model: "97 G4"}, Model{Regex: "ARNOVA 101 G4", Model: "101 G4"}, Model{Regex: "Arnova ([^/;]*) Build", Model: "$1"}}}, Device{Producer: "Garmin-Asus", Regex: "Garmin-Asus", Model: "", Models: []Model{Model{Regex: "Garmin-Asus[ \\-_]([^;/]+)Build", Model: "$1"}, Model{Regex: "Garmin-Asus[ \\-_]([^;/]+)[\\)/]", Model: "$1"}}}, Device{Producer: "Asus", Regex: "Asus|Transformer|TF300T|Slider SL101|PadFone|ME302(?:C|KL)|ME301T|ME371MG|ME17(?:1|2V|3X)|K0[01][0-9a-z] Build", Model: "", Models: []Model{Model{Regex: "ME171 Build", Model: "Eee Pad MeMO 171"}, Model{Regex: "ME172V", Model: "MeMO Pad"}, Model{Regex: "ME302C Build", Model: "MeMO Pad FHD 10"}, Model{Regex: "ME302KL Build", Model: "MeMO Pad FHD 10 LTE"}, Model{Regex: "ME301T Build", Model: "MeMO Pad Smart 10"}, Model{Regex: "K01[3A] Build", Model: "MeMO Pad 7"}, Model{Regex: "K01E Build", Model: "MeMO Pad 10 ME103K"}, Model{Regex: "K00U|ME173X Build", Model: "MeMO Pad HD 7"}, Model{Regex: "(?:K011|K00L) Build", Model: "MeMO Pad 8"}, Model{Regex: "K014 Build", Model: "MeMO Pad 8.9"}, Model{Regex: "K00S Build", Model: "MeMO Pad HD 7 Dual SIM"}, Model{Regex: "K00F Build", Model: "MeMO Pad 10"}, Model{Regex: "K00C Build", Model: "Transformer Pad TF701T"}, Model{Regex: "K010 Build", Model: "Transformer Pad TF103C"}, Model{Regex: "K018 Build", Model: "Transformer Pad TF103CG"}, Model{Regex: "TF300T Build", Model: "Transformer Pad TF300T"}, Model{Regex: "Slider SL101", Model: "Eee Pad Slider SL101"}, Model{Regex: "ME371MG Build", Model: "Fonepad"}, Model{Regex: "K00G Build", Model: "Fonepad Note 6"}, Model{Regex: "(?:K012|K00E) Build", Model: "Fonepad 7"}, Model{Regex: "K00Z Build", Model: "Fonepad 7 Dual SIM"}, Model{Regex: "K016 Build", Model: "Fonepad 8"}, Model{Regex: "(?:ASUS_)?T00[IQ]", Model: "ZenFone 4"}, Model{Regex: "Asus(?:-|;)?([a-z0-9]+)", Model: "$1"}, Model{Regex: "(PadFone(?: [^;/]+)?) Build", Model: "$1"}, Model{Regex: "(PadFone(?: [a-z0-9]+)?)", Model: "$1"}, Model{Regex: "(?:Asus|Transformer) ((?:Pad |Prime )?TF[0-9a-z]+)", Model: "Transformer $1"}}}, Device{Producer: "Audiovox", Regex: "Audiovox|CDM|UTS(?:TARCOM)?\\-|audio[a-z0-9\\-]+", Model: "", Models: []Model{Model{Regex: "Audiovox[_\\-]([a-z0-9\\-]+)", Model: "$1"}, Model{Regex: "CDM(?:-)?([a-z0-9]+)", Model: "CDM-$1"}, Model{Regex: "UTS(?:TARCOM)?-([a-z0-9\\-]+)", Model: "CDM-$1"}, Model{Regex: "audio([a-z0-9\\-]+)", Model: "CDM-$1"}}}, Device{Producer: "Avvio", Regex: "Avvio[ _]([a-z0-9\\-]+)", Model: "", Models: []Model{Model{Regex: "Avvio[ _]PAD", Model: "PAD"}, Model{Regex: "Avvio[ _]([a-z0-9\\-]+)", Model: "$1"}}}, Device{Producer: "'Barnes & Noble'", Regex: "Nook|BN[TR]V[0-9]+", Model: "", Models: []Model{Model{Regex: "Nook([a-z0-9]+)", Model: "Nook $1"}, Model{Regex: "Nook[ _]([^/;]+)[ _]Build", Model: "Nook $1"}, Model{Regex: "(BN[TR]V[0-9]+)", Model: "Nook $1"}}}, Device{Producer: "Blu", Regex: "blu ([^/;]+) Build", Model: "$1", Models: []Model(nil)}, Device{Producer: "Vivo", Regex: "vivo", Model: "", Models: []Model{Model{Regex: "vivo ([^/;]+) Build", Model: "Vivo $1"}, Model{Regex: "vivo_([a-z0-9]+)", Model: "Vivo $1"}}}, Device{Producer: "Bird", Regex: "BIRD[\\-. _]([^;/]+)", Model: "", Models: []Model{Model{Regex: "BIRD[\\-. _]([^;/]+) Build", Model: "$1"}, Model{Regex: "BIRD[\\-. _]([^;/]+)_TD", Model: "$1"}, Model{Regex: "BIRD[\\-. _]([^;/]+)", Model: "$1"}}}, Device{Producer: "Becker", Regex: "Becker-([a-z0-9]+)", Model: "$1", Models: []Model(nil)}, Device{Producer: "Beetel", Regex: "Beetel ([a-z0-9]+)", Model: "$1", Models: []Model(nil)}, Device{Producer: "BenQ-Siemens", Regex: "BENQ-SIEMENS - ([a-z0-9]+)", Model: "$1", Models: []Model(nil)}, Device{Producer: "BenQ", Regex: "BENQ(?:[ \\-])?([a-z0-9]+)", Model: "$1", Models: []Model(nil)}, Device{Producer: "Bmobile", Regex: "Bmobile_([a-z0-9]+)", Model: "$1", Models: []Model(nil)}, Device{Producer: "bq", Regex: "Aquaris|bq [^/;]+ Build", Model: "", Models: []Model{Model{Regex: "(?:bq )?(Aquaris[^/;]*) Build", Model: "$1"}, Model{Regex: "bq ([^/;]+) Build", Model: "$1"}}}, Device{Producer: "Capitel", Regex: "Capitel-([a-z0-9]+)", Model: "$1", Models: []Model(nil)}, Device{Producer: "Casio", Regex: "(C811|C7[57]1)(?: 4G)? Build", Model: "", Models: []Model{Model{Regex: "C751 Build", Model: "\"GzOne Ravine\""}, Model{Regex: "C771 Build", Model: "\"GzOne Commando\""}, Model{Regex: "C811 4G Build", Model: "\"GzOne Commando 4G LTE\""}}}, Device{Producer: "Cat", Regex: "Cat ?(tablet|stargate|nova)", Model: "", Models: []Model{Model{Regex: "Cat ?(?:tablet)? ?((?:Galactica|Nova|StarGate|PHOENIX)[^/;]*) Build", Model: "$1"}, Model{Regex: "Cat ?tablet", Model: "Nova"}}}, Device{Producer: "Celkon", Regex: "Celkon", Model: "", Models: []Model{Model{Regex: "Celkon[ _*](C[78]20)", Model: "$1"}, Model{Regex: "Celkon[ _*](CT[^;/]+) Build", Model: "$1"}, Model{Regex: "Celkon[ _*]([^;/]+) Build", Model: "$1"}, Model{Regex: "Celkon[\\. _*]([^;/\\)]+)[\\)/]", Model: "$1"}}}, Device{Producer: "'Cherry Mobile'", Regex: "Cherry|Flare2X|Fusion Bolt", Model: "", Models: []Model{Model{Regex: "Cherry(?: ?Mobile)?[ _]?([^/;]+) Build", Model: "$1"}, Model{Regex: "(Flare2X)", Model: "$1"}, Model{Regex: "(Fusion Bolt)", Model: "$1"}}}, Device{Producer: "Compal", Regex: "Compal-[a-z0-9]+", Model: "$1", Models: []Model(nil)}, Device{Producer: "ConCorde", Regex: "ConCorde ([^/;]+) Build", Model: "", Models: []Model{Model{Regex: "ConCorde Tab ?([^/;]+) Build", Model: "Tab $1"}, Model{Regex: "ConCorde ReadMan ?([^/;]+) Build", Model: "ReadMan $1"}, Model{Regex: "ConCorde ([^/;]+) Build", Model: "$1"}}}, Device{Producer: "Coolpad", Regex: "(?:YL-)?Coolpad", Model: "", Models: []Model{Model{Regex: "(?:YL-)?Coolpad[ _\\-]?([^/;]+) Build", Model: "$1"}, Model{Regex: "(?:YL-)?Coolpad[ _\\-]?([a-z0-9\\-]+)", Model: "$1"}}}, Device{Producer: "Cricket", Regex: "Cricket-([a-z0-9]+)", Model: "$1", Models: []Model(nil)}, Device{Producer: "'Crius Mea'", Regex: "(Q7A\\+?) Build", Model: "$1", Models: []Model(nil)}, Device{Producer: "Cube", Regex: "Cube|(U[0-9]+GT(?:[0-9]|[\\-_][a-z]+)|K8GT)", Model: "", Models: []Model{Model{Regex: "(U[0-9]+GT(?:[0-9]|[\\-_][a-z]+))", Model: "$1"}, Model{Regex: "(K8GT)", Model: "$1"}}}, Device{Producer: "Danew", Regex: "Dslide ?([^;/]+) Build", Model: "DSlide $1", Models: []Model(nil)}, Device{Producer: "Denver", Regex: "(TA[CDQ]-[0-9]+)", Model: "$1", Models: []Model(nil)}, Device{Producer: "Dell", Regex: "Dell|Venue", Model: "", Models: []Model{Model{Regex: "(?:Dell )?(Streak|Venue) ?([^/;]*) Build", Model: "$1 $2"}, Model{Regex: "Dell; ((?:Streak|Venue)[^;/\\)]*)", Model: "$1"}, Model{Regex: "Dell; ([^;/\\)]+)", Model: "$1"}, Model{Regex: "Dell[ _\\-]([^/;]+) Build", Model: "$1"}}}, Device{Producer: "Dbtel", Regex: "DBTEL(?:[\\-/])?([a-z0-9]+)", Model: "$1", Models: []Model(nil)}, Device{Producer: "Dicam", Regex: "DICAM-([a-z0-9]+)", Model: "$1", Models: []Model(nil)}, Device{Producer: "DoCoMo", Regex: "DoCoMo|\\;FOMA|KGT/1\\.0", Model: "", Models: []Model{Model{Regex: "DoCoMo/[12]\\.0[/ ]([a-z0-9]+)", Model: "$1"}, Model{Regex: "([a-z0-9]+)(?:_W)?\\;FOMA", Model: "$1"}, Model{Regex: "KGT/1\\.0 ([a-z0-9]+)", Model: "$1"}}}, Device{Producer: "Doogee", Regex: "((?:BIGBOY|COLLO[23]?|DAGGER|DISCOVERY|FIND|HOTWIND|LATTE|MAX|MINT|MOON|PIXELS|RAINBOX|TURBO|VALENCIA|VOYAGER) DG[0-9]+) Build", Model: "$1", Models: []Model(nil)}, Device{Producer: "Dopod", Regex: "Dopod(?: )?([a-z0-9]+)", Model: "$1", Models: []Model(nil)}, Device{Producer: "E-Boda", Regex: "E-Boda", Model: "", Models: []Model{Model{Regex: "E-Boda ((?:Revo|Izzycomm|Essential|Intelligence|Supreme)[^/;]+) Build", Model: "$1"}, Model{Regex: "E-Boda ([^/;]+) Build", Model: "$1"}}}, Device{Producer: "Easypix", Regex: "EasyPad|EasyPhone", Model: "", Models: []Model{Model{Regex: "(EasyPhone[^/;]+) Build", Model: "$1"}, Model{Regex: "(EasyPad[^/;]+) Build", Model: "$1"}}}, Device{Producer: "ECS", Regex: "(?:TA10CA3|TM105A?|TR10CS1) Build", Model: "", Models: []Model{Model{Regex: "TA10CA3 Build", Model: "TA10CA3"}, Model{Regex: "TR10CS1 Build", Model: "TR10CS1"}, Model{Regex: "TM105A Build", Model: "TM105A"}, Model{Regex: "TM105 Build", Model: "TM105"}}}, Device{Producer: "Elephone", Regex: "Elephone[ _\\-]([^/;]+) Build", Model: "$1", Models: []Model(nil)}, Device{Producer: "Ericy", Regex: "Ericy-([a-z0-9]+)", Model: "$1", Models: []Model(nil)}, Device{Producer: "Rikomagic", Regex: "MK(80[28][^/;]*) Build", Model: "MK$1", Models: []Model(nil)}, Device{Producer: "Sony", Regex: "Sony(?: ?Ericsson)?|SGP|Xperia|C1[569]0[45]|C2[01]0[45]|C2305|C530[236]|C5502|C6[56]0[236]|C6616|C68(?:0[26]|[34]3)|C69(?:0[236]|16|43)|D200[45]|D21(?:0[45]|14)|D22(?:0[236]|12|43)|D230[2356]|D240[36]|D25(?:02|33)|D510[236]|D530[36]|D5322|D5503|D58[03]3|D65(?:0[23]|43)|D66[05]3|(?:WT|LT|SO|ST|SK|MK)[0-9]+[a-z]*[0-9]*(?: Build|\\))|X?L39H|portalmmm/2\\.0 K|X10[ia]v?|E1[05][ai]v?|MT[0-9]{2}[a-z]? Build|SO-0(?:[345]D|[234]E|[12]C|[1235]F|[12]G)|R800[aix]", Model: "", Models: []Model{Model{Regex: "(?:Sony(?:Ericsson)?)?E10[ai]v?", Model: "Xperia X10 mini"}, Model{Regex: "(?:Sony(?:Ericsson)?)?U20", Model: "Xperia X10 mini pro"}, Model{Regex: "(?:Sony(?:Ericsson)?)?E15[ai]v?", Model: "Xperia X8"}, Model{Regex: "(?:Sony(?:Ericsson)?)?(LT15[ai]?v?|SO-01C)", Model: "Xperia arc"}, Model{Regex: "(?:Sony(?:Ericsson)?)?LT18[ai]v?", Model: "Xperia arc S"}, Model{Regex: "(?:Sony(?:Ericsson)?)?MT11", Model: "Xperia neo V"}, Model{Regex: "(?:Sony(?:Ericsson)?)?MT15", Model: "Xperia neo"}, Model{Regex: "(?:Sony(?:Ericsson)?)?MT27", Model: "Xperia Sola"}, Model{Regex: "(?:Sony(?:Ericsson)?)?MK16[ai]", Model: "Xperia pro"}, Model{Regex: "(?:Sony(?:Ericsson)?)?ST15[ai]", Model: "Xperia mini"}, Model{Regex: "(?:Sony(?:Ericsson)?)?ST17[ai]", Model: "Xperia active"}, Model{Regex: "(?:Sony(?:Ericsson)?)?ST18[ai]", Model: "Xperia ray"}, Model{Regex: "(?:Sony(?:Ericsson)?)?SK17[ai]?", Model: "Xperia mini pro"}, Model{Regex: "(?:Sony(?:Ericsson)?)?X10[ai]v?", Model: "Xperia X10"}, Model{Regex: "(?:Sony(?:Ericsson)?)?M1", Model: "Aspen"}, Model{Regex: "(?:Sony(?:Ericsson)?)?R800", Model: "Xperia PLAY"}, Model{Regex: "(?:Sony(?:Ericsson)?)?WT19", Model: "Live with Walkman"}, Model{Regex: "(?:Sony(?:Ericsson)?)?CK13i", Model: "txt"}, Model{Regex: "(?:Sony(?:Ericsson)?)?CK15[ai]", Model: "txt pro"}, Model{Regex: "(?:Sony(?:Ericsson)?)?F100i", Model: "Jalou"}, Model{Regex: "(?:Sony(?:Ericsson)?)?J105", Model: "Naite"}, Model{Regex: "(?:Sony(?:Ericsson)?)?J108", Model: "Cedar"}, Model{Regex: "(?:Sony(?:Ericsson)?)?J10", Model: "Elm"}, Model{Regex: "(?:Sony(?:Ericsson)?)?J20", Model: "Hazel"}, Model{Regex: "(?:Sony(?:Ericsson)?)?U10", Model: "Aino"}, Model{Regex: "(?:Sony(?:Ericsson)?)?U100", Model: "Yari"}, Model{Regex: "(?:Sony(?:Ericsson)?)?U1", Model: "Satio"}, Model{Regex: "(?:Sony(?:Ericsson)?)?U5", Model: "Vivaz"}, Model{Regex: "(?:Sony(?:Ericsson)?)?U8", Model: "Vivaz pro"}, Model{Regex: "(?:Sony(?:Ericsson)?)?W20", Model: "Zylo"}, Model{Regex: "(?:Sony(?:Ericsson)?)?W100", Model: "Spiro"}, Model{Regex: "(?:Sony(?:Ericsson)?)?W150", Model: "Yendo"}, Model{Regex: "(?:Sony(?:Ericsson)?)?WT13", Model: "Mix Walkman"}, Model{Regex: "(?:Sony(?:Ericsson)?)?LT22i", Model: "Xperia P"}, Model{Regex: "(?:Sony(?:Ericsson)?)?LT25i", Model: "Xperia V"}, Model{Regex: "(?:Sony(?:Ericsson)?)?LT26ii", Model: "Xperia SL"}, Model{Regex: "(?:Sony(?:Ericsson)?)?LT26i", Model: "Xperia S"}, Model{Regex: "(?:Sony(?:Ericsson)?)?SO-02C", Model: "Xperia arco"}, Model{Regex: "(?:Sony(?:Ericsson)?)?SO-03D", Model: "Xperia arco HD"}, Model{Regex: "(?:Sony(?:Ericsson)?)?LT26w", Model: "Xperia arco S"}, Model{Regex: "(?:Sony(?:Ericsson)?)?LT28[aih]", Model: "Xperia ion"}, Model{Regex: "(?:Sony(?:Ericsson)?)?LT29i", Model: "Xperia TX"}, Model{Regex: "(?:Sony(?:Ericsson)?)?LT30a", Model: "Xperia T LTE"}, Model{Regex: "(?:Sony(?:Ericsson)?)?LT30p", Model: "Xperia T"}, Model{Regex: "(?:Sony(?:Ericsson)?)?ST21[ia]2", Model: "Xperia tipo dual"}, Model{Regex: "(?:Sony(?:Ericsson)?)?ST21[ia]", Model: "Xperia tipo"}, Model{Regex: "(?:Sony(?:Ericsson)?)?ST23[ia]", Model: "Xperia miro"}, Model{Regex: "(?:Sony(?:Ericsson)?)?ST25[ia]", Model: "Xperia U"}, Model{Regex: "(?:Sony(?:Ericsson)?)?ST26[ia]", Model: "Xperia J"}, Model{Regex: "(?:Sony(?:Ericsson)?)?ST27[ia]", Model: "Xperia go"}, Model{Regex: "(?:Sony(?:Ericsson)?)?C150[45]", Model: "Xperia E"}, Model{Regex: "(?:Sony(?:Ericsson)?)?C160[45]", Model: "Xperia E Dual"}, Model{Regex: "(?:Sony(?:Ericsson)?)?C190[45]", Model: "Xperia M"}, Model{Regex: "(?:Sony(?:Ericsson)?)?C200[45]", Model: "Xperia M Dual"}, Model{Regex: "(?:Sony(?:Ericsson)?)?C210[45]", Model: "Xperia L"}, Model{Regex: "(?:Sony(?:Ericsson)?)?C2305", Model: "Xperia C"}, Model{Regex: "(?:Sony(?:Ericsson)?)?C530[236]", Model: "Xperia SP"}, Model{Regex: "(?:Sony(?:Ericsson)?)?C5502", Model: "Xperia ZR"}, Model{Regex: "(?:Sony(?:Ericsson)?)?C650[236]", Model: "Xperia ZL"}, Model{Regex: "(?:Sony(?:Ericsson)?)?(?:C66(?:0[236]|16)|SO-02E)", Model: "Xperia Z"}, Model{Regex: "(?:Sony(?:Ericsson)?)?(?:C68(?:0[26]|[34]3)|XL39H)", Model: "Xperia Z Ultra"}, Model{Regex: "(?:Sony(?:Ericsson)?)?(?:C69(?:0[236]|16|43)|L39H|SO-0[12]F)", Model: "Xperia Z1"}, Model{Regex: "(?:Sony(?:Ericsson)?)?D200[45]", Model: "Xperia E1"}, Model{Regex: "(?:Sony(?:Ericsson)?)?D21(?:0[45]|14)", Model: "Xperia E1 Dual"}, Model{Regex: "(?:Sony(?:Ericsson)?)?D22(?:0[236]|43)", Model: "Xperia E3"}, Model{Regex: "(?:Sony(?:Ericsson)?)?D2212", Model: "Xperia E3 Dual"}, Model{Regex: "(?:Sony(?:Ericsson)?)?D2302", Model: "Xperia M2 Dual"}, Model{Regex: "(?:Sony(?:Ericsson)?)?D230[356]", Model: "Xperia M2"}, Model{Regex: "(?:Sony(?:Ericsson)?)?D240[36]", Model: "Xperia M2 Aqua"}, Model{Regex: "(?:Sony(?:Ericsson)?)?D2502", Model: "Xperia C3 Dual"}, Model{Regex: "(?:Sony(?:Ericsson)?)?D2533", Model: "Xperia C3"}, Model{Regex: "(?:Sony(?:Ericsson)?)?D510[236]", Model: "Xperia T3"}, Model{Regex: "(?:Sony(?:Ericsson)?)?D530[36]", Model: "Xperia T2 Ultra"}, Model{Regex: "(?:Sony(?:Ericsson)?)?D5322", Model: "Xperia T2 Ultra Dual"}, Model{Regex: "(?:Sony(?:Ericsson)?)?D5503", Model: "Xperia Z1 Compact"}, Model{Regex: "(?:Sony(?:Ericsson)?)?(?:D58[03]3|SO-02G)", Model: "Xperia Z3 Compact"}, Model{Regex: "(?:Sony(?:Ericsson)?)?(?:D65(?:0[23]|43)|SO-03F)", Model: "Xperia Z2"}, Model{Regex: "(?:Sony(?:Ericsson)?)?(?:D66[05]3|SO-01G)", Model: "Xperia Z3"}, Model{Regex: "(?:Sony(?:Ericsson)?)?SO-04E", Model: "Xperia A"}, Model{Regex: "(?:Sony(?:Ericsson)?)?SO-04D", Model: "Xperia GX"}, Model{Regex: "(?:Sony(?:Ericsson)?)?SO-05D", Model: "Xperia SX"}, Model{Regex: "SGP(?:311|312|321) Build|SO-03E", Model: "Xperia Tablet Z"}, Model{Regex: "SGP(?:511|512|521) Build|SO-05F", Model: "Xperia Tablet Z2"}, Model{Regex: "SGP(?:6[24]1) Build", Model: "Xperia Tablet Z3 Compact"}, Model{Regex: "SGPT(?:12|121|122|123|13|131|132|133) Build", Model: "Xperia Tablet S"}, Model{Regex: "((?:WT|SO|ST|SK|MK)[0-9]+[a-z]*[0-9]*)(?: Build|\\))", Model: "$1"}, Model{Regex: "(MT[0-9]{2}[a-z]?) Build", Model: "$1"}, Model{Regex: "portalmmm/2.0 K([a-z0-9]+)", Model: "K$1"}, Model{Regex: "Sony ?Ericsson?([^/;]*) Build", Model: "$1"}, Model{Regex: "SonyEricsson([CGJKPTWZ][0-9]+[a-z]+)/", Model: "$1"}, Model{Regex: "Sony ?Ericsson ?([a-z0-9\\-]+)", Model: "$1"}, Model{Regex: "Sony (Tablet[^/;]*) Build", Model: "$1"}, Model{Regex: "(SGP[^/;]*) Build", Model: "$1"}, Model{Regex: "Xperia ([^/;]*Tablet[^/;]*) Build", Model: "Xperia $1"}, Model{Regex: "Xperia ([^;/]+) Build", Model: "Xperia $1"}, Model{Regex: "Sony[ ]?([^/;]*) Build", Model: "$1"}, Model{Regex: "Sony[ ]?([a-z0-9\\-]+)", Model: "$1"}}}, Device{Producer: "Ericsson", Regex: "(?:Ericsson(?:/ )?[a-z0-9]+)|(?:R380 2.0 WAP1.1)", Model: "", Models: []Model{Model{Regex: "Ericsson(?:/ )?([a-z0-9]+)", Model: "$1"}, Model{Regex: "R380 2.0 WAP1.1", Model: "R380"}}}, Device{Producer: "eTouch", Regex: "eTouch ?([a-z0-9]+)", Model: "$1", Models: []Model(nil)}, Device{Producer: "Storex", Regex: "\"eZee[^a-z]*Tab ?([^;/]*) Build|STOREX LinkBox\"", Model: "", Models: []Model{Model{Regex: "\"eZee[^a-z]*Tab ?([^;/]*) Build\"", Model: "\"eZeeTab$1\""}, Model{Regex: "STOREX LinkBox", Model: "LinkBox"}}}, Device{Producer: "Evertek", Regex: "(Ever(?:Glory|Shine|Miracle|Mellow|Classic|Trendy|Fancy)[^/;]*) Build", Model: "$1", Models: []Model(nil)}, Device{Producer: "Ezze", Regex: "EZZE-|EZ[a-z0-9]+", Model: "", Models: []Model{Model{Regex: "EZZE-([a-z0-9]+)", Model: "$1"}, Model{Regex: "EZ([a-z0-9]+)", Model: "EZ$1"}}}, Device{Producer: "Ezio", Regex: "EZIO-([a-z0-9]+)", Model: "$1", Models: []Model(nil)}, Device{Producer: "Fujitsu", Regex: "F-01F|F-02[EF]|F-05[DE]|F-06E|F-08D|F-09E", Model: "", Models: []Model{Model{Regex: "F-01F", Model: "Arrows NX F-01F"}, Model{Regex: "F-02E", Model: "Arrows X F-02E"}, Model{Regex: "F-05D", Model: "Arrows X LTE F-05D"}, Model{Regex: "F-06E", Model: "Arrows NX F-06E"}, Model{Regex: "F-08D", Model: "F-08D Disney Mobile"}, Model{Regex: "F-09E", Model: "Raku-Raku Smartphone Premium F-09E"}, Model{Regex: "F-12C", Model: "F-12C"}, Model{Regex: "F-02F", Model: "Arrows Tab F-02F"}, Model{Regex: "F-05E", Model: "Arrows Tab F-05E"}}}, Device{Producer: "Gemini", Regex: "(GEM[0-9]+[a-z]*)", Model: "$1", Models: []Model(nil)}, Device{Producer: "Gigabyte", Regex: "GSmart [a-z0-9 ]+ Build|Gigabyte-[a-z0-9]+", Model: "", Models: []Model{Model{Regex: "(GSmart [a-z0-9 ]+) Build", Model: "$1"}, Model{Regex: "Gigabyte-([a-z0-9]+)", Model: "$1"}}}, Device{Producer: "Gigaset", Regex: "Gigaset QV(1030|830)", Model: "Gigaset QV$1", Models: []Model(nil)}, Device{Producer: "Gionee", Regex: "GIONEE-[a-z0-9]+", Model: "", Models: []Model{Model{Regex: "GIONEE-([a-z0-9]+).*Android", Model: "$1"}, Model{Regex: "Android.*GIONEE-([a-z0-9]+)", Model: "$1"}, Model{Regex: "GIONEE-([a-z0-9]+)", Model: "$1"}}}, Device{Producer: "Google", Regex: "Nexus|GoogleTV|Glass", Model: "", Models: []Model{Model{Regex: "Glass", Model: "Glass"}, Model{Regex: "Galaxy Nexus", Model: "Galaxy Nexus"}, Model{Regex: "(Nexus (?:S|4|5|One))", Model: "$1"}, Model{Regex: "(Nexus (?:6))", Model: "$1"}, Model{Regex: "(Nexus (?:7|9|10))", Model: "$1"}, Model{Regex: "GoogleTV", Model: "GoogleTV"}}}, Device{Producer: "Gradiente", Regex: "GRADIENTE", Model: "", Models: []Model{Model{Regex: "GRADIENTE-([a-z0-9]+)", Model: "$1"}, Model{Regex: "GRADIENTE ([a-z0-9\\-]+)", Model: "$1"}}}, Device{Producer: "Grundig", Regex: "GR?-TB[0-9]+[a-z]*|GRUNDIG|portalmmm/2\\.0 G", Model: "", Models: []Model{Model{Regex: "(GR?-TB[0-9]+[a-z]*)", Model: "$1"}, Model{Regex: "GRUNDIG ([a-z0-9]+)", Model: "$1"}, Model{Regex: "portalmmm/2\\.0 G([a-z0-9]+)", Model: "G$1"}}}, Device{Producer: "Haier", Regex: "Haier", Model: "", Models: []Model{Model{Regex: "Haier[ _\\-](H[WT]-[^/;]+) Build", Model: "$1"}, Model{Regex: "Haier[ _\\-](H[WT]-[a-z0-9_\\-]+)", Model: "$1"}, Model{Regex: "Haier[ _\\-](sy[0-9]+)", Model: "$1"}, Model{Regex: "Haier[ _\\-]([a-z0-9\\-]+)", Model: "$1"}}}, Device{Producer: "Hisense", Regex: "(?:HS-)?Hisense ([^;/]+) Build|HS-(?:U|EG?)[0-9]+[a-z0-9\\-]*|E270BSA|M470BS[AE]|E2281", Model: "", Models: []Model{Model{Regex: "E270BSA", Model: "Sero 7"}, Model{Regex: "M470BS[AE]", Model: "Sero 7 Pro"}, Model{Regex: "E2281", Model: "Sero 8"}, Model{Regex: "(HS-(?:U|EG?)[0-9]+[a-z0-9\\-]*)", Model: "$1"}, Model{Regex: "(?:HS-)?Hisense ([^;/]+) Build", Model: "$1"}}}, Device{Producer: "Hi-Level", Regex: "HLV-T([a-z0-9]+)", Model: "HLV-T$1", Models: []Model(nil)}, Device{Producer: "Huawei", Regex: "(HW-)?Huawei|Ideos|vodafone[a-z0-9]+", Model: "", Models: []Model{Model{Regex: "(MediaPad[^/;]*) Build", Model: "$1"}, Model{Regex: "Ideos([^;/]*) Build", Model: "Ideos$1"}, Model{Regex: "HUAWEI MT([0-9]+)", Model: "Ascend Mate $1"}, Model{Regex: "Huawei[ _\\-]?([^/;]*) Build", Model: "$1"}, Model{Regex: "(?:HW-)?Huawei(?:/1\\.0/0?(?:Huawei))?[_\\- /]?([a-z0-9\\-_]+)", Model: "$1"}, Model{Regex: "Huawei; ([a-z0-9 \\-]+)", Model: "$1"}, Model{Regex: "vodafone([a-z0-9]+)", Model: "Vodafone $1"}}}, Device{Producer: "Hyundai", Regex: "Hyundai", Model: "", Models: []Model{Model{Regex: "Hyundai ([^;/]+) Build", Model: "$1"}}}, Device{Producer: "iBall", Regex: "iBall[ _]([^/;]*)[ _]Build", Model: "$1", Models: []Model(nil)}, Device{Producer: "iBerry", Regex: "AUXUS ([^/;]+) Build", Model: "", Models: []Model{Model{Regex: "AUXUS (Core[^/;]+) Build", Model: "$1"}, Model{Regex: "AUXUS ([^/;]+) Build", Model: "$1"}}}, Device{Producer: "Infinix", Regex: "Infinix", Model: "", Models: []Model{Model{Regex: "Infinix (X[78]00)", Model: "$1"}, Model{Regex: "Infinix (X\\d+)", Model: "$1"}, Model{Regex: "Infinix[ _]([a-z0-9_\\-]+)", Model: "$1"}}}, Device{Producer: "Inkti", Regex: "intki[ _]([^/;]*)[ _]Build", Model: "$1", Models: []Model(nil)}, Device{Producer: "Innostream", Regex: "INNO([a-z0-9]+)", Model: "INNO$1", Models: []Model(nil)}, Device{Producer: "INQ", Regex: "INQ[/ ]", Model: "", Models: []Model{Model{Regex: "INQ/([a-z0-9\\-]+)", Model: "$1"}, Model{Regex: "INQ ([^;/]+) Build", Model: "$1"}}}, Device{Producer: "Intex", Regex: "Intex|(Aqua|Cloud)[ _\\.]([^/;\\)]+)(?:[ _]Build|(?:Build)/|\\))", Model: "", Models: []Model{Model{Regex: "Intex[ _]([^/;]*)[ _]Build", Model: "$1"}, Model{Regex: "(Aqua|Cloud)[ _\\.]([^/;\\)]+)(?:[ _]Build|(?:Build)/|\\))", Model: "$1 $2"}, Model{Regex: "Intex[ _]([a-z0-9_+\\-]+)", Model: "$1"}}}, Device{Producer: "i-mate", Regex: "i-mate ([a-z0-9]+)", Model: "$1", Models: []Model(nil)}, Device{Producer: "i-mobile", Regex: "i-mobile ?[a-z0-9]+", Model: "", Models: []Model{Model{Regex: "i-mobile (i-note[^/;]*) Build", Model: "$1"}, Model{Regex: "i-mobile ((?:IQ|i-style)[^/;]*) Build", Model: "$1"}, Model{Regex: "i-mobile(?: )?([a-z0-9\\- ]+) Build", Model: "$1"}, Model{Regex: "i-mobile(?: )?([a-z0-9]+)", Model: "$1"}}}, Device{Producer: "iKoMo", Regex: "iKoMo ([a-z0-9]+)", Model: "$1", Models: []Model(nil)}, Device{Producer: "iTel", Regex: "itel|iNote", Model: "", Models: []Model{Model{Regex: "iNote ([^/;]*)Build", Model: "iNote $1"}, Model{Regex: "iNote_([a-z0-9\\-_]+)", Model: "iNote $1"}, Model{Regex: "iTel ([^/;]*)Build", Model: "$1"}, Model{Regex: "iTel_([a-z0-9\\-_]*)", Model: "$1"}}}, Device{Producer: "Jiayu", Regex: "(JY-[a-z0-9]+) Build", Model: "$1", Models: []Model(nil)}, Device{Producer: "Jolla", Regex: "Jolla", Model: "", Models: []Model(nil)}, Device{Producer: "Kazam", Regex: "Kazam ([^;/]+) Build|Trooper_X[0-9][0-9] Build", Model: "", Models: []Model{Model{Regex: "Trooper_X([0-9])([0-9]) Build", Model: "Trooper X$1.$2"}, Model{Regex: "Kazam ([^;/]+) Build", Model: "$1"}}}, Device{Producer: "KT-Tech", Regex: "(KM-[a-z0-9]+|EV-[a-z0-9]+) Build", Model: "$1", Models: []Model(nil)}, Device{Producer: "KDDI", Regex: "kddi-([a-z0-9]+)", Model: "$1", Models: []Model(nil)}, Device{Producer: "K-Touch", Regex: "K-Touch[ _][a-z0-9]+", Model: "", Models: []Model{Model{Regex: "K-Touch[ _]([^/;]*)[ _]Build", Model: "$1"}, Model{Regex: "K-Touch[ _]([a-z0-9]+)", Model: "$1"}}}, Device{Producer: "Kyocera", Regex: "Kyocera|KWC-|QC-|C5170|C5155|C5215|C6750|C6522N?|S2151", Model: "", Models: []Model{Model{Regex: "C5155", Model: "Rise"}, Model{Regex: "C5170", Model: "Hydro"}, Model{Regex: "C5215", Model: "Hydro EDGE"}, Model{Regex: "C6522N?", Model: "Hydro XTRM"}, Model{Regex: "C6750", Model: "Hydro ELITE"}, Model{Regex: "S2151", Model: "Coast"}, Model{Regex: "Kyocera-KZ-([a-z0-9]+)", Model: "KZ $1"}, Model{Regex: "Kyocera(?:[\\-/])?([a-z0-9]+)", Model: "$1"}, Model{Regex: "(?:KWC|QC)-([a-z0-9]+)", Model: "$1"}}}, Device{Producer: "Lava", Regex: "iris[ _]?([^/;]+)(?:\\)| Build)", Model: "", Models: []Model{Model{Regex: "iris[ _]?([^/;]+)(?:\\)| Build)", Model: "Iris $1"}}}, Device{Producer: "Lanix", Regex: "LANIX-([a-z0-9]+)", Model: "$1", Models: []Model(nil)}, Device{Producer: "LCT", Regex: "LCT_([a-z0-9]+)", Model: "$1", Models: []Model(nil)}, Device{Producer: "'Le Pan'", Regex: "Le ?Pan|TC970 ([^;/]+)Build", Model: "", Models: []Model{Model{Regex: "TC802A", Model: "Le Pan Mini"}, Model{Regex: "TC970 ([^;/]+)Build", Model: "TC970 $1"}, Model{Regex: "Le ?Pan ?(II|S) Build", Model: "Le Pan $1"}, Model{Regex: "Le ?Pan ?([^;/]+) Build", Model: "$1"}}}, Device{Producer: "Lenco", Regex: "Lenco ([^/;]*) Build", Model: "$1", Models: []Model(nil)}, Device{Producer: "Lenovo", Regex: "(?:LNV-)?Lenovo|IdeaTab|IdeaPad|Thinkpad|Yoga Tablet", Model: "", Models: []Model{Model{Regex: "Lenovo (B[0-9]+[^/;]*) Build", Model: "IdeaTab $1"}, Model{Regex: "ThinkPadTablet_(A[0-9]{3})_", Model: "ThinkPad Tablet $1"}, Model{Regex: "ThinkPad ?Tablet([^;/]*) Build", Model: "ThinkPad Tablet$1"}, Model{Regex: "IdeaPad ?([^;/]*) Build", Model: "IdeaPad $1"}, Model{Regex: "Lenovo ([^/;]*) Build", Model: "$1"}, Model{Regex: "(?:LNV-|Lenovo-)?Lenovo[ \\-_]([a-z0-9_+\\-]+)", Model: "$1"}, Model{Regex: "IdeaTab[ \\-_]?([a-z0-9]+)", Model: "IdeaTab $1"}, Model{Regex: "Yoga Tablet([^;/]+) Build", Model: "Yoga Tablet$1"}}}, Device{Producer: "Lexibook", Regex: "(MFC[0-9]{3}[a-z]{2,})", Model: "", Models: []Model{Model{Regex: "MFC191FR", Model: "Tablet Ultra 3 XL"}, Model{Regex: "MFC045FR", Model: "TabTab"}, Model{Regex: "MFC163FR", Model: "Tablet Master 3"}, Model{Regex: "MFC142FR", Model: "Tablet Kids"}, Model{Regex: "MFC250FR", Model: "Tablet Junior"}, Model{Regex: "MFC270FR", Model: "Tablet Junior Power Touch"}, Model{Regex: "MFC280FR", Model: "Tablet Junior 2"}, Model{Regex: "MFC156FR", Model: "Tablet One"}, Model{Regex: "MFC155FR", Model: "Tablet Master"}, Model{Regex: "MFC157FR", Model: "Tablet Master 2"}, Model{Regex: "MFC17[05]FR", Model: "Tablet Ultra"}, Model{Regex: "MFC375FR", Model: "Tablet Ultra 2"}, Model{Regex: "MFC162FR", Model: "Power Tablet"}, Model{Regex: "MFC180FR", Model: "Tablet Advanced"}, Model{Regex: "MFC181FR", Model: "Tablet Advanced 2"}, Model{Regex: "MFC500FR", Model: "Tablet XL"}, Model{Regex: "MFC190BBFR", Model: "Barbie Tablet"}, Model{Regex: "MFC195DCFR", Model: "Tablet Disney Cars HD"}, Model{Regex: "MFC195FUFR", Model: "Furby Tablet"}, Model{Regex: "MFC195DPFR", Model: "Tablet Disney Princesse HD"}, Model{Regex: "MFC140FR", Model: "LapTab"}, Model{Regex: "MFC141FR", Model: "LapTab 2"}, Model{Regex: "(MFC[0-9]{3}[a-z]{2,})", Model: "$1"}}}, Device{Producer: "LG", Regex: "LG|portalmmm/2\\.0 (?:KE|KG|KP|L3)|VX[0-9]+|L-01D|L-07C", Model: "", Models: []Model{Model{Regex: "L-01D", Model: "Optimus LTE L-01D"}, Model{Regex: "L-07C", Model: "Optimus Bright L-07C"}, Model{Regex: "LGE_DLNA_SDK|NetCast", Model: "NetCast"}, Model{Regex: "LGE(?: |-LG| LG-AX|-)([a-z0-9]+)", Model: "$1"}, Model{Regex: "LGE;([a-z0-9\\-]+)", Model: "$1"}, Model{Regex: "LG[ _\\-](V90.*|Optimus[ _\\-]Pad.*) Build", Model: "$1"}, Model{Regex: "LG(?:/|-LG| |-)?([^/;]*) Build", Model: "$1"}, Model{Regex: "LG(?:/|-LG| |-)?([a-z0-9]+)", Model: "$1"}, Model{Regex: "LG; ([a-z0-9 ]+)", Model: "$1"}, Model{Regex: "portalmmm/2.0 ((?:KE|KG|KP|L3)[a-z0-9]+)", Model: "$1"}, Model{Regex: "(VX[0-9]+)", Model: "$1"}}}, Device{Producer: "Logicom", Regex: "(TAB950|TAB1062|E731|E812|E912|E1031) Build", Model: "$1", Models: []Model(nil)}, Device{Producer: "Microsoft", Regex: "KIN\\.(One|Two)", Model: "Kin $1", Models: []Model(nil)}, Device{Producer: "Konka", Regex: "KONKA[_ ]([a-z0-9]+)", Model: "", Models: []Model{Model{Regex: "E5660S", Model: "Viva 5660s"}, Model{Regex: "W830", Model: "Tango 830"}, Model{Regex: "W(9[67]0)", Model: "Expose $1"}, Model{Regex: "W990", Model: "Tuxedo 990"}, Model{Regex: "KONKA[_ ]([a-z0-9]+)", Model: "$1"}}}, Device{Producer: "Karbonn", Regex: "(?:Browser-)?Karbonn", Model: "", Models: []Model{Model{Regex: "Karbonn ([a-z0-9]+) WAP-Browser", Model: "$1"}, Model{Regex: "WAP Browser-Karbonn ([a-z0-9]+)/", Model: "$1"}, Model{Regex: "Karbonn_([^;/)]+)", Model: "$1"}, Model{Regex: "Karbonn ([^;/]+) Build", Model: "$1"}, Model{Regex: "Karbonn ([^;/]+)/", Model: "$1"}}}, Device{Producer: "Sagem", Regex: "SAGEM|portalmmm/2.0 (?:SG|my)", Model: "", Models: []Model{Model{Regex: "SAGEM-(my[a-z0-9\\-]+)", Model: "$1"}, Model{Regex: "SAGEM ([a-z0-9]+)", Model: "$1"}, Model{Regex: "SAGEM-([a-z0-9\\-]+)", Model: "$1"}, Model{Regex: "portalmmm/2.0 ((?:SG|my)[a-z0-9]+)", Model: "$1"}}}, Device{Producer: "Coby Kyros", Regex: "(MID(?:1024|1125|1126|1045|1048|1060|1065|4331|7012|7015A?|7016|7022|7032|7035|7036|7042|7047|7048|7052|7065|7120|8024|8042|8048|8065|8125|8127|8128|9724|9740|9742)) Build", Model: "$1", Models: []Model(nil)}, Device{Producer: "Mpman", Regex: "(?:MPQC|MPDC)[0-9]+|PH(?:150|340|350|360|451|500|520)|(?:MID(?:7C|74C|82C|84C|801|811|701|711|170|77C|43C|102C|103C|104C|114C)|MP(?:843|717|718|1010|7007|7008|843|888|959|969)|MGP7) Build", Model: "", Models: []Model{Model{Regex: "((?:MPQC|MPDC)[0-9]+[^/;]+) Build", Model: "$1"}, Model{Regex: "(MID(?:7C|74C|82C|84C|801|811|701|711|170|77C|43C|102C|103C|104C|114C)|MP(?:843|717|718|1010|7007|7008|843|888|959|969)|MGP7) Build", Model: "$1"}, Model{Regex: "(PH(?:150|340|350|360|451|500|520))", Model: "$1"}}}, Device{Producer: "Manta Multimedia", Regex: "(MID(?:06[SN]|08[S]?|12|13|14|15|701|702|703|704|705(?:DC)?|706[AS]?|707|708|709|711|712|714|717|781|801|802|1001|1002|1003|1004(?: 3G)?|1005|7802|9701|9702)) Build", Model: "$1", Models: []Model(nil)}, Device{Producer: "Medion", Regex: "Medion|(?:MD_)?LIFETAB", Model: "", Models: []Model{Model{Regex: "(?:MD_)?LIFETAB_([a-z0-9]+)", Model: "Lifetab $1"}, Model{Regex: "Medion(?: Smartphone)? ([^/;]+) Build", Model: "$1"}}}, Device{Producer: "Meizu", Regex: "(M04[05]|M35[1356]|MX[ -]?[234](?: Pro)?|m1 note) Build", Model: "", Models: []Model{Model{Regex: "m1 note Build", Model: "M1 Note"}, Model{Regex: "(M04[05]|MX[ -]?2) Build", Model: "MX2"}, Model{Regex: "(M35[1356]|MX[ -]?3) Build", Model: "MX3"}, Model{Regex: "MX[ -]?4 Build", Model: "MX4"}, Model{Regex: "MX[ -]?4 Pro Build", Model: "MX4 Pro"}}}, Device{Producer: "Memup", Regex: "SlidePad ?([^;/]*) Build", Model: "SlidePad $1", Models: []Model(nil)}, Device{Producer: "Mio", Regex: "MIO(?:/)?([a-z0-9]+)", Model: "$1", Models: []Model(nil)}, Device{Producer: "Mitsubishi", Regex: "MITSU|portalmmm/[12]\\.0 M", Model: "", Models: []Model{Model{Regex: "MITSU/[a-z0-9.]+ \\(([a-z0-9]+)\\)", Model: "$1"}, Model{Regex: "MITSU[ \\-]?([a-z0-9]+)", Model: "$1"}, Model{Regex: "portalmmm/[12]\\.0 (M[a-z0-9]+)", Model: "$1"}}}, Device{Producer: "Mobistel", Regex: "(Cynus [^/;]+) Build", Model: "$1", Models: []Model(nil)}, Device{Producer: "Motorola", Regex: "MOT|(?:AN)DROID ?(?:Build|[a-z0-9]+)|portalmmm/2.0 (?:E378i|L6|L7|v3)|XOOM [^;/]*Build|(?:XT|MZ|MB|ME)[0-9]{3,4}[a-z]?(?:\\(Defy\\))?(?: Build|\\))", Model: "", Models: []Model{Model{Regex: "MOT-V360", Model: "V360"}, Model{Regex: "(?:MOT-|Motorola-)?XT300", Model: "Spice"}, Model{Regex: "(?:MOT-|Motorola-)?XT30[35]", Model: "Motosmart ME"}, Model{Regex: "(?:MOT-|Motorola-)?XT31[16]", Model: "Fire"}, Model{Regex: "(?:MOT-|Motorola-)?XT32[01]", Model: "Defy Mini"}, Model{Regex: "(?:MOT-|Motorola-)?XT3(?:89|90)", Model: "Motosmart"}, Model{Regex: "(?:MOT-|Motorola-)?XT502", Model: "Quench"}, Model{Regex: "(?:MOT-|Motorola-)?XT531", Model: "Fire XT"}, Model{Regex: "(?:MOT-|Motorola-)?XT535", Model: "Defy"}, Model{Regex: "(?:MOT-|Motorola-)?XT55[567]C?", Model: "Defy XT"}, Model{Regex: "(?:MOT-|Motorola-)?XT603", Model: "Admiral"}, Model{Regex: "(?:MOT-|Motorola-)?XT610", Model: "Droid Pro"}, Model{Regex: "(?:MOT-|Motorola-)?XT615", Model: "Motoluxe"}, Model{Regex: "(?:MOT-|Motorola-)?XT621", Model: "Primus"}, Model{Regex: "(?:MOT-|Motorola-)?XT626", Model: "IronRock"}, Model{Regex: "(?:MOT-|Motorola-)?XT682", Model: "Atrix"}, Model{Regex: "(?:MOT-|Motorola-)?XT685", Model: "Motoluxe Dual-SIM"}, Model{Regex: "(?:MOT-|Motorola-)?XT687", Model: "Atrix TV"}, Model{Regex: "(?:MOT-|Motorola-)?XT720", Model: "Milestone"}, Model{Regex: "(?:MOT-|Motorola-)?XT800W", Model: "Glam"}, Model{Regex: "(?:MOT-|Motorola-)?XT860", Model: "Milestone 3"}, Model{Regex: "(?:MOT-|Motorola-)?XT881", Model: "Electrify 2"}, Model{Regex: "(?:MOT-|Motorola-)?XT882", Model: "Moto XT882"}, Model{Regex: "(?:MOT-|Motorola-)?XT88[56]", Model: "Droid RAZR V"}, Model{Regex: "(?:MOT-|Motorola-)?XT890", Model: "Droid RAZR i"}, Model{Regex: "(?:MOT-|Motorola-)?XT894", Model: "Droid 4"}, Model{Regex: "(?:MOT-|Motorola-)?XT897", Model: "Photon Q"}, Model{Regex: "(?:MOT-|Motorola-)?XT901", Model: "Electrify M"}, Model{Regex: "(?:MOT-|Motorola-)?XT90[567]", Model: "Droid RAZR M"}, Model{Regex: "(?:MOT-|Motorola-)?XT910S?", Model: "Droid RAZR"}, Model{Regex: "(?:MOT-|Motorola-)?XT91[4568]", Model: "Droid RAZR D1"}, Model{Regex: "(?:MOT-|Motorola-)?XT9(?:19|20)", Model: "Droid RAZR D3"}, Model{Regex: "(?:MOT-|Motorola-)?XT925", Model: "Droid RAZR HD"}, Model{Regex: "(?:MOT-|Motorola-)?XT1022", Model: "Moto E"}, Model{Regex: "(?:MOT-|Motorola-)?XT1030", Model: "Droid Mini"}, Model{Regex: "(?:MOT-|Motorola-)?XT10(?:28|3[1234])", Model: "Moto G"}, Model{Regex: "(?:MOT-|Motorola-)?XT10(?:49|5[23568]|60)", Model: "Moto X"}, Model{Regex: "(?:MOT-|Motorola-)?XT1080", Model: "Droid Ultra"}, Model{Regex: "Motorola[ _\\-]([a-z0-9]+)", Model: "$1"}, Model{Regex: "MOTORAZR[ _\\-]([a-z0-9]+)", Model: "RAZR $1"}, Model{Regex: "MOTORIZR[ _\\-]([a-z0-9]+)", Model: "RIZR $1"}, Model{Regex: "MOT[O]?[_\\-]?([a-z0-9.]+)", Model: "$1"}, Model{Regex: "(?:AN)DROID ?([a-z0-9 ]*) Build", Model: "DROID $1"}, Model{Regex: "(?: AN)DROID ?([a-z0-9]+)", Model: "DROID $1"}, Model{Regex: "portalmmm/2.0 ((?:E378i|L6|L7|V3)[a-z0-9]+)", Model: "$1"}, Model{Regex: "(XOOM [^;/]*)Build", Model: "$1"}, Model{Regex: "(MZ[0-9]{3}) Build", Model: "$1"}, Model{Regex: "((?:ME|MB|XT)[0-9]{3,4}(?:\\(Defy\\))?) Build", Model: "$1"}}}, Device{Producer: "MyPhone", Regex: "(?:MyPhone|MyPad) .+ Build", Model: "", Models: []Model{Model{Regex: "MyPad (.+) Build", Model: "MyPad $1"}, Model{Regex: "MyPhone (.+) Build", Model: "$1"}}}, Device{Producer: "M.T.T.", Regex: "M.T.T.", Model: "", Models: []Model{Model{Regex: "M.T.T. ?Tablet([^;/]+)? Build", Model: "Tablet$1"}, Model{Regex: "M.T.T. ?([^;/]+) Build", Model: "$1"}}}, Device{Producer: "NEC", Regex: "NEC[ _\\-]|KGT/2\\.0|portalmmm/1\\.0 (?:DB|N)|(?:portalmmm|o2imode)/2.0[ ,]N", Model: "", Models: []Model{Model{Regex: "(?:NEC[ _\\-]|KGT/2\\.0 )([a-z0-9]+)", Model: "$1"}, Model{Regex: "portalmmm/1\\.0 ((?:DB|N)[a-z0-9]+)", Model: "$1"}, Model{Regex: "(?:portalmmm|o2imode)/2\\.0[ ,](N[a-z0-9]+)", Model: "$1"}}}, Device{Producer: "Newgen", Regex: "NEWGEN\\-([a-z0-9]+)", Model: "$1", Models: []Model(nil)}, Device{Producer: "NGM", Regex: "NGM[_ ][a-z0-9]+|(Forward|Dynamic)[ _][^/;]+(?:Build|/)", Model: "", Models: []Model{Model{Regex: "((?:Forward|Dynamic)[ _][^/;]+) Build", Model: "$1"}, Model{Regex: "((?:Forward|Dynamic)[ _][^/;]+)/", Model: "$1"}, Model{Regex: "NGM ([^;/]+) Build", Model: "$1"}, Model{Regex: "NGM_([a-z0-9]+)", Model: "$1"}}}, Device{Producer: "Nexian", Regex: "S?Nexian", Model: "", Models: []Model{Model{Regex: "S?Nexian[ ]?([a-z0-9\\-]+)", Model: "$1"}, Model{Regex: "S?Nexian-([a-z0-9]+)", Model: "$1"}}}, Device{Producer: "O2", Regex: "Xda|O2[ \\-]|COCOON", Model: "", Models: []Model{Model{Regex: "(Xda[ _][a-z0-9_]+)", Model: "$1"}, Model{Regex: "(COCOON)", Model: "$1"}, Model{Regex: "O2 ([a-z0-9 ]+)", Model: "$1"}, Model{Regex: "O2-([a-z0-9]+)", Model: "$1"}}}, Device{Producer: "Onda", Regex: "Onda", Model: "", Models: []Model{Model{Regex: "ONDA MID", Model: "MID"}, Model{Regex: "([a-z0-9]+)[ _]Onda", Model: "$1"}, Model{Regex: "Onda ([a-z0-9]+)", Model: "$1"}}}, Device{Producer: "OPPO", Regex: "OPPO[ _]?([a-z0-9]+)|X9006", Model: "", Models: []Model{Model{Regex: "OPPO[ _]?([a-z0-9]+)", Model: "$1"}, Model{Regex: "X9006", Model: "Find 7a"}}}, Device{Producer: "Opsson", Regex: "Opsson ([^/;]+) Build", Model: "$1", Models: []Model(nil)}, Device{Producer: "Orange", Regex: "SPV[ \\-]?([a-z0-9]+)|Orange ([^/;]+) Build", Model: "", Models: []Model{Model{Regex: "Orange ([^/;]+) Build", Model: "$1"}, Model{Regex: "SPV[ \\-]?([a-z0-9]+)", Model: "SPV $1"}}}, Device{Producer: "Oysters", Regex: "Oysters", Model: "", Models: []Model{Model{Regex: "Oysters ((?:Arctic|Indian|Atlantic|Pacific)[^/;]+) Build", Model: "$1"}, Model{Regex: "Oysters ([^/;]+) Build", Model: "$1"}}}, Device{Producer: "Panasonic", Regex: "Panasonic", Model: "", Models: []Model{Model{Regex: "Panasonic MIL DLNA", Model: "Viera Cast"}, Model{Regex: "Panasonic[ \\-]?([a-z0-9]+)", Model: "$1"}, Model{Regex: "portalmmm/2.0 (P[a-z0-9]+)", Model: "$1"}}}, Device{Producer: "Philips", Regex: "Philips", Model: "", Models: []Model{Model{Regex: "Philips-FISIO ([a-z0-9]+)", Model: "Fisio $1"}, Model{Regex: "Philips[ ]?([a-z0-9]+)", Model: "$1"}, Model{Regex: "Philips-([a-z0-9\\-@]+)", Model: "$1"}}}, Device{Producer: "phoneOne", Regex: "phoneOne[ \\-]?([a-z0-9]+)", Model: "$1", Models: []Model(nil)}, Device{Producer: "Rover", Regex: "Rover ([0-9]+)", Model: "$1", Models: []Model(nil)}, Device{Producer: "Siemens", Regex: "SIEMENS|SIE-|portalmmm/2\\.0 SI|S55|SL45i", Model: "", Models: []Model{Model{Regex: "SIEMENS[ \\-]([a-z0-9]+)", Model: "$1"}, Model{Regex: "SIE(?:MENS )?[\\-]?([a-z0-9]+)", Model: "$1"}, Model{Regex: "(S55|SL45i)", Model: "$1"}, Model{Regex: "portalmmm/2.0 (SI[a-z0-9]+)", Model: "$1"}}}, Device{Producer: "Samsung", Regex: "SAMSUNG|SC-(?:02C|04E|01F)|N7100|S(?:CH|GH|PH|EC|AM|HV|HW|M)-|SMART-TV|GT-|Galaxy|(?:portalmmm|o2imode)/2\\.0 [SZ]|sam[rua]", Model: "", Models: []Model{Model{Regex: "GT-B9150", Model: "Home Sync"}, Model{Regex: "(?:SAMSUNG-)?GT-N5100", Model: "GALAXY Note 8.0\""}, Model{Regex: "(?:SAMSUNG-)?GT-N5110", Model: "GALAXY Note 8.0\" WiFi"}, Model{Regex: "(?:SAMSUNG-)?GT-N5120", Model: "GALAXY Note 8.0\" LTE"}, Model{Regex: "(?:SAMSUNG-)?GT-N8000", Model: "GALAXY Note 10.1\""}, Model{Regex: "(?:SAMSUNG-)?GT-N8010", Model: "GALAXY Note 10.1\" WiFi"}, Model{Regex: "(?:SAMSUNG-)?GT-N8020", Model: "GALAXY Note 10.1\" LTE"}, Model{Regex: "(?:SAMSUNG-)?GT-P1000M?|SCH-I800", Model: "GALAXY Tab"}, Model{Regex: "(?:SAMSUNG-)?GT-P3100B?", Model: "GALAXY Tab 2 7\""}, Model{Regex: "(?:SAMSUNG-)?GT-P311[03]", Model: "GALAXY Tab 2 7\" WiFi"}, Model{Regex: "(?:SAMSUNG-)?GT-P5100|SCH-I915", Model: "GALAXY Tab 2 10.1\""}, Model{Regex: "(?:SAMSUNG-)?GT-P511[03]", Model: "GALAXY Tab 2 10.1\" WiFi"}, Model{Regex: "(?:SAMSUNG-)?GT-P5200", Model: "GALAXY Tab 3 10.1\""}, Model{Regex: "(?:SAMSUNG-)?GT-P5210", Model: "GALAXY Tab 3 10.1\" WiFi"}, Model{Regex: "(?:SAMSUNG-)?GT-P5220", Model: "GALAXY Tab 3 10.1\" LTE"}, Model{Regex: "(?:SAMSUNG-)?GT-P6200", Model: "GALAXY Tab 7\" Plus"}, Model{Regex: "(?:SAMSUNG-)?GT-P6201", Model: "GALAXY Tab 7\" Plus N"}, Model{Regex: "(?:SAMSUNG-)?GT-P6810", Model: "GALAXY Tab 7.7\""}, Model{Regex: "(?:SAMSUNG-)?GT-P7100", Model: "GALAXY Tab 10.1v"}, Model{Regex: "(?:SAMSUNG-)?GT-P7500", Model: "GALAXY Tab 10.1\" P7500"}, Model{Regex: "(?:SAMSUNG-)?SM-P600", Model: "GALAXY Note 10.1\" 2014 Edition WiFi"}, Model{Regex: "(?:SAMSUNG-)?SM-P60[12]", Model: "GALAXY Note 10.1\" 2014 Edition"}, Model{Regex: "(?:SAMSUNG-)?SM-P605", Model: "GALAXY Note 10.1\" 2014 Edition LTE"}, Model{Regex: "(?:SAMSUNG-)?SM-P900", Model: "GALAXY NotePRO 12.2\" WiFi"}, Model{Regex: "(?:SAMSUNG-)?SM-P901", Model: "GALAXY NotePRO 12.2\""}, Model{Regex: "(?:SAMSUNG-)?SM-P905", Model: "GALAXY NotePRO 12.2\" LTE"}, Model{Regex: "(?:SAMSUNG-)?SM-T110", Model: "GALAXY Tab 3 7.0\" Lite WiFi"}, Model{Regex: "(?:SAMSUNG-)?SM-T111", Model: "GALAXY Tab 3 7.0\" Lite"}, Model{Regex: "(?:SAMSUNG-)?SM-T2105", Model: "GALAXY Tab 3 7.0\" Kids"}, Model{Regex: "(?:SAMSUNG-)?SM-T210R?", Model: "GALAXY Tab 3 7.0\" WiFi"}, Model{Regex: "(?:SAMSUNG-)?SM-T21(?:1|7[AS])", Model: "GALAXY Tab 3 7.0\""}, Model{Regex: "(?:SAMSUNG-)?SM-T230(?:NU)?", Model: "GALAXY Tab 4 7.0\" WiFi"}, Model{Regex: "(?:SAMSUNG-)?SM-T310", Model: "GALAXY Tab 3 8.0\" WiFi"}, Model{Regex: "(?:SAMSUNG-)?SM-T311", Model: "GALAXY Tab 3 8.0\""}, Model{Regex: "(?:SAMSUNG-)?SM-T315", Model: "GALAXY Tab 3 8.0\" LTE"}, Model{Regex: "(?:SAMSUNG-)?SM-T335", Model: "GALAXY Tab 8.0\" LTE"}, Model{Regex: "(?:SAMSUNG-)?SM-T520", Model: "GALAXY TabPRO 10.1\" WiFi"}, Model{Regex: "(?:SAMSUNG-)?SM-T535", Model: "GALAXY Tab 4 10.1\" LTE"}, Model{Regex: "(?:SAMSUNG-)?SM-T320", Model: "GALAXY TabPRO 8.4\" WiFi"}, Model{Regex: "(?:SAMSUNG-)?SM-T325", Model: "GALAXY TabPRO 8.4\" LTE"}, Model{Regex: "(?:SAMSUNG-)?SM-T525", Model: "GALAXY TabPRO 10.1\" LTE"}, Model{Regex: "(?:SAMSUNG-)?SM-T530(?:NU)?", Model: "GALAXY Tab 4 10.1\" WiFi"}, Model{Regex: "(?:SAMSUNG-)?SM-T700", Model: "GALAXY Tab S 8.4\" WiFi"}, Model{Regex: "(?:SAMSUNG-)?SM-T705", Model: "GALAXY Tab S 8.4\" LTE"}, Model{Regex: "(?:SAMSUNG-)?SM-T800", Model: "GALAXY Tab S 10.5\" WiFi"}, Model{Regex: "(?:SAMSUNG-)?SM-T805", Model: "GALAXY Tab S 10.5\" LTE"}, Model{Regex: "(?:SAMSUNG-)?SM-T900", Model: "GALAXY TabPRO 12.2\" WiFi"}, Model{Regex: "(?:SAMSUNG-)?GT-B5330", Model: "GALAXY Chat"}, Model{Regex: "(?:SAMSUNG-)?GT-B5510", Model: "GALAXY Y Pro"}, Model{Regex: "(?:SAMSUNG-)?GT-B5512", Model: "GALAXY Y Pro Duos"}, Model{Regex: "(?:SAMSUNG-)?GT-B7510", Model: "GALAXY Pro"}, Model{Regex: "(?:SAMSUNG-)?GT-I5700", Model: "GALAXY Spica"}, Model{Regex: "(?:SAMSUNG-)?GT-I5801", Model: "GALAXY Apollo"}, Model{Regex: "(?:SAMSUNG-)?GT-I5800", Model: "GALAXY 3"}, Model{Regex: "(?:SAMSUNG-)?GT-I8000", Model: "Omnia II"}, Model{Regex: "(?:SAMSUNG-)?GT-I8150", Model: "GALAXY W"}, Model{Regex: "(?:SAMSUNG-)?GT-I8160", Model: "GALAXY Ace 2"}, Model{Regex: "(?:SAMSUNG-)?GT-I8190", Model: "GALAXY S III mini"}, Model{Regex: "(?:SAMSUNG-)?GT-I8200", Model: "GALAXY S III mini Value Edition"}, Model{Regex: "(?:SAMSUNG-)?GT-I826[02]", Model: "GALAXY Core"}, Model{Regex: "(?:SAMSUNG-)?GT-I8320", Model: "H1"}, Model{Regex: "(?:SAMSUNG-)?GT-I85[23]0", Model: "GALAXY Beam"}, Model{Regex: "(?:SAMSUNG-)?GT-I855[028]", Model: "GALAXY Win"}, Model{Regex: "(?:SAMSUNG-)?GT-I8580", Model: "GALAXY Core Advance"}, Model{Regex: "(?:SAMSUNG-)?GT-I8730", Model: "GALAXY Express"}, Model{Regex: "(?:SAMSUNG-)?GT-I90(?:00|08|18|88)", Model: "GALAXY S"}, Model{Regex: "(?:SAMSUNG-)?GT-I9001", Model: "GALAXY S Plus"}, Model{Regex: "(?:SAMSUNG-)?GT-I9003", Model: "GALAXY SL"}, Model{Regex: "(?:SAMSUNG-)?GT-I9010", Model: "GALAXY S Giorgio Armani"}, Model{Regex: "(?:SAMSUNG-)?GT-I9070", Model: "GALAXY S Advance"}, Model{Regex: "(?:SAMSUNG-)?GT-I910[08]", Model: "GALAXY S II"}, Model{Regex: "(?:SAMSUNG-)?GT-I9103", Model: "GALAXY R"}, Model{Regex: "(?:SAMSUNG-)?GT-I9105", Model: "GALAXY S II Plus"}, Model{Regex: "(?:SAMSUNG-)?(?:GT-I919[05]|SCH-I435)", Model: "GALAXY S4 mini"}, Model{Regex: "(?:SAMSUNG-)?GT-I9295", Model: "GALAXY S4 ACTIVE"}, Model{Regex: "(?:SAMSUNG-)?(?:GT-I9300|SCH-I535|SCH-L710)", Model: "GALAXY S III"}, Model{Regex: "(?:SAMSUNG-)?(?:GT-I9305|SCH-R530)", Model: "GALAXY S III LTE"}, Model{Regex: "(?:SAMSUNG-)?(?:GT-I9505|SCH-I545|SCH-I959|SCH-R970)", Model: "GALAXY S4"}, Model{Regex: "(?:SAMSUNG-)?GT-I9506", Model: "GALAXY S4 with LTE+"}, Model{Regex: "(?:SAMSUNG-)?GT-S5280", Model: "GALAXY STAR"}, Model{Regex: "(?:SAMSUNG-)?GT-S5301", Model: "GALAXY POCKET Plus"}, Model{Regex: "(?:SAMSUNG-)?GT-S5310", Model: "GALAXY POCKET Neo"}, Model{Regex: "(?:SAMSUNG-)?GT-S5360", Model: "GALAXY Y Hello Kitty"}, Model{Regex: "(?:SAMSUNG-)?GT-S6310", Model: "GALAXY Young"}, Model{Regex: "(?:SAMSUNG-)?GT-S6312", Model: "GALAXY Young DUOS"}, Model{Regex: "(?:SAMSUNG-)?GT-S6790", Model: "GALAXY FAME Lite with NFC"}, Model{Regex: "(?:SAMSUNG-)?GT-S6810", Model: "GALAXY FAME"}, Model{Regex: "(?:SAMSUNG-)?GT-S7275", Model: "GALAXY ACE 3"}, Model{Regex: "(?:SAMSUNG-)?GT-S7390", Model: "GALAXY Trend Lite"}, Model{Regex: "(?:SAMSUNG-)?GT-S7500", Model: "GALAXY ACE Plus"}, Model{Regex: "(?:SAMSUNG-)?(?:GT-S7560|SCH-I699)", Model: "GALAXY Trend"}, Model{Regex: "(?:SAMSUNG-)?(?:GT-S7562|SCH-I919)", Model: "GALAXY S DUOS"}, Model{Regex: "(?:SAMSUNG-)?GT-S7580", Model: "GALAXY Trend Plus"}, Model{Regex: "(?:SAMSUNG-)?GT-S7582", Model: "GALAXY DUOS 2"}, Model{Regex: "(?:SAMSUNG-)?GT-S7710", Model: "GALAXY Xcover 2"}, Model{Regex: "(?:SAMSUNG-)?SM-C101", Model: "GALAXY S4 zoom"}, Model{Regex: "(?:SAMSUNG-)?SM-C115", Model: "GALAXY K zoom"}, Model{Regex: "(?:SAMSUNG-)?SM-G350", Model: "GALAXY CORE Plus"}, Model{Regex: "(?:SAMSUNG-)?SM-G386F", Model: "GALAXY CORE LTE"}, Model{Regex: "(?:SAMSUNG-)?SM-G3815", Model: "GALAXY EXPRESS II"}, Model{Regex: "(?:SAMSUNG-)?SM-G800", Model: "GALAXY S5 mini"}, Model{Regex: "(?:SAMSUNG-)?SM-G9009D", Model: "GALAXY S5 Dual-SIM"}, Model{Regex: "(?:SAMSUNG-)?SM-G900", Model: "GALAXY S5"}, Model{Regex: "(?:SAMSUNG-)?SCH-I200", Model: "GALAXY Stellar"}, Model{Regex: "(?:SAMSUNG-)?SCH-I829", Model: "GALAXY Style Duos"}, Model{Regex: "(?:SAMSUNG-)?(?:SGH-S730|SCH-R740)", Model: "GALAXY Discover"}, Model{Regex: "(?:SAMSUNG-)?SCH-S738", Model: "GALAXY Centura"}, Model{Regex: "(?:SAMSUNG-)?GT-I9060", Model: "GALAXY Grand Neo"}, Model{Regex: "(?:SAMSUNG-)?GT-I9063", Model: "GALAXY Grand Neo Duos"}, Model{Regex: "(?:SAMSUNG-)?GT-I9(?:080|128)", Model: "GALAXY Grand"}, Model{Regex: "(?:SAMSUNG-)?GT-I9168", Model: "GALAXY Grand Neo+"}, Model{Regex: "(?:SAMSUNG-)?GT-I9082", Model: "GALAXY Grand Duos"}, Model{Regex: "(?:SAMSUNG-)?(?:(?:GT-)?N7100|SCH-I605|SCH-N719|SCH-R950|SPH-L900)", Model: "GALAXY Note II"}, Model{Regex: "(?:SAMSUNG-)?GT-N7105", Model: "GALAXY Note II LTE"}, Model{Regex: "(?:SAMSUNG-)?SM-G7105", Model: "GALAXY Grand 2"}, Model{Regex: "(?:SAMSUNG-)?SM-N7502", Model: "GALAXY Note 3 Neo Duos"}, Model{Regex: "(?:SAMSUNG-)?SM-N750[L50]?", Model: "GALAXY Note 3 Neo"}, Model{Regex: "(?:SAMSUNG-)?SM-N9002", Model: "GALAXY Note 3 Duos"}, Model{Regex: "(?:SAMSUNG-)?SM-N900(?:[05689][VQ]?|[AKLPSTV]|W8)?", Model: "GALAXY Note 3"}, Model{Regex: "(?:SAMSUNG-)?SM-N910", Model: "GALAXY Note 4"}, Model{Regex: "(?:SAMSUNG-)?SM-N915", Model: "GALAXY Note 4 Edge"}, Model{Regex: "(?:SAMSUNG-)?GT-I915[028]", Model: "GALAXY Mega 5.8"}, Model{Regex: "(?:SAMSUNG-)?GT-I920[05]", Model: "GALAXY Mega 6.3"}, Model{Regex: "(?:SAMSUNG-)?GT-E2152", Model: "E2152"}, Model{Regex: "(?:SAMSUNG-)?(GT-(P|N8|N5)[0-9]+[a-z]?)", Model: "$1"}, Model{Regex: "SC-02C", Model: "GALAXY S II"}, Model{Regex: "SC-01F", Model: "GALAXY Note 3"}, Model{Regex: "SC-04E", Model: "GALAXY S4"}, Model{Regex: "(?:SAMSUNG-)?((?:SM-[TNP]|GT-P)[a-z0-9_\\-]+)", Model: "$1"}, Model{Regex: "((?:SCH|SGH|SPH|SHV|SHW|GT|SM)-[a-z0-9_\\-]+)", Model: "$1"}, Model{Regex: "SAMSUNG[\\-][ ]?([a-z0-9]+[\\-_][a-z0-9]+)", Model: "$1"}, Model{Regex: "SAMSUNG;[ ]?([a-z0-9]+[\\-_][a-z0-9]+)", Model: "$1"}, Model{Regex: "SAMSUNG[ _/\\-]?([a-z0-9\\-]+)", Model: "$1"}, Model{Regex: "SAMSUNG;[ ]?([a-z0-9 ]+)", Model: "$1"}, Model{Regex: "SEC-([a-z0-9]+)", Model: "$1"}, Model{Regex: "SAM-([a-z0-9]+)", Model: "SCH-$1"}, Model{Regex: "SMART-TV", Model: "Smart TV"}, Model{Regex: "Galaxy ([^/;]+) Build", Model: "GALAXY $1"}, Model{Regex: "Galaxy ([a-z0-9]+)", Model: "GALAXY $1"}, Model{Regex: "(?:portalmmm|o2imode)/2\\.0 ([SZ][a-z0-9]+)", Model: "$1"}, Model{Regex: "sam([rua][0-9]+)", Model: "SCH-$1"}}}, Device{Producer: "Smartfren", Regex: "Smartfren|Androtab|Andromax|PD6D1J|AD682J|AD68[89]G|AD6B1H|AD9A1H|AD682H|AD683G", Model: "", Models: []Model{Model{Regex: "S7 Build", Model: "Andromax Tab 7.0"}, Model{Regex: "PD6D1J", Model: "Andromax V3s"}, Model{Regex: "AD682J", Model: "Andromax T"}, Model{Regex: "AD688G", Model: "Andromax C2"}, Model{Regex: "AD689G", Model: "Andromax i3"}, Model{Regex: "AD682H", Model: "Andromax i3s"}, Model{Regex: "AD6B1H", Model: "Andromax G2 Hot"}, Model{Regex: "AD9A1H", Model: "Andromax G2"}, Model{Regex: "AD683G", Model: "Andromax I"}, Model{Regex: "New Andromax-i", Model: "New Andromax I"}, Model{Regex: "Andromax[ _\\-]([^/;]+) Build", Model: "Andromax $1"}, Model{Regex: "Andromax[ _\\-]([a-z0-9]+)", Model: "Andromax $1"}, Model{Regex: "Smartfren[ _\\-]([^/;]+) Build", Model: "$1"}, Model{Regex: "(Androtab[^/;]+) Build", Model: "$1"}}}, Device{Producer: "SuperSonic", Regex: "(SC-[0-9]+[a-z]+)", Model: "$1", Models: []Model(nil)}, Device{Producer: "Sumvision", Regex: "(Cyclone [^/;]+) Build", Model: "$1", Models: []Model(nil)}, Device{Producer: "Pantech", Regex: "Pantech|P[GN]-|PT-[a-z0-9]{3,}|TX[T]?[0-9]+|IM-[a-z0-9]+ Build|ADR910L", Model: "", Models: []Model{Model{Regex: "ADR910L", Model: "Star Q"}, Model{Regex: "Pantech[ \\-]?([a-z0-9]+)", Model: "$1"}, Model{Regex: "Pantech_([a-z0-9\\-]+)", Model: "$1"}, Model{Regex: "(P[GTN]-[a-z0-9]+)", Model: "$1"}, Model{Regex: "(TX[T]?[0-9]+)", Model: "$1"}, Model{Regex: "(IM-[a-z0-9]+) Build", Model: "$1"}}}, Device{Producer: "Polaroid", Regex: "Polaroid|(?:PMID|MIDC)[0-9a-z]+ Build|MID(?:1014|0714)|PRO[VG]?(?:[0-9]{3,}[a-z]*|[0-9]{2}[a-z])", Model: "", Models: []Model{Model{Regex: "PRO4611(?:PR201)?", Model: "Pro4611"}, Model{Regex: "PROV400", Model: "Agate"}, Model{Regex: "PROV350", Model: "ProV350"}, Model{Regex: "PRO([VG]?(?:[0-9]{3,}[a-z]*|[0-9]{2}[a-z]))", Model: "Pro$1"}, Model{Regex: "(MID(?:1014|0714))", Model: "$1"}, Model{Regex: "((?:PMID|MIDC)[0-9a-z]+) Build", Model: "$1"}, Model{Regex: "Polaroid", Model: ""}}}, Device{Producer: "PolyPad", Regex: "POLY ?PAD", Model: "", Models: []Model{Model{Regex: "POLY ?PAD[_ \\.]([a-z0-9]+) Build", Model: "$1"}, Model{Regex: "POLY ?PAD[_\\.]([a-z0-9]+)", Model: "$1"}}}, Device{Producer: "Positivo", Regex: "YPY_S450", Model: "", Models: []Model{Model{Regex: "YPY_S450", Model: "YPY S450"}}}, Device{Producer: "Prestigio", Regex: "(?:PMP|PAP)[0-9]+[a-z0-9_]+ Build", Model: "", Models: []Model{Model{Regex: "(PMP[0-9]+[a-z0-9_]+) Build", Model: "$1"}, Model{Regex: "(PAP[0-9]+[a-z0-9_]+) Build", Model: "$1"}}}, Device{Producer: "Sanyo", Regex: "Sanyo|MobilePhone[ ;]", Model: "", Models: []Model{Model{Regex: "SCP-?6750", Model: "Katana Eclipse X"}, Model{Regex: "SCP-?6760", Model: "Incognito"}, Model{Regex: "SCP-?6780", Model: "Innuendo"}, Model{Regex: "SANYO[ \\-_]([a-z0-9\\-]+)", Model: "$1"}, Model{Regex: "MobilePhone ([a-z0-9\\-]+)", Model: "$1"}}}, Device{Producer: "Qilive", Regex: "Qilive [0-9][^;/]*", Model: "", Models: []Model{Model{Regex: "Qilive ([0-5][^;/]*) Build", Model: "$1"}, Model{Regex: "Qilive ([0-5][^;/]*)/", Model: "$1"}, Model{Regex: "Qilive ([6-9][^;/]*) Build", Model: "$1"}, Model{Regex: "Qilive ([6-9][^;/]*)/", Model: "$1"}}}, Device{Producer: "Quechua", Regex: "Quechua Phone 5", Model: "Quechua Phone 5", Models: []Model(nil)}, Device{Producer: "Ramos", Regex: "Ramos ?([^/;]+) Build", Model: "$1", Models: []Model(nil)}, Device{Producer: "Sendo", Regex: "Sendo([a-z0-9]+)", Model: "$1", Models: []Model(nil)}, Device{Producer: "Turbo-X", Regex: "Turbo-X", Model: "", Models: []Model{Model{Regex: "Turbo-X Ice Build", Model: "Ice"}, Model{Regex: "Turbo-X Tablet([^;/]+) Build", Model: "Tablet$1"}, Model{Regex: "Turbo-X ([^;/]+) Build", Model: "$1"}}}, Device{Producer: "Spice", Regex: "Spice", Model: "", Models: []Model{Model{Regex: "Spice[ _\\-]?([^/;]+)(?:[\\)]| Build)", Model: "$1"}, Model{Regex: "Spice[ _\\-]?([^/;]+)(?:/|$)", Model: "$1"}}}, Device{Producer: "Sharp", Regex: "SHARP|SBM|SH-[0-9]+[a-z]? Build|AQUOS", Model: "", Models: []Model{Model{Regex: "SH-02E", Model: "Aquos Phone Zeta"}, Model{Regex: "SH06D", Model: "Aquos Phone SH-06D"}, Model{Regex: "SH-08E", Model: "Sharp Aquos Pad"}, Model{Regex: "SHARP-AQUOS|AQUOSBrowser", Model: "Aquos Net Plus"}, Model{Regex: "SHARP[ \\-]([a-z0-9\\-]+)", Model: "$1"}, Model{Regex: "(?:SHARP|SBM)([a-z0-9]+)", Model: "$1"}, Model{Regex: "(SH-[0-9]+[a-z]?) Build", Model: "$1"}}}, Device{Producer: "Softbank", Regex: "Softbank|J-PHONE", Model: "", Models: []Model{Model{Regex: "Softbank/[12]\\.0/([a-z0-9]+)", Model: "$1"}, Model{Regex: "([a-z0-9]+);Softbank;", Model: "$1"}, Model{Regex: "J-PHONE/[0-9]\\.[0-9]/([a-z0-9\\-]+)", Model: "$1"}}}, Device{Producer: "Kindle", Regex: "KF(?:OT|TT|JWI|JWA|SOWI|APWI|THWI) Build|Kindle|Silk/\\d+\\.\\d+|Amazon (?:Tate|Jem)", Model: "", Models: []Model{Model{Regex: "KFTT Build", Model: "Kindle Fire HD"}, Model{Regex: "KFJWI Build|Amazon Jem", Model: "Kindle Fire HD 8.9\" WiFi"}, Model{Regex: "KFJWA Build", Model: "Kindle Fire HD 8.9\" 4G"}, Model{Regex: "KFSOWI Build|Amazon Tate", Model: "Kindle Fire HD 7\" WiFi"}, Model{Regex: "KFTHWI Build", Model: "Kindle Fire HDX 7\" WiFi"}, Model{Regex: "KFTHWA Build", Model: "Kindle Fire HDX 7\" 4G"}, Model{Regex: "KFAPWI Build", Model: "Kindle Fire HDX 8.9\" WiFi"}, Model{Regex: "KFAPWA Build", Model: "Kindle Fire HDX 8.9\" 4G"}, Model{Regex: "KFOT|Kindle Fire|Silk/\\d+\\.\\d+", Model: "Kindle Fire"}, Model{Regex: "Kindle", Model: "Kindle"}}}, Device{Producer: "Symphony", Regex: "SYMPHONY[ \\_]([a-z0-9]+)", Model: "$1", Models: []Model(nil)}, Device{Producer: "Qtek", Regex: "Qtek[ _]?([a-z0-9]+)", Model: "$1", Models: []Model(nil)}, Device{Producer: "T-Mobile", Regex: "T-Mobile[ _][a-z0-9 ]+", Model: "", Models: []Model{Model{Regex: "T-Mobile[ _]([a-z0-9_ ]+) Build", Model: "$1"}, Model{Regex: "T-Mobile[ _]([a-z0-9_ ]+)", Model: "$1"}}}, Device{Producer: "TCL", Regex: "TCL-([a-z0-9]+)", Model: "$1", Models: []Model(nil)}, Device{Producer: "Tecno Mobile", Regex: "Tecno", Model: "", Models: []Model{Model{Regex: "Tecno ([^;/]+) Build", Model: "$1"}, Model{Regex: "Tecno_?([a-z0-9_\\-]+)", Model: "$1"}}}, Device{Producer: "Tesco", Regex: "Hudl ([^/;]+) Build", Model: "Hudl $1", Models: []Model(nil)}, Device{Producer: "teXet", Regex: "(NaviPad [^/;]*) Build", Model: "$1", Models: []Model(nil)}, Device{Producer: "Telit", Regex: "Telit", Model: "", Models: []Model{Model{Regex: "Telit_Mobile_Terminals-([a-z0-9]+)", Model: "$1"}, Model{Regex: "Telit[\\-_]?([a-z0-9]+)", Model: "$1"}}}, Device{Producer: "TIANYU", Regex: "TIANYU", Model: "", Models: []Model{Model{Regex: "TIANYU ([a-z0-9]+)", Model: "$1"}, Model{Regex: "TIANYU-KTOUCH/([a-z0-9]+)", Model: "$1"}}}, Device{Producer: "Tolino", Regex: "Tolino Tab ([^/;]+) Build", Model: "Tolino Tab $1", Models: []Model(nil)}, Device{Producer: "Toplux", Regex: "Toplux ([a-z0-9]+)", Model: "$1", Models: []Model(nil)}, Device{Producer: "TVC", Regex: "(NuclearSX-SP5)", Model: "Nuclear SX-SP5", Models: []Model(nil)}, Device{Producer: "Unowhy", Regex: "QOOQ", Model: "QOOQ", Models: []Model(nil)}, Device{Producer: "UTStarcom", Regex: "utstar[ _-]?([a-z0-9]+)", Model: "$1", Models: []Model(nil)}, Device{Producer: "ViewSonic", Regex: "ViewSonic|VSD[0-9]+ Build|ViewPad", Model: "", Models: []Model{Model{Regex: "(?:ViewSonic-)?ViewPad ?([^;/]+) Build", Model: "ViewPad $1"}, Model{Regex: "(VSD[0-9]+) Build", Model: "$1"}}}, Device{Producer: "Vitelcom", Regex: "Vitelcom|portalmmm/[12].0 TSM", Model: "", Models: []Model{Model{Regex: "TSM-([a-z0-9]+)", Model: "$1"}, Model{Regex: "TSM([a-z0-9\\-]+)", Model: "$1"}, Model{Regex: "portalmmm/[12].0 (TSM[a-z0-9 ]+)", Model: "$1"}}}, Device{Producer: "VK Mobile", Regex: "VK[\\-]?([a-z0-9 ]+)", Model: "$1", Models: []Model(nil)}, Device{Producer: "Vertu", Regex: "Vertu[ ]?([a-z0-9]+)", Model: "$1", Models: []Model(nil)}, Device{Producer: "Videocon", Regex: "Videocon[_ ]([a-z0-9]+)", Model: "$1", Models: []Model(nil)}, Device{Producer: "Voxtel", Regex: "Voxtel_([a-z0-9]+)", Model: "$1", Models: []Model(nil)}, Device{Producer: "WellcoM", Regex: "WELLCOM[ _\\-/]([a-z0-9]+)", Model: "$1", Models: []Model(nil)}, Device{Producer: "Wiko", Regex: "(?:WIKO-)?CINK_[a-z0-9_]+|(?:WIKO-)?HIGHWAY_[a-z0-9_]+|(?:WIKO-)?(?:Cink.*|Highway.*|Iggy|Stairway|Rainbow|Darkside|Darkmoon|Darkfull|Darknight|Sublim|Ozzy|Barry|Birdy|Bloom|Getaway|Goa|Kite|Lenny|Slide|Sunset|Wax) Build", Model: "", Models: []Model{Model{Regex: "(?:WIKO-)?CINK_([a-z0-9_]+)", Model: "Cink $1"}, Model{Regex: "(?:Wiko-)?Cink(.*) Build", Model: "Cink$1"}, Model{Regex: "(?:WIKO-)?HIGHWAY_([a-z0-9_]+)", Model: "Highway $1"}, Model{Regex: "(?:Wiko-)?Highway(.*) Build", Model: "Highway$1"}, Model{Regex: "(?:WIKO-)?Iggy Build", Model: "Iggy"}, Model{Regex: "(?:WIKO-)?Stairway Build", Model: "Stairway"}, Model{Regex: "(?:WIKO-)?Rainbow Build", Model: "Rainbow"}, Model{Regex: "(?:WIKO-)?Darkside Build", Model: "Darkside"}, Model{Regex: "(?:WIKO-)?Darkmoon Build", Model: "Darkmoon"}, Model{Regex: "(?:WIKO-)?Darkfull Build", Model: "Darkfull"}, Model{Regex: "(?:WIKO-)?Darknight Build", Model: "Darknight"}, Model{Regex: "(?:WIKO-)?Sublim Build", Model: "Sublim"}, Model{Regex: "(?:WIKO-)?Ozzy Build", Model: "Ozzy"}, Model{Regex: "(?:WIKO-)?Barry Build", Model: "Barry"}, Model{Regex: "(?:WIKO-)?Birdy Build", Model: "Birdy"}, Model{Regex: "(?:WIKO-)?Bloom Build", Model: "Bloom"}, Model{Regex: "(?:WIKO-)?Getaway Build", Model: "Getaway"}, Model{Regex: "(?:WIKO-)?Goa Build", Model: "Goa"}, Model{Regex: "(?:WIKO-)?Kite Build", Model: "Kite"}, Model{Regex: "(?:WIKO-)?Lenny Build", Model: "Lenny"}, Model{Regex: "(?:WIKO-)?Slide Build", Model: "Slide"}, Model{Regex: "(?:WIKO-)?Sunset Build", Model: "Sunset"}, Model{Regex: "(?:WIKO-)?Wax Build", Model: "Wax"}}}, Device{Producer: "Wolder", Regex: "miSmart|miTab", Model: "", Models: []Model{Model{Regex: "miSmart[ \\-_]?([^/]+) Build", Model: "miSmart $1"}, Model{Regex: "miTab[ \\-_]?([^/]+) Build", Model: "miTab $1"}}}, Device{Producer: "Wonu", Regex: "Wonu ([a-z0-9]+)", Model: "$1", Models: []Model(nil)}, Device{Producer: "Woxter", Regex: "Woxter (.+) Build", Model: "$1", Models: []Model(nil)}, Device{Producer: "Xiaomi", Regex: "(MI [a-z0-9]+|MI-One[ _]Plus) Build|HM ([^/;]+) Build", Model: "", Models: []Model{Model{Regex: "(MI [a-z0-9]+|MI-One[ _]Plus) Build", Model: "$1"}, Model{Regex: "HM Note ([^/;]+) Build", Model: "HM Note $1"}, Model{Regex: "HM ([^/;]+) Build", Model: "HM $1"}}}, Device{Producer: "Yarvik", Regex: "Xenta[ \\-]Tab|Luna TAB|TAB09-410|TAB10-410|TAB07-485|TAB0[78]-200|TAB08-201-3G|TAB9-200|TAB09-211|TAB10-2[01]1|TAB13-201", Model: "", Models: []Model{Model{Regex: "Luna TAB07-920N", Model: "Luna 7"}, Model{Regex: "Luna TAB07-10[01]", Model: "Luna 7c"}, Model{Regex: "Luna TAB274", Model: "Luna 7c"}, Model{Regex: "Luna TAB474", Model: "Luna 10"}, Model{Regex: "Luna TAB10-150", Model: "Luna 10c"}, Model{Regex: "TAB09-410", Model: "Noble 9.7"}, Model{Regex: "TAB10-410", Model: "Noble 10.1"}, Model{Regex: "TAB07-485", Model: "Noble Mini"}, Model{Regex: "Xenta-TAB07-21[01]", Model: "Xenta 7c"}, Model{Regex: "TAB07-200", Model: "Xenta 7ic"}, Model{Regex: "TAB08-200", Model: "Xenta 8ic"}, Model{Regex: "TAB08-201-3G", Model: "Xenta 8c"}, Model{Regex: "TAB9-200", Model: "Xenta 9.7ic"}, Model{Regex: "TAB09-211", Model: "Xenta 9.7ic+"}, Model{Regex: "TAB10-2[01]1", Model: "Xenta 10ic"}, Model{Regex: "TAB13-201", Model: "Xenta 13c"}}}, Device{Producer: "Yuandao", Regex: "N101[ _]DUAL(?:[ _]CORE)?(?:[ _]?2|\\|\\|)?(?:[ _]V11)? Build", Model: "N101", Models: []Model(nil)}, Device{Producer: "Yusun", Regex: "Yusun|LA2-T", Model: "", Models: []Model{Model{Regex: "LA2-T", Model: "LA2-T"}, Model{Regex: "Yusun ([^;/]+) Build", Model: "$1"}, Model{Regex: "Yusun ([a-z0-9_\\-\\+]+)", Model: "$1"}}}, Device{Producer: "Zonda", Regex: "(ZM(?:CK|EM|TFTV|TN)[a-z0-9]+)", Model: "$1", Models: []Model(nil)}, Device{Producer: "Toshiba", Regex: "Toshiba|portalmmm/[12].0 TS|T-01C|T-0[12]D|IS04|IS11T|AT1S0|AT300SE|AT(100|200|270|300|330|374|400|470|500|503|570|703|830)", Model: "", Models: []Model{Model{Regex: "T-01C", Model: "Regza T-01C"}, Model{Regex: "T-01D", Model: "Regza T-01D"}, Model{Regex: "T-02D", Model: "Regza T-02D"}, Model{Regex: "IS04", Model: "Regza IS04"}, Model{Regex: "IS11T", Model: "Regza IS11T"}, Model{Regex: "AT1S0", Model: "Regza AT1S0"}, Model{Regex: "AT300SE", Model: "Regza AT300SE"}, Model{Regex: "AT500a", Model: "Regza AT500a"}, Model{Regex: "AT(100|200|270|300|330|374|400|470|500|503|570|703|830)", Model: "Regza AT$1"}, Model{Regex: "Toshiba[ /_\\-]?([a-z0-9_ \\-]+) Build", Model: "$1"}, Model{Regex: "Toshiba[ /_\\-]?([a-z0-9_\\-]+)", Model: "$1"}, Model{Regex: "portalmmm/[12].0 (TS[a-z0-9 ]+)", Model: "$1"}}}, Device{Producer: "Fly", Regex: "Fly(?:Flow|touch)|MERIDIAN-", Model: "", Models: []Model{Model{Regex: "Fly[ _\\-]?([a-z0-9_]+)/", Model: "$1"}, Model{Regex: "Flylife[ _\\-]?(.*) Build", Model: "Flylife $1"}, Model{Regex: "Fly[ _\\-]?([a-z0-9]+)", Model: "$1"}, Model{Regex: "MERIDIAN-([a-z0-9]+)", Model: "$1"}}}, Device{Producer: "Web TV", Regex: "WebTV/(\\d+\\.\\d+)", Model: "", Models: []Model(nil)}, Device{Producer: "Zopo", Regex: "(?:ZOPO[_ ])?(ZP[0-9]{2,}[^/;]+) Build", Model: "$1", Models: []Model(nil)}, Device{Producer: "ZTE", Regex: "ZTE|Z331|N799D|([a-z0-9]+)_USA_Cricket", Model: "", Models: []Model{Model{Regex: "N799D", Model: "MTS Blaze 4"}, Model{Regex: "([a-z0-9]+)_USA_Cricket", Model: "$1"}, Model{Regex: "ZTE[\\- ](V98|V96A|V81|V70) Build", Model: "$1"}, Model{Regex: "ZTE[\\- ]([a-z0-9\\-_ ]+) Build", Model: "$1"}, Model{Regex: "ZTE-(?:G |G-)?([a-z0-9 _]+)", Model: "$1"}, Model{Regex: "ZTE[ _]([a-z0-9]+)", Model: "$1"}, Model{Regex: "Z331", Model: "Z331"}}}}
+
 }
 
 func (this *Cache) loadTV() {
-	f, err := os.Open(fmt.Sprintf("%s/src/%s/%s", gopath, wdpath, "device/tv.json"))
-	if err != nil {
-		checkErr(err)
-	}
-	data, err := ioutil.ReadAll(f)
-	if err != nil {
-		checkErr(err)
-	}
-	err = json.Unmarshal(data, &this.TVs)
-	if err != nil {
-		checkErr(err)
-	}
+	// f, err := os.Open(fmt.Sprintf("%s/src/%s/%s", gopath, wdpath, "device/tv.json"))
+	// if err != nil {
+	// 	checkErr(err)
+	// }
+	// data, err := ioutil.ReadAll(f)
+	// if err != nil {
+	// 	checkErr(err)
+	// }
+	// err = json.Unmarshal(data, &this.TVs)
+	// if err != nil {
+	// 	checkErr(err)
+	// }
+	this.TVs = []Device{Device{Producer: "BangOlufsen", Regex: "Bangolufsen", Model: "BeoVision", Models: []Model(nil)}, Device{Producer: "CreNova", Regex: "CreNova", Model: "CNV001", Models: []Model(nil)}, Device{Producer: "DMM", Regex: "DMM", Model: "Dreambox", Models: []Model(nil)}, Device{Producer: "Grundig", Regex: "(OWB|Grundig|Arcelik)", Model: "", Models: []Model(nil)}, Device{Producer: "Humax", Regex: "Humax", Model: "", Models: []Model{Model{Regex: "(HD-FOX C|HD (FOX\\+|NANO)|iCord (HD\\+|MINI|Cable)|(CX|IR)HD-5100(C|S)|HM9503HD)", Model: "$1"}, Model{Regex: "HMS1000S", Model: "HMS-1000S"}}}, Device{Producer: "Ikea", Regex: "Ikea", Model: "", Models: []Model{Model{Regex: "(LF1V[0-9]{3})", Model: "$1"}}}, Device{Producer: "Intek", Regex: "Intek", Model: "", Models: []Model{Model{Regex: "(Vantage|VT-100|VT-1)", Model: "$1"}}}, Device{Producer: "Inverto", Regex: "Inverto", Model: "", Models: []Model{Model{Regex: "(Volksbox Web Edition|Volksbox Essential|Volksbox II|Volksbox)", Model: "$1"}}}, Device{Producer: "LG", Regex: "LGE", Model: "", Models: []Model{Model{Regex: "(NetCast [0-9]{1}.[0-9]{1}|GLOBAL_PLAT3)", Model: "$1"}}}, Device{Producer: "Loewe", Regex: "Loewe", Model: "", Models: []Model{Model{Regex: "([A-Z]{2}[0-9]{3})", Model: "$1"}}}, Device{Producer: "MediaTek", Regex: "MTK", Model: "", Models: []Model{Model{Regex: "(MT[0-9]{4})", Model: "$1"}}}, Device{Producer: "Medion", Regex: "Medion", Model: "", Models: []Model{Model{Regex: "(MB[0-9]{2})", Model: "$1"}}}, Device{Producer: "Metz", Regex: "Metz", Model: "", Models: []Model(nil)}, Device{Producer: "Panasonic", Regex: "Panasonic", Model: "", Models: []Model{Model{Regex: "(VIERA [0-9]{1,4})|(DIGA [A-Z]{1}[0-9]{4})", Model: "$1"}, Model{Regex: "DIGA Webkit ([A-Z]{1}[0-9]{4})", Model: "DIGA $1"}}}, Device{Producer: "PEAQ", Regex: "PEAQ", Model: "", Models: []Model{Model{Regex: "(LF1V[0-9]{3})", Model: "$1"}}}, Device{Producer: "Philips", Regex: "Philips", Model: "", Models: []Model{Model{Regex: "(NETTV/[0-9\\.]{5})", Model: "$1"}}}, Device{Producer: "Samsung", Regex: "Samsung|Maple_2011", Model: "", Models: []Model{Model{Regex: "(SmartTV2013|SmartTV2012)", Model: "$1"}, Model{Regex: "Maple_2011", Model: "SmartTV2011"}}}, Device{Producer: "Selevision", Regex: "Selevision", Model: "", Models: []Model{Model{Regex: "(EMC1000i)", Model: "$1"}}}, Device{Producer: "Sharp", Regex: "Sharp", Model: "", Models: []Model{Model{Regex: "(LE[0-9]{3}[A-Z]{0,3})", Model: "$1"}}}, Device{Producer: "Smart", Regex: "Smart", Model: "", Models: []Model{Model{Regex: "([A-Z]{2}[0-9]{2}|ZAPPIX)", Model: "$1"}}}, Device{Producer: "Sony", Regex: "Sony", Model: "", Models: []Model{Model{Regex: "(KDL[0-9]{2}[A-Z]{1,2}[0-9]{3})", Model: "$1"}}}, Device{Producer: "TechniSat", Regex: "TechniSat", Model: "", Models: []Model{Model{Regex: "((DigiCorder|MultyVision|Digit) (ISIO S|ISIO C|ISIO))", Model: "$1"}}}, Device{Producer: "TechnoTrend", Regex: "TechnoTrend", Model: "", Models: []Model{Model{Regex: "([A-Z]{1}-[0-9]{3})", Model: "$1"}}}, Device{Producer: "Telefunken", Regex: "Telefunken", Model: "", Models: []Model{Model{Regex: "(MB[0-9]{2})", Model: "$1"}}}, Device{Producer: "TCL", Regex: "TCL", Model: "", Models: []Model{Model{Regex: "(LF1V[0-9]{3})", Model: "$1"}}}, Device{Producer: "Thomson", Regex: "THOMSON|THOM", Model: "", Models: []Model{Model{Regex: "(LF1V[0-9]{3})", Model: "$1"}}}, Device{Producer: "Toshiba", Regex: "Toshiba", Model: "", Models: []Model{Model{Regex: "(([0-9]{2}|DTV_)[A-Z]{2}[0-9]{1,3})", Model: "$1"}}}, Device{Producer: "Vestel", Regex: "Vestel", Model: "", Models: []Model{Model{Regex: "(MB[0-9]{2})", Model: "$1"}}}, Device{Producer: "Videoweb", Regex: "videoweb|compatible;", Model: "", Models: []Model{Model{Regex: "(videowebtv)", Model: "VideoWeb TV"}, Model{Regex: "(tv2n)", Model: "$1"}, Model{Regex: "ANTGalio/3.0", Model: "600S"}}}}
+
 }
