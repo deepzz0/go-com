@@ -78,7 +78,7 @@ import(
 func main(){
 	var str = "Mozilla/5.0 (iPhone; CPU iPhone OS 5_0 like Mac OS X) AppleWebKit/534.46 (KHTML, like Gecko) Version/5.1 Mobile/9A334 Safari/7534.48.3"
 	agent := useragent.ParseByString(str)
-	fmt.Printf("%#v\n", *agent)
+	fmt.Printf("%#v\n", agent)
 }
 ```
 或者
@@ -96,7 +96,7 @@ import(
 func main(){
 	http.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
 		agent := useragent.ParseByRequest(r)
-		fmt.Printf("%#v\n", *agent)
+		fmt.Printf("%#v\n", agent)
 	})
 	http.ListenAndServe(":8080", nil)
 }
