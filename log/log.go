@@ -181,6 +181,10 @@ func (l *Logger) SetFilePath(path string) {
 	l.filepath = path
 }
 
+func (l *Logger) SetObj(obj string) {
+	l.obj = obj
+}
+
 // set output
 func (l *Logger) SetLevel(lvl int) {
 	l.mu.Lock()
@@ -276,6 +280,10 @@ func SetOutput(w io.Writer) {
 
 func SetEmail(v string) {
 	Std.SetEmail(v)
+}
+
+func SetObj(obj string) {
+	Std.SetObj(obj)
 }
 
 ///////////////////////////////////////////////////////////////////////////////////////////
