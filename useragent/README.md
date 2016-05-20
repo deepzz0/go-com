@@ -13,27 +13,55 @@ go get github.com/deepzz0/go-common
 ###### Call
 
 ```
-func ParseByString(useragent string) *UserAgent
+func ParseByString(useragent string) UserAgent
 
-func ParseByRequest(request *http.Request) *UserAgent
+func ParseByRequest(request *http.Request) UserAgent
 ```
 ###### Return params
 
 ``` go
 type UserAgent struct {
-	Agent_Type             string // brower (mobile)
-	Agent_Name             string // chrome
-	Agent_Version          string // 50.0.2661.86
-	Agent_Rendering_Engine string // Webkit
-	Agent_Producer         string // 生产者
-	Agent_Producer_Url     string // 网址
-	OS_Type                string // OS X
-	OS_Name                string // iPhone OS 10.6.6
-	OS_Language            string // en-US
-	OS_Encryption          string // 加密等级  N无   I弱   U强
-	Device_Type            string // mobile
-	Device_Model           string // Lumia 930
+	Type   string `json:"类型"`
+	Device struct {
+		Type     string `json:"类型"`
+		Producer string `json:"厂家"`
+		Model    string `json:"型号"`
+	} `json:"设备"`
+	Client map[string]string `json:"客户端"`
+	OS     struct {
+		Name    string `json:"名称"`
+		Version string `json:"版本号"`
+	} `json:"操作系统"`
+	Robot struct {
+		Name     string `json:"名称"`
+		URL      string `json:"网址"`
+		Producer struct {
+			Name string `json:"名称"`
+			URL  string `json:"网址"`
+		} `json:"厂家"`
+	} `json:"机器人"`
+	Vendor string `json:"供应商"`
 }
+
+// client 常量如下：
+const (
+	// TYPE     = "type"
+	// PRODUCER = "producer"
+	// MODEL    = "model"
+	// NAME     = "name"
+	// VERSION  = "version"
+	// URL      = "url"
+	// SUB_TYPE = "sub_type"
+	// ENGINE   = "engine"
+	TYPE     = "类型"
+	PRODUCER = "厂家"
+	MODEL    = "型号"
+	NAME     = "名称"
+	VERSION  = "版本号"
+	URL      = "网址"
+	SUB_TYPE = "详细类型"
+	ENGINE   = "引擎"
+)
 ```
 
 ###### Example
