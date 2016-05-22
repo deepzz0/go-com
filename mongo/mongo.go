@@ -5,7 +5,7 @@ import (
 	"sync"
 	"time"
 
-	"github.com/deepzz0/go-common/log"
+	"github.com/deepzz0/go-com/log"
 	"gopkg.in/mgo.v2"
 	"gopkg.in/mgo.v2/bson"
 )

@@ -10,7 +10,7 @@ import (
 var ConfigCache = NewCache()
 
 var gopath = os.Getenv("GOPATH")
-var wdpath = "github.com/deepzz0/go-common/useragent/"
+var wdpath = "github.com/deepzz0/go-com/useragent/"
 
 type Cache struct {
 	Robots       []Robot

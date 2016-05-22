@@ -7,7 +7,7 @@ The project used to parse the useragent, You can easily statistical data you wan
 ###### Download and install
 
 ```
-go get github.com/deepzz0/go-common
+go get github.com/deepzz0/go-com
 ```
 
 ###### Call
@@ -72,7 +72,7 @@ package main
 import(
 	"fmt"
 
-	"github.com/deepzz0/go-common/useragent"
+	"github.com/deepzz0/go-com/useragent"
 )
 
 func main(){
@@ -90,7 +90,7 @@ import(
 	"fmt"
 	"net/http"
 
-	"github.com/deepzz0/go-common/useragent"
+	"github.com/deepzz0/go-com/useragent"
 )
 
 func main(){
