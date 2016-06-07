@@ -21,48 +21,29 @@ func ParseByRequest(request *http.Request) UserAgent
 
 ``` go
 type UserAgent struct {
-	Type   string `json:"类型"`
+	Type   string
 	Device struct {
-		Type     string `json:"类型"`
-		Producer string `json:"厂家"`
-		Model    string `json:"型号"`
-	} `json:"设备"`
-	Client map[string]string `json:"客户端"`
+		Type     string
+		Producer string
+		Model    string
+	}
+	Client map[string]string
 	OS     struct {
-		Name    string `json:"名称"`
-		Version string `json:"版本号"`
-	} `json:"操作系统"`
+		Name    string
+		Version string
+	}
 	Robot struct {
-		Name     string `json:"名称"`
-		URL      string `json:"网址"`
+		Name     string
+		URL      string
 		Producer struct {
-			Name string `json:"名称"`
-			URL  string `json:"网址"`
-		} `json:"厂家"`
-	} `json:"机器人"`
-	Vendor string `json:"供应商"`
+			Name string
+			URL  string
+		}
+	}
+	Vendor string
 }
-
-// client 常量如下：
-const (
-	// TYPE     = "type"
-	// PRODUCER = "producer"
-	// MODEL    = "model"
-	// NAME     = "name"
-	// VERSION  = "version"
-	// URL      = "url"
-	// SUB_TYPE = "sub_type"
-	// ENGINE   = "engine"
-	TYPE     = "类型"
-	PRODUCER = "厂家"
-	MODEL    = "型号"
-	NAME     = "名称"
-	VERSION  = "版本号"
-	URL      = "网址"
-	SUB_TYPE = "详细类型"
-	ENGINE   = "引擎"
-)
 ```
+
 
 ###### Example
 
