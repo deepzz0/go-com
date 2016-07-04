@@ -16,6 +16,8 @@ const (
 	Lwarn
 	Lerror
 	Lfatal
+
+	ch = 1000
 )
 
 var levels = []string{
@@ -27,34 +29,33 @@ var levels = []string{
 }
 
 type Logger struct {
-	mu       sync.Mutex
-	obj      string
-	Level    int
-	out      io.Writer
-	in       chan string
-	filepath string
-	emails   []string
+	mu     sync.Mutex
+	obj    string
+	level  int
+	out    io.Writer
+	in     chan string
+	dir    string
+	emails []string
 }
 
 func New(out io.Writer) *Logger {
 	wd, _ := os.Getwd()
 	tmp := strings.Split(wd, "/")
-	logger := &Logger{obj: tmp[len(tmp)-1], out: out, in: make(chan string, 100)}
-	go logger.timer()
+	logger := &Logger{obj: tmp[len(tmp)-1], out: out, in: make(chan string, ch)}
+	go logger.receive()
 	return logger
 }
 
-var file *os.File
-var err error
-
-func (l *Logger) timer() {
-	now := time.Now()
+func (l *Logger) receive() {
+	today := time.Now()
+	var file *os.File
+	var err error
 	for {
 		str := <-l.in
-		if l.filepath != "" {
-			if file == nil || now.Day() != time.Now().Day() {
-				now = time.Now()
-				file, err = os.OpenFile(fmt.Sprintf("%s/%s.log", l.filepath, now.Format("2006-01-02")), os.O_CREATE|os.O_APPEND|os.O_RDWR, os.ModePerm)
+		if l.dir != "" {
+			if file == nil || today.Day() != time.Now().Day() {
+				today = time.Now()
+				file, err = os.OpenFile(fmt.Sprintf("%s/%s_%s.log", l.dir, l.obj, today.Format("2006-01-02")), os.O_CREATE|os.O_APPEND|os.O_RDWR, os.ModePerm)
 				if err != nil {
 					panic(err)
 				}
@@ -66,15 +67,14 @@ func (l *Logger) timer() {
 }
 
 func (l *Logger) Output(lvl int, calldepth int, content string) error {
-	if lvl < l.Level {
+	if lvl < l.level {
 		return nil
 	}
+	l.mu.Lock()
+	defer l.mu.Unlock()
 
 	now := time.Now()
-	var file string
-	var line int
-	var ok bool
-	_, file, line, ok = runtime.Caller(calldepth)
+	_, file, line, ok := runtime.Caller(calldepth)
 	if !ok {
 		return nil
 	}
@@ -88,8 +88,6 @@ func (l *Logger) Output(lvl int, calldepth int, content string) error {
 	ct := fmt.Sprintf("%02d:%02d:%02d:%d", hour, min, sec, msec)
 	s := fmt.Sprintf("%s, %s, %s, %s, %s, %s", dt, ct, getColorLevel(levels[lvl]), module, fmt.Sprintf("%s:%d", shortfile, line), content)
 
-	l.mu.Lock()
-	defer l.mu.Unlock()
 	if s[len(s)-1] != '\n' {
 		s += "\n"
 	}
@@ -100,6 +98,16 @@ func (l *Logger) Output(lvl int, calldepth int, content string) error {
 
 	l.in <- s
 	return nil
+}
+
+func (l *Logger) WaitFlush() {
+	for {
+		if len(l.in) > 0 {
+			time.Sleep(time.Millisecond * 50)
+		} else {
+			break
+		}
+	}
 }
 
 // print
@@ -113,31 +121,19 @@ func (l *Logger) Print(v ...interface{}) {
 
 // debug
 func (l *Logger) Debugf(format string, v ...interface{}) {
-	if Ldebug < l.Level {
-		return
-	}
 	l.Output(Ldebug, 2, fmt.Sprintf(format, v...))
 }
 
 func (l *Logger) Debug(v ...interface{}) {
-	if Ldebug < l.Level {
-		return
-	}
 	l.Output(Ldebug, 2, fmt.Sprintf(smartFormat(v...), v...))
 }
 
 // info
 func (l *Logger) Infof(format string, v ...interface{}) {
-	if Linfo < l.Level {
-		return
-	}
 	l.Output(Linfo, 2, fmt.Sprintf(format, v...))
 }
 
 func (l *Logger) Info(v ...interface{}) {
-	if Linfo < l.Level {
-		return
-	}
 	l.Output(Linfo, 2, fmt.Sprintf(smartFormat(v...), v...))
 }
 
@@ -171,32 +167,39 @@ func (l *Logger) Fatal(v ...interface{}) {
 }
 
 func (l *Logger) Breakpoint() {
-	if Ldebug < l.Level {
-		return
-	}
 	l.Output(Ldebug, 3, fmt.Sprintln("breakpoint"))
 }
 
-func (l *Logger) SetFilePath(path string) {
-	l.filepath = path
+func (l *Logger) SetLogDir(dir string) {
+	l.mu.Lock()
+	defer l.mu.Unlock()
+	l.dir = dir
 }
 
 func (l *Logger) SetObj(obj string) {
+	l.mu.Lock()
+	defer l.mu.Unlock()
 	l.obj = obj
 }
 
-// set output
+func (l *Logger) SetOutput(out io.Writer) {
+	l.mu.Lock()
+	defer l.mu.Unlock()
+	l.out = out
+}
+
 func (l *Logger) SetLevel(lvl int) {
 	l.mu.Lock()
 	defer l.mu.Unlock()
-	l.Level = lvl
+	l.level = lvl
 }
 
 func (l *Logger) SetEmail(v string) {
+	l.mu.Lock()
+	defer l.mu.Unlock()
 	l.emails = append(l.emails, v)
 }
 
-////////////////////////////////////////////////////////////////////////////////////////////
 // standard wrapper
 var Std = New(os.Stdout)
 
@@ -234,7 +237,7 @@ func Warn(v ...interface{}) {
 
 func Errorf(format string, v ...interface{}) {
 	body := fmt.Sprintf(format, v...)
-	Std.Output(Lerror, 2, body)
+	Std.Output(Lerror, 2, body+"\n"+CallerStack())
 }
 
 func Error(v ...interface{}) {
@@ -258,28 +261,28 @@ func Fatal(v ...interface{}) {
 	os.Exit(1)
 }
 
+func WaitFlush() {
+	Std.WaitFlush()
+}
+
 func Breakpoint() {
 	Std.Breakpoint()
 }
 
 func SetLevel(lvl int) {
-	Std.mu.Lock()
-	defer Std.mu.Unlock()
-	Std.Level = lvl
+	Std.SetLevel(lvl)
 }
 
-func SetFilePath(path string) {
-	Std.SetFilePath(path)
+func SetLogDir(dir string) {
+	Std.SetLogDir(dir)
 }
 
 func SetOutput(w io.Writer) {
-	Std.mu.Lock()
-	defer Std.mu.Unlock()
-	Std.out = w
+	Std.SetOutput(w)
 }
 
-func SetEmail(v string) {
-	Std.SetEmail(v)
+func SetEmail(email string) {
+	Std.SetEmail(email)
 }
 
 func SetObj(obj string) {
@@ -316,7 +319,6 @@ const (
 	Yellow
 	Blue
 	Magenta
-	//NRed      = uint8(31) // Normal
 	EndColor = "\033[0m"
 )
 
@@ -342,7 +344,8 @@ func getColorLevel(level string) string {
 func CallerStack() string {
 	var caller_str string
 	for skip := 2; ; skip++ {
-		pc, file, line, ok := runtime.Caller(skip) // 获取调用者的信息
+		// 获取调用者的信息
+		pc, file, line, ok := runtime.Caller(skip)
 		if !ok {
 			break
 		}
