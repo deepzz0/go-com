@@ -8,7 +8,7 @@ go get github.com/deepzz0/go-com
 
 ## Usage
 该文件默认使用<code>os.Stdout</code>作为输出，当然你也可以设置成其他<code>Writer</code>。
-```
+``` go
 import "github.com/deepzz0/go-com/log"
 
 func main(){
@@ -18,7 +18,7 @@ func main(){
 ```
 
 #### 常量
-```
+``` go
 const (
 	Ldebug = iota
 	Linfo
@@ -30,20 +30,20 @@ const (
 
 #### 设置
 ``` go
-# 设置打印等级，大于等于将会输出。
+// 设置打印等级，大于等于将会输出。
 log.SetLevel(lvl int)
-# 设置文件输出目录，不设置则不输出到文件。默认以天切割文件。
+//设置文件输出目录，不设置则不输出到文件。默认以天切割文件。
 log.SetLogDir(dir string)
-# 改变默认Writer。默认是标准输出。
+// 改变默认Writer。默认是标准输出。
 log.SetOutput(w io.Writer)
-# 设置报警邮件，不设置则不发送邮件。更多信息请查看 mail.go
+// 设置报警邮件，不设置则不发送邮件。更多信息请查看 mail.go
 log.SetEmail(email string)
-# obj为文件名前缀和邮件
+// obj为文件名前缀和邮件
 log.SetObj(obj string)
 ```
 
 下面你可以通过这些方法记录日志：
-``` 
+``` go
 func Printf(format string, v ...interface{})
 
 func Print(v ...interface{})
