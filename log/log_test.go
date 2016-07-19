@@ -6,10 +6,9 @@ import (
 
 func TestLog(t *testing.T) {
 	SetLevel(Ldebug)
-
+	SetLogDir(".")
 	Printf("Print: foo\n")
 	Print("Print: foo")
-	Println("Print: foo")
 
 	Debugf("Debug: foo\n")
 	Debug("Debug: foo")
@@ -24,7 +23,6 @@ func TestLog(t *testing.T) {
 
 	Printf("Print: foo\n")
 	Print("Print: foo")
-	Println("Print: foo")
 
 	Debugf("Debug: foo\n")
 	Debug("Debug: foo")
@@ -34,4 +32,5 @@ func TestLog(t *testing.T) {
 
 	Errorf("Error: foo\n")
 	Error("Error: foo")
+	WaitFlush()
 }
