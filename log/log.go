@@ -16,8 +16,6 @@ const (
 	Lwarn
 	Lerror
 	Lfatal
-
-	ch = 1000
 )
 
 var levels = []string{
@@ -254,35 +252,59 @@ func Print(v ...interface{}) {
 }
 
 func Debugf(format string, v ...interface{}) {
+	if Ldebug < Std.level {
+		return
+	}
 	Std.Output(Ldebug, 2, fmt.Sprintf(format, v...))
 }
 
 func Debug(v ...interface{}) {
+	if Ldebug < Std.level {
+		return
+	}
 	Std.Output(Ldebug, 2, fmt.Sprintf(smartFormat(v...), v...))
 }
 
 func Infof(format string, v ...interface{}) {
+	if Linfo < Std.level {
+		return
+	}
 	Std.Output(Linfo, 2, fmt.Sprintf(format, v...))
 }
 
 func Info(v ...interface{}) {
+	if Linfo < Std.level {
+		return
+	}
 	Std.Output(Linfo, 2, fmt.Sprintf(smartFormat(v...), v...))
 }
 
 func Warnf(format string, v ...interface{}) {
+	if Lwarn < Std.level {
+		return
+	}
 	Std.Output(Lwarn, 2, fmt.Sprintf(format, v...))
 }
 
 func Warn(v ...interface{}) {
+	if Lwarn < Std.level {
+		return
+	}
 	Std.Output(Lwarn, 2, fmt.Sprintf(smartFormat(v...), v...))
 }
 
 func Errorf(format string, v ...interface{}) {
+	if Lerror < Std.level {
+		return
+	}
 	body := fmt.Sprintf(format, v...)
 	Std.Output(Lerror, 2, body+"\n"+CallerStack())
 }
 
 func Error(v ...interface{}) {
+	if Lerror < Std.level {
+		return
+	}
 	body := fmt.Sprintf(smartFormat(v...), v...)
 	Std.Output(Lerror, 2, body+"\n"+CallerStack())
 }
