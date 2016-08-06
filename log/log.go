@@ -16,8 +16,6 @@ const (
 	Lwarn
 	Lerror
 	Lfatal
-
-	ch = 1000
 )
 
 var levels = []string{
@@ -29,20 +27,38 @@ var levels = []string{
 }
 
 type Logger struct {
-	mu     sync.Mutex
-	obj    string
-	level  int
-	out    io.Writer
-	in     chan string
-	dir    string
-	emails []string
+	mu      sync.Mutex
+	obj     string
+	level   int
+	out     io.Writer
+	in      chan string
+	isAsync bool
+	dir     string
+	emails  []string
 }
 
-func New(out io.Writer) *Logger {
+type LogOption struct {
+	Out        io.Writer
+	IsAsync    bool
+	LogDir     string
+	ChannelLen int
+	Emails     []string
+}
+
+func New(option LogOption) *Logger {
 	wd, _ := os.Getwd()
 	tmp := strings.Split(wd, "/")
-	logger := &Logger{obj: tmp[len(tmp)-1], out: out, in: make(chan string, ch)}
-	go logger.receive()
+	logger := &Logger{
+		obj:     tmp[len(tmp)-1],
+		out:     option.Out,
+		in:      make(chan string, option.ChannelLen),
+		isAsync: option.IsAsync,
+		dir:     option.LogDir,
+		emails:  option.Emails,
+	}
+	if logger.isAsync {
+		go logger.receive()
+	}
 	return logger
 }
 
@@ -67,9 +83,6 @@ func (l *Logger) receive() {
 }
 
 func (l *Logger) Output(lvl int, calldepth int, content string) error {
-	if lvl < l.level {
-		return nil
-	}
 	l.mu.Lock()
 	defer l.mu.Unlock()
 
@@ -95,8 +108,11 @@ func (l *Logger) Output(lvl int, calldepth int, content string) error {
 	if len(l.emails) != 0 && lvl >= Lwarn {
 		go sendMail(l.obj, s, l.emails)
 	}
-
-	l.in <- s
+	if l.isAsync {
+		l.in <- s
+	} else {
+		l.out.Write([]byte(s))
+	}
 	return nil
 }
 
@@ -121,37 +137,61 @@ func (l *Logger) Print(v ...interface{}) {
 
 // debug
 func (l *Logger) Debugf(format string, v ...interface{}) {
+	if Ldebug < l.level {
+		return
+	}
 	l.Output(Ldebug, 2, fmt.Sprintf(format, v...))
 }
 
 func (l *Logger) Debug(v ...interface{}) {
+	if Ldebug < l.level {
+		return
+	}
 	l.Output(Ldebug, 2, fmt.Sprintf(smartFormat(v...), v...))
 }
 
 // info
 func (l *Logger) Infof(format string, v ...interface{}) {
+	if Linfo < l.level {
+		return
+	}
 	l.Output(Linfo, 2, fmt.Sprintf(format, v...))
 }
 
 func (l *Logger) Info(v ...interface{}) {
+	if Linfo < l.level {
+		return
+	}
 	l.Output(Linfo, 2, fmt.Sprintf(smartFormat(v...), v...))
 }
 
 // warn
 func (l *Logger) Warnf(format string, v ...interface{}) {
+	if Lwarn < l.level {
+		return
+	}
 	l.Output(Lwarn, 2, fmt.Sprintf(format, v...))
 }
 
 func (l *Logger) Warn(v ...interface{}) {
+	if Lwarn < l.level {
+		return
+	}
 	l.Output(Lwarn, 2, fmt.Sprintf(smartFormat(v...), v...))
 }
 
 // error
 func (l *Logger) Errorf(format string, v ...interface{}) {
+	if Lerror < l.level {
+		return
+	}
 	l.Output(Lerror, 2, fmt.Sprintf(format, v...))
 }
 
 func (l *Logger) Error(v ...interface{}) {
+	if Lerror < l.level {
+		return
+	}
 	l.Output(Lerror, 2, fmt.Sprintf(smartFormat(v...), v...))
 }
 
@@ -201,7 +241,7 @@ func (l *Logger) SetEmail(v string) {
 }
 
 // standard wrapper
-var Std = New(os.Stdout)
+var Std = New(LogOption{Out: os.Stdout, ChannelLen: 1000})
 
 func Printf(format string, v ...interface{}) {
 	Std.Output(Linfo, 2, fmt.Sprintf(format, v...))
@@ -212,35 +252,59 @@ func Print(v ...interface{}) {
 }
 
 func Debugf(format string, v ...interface{}) {
+	if Ldebug < Std.level {
+		return
+	}
 	Std.Output(Ldebug, 2, fmt.Sprintf(format, v...))
 }
 
 func Debug(v ...interface{}) {
+	if Ldebug < Std.level {
+		return
+	}
 	Std.Output(Ldebug, 2, fmt.Sprintf(smartFormat(v...), v...))
 }
 
 func Infof(format string, v ...interface{}) {
+	if Linfo < Std.level {
+		return
+	}
 	Std.Output(Linfo, 2, fmt.Sprintf(format, v...))
 }
 
 func Info(v ...interface{}) {
+	if Linfo < Std.level {
+		return
+	}
 	Std.Output(Linfo, 2, fmt.Sprintf(smartFormat(v...), v...))
 }
 
 func Warnf(format string, v ...interface{}) {
+	if Lwarn < Std.level {
+		return
+	}
 	Std.Output(Lwarn, 2, fmt.Sprintf(format, v...))
 }
 
 func Warn(v ...interface{}) {
+	if Lwarn < Std.level {
+		return
+	}
 	Std.Output(Lwarn, 2, fmt.Sprintf(smartFormat(v...), v...))
 }
 
 func Errorf(format string, v ...interface{}) {
+	if Lerror < Std.level {
+		return
+	}
 	body := fmt.Sprintf(format, v...)
 	Std.Output(Lerror, 2, body+"\n"+CallerStack())
 }
 
 func Error(v ...interface{}) {
+	if Lerror < Std.level {
+		return
+	}
 	body := fmt.Sprintf(smartFormat(v...), v...)
 	Std.Output(Lerror, 2, body+"\n"+CallerStack())
 }
