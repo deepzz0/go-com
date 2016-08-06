@@ -9,7 +9,6 @@ func TestLog(t *testing.T) {
 
 	Printf("Print: foo\n")
 	Print("Print: foo")
-	Println("Print: foo")
 
 	Debugf("Debug: foo\n")
 	Debug("Debug: foo")
@@ -24,7 +23,6 @@ func TestLog(t *testing.T) {
 
 	Printf("Print: foo\n")
 	Print("Print: foo")
-	Println("Print: foo")
 
 	Debugf("Debug: foo\n")
 	Debug("Debug: foo")
