@@ -1,7 +1,7 @@
 package monitor
 
 import (
-	"github.com/deepzz0/go-com/log"
+	"log"
 	"os"
 	"os/signal"
 	"sort"
@@ -23,19 +23,18 @@ func (h exitHooks) Less(i, j int) bool { return h[i].Order < h[j].Order }
 var registExitHooks exitHooks
 
 func (hooks exitHooks) exec() {
-	log.Debug("start secure exit...")
+	log.Println("start secure exit...")
 	bt := time.Now()
 	for _, hook := range registExitHooks {
 		hbt := time.Now()
 		hook.Call()
-		log.Printf("safeexit hook (%s) exec cost: %v\n", hook.Name, time.Now().Sub(hbt))
+		log.Println("safeexit hook (%s) exec cost: %v\n", hook.Name, time.Now().Sub(hbt))
 	}
-	log.Printf("\033[043;1m[SECURE EXIT]\033[0m cost: %v\n", time.Now().Sub(bt))
-	time.Sleep(5 * time.Millisecond) // wait log flush
+	log.Println("\033[043;1m[SECURE EXIT]\033[0m cost: %v\n", time.Now().Sub(bt))
 	os.Exit(0)
 }
 
-func schedule() {
+func monitor() {
 	ch := make(chan os.Signal, 1)
 	signal.Notify(ch, syscall.SIGHUP, syscall.SIGTERM, syscall.SIGINT)
 
@@ -62,5 +61,5 @@ func HookOnExit(name string, f func(), order ...int) {
 }
 
 func Startup() {
-	go schedule()
+	go monitor()
 }
