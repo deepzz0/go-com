@@ -13,7 +13,7 @@ var (
 	smtpHost = "smtp.qq.com"
 )
 
-func sendMail(subject, body string, to []string) error {
+func sendMail(subject string, body []byte, to []string) error {
 	auth := smtp.PlainAuth("", from, pass, smtpHost)
 
 	conn, err := tls.Dial("tcp", smtpHost+":465", nil)
@@ -31,15 +31,17 @@ func sendMail(subject, body string, to []string) error {
 		return err
 	}
 
-	contentType := "Content-Type: text/plain;charset=UTF-8"
-	msgStr := fmt.Sprint(
+	contentType := "Content-Type:text/plain;charset=UTF-8"
+	var msg []byte
+	str := fmt.Sprint(
 		"To:", strings.Join(to, ";"),
 		"\r\nFrom:", from,
 		"\r\nSubject:", subject,
 		"\r\n", contentType,
-		"\r\n\r\n", body,
+		"\r\n\r\n",
 	)
-	msg := []byte(msgStr)
+	msg = append(msg, str...)
+	msg = append(msg, body...)
 	for _, addr := range to {
 		if err := client.Rcpt(addr); err != nil {
 			return err
