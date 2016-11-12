@@ -1,6 +1,6 @@
 ## useragent
 
-The project used to parse the useragent, You can easily statistical data you want. website: [useragent parser](http://deepzz.com/plugin/useragent.html)
+The project used to parse the useragent, You can easily statistical data you want. website: [useragent parser](http://blog.deepzz.com/plugin/useragent.html)
 
 ## Usage
 
