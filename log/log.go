@@ -179,6 +179,7 @@ func (l *Logger) formatHeader(buf *[]byte, lvl int, t time.Time, file string, li
 		}
 	}
 	*buf = append(*buf, getColorLevel(levelMaps[lvl])...)
+	*buf = append(*buf, ' ')
 	if l.flag&(Lshortfile|Llongfile) != 0 {
 		if l.flag&Lshortfile != 0 {
 			short := file
@@ -446,7 +447,6 @@ const (
 	Yellow
 	Blue
 	Magenta
-	EndColor = "\033[0m"
 )
 
 // getColorLevel returns colored level string by given level.
