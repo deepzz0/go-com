@@ -5,7 +5,7 @@ import (
 	"sync"
 	"time"
 
-	"github.com/deepzz0/go-com/log"
+	"github.com/deepzz0/logd"
 	"gopkg.in/mgo.v2"
 	"gopkg.in/mgo.v2/bson"
 )
@@ -20,7 +20,7 @@ const (
 )
 
 func init() {
-	log.Debug("mongo Dial " + os.Getenv("MGO"))
+	logd.Debug("mongo Dial " + os.Getenv("MGO"))
 	sess, err := mgo.Dial(os.Getenv("MGO"))
 	if err != nil {
 		panic(err)
@@ -48,7 +48,7 @@ func KeyIsExsit(db, collection, key, value string) bool {
 		return true
 	}
 	if err != nil { // 查找出错, 为了以防万一还是返回存在
-		log.Error(err)
+		logd.Error(err)
 		return true
 	}
 	return false
@@ -59,7 +59,7 @@ func IsEmpty(db, collection string) bool {
 	defer ms.Close()
 	count, err := c.Count()
 	if err != nil {
-		log.Error(err)
+		logd.Error(err)
 	}
 	return count == 0
 }
@@ -130,7 +130,7 @@ func NextVal(db, countername string) int32 {
 	next := &Counter{}
 	info, err := c.Find(bson.M{"name": countername}).Apply(change, &next)
 	if err != nil {
-		log.Error(info, err)
+		logd.Error(info, err)
 		return -1
 	}
 
@@ -141,12 +141,12 @@ func NextVal(db, countername string) int32 {
 func DeepCopy(val interface{}, newVal interface{}) {
 	data, err := bson.Marshal(val)
 	if err != nil {
-		log.Error("bson.Marshal: ", err)
+		logd.Error("bson.Marshal: ", err)
 		return
 	}
 
 	if err := bson.Unmarshal(data, newVal); err != nil {
-		log.Error("bson.Unmarshal: ", err)
+		logd.Error("bson.Unmarshal: ", err)
 		return
 	}
 }

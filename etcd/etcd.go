@@ -5,7 +5,7 @@ import (
 	"fmt"
 	"time"
 
-	"github.com/smalltree0/com/log"
+	"github.com/deepzz0/logd"
 	"gopkg.in/coreos/go-etcd.v2/etcd"
 )
 
@@ -24,7 +24,7 @@ func (c *EtcdClient) WatchDo(key string, f func(*etcd.Response)) {
 			fmt.Println("watch...")
 			if _, err := c.Watch(key, 0, true, ch, nil); err != nil {
 				fmt.Println("watch error")
-				log.Error(err)
+				logd.Error(err)
 			} else {
 				go processWatchResult(ch, f)
 			}

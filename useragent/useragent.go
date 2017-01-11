@@ -2,11 +2,12 @@
 package useragent
 
 import (
-	"github.com/deepzz0/go-com/log"
 	"net/http"
 	"regexp"
 	"strings"
 	"sync"
+
+	"github.com/deepzz0/logd"
 	// "time"
 )
 
@@ -368,6 +369,6 @@ func regexModel(models []Model, str string) (result string) {
 
 func checkErr(err error) {
 	if err != nil {
-		log.Error(err)
+		logd.Error(err)
 	}
 }
