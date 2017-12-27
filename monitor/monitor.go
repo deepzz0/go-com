@@ -28,9 +28,9 @@ func (hooks exitHooks) exec() {
 	for _, hook := range registExitHooks {
 		hbt := time.Now()
 		hook.Call()
-		log.Println("safeexit hook (%s) exec cost: %v\n", hook.Name, time.Now().Sub(hbt))
+		log.Printf("safeexit hook (%s) exec cost: %v\n", hook.Name, time.Now().Sub(hbt))
 	}
-	log.Println("\033[043;1m[SECURE EXIT]\033[0m cost: %v\n", time.Now().Sub(bt))
+	log.Printf("\033[043;1m[SECURE EXIT]\033[0m cost: %v\n", time.Now().Sub(bt))
 	os.Exit(0)
 }
 
